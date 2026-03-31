@@ -161,7 +161,7 @@ export default function PhoneMastLease2026Page() {
               The Redevelopment Defence — Paragraph 21(5)
             </h3>
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              The principal defence available to landowners is the redevelopment ground under <strong>Paragraph 21(5)</strong>: if you can demonstrate a firm, settled and unconditional intention to redevelop your land, and a reasonable prospect of carrying it out, the Tribunal may refuse the operator&rsquo;s application. This test was confirmed in <em>EE Ltd v Sir James Chichester</em> [2019] UKUT 164 (LC).
+              The principal defence available to landowners is the redevelopment ground under <strong>Paragraph 21(5)</strong>: if you can demonstrate a firm, settled and unconditional intention to redevelop your land, and a reasonable prospect of carrying it out, the Tribunal may refuse the operator&rsquo;s application. This test was confirmed in <em>EE Ltd v Sir James Chichester</em> [2019] UKUT 164 (LC) and applied more recently in <em>CTIL v Firoka (Kings Cross) Ltd</em> (2025), where a hotel owner successfully defeated a rooftop installation application on genuine redevelopment grounds.
             </p>
           </div>
 
