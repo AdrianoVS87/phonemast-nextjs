@@ -1,110 +1,50 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease 2026 | Digital Economy Act & Code Renewals | UK Advice",
+  title: "Phone Mast Lease 2026 | ECC Clauses & PSTI Act",
   description:
-    "Phone mast lease advice for 2026. Understanding the Digital Economy Act 2017 new Code, PSTI Act 2022 changes, and Code lease renewals. Expert UK landlord advice — free consultation.",
+    "Key phone mast lease clauses under the ECC 2017, case law, rooftop vs greenfield provisions, and the 7 April 2026 PSTI Act changes explained for UK landlords.",
   alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-lease-2026" },
   openGraph: {
-    title: "Phone Mast Lease 2026 | Digital Economy Act & Code Renewals",
+    title: "Phone Mast Lease 2026 | ECC Clauses & PSTI Act",
     description:
-      "What UK landlords need to know about phone mast leases in 2026. The Digital Economy Act Code, PSTI Act 2022, and strategic lease renewal advice.",
+      "Key phone mast lease clauses under the ECC 2017, case law, rooftop vs greenfield provisions, and the 7 April 2026 PSTI Act changes explained for UK landlords.",
     type: "website",
   },
 };
 
-const faqs: FAQItem[] = [
-  {
-    question: "What is a Code lease under the Digital Economy Act 2017?",
-    answer:
-      "A 'Code lease' or 'Code agreement' is a phone mast lease governed by the Electronic Communications Code introduced by the Digital Economy Act 2017 (in force from 28 December 2017). Code leases differ significantly from pre-2017 leases in how rent is calculated, what rights operators have, and how renewals work. From 2017 onwards, all new phone mast leases are Code leases unless specifically structured otherwise.",
-  },
-  {
-    question: "What changes to phone mast leases are coming in 2026?",
-    answer:
-      "Sections 61-64 of the Product Security and Telecommunications Infrastructure (PSTI) Act 2022 are expected to commence on 7 April 2026. These provisions amend the Electronic Communications Code, affecting how operators can upgrade and share equipment, how Code agreement imposition works, and the rights of operators on multi-operator sites. These changes will affect the landscape for new phone mast leases agreed in 2026.",
-  },
-  {
-    question: "My phone mast lease predates December 2017 — what are my rights?",
-    answer:
-      "Pre-December 2017 leases may benefit from both the Landlord and Tenant Act 1954 (LTA 1954) and the old Electronic Communications Code, depending on their specific terms. The landmark case Compton Beauchamp Estates v CTIL [2022] UKSC 18 established that operators cannot use the new ECC to bypass LTA 1954 protections for these leases. Specialist advice on your specific lease is essential before any renewal negotiations.",
-  },
-  {
-    question: "Can operators force a new Code lease on me?",
-    answer:
-      "Under the Electronic Communications Code, operators can apply to the Upper Tribunal (Lands Chamber) to impose new Code agreements if consensual negotiations fail. However, there are procedural requirements they must follow, and landlords have statutory rights in this process. The specific criteria for imposition are set out in the Code and have been refined by case law. Specialist advice is essential.",
-  },
-  {
-    question: "What is the difference between a lease renewal and a Code imposition?",
-    answer:
-      "A lease renewal is a consensually agreed new agreement reached between the landlord and the operator. A Code imposition is where the operator applies to the Upper Tribunal (Lands Chamber) for a new agreement to be imposed by the court when consensual negotiations have failed or the landlord refuses. Imposition proceedings involve significant costs and time — specialist advice early in the process almost always leads to better outcomes without tribunal proceedings.",
-  },
-  {
-    question: "How long should a new phone mast lease be in 2026?",
-    answer:
-      "There is no set duration required under the Electronic Communications Code, though operators commonly seek terms of 10 years. The length of a lease has significant implications for your income, rights, and flexibility. A shorter term may give you more flexibility but less security; a longer term provides income certainty. We advise on the optimal term and structure for your specific situation.",
-  },
-  {
-    question: "What are the key terms to negotiate in a 2026 phone mast lease?",
-    answer:
-      "Key terms include: the total annual consideration (rent plus compensation), rent review provisions, access rights and hours, upgrade rights, equipment removal at lease end, assignment and sharing rights, insurance provisions, and break rights. The structure of consideration — annual payments vs lump sum premium — is also an important decision. Our specialists advise on all aspects.",
-  },
-];
-
 export default function PhoneMastLease2026Page() {
-  const faqSchema = {
+  const serviceSchema = {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: faqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
-  const articleSchema = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: "Phone Mast Lease 2026: Digital Economy Act, Code Renewals, and PSTI Act Changes",
-    url: "https://phonemastadvice.co.uk/phone-mast-lease-2026",
-    datePublished: "2025-01-01",
-    dateModified: "2025-03-30",
+    "@type": "Service",
+    name: "Phone Mast Lease Advice",
+    serviceType: "Telecom Property Advice",
+    provider: {
+      "@type": "ProfessionalService",
+      name: "The Phone Mast Advice Company Ltd",
+      url: "https://phonemastadvice.co.uk",
+      telephone: "01691 791543",
+    },
+    areaServed: "United Kingdom",
     description:
-      "Comprehensive guide for UK landlords on phone mast leases in 2026, covering the Digital Economy Act 2017 new Code, PSTI Act 2022 changes commencing 7 April 2026, and Code lease renewals.",
-    author: {
-      "@type": "Organization",
-      name: "The Phone Mast Advice Company Ltd",
-      url: "https://phonemastadvice.co.uk",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "The Phone Mast Advice Company Ltd",
-      url: "https://phonemastadvice.co.uk",
-    },
+      "Expert independent advice for UK landlords on phone mast lease clauses, ECC provisions, case law, and the 7 April 2026 PSTI Act changes.",
+    url: "https://phonemastadvice.co.uk/phone-mast-lease-2026",
   };
 
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
       <Breadcrumbs items={[{ label: "Phone Mast Lease 2026" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
-        <div className="container-max" style={{ maxWidth: "800px" }}>
+        <div className="container-max" style={{ maxWidth: "860px" }}>
           <h1
             style={{
               fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -125,7 +65,7 @@ export default function PhoneMastLease2026Page() {
               marginBottom: "2rem",
             }}
           >
-            The Digital Economy Act 2017 changed everything. The PSTI Act 2022 brings further changes from 7 April 2026. Expert advice now secures your future.
+            If you own land or a building with a phone mast, your lease agreement is governed by the Electronic Communications Code. Understanding the clauses in your lease — and the rights operators now hold by statute — is essential to protecting your position in 2026.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a
@@ -153,13 +93,33 @@ export default function PhoneMastLease2026Page() {
             >
               📞 01691 791543
             </a>
+            <a
+              href="https://wa.me/447843352654"
+              style={{
+                display: "inline-flex",
+                alignItems: "center",
+                gap: "0.5rem",
+                padding: "1rem 2rem",
+                color: "#ffffff",
+                border: "2px solid rgba(255,255,255,0.6)",
+                borderRadius: "10px",
+                fontWeight: 600,
+                fontSize: "1.0625rem",
+                textDecoration: "none",
+                minHeight: "44px",
+              }}
+            >
+              💬 WhatsApp Us
+            </a>
           </div>
         </div>
       </section>
 
       {/* Main content */}
       <section className="section-padding">
-        <div className="container-max" style={{ maxWidth: "800px" }}>
+        <div className="container-max" style={{ maxWidth: "860px" }}>
+
+          {/* Legal Framework */}
           <h2
             style={{
               fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -169,27 +129,514 @@ export default function PhoneMastLease2026Page() {
               marginBottom: "1.25rem",
             }}
           >
-            Understanding the Digital Economy Act 2017 — The New Code
+            The Legal Framework: The Electronic Communications Code
           </h2>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            The Digital Economy Act 2017 introduced a comprehensively reformed Electronic Communications Code (ECC), in force from <strong>28 December 2017</strong>. This new Code, inserted as Schedule 3A of the Communications Act 2003, fundamentally changed the framework governing phone mast leases in the UK.
+            The Electronic Communications Code (ECC) was reformed by the Digital Economy Act 2017 and came into force on <strong>28 December 2017</strong>. It is found at Schedule 3A to the Communications Act 2003. The Code grants Ofcom-registered operators specific statutory rights to install, maintain, upgrade, and share telecommunications apparatus on private land.
           </p>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            The key change was the replacement of a market-value rent model with a &lsquo;no-scheme&rsquo; valuation approach. Under the previous framework, phone mast rents were benchmarked against similar transactions in the market — rents that reflected the real commercial demand for telecoms sites. Under the new Code, land is valued disregarding the telecoms use entirely — producing figures that, on agricultural land in particular, are dramatically lower.
+            What makes the Code significant for landowners is that it gives operators the power to apply to the Upper Tribunal (Lands Chamber) to have a lease agreement imposed on an unwilling site provider. Under <strong>Paragraph 21</strong>, the Tribunal will impose an agreement if two conditions are met: the prejudice to the site provider is capable of being adequately compensated in money, and the public benefit of the installation outweighs that prejudice. In practice, operators almost always satisfy this test.
+          </p>
+
+          <div
+            style={{
+              backgroundColor: "#f0f7ff",
+              borderLeft: "4px solid #1B4F72",
+              borderRadius: "0 0.75rem 0.75rem 0",
+              padding: "1.5rem 1.75rem",
+              marginBottom: "2rem",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "1.125rem",
+                color: "#1B4F72",
+                marginBottom: "0.75rem",
+              }}
+            >
+              The Redevelopment Defence — Paragraph 21(5)
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
+              The principal defence available to landowners is the redevelopment ground under <strong>Paragraph 21(5)</strong>: if you can demonstrate a firm, settled and unconditional intention to redevelop your land, and a reasonable prospect of carrying it out, the Tribunal may refuse the operator&rsquo;s application. This test was confirmed in <em>EE Ltd v Sir James Chichester</em> [2019] UKUT 164 (LC).
+            </p>
+          </div>
+
+          {/* Key Lease Clauses */}
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Key Lease Clauses Under the Electronic Communications Code
+          </h2>
+
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.5rem" }}>
+            Whether your lease is negotiated voluntarily or imposed by the Tribunal under <strong>Paragraph 23</strong>, the following clauses are central to every phone mast lease in 2026.
+          </p>
+
+          {/* Duration and Break Clauses */}
+          <div
+            style={{
+              backgroundColor: "#f9f8f5",
+              borderRadius: "1rem",
+              padding: "1.75rem 2rem",
+              marginBottom: "1.5rem",
+              border: "1px solid #e5e7eb",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "1.25rem",
+                color: "#1B4F72",
+                marginBottom: "1rem",
+              }}
+            >
+              Duration and Break Clauses
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, marginBottom: "1rem" }}>
+              The Code prescribes no minimum or maximum lease duration. In practice, the Tribunal typically imposes a <strong>10-year term with break clauses</strong>. The landmark decision in <em>EE Ltd &amp; Hutchison 3G UK Ltd v AP Wireless II (UK) Ltd</em> [2024] UKUT 216 (LC) (<em>Vache Farm</em>) established the current standard: a 10-year lease with a tenant break at year 5 and a <strong>landlord&rsquo;s redevelopment break exercisable on or after the fifth anniversary on 18 months&rsquo; notice</strong>.
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, marginBottom: "1rem" }}>
+              The redevelopment break clause imposed at Vache Farm is particularly significant. The Tribunal confirmed that the landlord&rsquo;s right to terminate is not limited to non-telecoms redevelopment — a landlord who intends to build their own telecoms infrastructure and renegotiate on different terms is entitled to exercise the break.
+            </p>
+            <div
+              style={{
+                backgroundColor: "#fff8e1",
+                borderLeft: "3px solid #f59e0b",
+                borderRadius: "0 0.5rem 0.5rem 0",
+                padding: "1rem 1.25rem",
+                fontSize: "1rem",
+                color: "#374151",
+                lineHeight: 1.65,
+              }}
+            >
+              <strong>⚠️ Critical warning on break clauses:</strong> In <em>On Tower UK Ltd v British Telecommunications plc</em> [2025] EWCA Civ 844, the Court of Appeal held that where a site provider relies on a contractual break clause to terminate, <strong>every requirement of the clause must be strictly complied with</strong>. BT&rsquo;s termination notice was held void because the break notice cited the wrong ground. Landowners must ensure break clauses are drafted with precision — ideally as unconditional rolling breaks exercisable on notice alone.
+            </div>
+          </div>
+
+          {/* Assignment — Paragraph 16 */}
+          <div
+            style={{
+              backgroundColor: "#f9f8f5",
+              borderRadius: "1rem",
+              padding: "1.75rem 2rem",
+              marginBottom: "1.5rem",
+              border: "1px solid #e5e7eb",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "1.25rem",
+                color: "#1B4F72",
+                marginBottom: "1rem",
+              }}
+            >
+              Assignment — Paragraph 16
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, marginBottom: "1rem" }}>
+              Paragraph 16 of the Code provides that <strong>any term in a lease that prevents or limits assignment to another operator is void</strong>. This means you cannot contractually restrict an operator from transferring your lease to a different company. The only protection available is to require the outgoing operator to enter into an <strong>authorised guarantee agreement</strong>, guaranteeing the incoming operator&rsquo;s performance.
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>
+              In <em>Vodafone Ltd v Potting Shed Bar and Gardens Ltd</em> [2023] EWCA Civ 825, the Court of Appeal confirmed that an operator who acquires Code rights by assignment retains full rights to seek lease renewal under Paragraph 33 of the Code.
+            </p>
+          </div>
+
+          {/* Upgrading and Sharing — Paragraph 17 */}
+          <div
+            style={{
+              backgroundColor: "#f9f8f5",
+              borderRadius: "1rem",
+              padding: "1.75rem 2rem",
+              marginBottom: "1.5rem",
+              border: "1px solid #e5e7eb",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "1.25rem",
+                color: "#1B4F72",
+                marginBottom: "1rem",
+              }}
+            >
+              Upgrading and Sharing — Paragraph 17
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, marginBottom: "1rem" }}>
+              Under <strong>Paragraph 17</strong>, an operator may upgrade apparatus or share it with another operator <strong>without the landowner&rsquo;s consent</strong>, provided two conditions are met: the changes have no more than a minimal adverse impact on the appearance of the apparatus, and they impose no additional burden on the site provider (including noise, vibration, and physical intrusion).
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, marginBottom: "1rem" }}>
+              The Product Security and Telecommunications Infrastructure Act 2022 further strengthened these rights. Section 58 inserted <strong>Paragraph 17A</strong>, extending automatic upgrading and sharing rights to legacy agreements predating 2017 and even to apparatus installed before 29 December 2003, subject to 21 days&rsquo; advance notice.
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>
+              In <em>On Tower UK Limited v Green</em> [2022] 4 WLR 27, the Court of Appeal upheld unrestricted upgrading rights, rejecting the site provider&rsquo;s attempts to impose restrictions based on security concerns and visual intrusion.
+            </p>
+          </div>
+
+          {/* Continuation After Expiry — Paragraphs 30 & 31 */}
+          <div
+            style={{
+              backgroundColor: "#f9f8f5",
+              borderRadius: "1rem",
+              padding: "1.75rem 2rem",
+              marginBottom: "1.5rem",
+              border: "1px solid #e5e7eb",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "1.25rem",
+                color: "#1B4F72",
+                marginBottom: "1rem",
+              }}
+            >
+              Continuation After Expiry — Paragraphs 30 and 31
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, marginBottom: "1rem" }}>
+              <strong>Paragraph 30</strong> provides that a phone mast lease <strong>does not end when the contractual term expires</strong>. It continues in force as a matter of statute until actively determined under the Code. Simply waiting for the lease to run out does not remove the operator from your land.
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, marginBottom: "1rem" }}>
+              To end a lease, the site provider must serve a <strong>Paragraph 31 notice</strong> giving at least 18 months&rsquo; notice and specifying one of four statutory grounds: substantial breach, persistent payment delays, intention to redevelop, or that the Paragraph 21 public benefit test is no longer met.
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>
+              If the operator serves a counter-notice within three months, the agreement continues until the Tribunal determines the matter.
+            </p>
+          </div>
+
+          {/* Rent Review */}
+          <div
+            style={{
+              backgroundColor: "#f9f8f5",
+              borderRadius: "1rem",
+              padding: "1.75rem 2rem",
+              marginBottom: "2rem",
+              border: "1px solid #e5e7eb",
+            }}
+          >
+            <h3
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "1.25rem",
+                color: "#1B4F72",
+                marginBottom: "1rem",
+              }}
+            >
+              Rent Review
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, marginBottom: "1rem" }}>
+              Standard practice, as confirmed in recent Tribunal decisions, is for rent to be reviewed every five years in line with RPI or CPI. Additionally, the Tribunal has accepted an open market rent review trigger if the operator ceases to hold Code rights or assigns the agreement to a non-Code operator — a provision that protects the landowner if the nature of the tenant fundamentally changes.
+            </p>
+          </div>
+
+          {/* Rooftop Sites */}
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Rooftop Sites: Additional Lease Considerations
+          </h2>
+
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.5rem" }}>
+            Leases for rooftop installations involve a number of considerations that do not arise with standalone masts:
+          </p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem", marginBottom: "2rem" }}>
+            {[
+              {
+                heading: "Access through the building",
+                detail: "The lease must address how the operator accesses the roof, including the use of stairwells, lifts, and common areas. Access provisions should include advance notice requirements (typically 48–72 hours for routine maintenance) and narrowly defined emergency access rights.",
+              },
+              {
+                heading: "Lift and shift clauses",
+                detail: "These allow the building owner to require the operator to temporarily relocate or remove equipment when roof works are needed (such as re-roofing, waterproofing, or cladding replacement). The operator should bear the full cost of any temporary relocation. This clause is now particularly important given the obligations arising under the Building Safety Act 2022 for higher-risk buildings.",
+              },
+              {
+                heading: "Structural surveys",
+                detail: "Before any installation, the operator should commission and share a structural survey confirming the roof can bear the load. The landlord should retain the right to require a further survey before any upgrade or additional equipment.",
+              },
+              {
+                heading: "Building insurance",
+                detail: "The presence of telecoms apparatus may affect building insurance premiums. The lease should require the operator to notify the landlord's insurer, contribute to any premium increase, and maintain its own public liability insurance (typically a minimum of £5 million).",
+              },
+              {
+                heading: "Roof warranty",
+                detail: "Installation can void flat roof guarantees. The lease should address who bears the cost of reinstating any damaged warranty.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  alignItems: "flex-start",
+                  backgroundColor: "#f9f8f5",
+                  borderRadius: "0.75rem",
+                  padding: "1.25rem 1.5rem",
+                }}
+              >
+                <span
+                  style={{
+                    flexShrink: 0,
+                    width: "1.5rem",
+                    height: "1.5rem",
+                    borderRadius: "50%",
+                    backgroundColor: "#1B4F72",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#ffffff",
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    marginTop: "0.125rem",
+                  }}
+                >
+                  {i + 1}
+                </span>
+                <div>
+                  <strong style={{ fontSize: "1.0625rem", color: "#1a1a2e" }}>{item.heading}: </strong>
+                  <span style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65 }}>{item.detail}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Standalone Masts */}
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Standalone Masts: Key Lease Provisions
+          </h2>
+
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.5rem" }}>
+            Greenfield mast sites — free-standing structures on farmland, rural estates, or open ground — present different considerations:
+          </p>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem", marginBottom: "2rem" }}>
+            {[
+              {
+                heading: "Access track and rights of way",
+                detail: "The lease should carefully define the access route across the landowner's retained land. Where the operator needs to cross fields, tracks, or private roads, this additional access right has separate value and should be negotiated accordingly.",
+              },
+              {
+                heading: "Compound boundaries",
+                detail: "The demised area should be precisely defined (typically a fenced compound) to prevent the operator expanding their footprint without renegotiation.",
+              },
+              {
+                heading: "Agricultural impact",
+                detail: "For working farms, the lease should address the impact on farming operations, including livestock management around the compound and access during sensitive periods (lambing, harvest).",
+              },
+              {
+                heading: "Reinstatement",
+                detail: "Under Paragraph 40, the site provider can require full removal of all apparatus and restoration of the land on termination. For standalone masts, this includes foundations, cabinets, fencing, and any access track installed by the operator. The obligation should extend to apparatus installed by any sharing operator.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  display: "flex",
+                  gap: "1rem",
+                  alignItems: "flex-start",
+                  backgroundColor: "#f9f8f5",
+                  borderRadius: "0.75rem",
+                  padding: "1.25rem 1.5rem",
+                }}
+              >
+                <span
+                  style={{
+                    flexShrink: 0,
+                    width: "1.5rem",
+                    height: "1.5rem",
+                    borderRadius: "50%",
+                    backgroundColor: "#1B4F72",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    color: "#ffffff",
+                    fontSize: "0.75rem",
+                    fontWeight: 700,
+                    marginTop: "0.125rem",
+                  }}
+                >
+                  {i + 1}
+                </span>
+                <div>
+                  <strong style={{ fontSize: "1.0625rem", color: "#1a1a2e" }}>{item.heading}: </strong>
+                  <span style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65 }}>{item.detail}</span>
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Key Court Decisions on Lease Terms */}
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Key Court Decisions on Lease Terms
+          </h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "1.25rem", marginBottom: "2rem" }}>
+            {[
+              {
+                citation: "Vache Farm [2024] UKUT 216 (LC)",
+                summary: "The current leading authority on both rent and lease terms for rural mast sites. The Tribunal imposed a 10-year lease with a tenant break at year 5 and a landlord's redevelopment break from the fifth anniversary on 18 months' notice. The decision confirmed that redevelopment need not be for non-telecoms purposes, and established the current rural greenfield rent benchmark. It also confirmed RPI-linked rent reviews every five years as the standard.",
+              },
+              {
+                citation: "On Tower UK Ltd v BT plc [2025] EWCA Civ 844",
+                summary: "A Court of Appeal decision that exposed the dangers of poorly drafted break clauses. BT's termination was held void because the break notice cited the wrong contractual ground. The case established that strict compliance with every condition of a break clause is essential when founding a Paragraph 31 termination notice. This case is now before the Supreme Court.",
+              },
+              {
+                citation: "On Tower UK Ltd v Green [2022] 4 WLR 27",
+                summary: "The Court of Appeal upheld unrestricted upgrading rights for operators, confirming that landowners cannot contractually prevent equipment upgrades where the Paragraph 17 conditions are satisfied.",
+              },
+              {
+                citation: "Vodafone Ltd v Potting Shed Bar and Gardens Ltd [2023] EWCA Civ 825",
+                summary: "Confirmed that operators who acquire Code rights through assignment retain full renewal rights under the Code. This has significant implications for landowners whose original operator has been replaced through corporate restructuring.",
+              },
+              {
+                citation: "Cornerstone v Compton Beauchamp Estates [2022] UKSC 18",
+                summary: "A Supreme Court decision that confirmed operators with existing agreements protected under the Landlord and Tenant Act 1954 must renew under that Act, not under the Code. This has been one of the most important protections for landowners with pre-2017 leases — until now.",
+              },
+            ].map((item, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "#f9f8f5",
+                  borderRadius: "0.75rem",
+                  padding: "1.5rem 1.75rem",
+                  borderLeft: "4px solid #a4ca62",
+                }}
+              >
+                <p
+                  style={{
+                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "1rem",
+                    color: "#1B4F72",
+                    marginBottom: "0.625rem",
+                  }}
+                >
+                  <em>{item.citation}</em>
+                </p>
+                <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>
+                  {item.summary}
+                </p>
+              </div>
+            ))}
+          </div>
+
+          {/* 7 April 2026 Changes */}
+          <div
+            style={{
+              backgroundColor: "#1B4F72",
+              borderRadius: "1rem",
+              padding: "2rem 2.25rem",
+              marginBottom: "2rem",
+              color: "#ffffff",
+            }}
+          >
+            <h2
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)",
+                color: "#ffffff",
+                marginBottom: "1rem",
+              }}
+            >
+              ⚠️ What Changes on 7 April 2026
+            </h2>
+            <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1rem" }}>
+              On <strong>7 April 2026</strong>, Sections 61 to 64 of the PSTI Act 2022 come into force, inserting a new <strong>Section 34A into the Landlord and Tenant Act 1954</strong>. For the first time, qualifying telecoms tenancies that renew under the 1954 Act will be subject to the Code&rsquo;s no-network assumption when rent is assessed on renewal.
+            </p>
+            <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1rem" }}>
+              This removes the significant financial advantage that landowners with pre-2017 leases have enjoyed under the <em>Cornerstone v Compton Beauchamp</em> Supreme Court ruling. An estimated <strong>15,000 legacy telecoms agreements</strong> across the UK will be affected.
+            </p>
+            <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem 0" }}>
+              {[
+                "Transitional provisions ensure that rents already received are not required to be repaid",
+                "Interim rent is split: periods before 7 April 2026 are valued under the old rules, and periods from that date onwards under the new framework",
+                "From the same date, jurisdiction for telecoms disputes transfers from the Upper Tribunal (Lands Chamber) to the First-tier Tribunal (Property Chamber)",
+                "Since November 2023, operators and site providers are required to consider Alternative Dispute Resolution before applying to the Tribunal for renewal or modification of agreements",
+              ].map((point, i) => (
+                <li
+                  key={i}
+                  style={{
+                    display: "flex",
+                    gap: "0.75rem",
+                    marginBottom: "0.875rem",
+                    fontSize: "1.0625rem",
+                    color: "rgba(255,255,255,0.88)",
+                    lineHeight: 1.6,
+                    alignItems: "flex-start",
+                  }}
+                >
+                  <span style={{ color: "#a4ca62", flexShrink: 0, fontSize: "1.25rem", lineHeight: 1.3 }}>→</span>
+                  {point}
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* How We Can Help */}
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            How We Can Help
+          </h2>
+
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            At The Phone Mast Advice Company Ltd, we specialise exclusively in advising landowners on phone mast leases. We never act for operators. With over 25 years of experience negotiating lease terms with Vodafone, O2, EE, Three, CTIL, Cornerstone, Cellnex, On Tower, Airwave, and every other major operator in the UK, we understand the detail of every clause in your agreement.
           </p>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
-            For landlords with leases predating December 2017, the transition to the new Code is one of the most significant financial risks they face. Operators including Vodafone, O2, EE, Three, CTIL/Cornerstone, On Tower, Cellnex, Airwave, and WIG regularly use the new Code provisions to seek substantial rent reductions at renewal.
+            Whether you are negotiating a new lease, facing a renewal, or have received a notice from an operator, our specialist telecoms surveyors can review your terms and advise on the best course of action.
           </p>
 
-          {/* Code key changes */}
+          {/* CTA contact box */}
           <div
             style={{
               backgroundColor: "#f9f8f5",
               borderRadius: "1rem",
               padding: "2rem",
+              border: "1px solid #e5e7eb",
               marginBottom: "2rem",
             }}
           >
@@ -202,182 +649,76 @@ export default function PhoneMastLease2026Page() {
                 marginBottom: "1rem",
               }}
             >
-              Key Changes Introduced by the Digital Economy Act 2017
+              Contact Us Today for Free Advice on Your Phone Mast Lease
             </h3>
-            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
-              {[
-                {
-                  heading: "No-scheme valuation",
-                  detail:
-                    "Rent calculated disregarding telecoms use — often produces significantly lower figures than market value",
-                },
-                {
-                  heading: "Consideration and compensation split",
-                  detail:
-                    "Payments split into 'consideration' (for access rights) and 'compensation' (for disturbance etc.) — each assessed separately",
-                },
-                {
-                  heading: "Stronger operator imposition rights",
-                  detail:
-                    "Operators can apply to the Upper Tribunal (Lands Chamber) to impose Code agreements when consensual negotiations fail",
-                },
-                {
-                  heading: "Increased sharing and upgrade rights",
-                  detail:
-                    "Operators have enhanced rights to upgrade equipment and share sites with other operators",
-                },
-                {
-                  heading: "New renewal mechanism",
-                  detail:
-                    "Leases granted under the new Code have a distinct renewal process — the Landlord and Tenant Act 1954 does not apply to new Code leases",
-                },
-              ].map((item, i) => (
-                <li
-                  key={i}
-                  style={{
-                    display: "flex",
-                    gap: "0.875rem",
-                    marginBottom: "1.25rem",
-                    alignItems: "flex-start",
-                  }}
-                >
-                  <span
-                    style={{
-                      flexShrink: 0,
-                      width: "1.5rem",
-                      height: "1.5rem",
-                      borderRadius: "50%",
-                      backgroundColor: "#a4ca62",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#1a1a2e",
-                      fontSize: "0.75rem",
-                      fontWeight: 700,
-                      marginTop: "0.125rem",
-                    }}
-                  >
-                    ✓
-                  </span>
-                  <div>
-                    <strong style={{ fontSize: "1.0625rem", color: "#1a1a2e" }}>{item.heading}:</strong>{" "}
-                    <span style={{ fontSize: "1.0625rem", color: "#374151" }}>{item.detail}</span>
-                  </div>
-                </li>
-              ))}
-            </ul>
+            <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.65, marginBottom: "1.5rem" }}>
+              Speak to a specialist about your lease terms — no obligation, no cost for an initial consultation. We act exclusively for landowners.
+            </p>
+            <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
+              <a
+                href="tel:01691791543"
+                className="btn-primary"
+                style={{ fontSize: "1.0625rem", padding: "0.875rem 1.75rem" }}
+              >
+                📞 01691 791543
+              </a>
+              <a
+                href="https://wa.me/447843352654"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "0.875rem 1.75rem",
+                  backgroundColor: "#25D366",
+                  color: "#ffffff",
+                  borderRadius: "10px",
+                  fontWeight: 600,
+                  fontSize: "1.0625rem",
+                  textDecoration: "none",
+                  minHeight: "44px",
+                }}
+              >
+                💬 WhatsApp Us
+              </a>
+              <a
+                href="/free-lease-check"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "0.875rem 1.75rem",
+                  backgroundColor: "transparent",
+                  color: "#1B4F72",
+                  borderRadius: "10px",
+                  fontWeight: 600,
+                  fontSize: "1.0625rem",
+                  textDecoration: "none",
+                  border: "2px solid #1B4F72",
+                  minHeight: "44px",
+                }}
+              >
+                Free Lease Check →
+              </a>
+            </div>
           </div>
 
-          <h2
+          <p
             style={{
-              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
-              color: "#1a1a2e",
-              marginBottom: "1.25rem",
+              fontSize: "0.875rem",
+              color: "#6b7280",
+              lineHeight: 1.6,
+              borderTop: "1px solid #e5e7eb",
+              paddingTop: "1.5rem",
             }}
           >
-            PSTI Act 2022 — Further Changes from 7 April 2026
-          </h2>
-
-          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Building on the 2017 reforms, the Product Security and Telecommunications Infrastructure (PSTI) Act 2022 introduces further changes through sections 61-64, commencing <strong>7 April 2026</strong>. These provisions further amend the Electronic Communications Code, addressing:
+            This page was last updated on 30 March 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
           </p>
-
-          <ul style={{ paddingLeft: "1.5rem", marginBottom: "2rem", color: "#374151", lineHeight: 2, fontSize: "1.0625rem" }}>
-            <li>Streamlined procedures for multi-operator infrastructure sharing</li>
-            <li>Enhanced operator rights in respect of upgrading existing equipment</li>
-            <li>Modified procedural requirements for Code agreement imposition</li>
-            <li>Clarifications to the rights of landlords in the imposition process</li>
-          </ul>
-
-          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
-            Landlords with leases coming up for renewal in 2026 need to understand how both the Digital Economy Act 2017 Code and the PSTI Act 2022 changes affect their specific situation. The strategic timing of lease negotiations — relative to the April 2026 commencement — can be material to the outcome.
-          </p>
-
-          <h2
-            style={{
-              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
-              color: "#1a1a2e",
-              marginBottom: "1.25rem",
-            }}
-          >
-            The Landmark Case: Compton Beauchamp Estates v CTIL [2022] UKSC 18
-          </h2>
-
-          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            The Phone Mast Advice Company was involved in instigating and advising on{" "}
-            <em>Compton Beauchamp Estates v CTIL</em> [2022] UKSC 18 — the Supreme Court case that stands as the most significant UK telecoms ruling since the Telecommunications Act 1984.
-          </p>
-
-          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
-            The case established that operators with existing Landlord and Tenant Act 1954 protected leases cannot use the Electronic Communications Code to bypass those protections and impose significantly reduced rents. This ruling remains vital protection for landlords with pre-2017 leases with LTA 1954 status.
-          </p>
-
-          <blockquote
-            style={{
-              borderLeft: "4px solid #a4ca62",
-              paddingLeft: "1.5rem",
-              margin: "0 0 2rem 0",
-              fontStyle: "italic",
-              fontSize: "1.0625rem",
-              color: "#374151",
-              lineHeight: 1.75,
-            }}
-          >
-            &ldquo;Matt Restall has been managing the Compton Beauchamp Estates Phone Mast site portfolio since 2012. Matt was involved in instigating and advising on the famous court case Compton Beauchamp Estates v CTIL. We value the advice we have received from him over the last 12 years, and we would be happy to recommend his services to any landlords who have got Phone Mast sites.&rdquo;
-            <cite style={{ display: "block", marginTop: "0.75rem", fontStyle: "normal", fontWeight: 600, color: "#1B4F72", fontSize: "0.9375rem" }}>
-              — Richard Salmon, Director, Compton Beauchamp Estates
-            </cite>
-          </blockquote>
-
-          <h2
-            style={{
-              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
-              color: "#1a1a2e",
-              marginBottom: "1.25rem",
-            }}
-          >
-            Acting Now — Before 2026
-          </h2>
-
-          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            The landscape for phone mast leases is more complex in 2026 than at any time since the Telecommunications Act 1984. Landlords who act now — with specialist independent advice — are better positioned to navigate both the existing Code framework and the PSTI Act changes.
-          </p>
-
-          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7 }}>
-            Whether your lease is due for renewal, you have received a rent reduction notice, or an operator has approached you about a new installation, we offer a free initial consultation to assess your position. Call us on{" "}
-            <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>01691 791543</a> or contact us via{" "}
-            <a href="https://wa.me/447843352654" style={{ color: "#1B4F72", fontWeight: 600 }}>WhatsApp: 447843352654</a>.
-          </p>
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
-        <div className="container-max" style={{ maxWidth: "800px" }}>
-          <h2
-            style={{
-              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
-              color: "#1a1a2e",
-              marginBottom: "1.5rem",
-            }}
-          >
-            Phone Mast Lease 2026 — Frequently Asked Questions
-          </h2>
-          <FAQAccordion items={faqs} showJsonLd={false} />
         </div>
       </section>
 
       <CTASection
         headline="Expert Phone Mast Lease Advice for 2026"
-        subheadline="The PSTI Act commences 7 April 2026. Specialist advice now protects your lease income for years to come. Free initial consultation."
+        subheadline="7 April 2026 is days away. The PSTI Act changes remove key protections for legacy lease holders. Specialist advice now protects your income for years to come."
         ctaText="Free Lease Check"
         ctaHref="/free-lease-check"
       />
