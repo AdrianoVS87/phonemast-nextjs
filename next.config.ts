@@ -7,8 +7,6 @@ const nextConfig: NextConfig = {
       // Homepage / root
       { source: "/home", destination: "/", permanent: true },
 
-      // Services
-      { source: "/phone-mast-services", destination: "/phone-mast-services", permanent: false }, // passthrough
       { source: "/rent-reviews", destination: "/phone-mast-services/rent-reviews", permanent: true },
       { source: "/lease-renewals", destination: "/phone-mast-services/lease-renewals", permanent: true },
       { source: "/new-lettings", destination: "/phone-mast-services/new-lettings", permanent: true },
@@ -36,8 +34,6 @@ const nextConfig: NextConfig = {
       { source: "/phone-mast-advice-oswestry", destination: "/locations/oswestry", permanent: true },
 
       // 2026 pages
-      { source: "/phone-mast-rent-2026", destination: "/phone-mast-services/phone-mast-rent-2026", permanent: true },
-      { source: "/phone-mast-lease-2026", destination: "/phone-mast-services/phone-mast-lease-2026", permanent: true },
 
       // About / team
       { source: "/about-the-phone-mast-advice-company", destination: "/about-us", permanent: true },
@@ -51,15 +47,11 @@ const nextConfig: NextConfig = {
 
       // Contact / lead gen
       { source: "/contact-us", destination: "/contact", permanent: true },
-      { source: "/free-lease-check", destination: "/free-lease-check", permanent: false },
-      { source: "/free-rent-estimate", destination: "/free-rent-estimate", permanent: false },
       { source: "/phone-mast-landlords-handbook", destination: "/handbook", permanent: true },
 
       // Legal
       { source: "/cookie-policy-uk", destination: "/cookie-policy", permanent: true },
 
-      // FAQ
-      { source: "/faq", destination: "/faq", permanent: false },
 
       // Services overview
       { source: "/phone-mast-services-overview", destination: "/phone-mast-services", permanent: true },
