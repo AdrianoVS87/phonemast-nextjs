@@ -18,15 +18,6 @@ const nextConfig: NextConfig = {
       { source: "/lease-retrievals", destination: "/phone-mast-services/lease-retrievals", permanent: true },
 
       // Operator pages — WordPress slugs to new routes
-      { source: "/vodafone-phone-mast-lease", destination: "/phone-mast-services/vodafone", permanent: true },
-      { source: "/o2-phone-mast-lease", destination: "/phone-mast-services/o2", permanent: true },
-      { source: "/ee-phone-mast-lease", destination: "/phone-mast-services/ee", permanent: true },
-      { source: "/three-phone-mast-lease", destination: "/phone-mast-services/three", permanent: true },
-      { source: "/cellnex-phone-mast-lease", destination: "/phone-mast-services/cellnex", permanent: true },
-      { source: "/cornerstone-phone-mast-lease", destination: "/phone-mast-services/cornerstone", permanent: true },
-      { source: "/ctil-phone-mast-lease", destination: "/phone-mast-services/cornerstone", permanent: true },
-      { source: "/airwave-phone-mast-lease", destination: "/phone-mast-services/airwave", permanent: true },
-      { source: "/arqiva-phone-mast-lease", destination: "/phone-mast-services/on-tower", permanent: true },
 
       // Location pages
       { source: "/phone-mast-advice-london", destination: "/locations/london", permanent: true },
