@@ -314,6 +314,169 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* 2026 Changes Banner — UNMISSABLE */}
+      <section
+        style={{ backgroundColor: "#0d2f47", padding: "4rem 1.5rem" }}
+        aria-labelledby="banner-2026-heading"
+      >
+        <div className="container-max">
+          <div style={{ textAlign: "center", marginBottom: "2.5rem" }}>
+            <span
+              style={{
+                display: "inline-block",
+                backgroundColor: "#a4ca62",
+                color: "#0d2f47",
+                fontWeight: 800,
+                fontSize: "0.875rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.1em",
+                padding: "0.375rem 1.25rem",
+                borderRadius: "50px",
+                marginBottom: "1.25rem",
+              }}
+            >
+              ⚠️ Urgent — Days Away
+            </span>
+            <h2
+              id="banner-2026-heading"
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 800,
+                fontSize: "clamp(1.625rem, 3vw, 2.25rem)",
+                color: "#ffffff",
+                marginBottom: "1rem",
+                lineHeight: 1.2,
+              }}
+            >
+              Phone Mast Rent &amp; Lease Changes — 7 April 2026
+            </h2>
+            <p
+              style={{
+                fontSize: "1.125rem",
+                color: "rgba(255,255,255,0.85)",
+                lineHeight: 1.7,
+                maxWidth: "680px",
+                margin: "0 auto",
+              }}
+            >
+              The PSTI Act 2022 brings significant changes to how phone mast rents are calculated and leases renewed. Act now to protect your position.
+            </p>
+          </div>
+
+          <div
+            style={{
+              display: "grid",
+              gap: "1.5rem",
+              gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))",
+              maxWidth: "860px",
+              margin: "0 auto",
+            }}
+          >
+            {/* Rent card */}
+            <div
+              style={{
+                backgroundColor: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.15)",
+                borderRadius: "1rem",
+                padding: "2rem",
+              }}
+            >
+              <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>💷</div>
+              <h3
+                style={{
+                  fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1.25rem",
+                  color: "#ffffff",
+                  marginBottom: "0.875rem",
+                }}
+              >
+                Phone Mast Rent 2026
+              </h3>
+              <p
+                style={{
+                  fontSize: "1rem",
+                  color: "rgba(255,255,255,0.78)",
+                  lineHeight: 1.65,
+                  marginBottom: "1.5rem",
+                }}
+              >
+                The no-network assumption, ECC valuation methodology, Vache Farm benchmark, and how 7 April 2026 removes the LTA 1954 rent advantage for legacy lease holders.
+              </p>
+              <a
+                href="/phone-mast-rent-2026"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "0.875rem 1.75rem",
+                  backgroundColor: "#a4ca62",
+                  color: "#0d2f47",
+                  borderRadius: "10px",
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  textDecoration: "none",
+                  minHeight: "44px",
+                }}
+              >
+                Understand Your Rent →
+              </a>
+            </div>
+
+            {/* Lease card */}
+            <div
+              style={{
+                backgroundColor: "rgba(255,255,255,0.07)",
+                border: "1px solid rgba(255,255,255,0.15)",
+                borderRadius: "1rem",
+                padding: "2rem",
+              }}
+            >
+              <div style={{ fontSize: "2.5rem", marginBottom: "1rem" }}>📋</div>
+              <h3
+                style={{
+                  fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1.25rem",
+                  color: "#ffffff",
+                  marginBottom: "0.875rem",
+                }}
+              >
+                Phone Mast Lease 2026
+              </h3>
+              <p
+                style={{
+                  fontSize: "1rem",
+                  color: "rgba(255,255,255,0.78)",
+                  lineHeight: 1.65,
+                  marginBottom: "1.5rem",
+                }}
+              >
+                Key lease clauses under the ECC — assignment, upgrading, break clauses, continuation provisions — and what the PSTI Act 2022 changes mean for your lease terms.
+              </p>
+              <a
+                href="/phone-mast-lease-2026"
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                  padding: "0.875rem 1.75rem",
+                  backgroundColor: "#a4ca62",
+                  color: "#0d2f47",
+                  borderRadius: "10px",
+                  fontWeight: 700,
+                  fontSize: "1rem",
+                  textDecoration: "none",
+                  minHeight: "44px",
+                }}
+              >
+                Review Your Lease →
+              </a>
+            </div>
+          </div>
+        </div>
+      </section>
+
       {/* Services Grid */}
       <section
         className="section-padding"
