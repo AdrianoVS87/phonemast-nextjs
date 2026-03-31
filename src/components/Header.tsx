@@ -136,6 +136,8 @@ export default function Header() {
                     minWidth: "260px",
                     maxHeight: "calc(100vh - 80px)",
                     overflowY: "auto",
+                    overscrollBehavior: "contain",
+                    scrollbarWidth: "thin",
                     zIndex: 100,
                     padding: "0.5rem 0",
                   }}
