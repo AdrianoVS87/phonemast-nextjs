@@ -3,6 +3,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 const navLinks = [
   { label: "Services", href: "/phone-mast-services" },
@@ -14,12 +15,16 @@ const navLinks = [
 export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 8);
     window.addEventListener("scroll", handleScroll, { passive: true });
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const isActive = (href: string) =>
+    pathname === href || pathname.startsWith(href + "/");
 
   return (
     <header
@@ -51,26 +56,34 @@ export default function Header() {
             className="hidden lg:flex items-center gap-6"
             aria-label="Main navigation"
           >
-            {navLinks.map((link) => (
-              <Link
-                key={link.href}
-                href={link.href}
-                className="font-medium transition-colors duration-150"
-                style={{
-                  color: "#ffffff",
-                  fontSize: "1rem",
-                  textDecoration: "none",
-                }}
-                onMouseEnter={(e) =>
-                  ((e.target as HTMLElement).style.color = "#a4ca62")
-                }
-                onMouseLeave={(e) =>
-                  ((e.target as HTMLElement).style.color = "#ffffff")
-                }
-              >
-                {link.label}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const active = isActive(link.href);
+              return (
+                <Link
+                  key={link.href}
+                  href={link.href}
+                  className="font-medium transition-colors duration-150"
+                  style={{
+                    color: active ? "#a4ca62" : "#ffffff",
+                    fontSize: "1rem",
+                    textDecoration: "none",
+                    borderBottom: active ? "2px solid #a4ca62" : "2px solid transparent",
+                    paddingBottom: "2px",
+                    transition: "color 0.15s ease, border-color 0.15s ease",
+                  }}
+                  onMouseEnter={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = "#a4ca62";
+                    (e.currentTarget as HTMLElement).style.borderBottomColor = "#a4ca62";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.currentTarget as HTMLElement).style.color = active ? "#a4ca62" : "#ffffff";
+                    (e.currentTarget as HTMLElement).style.borderBottomColor = active ? "#a4ca62" : "transparent";
+                  }}
+                >
+                  {link.label}
+                </Link>
+              );
+            })}
 
             {/* Phone number */}
             <a
@@ -91,7 +104,7 @@ export default function Header() {
           <div className="flex lg:hidden items-center gap-3">
             <a
               href="tel:01691791543"
-              style={{ color: "#ffffff", fontSize: "0.9375rem", fontWeight: 600 }}
+              style={{ color: "#ffffff", fontSize: "1rem", fontWeight: 600 }}
             >
               01691 791543
             </a>
@@ -139,22 +152,27 @@ export default function Header() {
             }}
           >
             <div className="flex flex-col gap-1 pt-2">
-              {navLinks.map((link) => (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  onClick={() => setMobileOpen(false)}
-                  style={{
-                    color: "#ffffff",
-                    fontSize: "1.0625rem",
-                    padding: "0.75rem 0",
-                    display: "block",
-                    fontWeight: 500,
-                  }}
-                >
-                  {link.label}
-                </Link>
-              ))}
+              {navLinks.map((link) => {
+                const active = isActive(link.href);
+                return (
+                  <Link
+                    key={link.href}
+                    href={link.href}
+                    onClick={() => setMobileOpen(false)}
+                    style={{
+                      color: active ? "#a4ca62" : "#ffffff",
+                      fontSize: "1.0625rem",
+                      padding: "0.75rem 0",
+                      display: "block",
+                      fontWeight: active ? 700 : 500,
+                      borderLeft: active ? "3px solid #a4ca62" : "3px solid transparent",
+                      paddingLeft: "0.75rem",
+                    }}
+                  >
+                    {link.label}
+                  </Link>
+                );
+              })}
               <Link
                 href="/free-rent-estimate"
                 onClick={() => setMobileOpen(false)}
