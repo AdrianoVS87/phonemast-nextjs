@@ -20,16 +20,16 @@ export default function WhatsAppButton() {
         aria-label="Chat with us on WhatsApp"
         style={{
           position: "fixed",
-          bottom: "5rem", // above mobile sticky bar
-          right: "1.25rem",
-          zIndex: 980,
+          bottom: "5rem", // 80px from bottom — above mobile sticky bar
+          right: "1rem",  // 16px from right edge
+          zIndex: 999,
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           width: "3.25rem",
           height: "3.25rem",
-          minWidth: "44px",
-          minHeight: "44px",
+          minWidth: "48px",
+          minHeight: "48px",
           backgroundColor: "#25D366",
           borderRadius: "50%",
           boxShadow: "0 4px 16px rgba(37, 211, 102, 0.4)",
@@ -58,9 +58,10 @@ export default function WhatsAppButton() {
           100% { transform: scale(1); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
         }
         @media (min-width: 768px) {
-          /* On desktop, WhatsApp button is higher (no mobile bar) */
+          /* On desktop, WhatsApp button sits 24px from bottom-right — no mobile sticky bar */
           a[aria-label="Chat with us on WhatsApp"] {
-            bottom: 1.5rem;
+            bottom: 1.5rem !important;
+            right: 1rem !important;
           }
         }
       `}</style>
