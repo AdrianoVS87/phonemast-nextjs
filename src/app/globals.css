@@ -124,16 +124,18 @@ a:hover {
   border-radius: 0.625rem;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease;
+  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   min-height: 44px;
   min-width: 44px;
   text-decoration: none;
+  box-shadow: 0 4px 14px rgba(164, 202, 98, 0.4);
 }
 
 .btn-primary:hover {
   background-color: #8fb854;
   color: #1a1a2e;
   transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(164, 202, 98, 0.5);
 }
 
 .btn-primary:focus-visible {
@@ -163,6 +165,15 @@ a:hover {
 .btn-secondary:hover {
   background-color: #ffffff;
   color: #1B4F72;
+}
+
+/* Hero CTAs — full width on mobile */
+@media (max-width: 639px) {
+  .hero-cta-primary,
+  .hero-cta-secondary {
+    width: 100%;
+    justify-content: center;
+  }
 }
 
 .btn-pill {
