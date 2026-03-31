@@ -59,26 +59,61 @@ export default function Page() {
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Our specialist team provides expert lease renewals advice for UK landlords and landowners with phone mast sites. We act exclusively for landlords — never for mobile phone operators.
+            Maximise the Value of Your Phone Mast Lease. Have your Phone Mast lease renewed for the best possible terms.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            The Electronic Communications Code (ECC), as amended by the Digital Economy Act 2017, changed the legal framework governing phone mast lease renewals. Operators routinely use the Code to propose significant rent reductions and operator-favourable terms. Without specialist representation, landlords regularly accept below-market rents that persist for the full duration of a renewed lease.
-          </p>
-          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.5rem" }}>
-            We were involved in instigating and advising on <em>Compton Beauchamp Estates v CTIL</em> [2022] UKSC 18 — the most significant UK telecoms ruling since the Telecommunications Act 1984 — which established key protections for landlords with pre-2017 LTA-protected leases.
+            If your current lease has expired or your operator has approached you with Heads of Terms, we can help you negotiate rent, protect your rights, and secure fair lease terms – even under the Electronic Communications Code.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
-            What We Do in a Lease Renewal
+            What Is a Phone Mast Lease Renewal?
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            A lease renewal happens when your existing Phone Mast agreement comes to an end and the telecom operator wants to put a new lease in place. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve Heads of Terms for a new agreement, but these terms often offer lower rent than market value, use operator-friendly clauses, and reduce landlord protections. Professional advice ensures you don&apos;t accept terms that leave money or rights on the table.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            How Our Lease Renewal Service Works
+          </h2>
+
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+            1. Initial Lease Review
+          </h3>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            We assess your current contract, any Heads of Terms offered, and key rights and obligations. This ensures we start negotiations from a strong, informed position.
+          </p>
+
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+            2. Market &amp; Legal Advice
+          </h3>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            You receive clear guidance on rent benchmarks, explanation of legal frameworks like the ECC, and strategy on what terms to accept, challenge, or change.
+          </p>
+
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+            3. Negotiation with the Operator
+          </h3>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            We handle all communications with operator agents, rent proposals, and clause revisions. Our goal: terms that protect your interests, not just conclude a deal.
+          </p>
+
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+            4. Completion with Your Solicitor
+          </h3>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
+            We work alongside your solicitor to finalise the lease, from drafting to signature, making sure your interests are protected through to the end.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Why Renew a Lease with Expert Support?
           </h2>
           <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem" }}>
             {[
-              "Review your existing lease and assess your legal position before any contact with the operator",
-              "Take over all communication with the operator, CTIL/Cornerstone, or their agents",
-              "Use our database of UK comparable mast deals to challenge below-market rent proposals",
-              "Negotiate every clause — not just rent but access, upgrade rights, break clauses, and sharing provisions",
-              "Advise on whether your lease benefits from LTA 1954 protections",
-              "Where necessary, prepare and manage proceedings at the Upper Tribunal (Lands Chamber)",
+              "Continued rental income",
+              "Protection of land value",
+              "Structured terms that reflect modern telecom use",
+              "Greater control over access and maintenance",
+              "Improved legal clarity around operator rights and responsibilities",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
                 <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>

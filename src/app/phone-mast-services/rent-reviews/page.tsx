@@ -59,23 +59,58 @@ export default function RentReviewsPage() {
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            If you have not had your phone mast rent reviewed recently, there is a good chance you are being significantly underpaid. Mobile operators regularly rely on landlords not seeking specialist advice to keep rents low.
-          </p>
-          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            We use our extensive database of comparable UK deals — built over 25+ years — to benchmark your rent against current market evidence and negotiate improved terms. Our specialists act exclusively for landlords, giving you unbiased, expert representation.
+            Ensure your Phone Mast rent reflects the current market and the value of your land. If your telecom lease includes a rent review clause, you could be entitled to significantly more rent, sometimes including backdated payments. We help UK landowners secure fair rent, enforce missed reviews, and protect your rights under the Electronic Communications Code (ECC).
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
-            What We Do in a Rent Review
+            What Is a Phone Mast Rent Review?
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            A Phone Mast rent review is a formal reassessment of the rent you receive under your telecom lease. Typically triggered every 3–5 years (or as specified in your lease), the review ensures your rent reflects current market rates, accounts for technological or operator changes, and maximises income for the duration of the lease. Operators sometimes propose reduced rents or try to avoid paying increases — expert advice ensures your rent reflects your land&apos;s true value.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Why You Need Expert Rent Review Advice
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            Without specialist support, landlords risk accepting below-market rent offers, losing out on backdated increases, missing opportunities under the Electronic Communications Code, and accepting unfavourable lease adjustments. We guide you to enforce fair rent increases, avoid legal pitfalls, and protect long-term revenue from your telecom lease.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            How Our Rent Review Service Works
+          </h2>
+
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+            1. Lease Assessment
+          </h3>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            We review your current lease to determine rent review clauses, expired or upcoming review dates, and opportunities for backdated rent increases.
+          </p>
+
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+            2. Market Benchmarking
+          </h3>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            We compare your site with similar telecom agreements across the UK to establish fair market rent. This ensures you get accurate, defensible rent proposals.
+          </p>
+
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+            3. Negotiation with Operators
+          </h3>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
+            We handle communication and negotiation with the operator, including rent proposals, rent review disputes, and formal valuation processes.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Why Choose The Phone Mast Advice Company Ltd?
           </h2>
           <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem" }}>
             {[
-              "Review your current rent against our database of comparable UK phone mast deals",
-              "Identify whether your rent review clause has been triggered correctly by the operator",
-              "Prepare a detailed comparables report to support improved rent proposals",
-              "Take over all correspondence with the operator and their agents",
-              "Negotiate for the best achievable rent and any associated improvements to lease terms",
-              "Where necessary, progress the matter to formal dispute resolution or the Upper Tribunal",
+              "Specialists in UK landlord representation",
+              "Proven experience with major telecom operators",
+              "Fair, transparent fees and expert guidance",
+              "Support for single sites and large portfolios",
+              "Maximises income while protecting your rights and property value",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
                 <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
