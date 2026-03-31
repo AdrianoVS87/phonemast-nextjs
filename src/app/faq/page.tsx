@@ -23,22 +23,22 @@ const faqCategories: Array<{ category: string; items: FAQItem[] }> = [
       {
         question: "What is a phone mast?",
         answer:
-          "A phone mast (also called a mobile mast, base station, or telecoms tower) is a structure that transmits and receives signals for mobile communications. Masts carry antennae, microwave dishes, and associated equipment required to provide 2G, 3G, 4G, and 5G coverage. They are typically made from galvanised steel and have a lifespan of approximately 30 years. The geographic area a mast serves is called a cell; interconnected cells form a cellular network.",
+          "A Phone Mast can have various different names, for example, Phone Mast, mobile Phone Mast site, mobile base station, or radio tower. Phone masts are typically made from galvanised steel and are required to provide signals to and from mobile devices such as phones, computers and tablets. A Phone Mast transmits and receives signals normally via antennae systems, microwave dishes and other electronic communications equipment, which can include cabins, cabinets, feeder cables, racks, RRUs (Remote Radio Units), fibre optic cables and specific hardware and software needed to allow the current UK licenced mobile phone operators to provide 2G, 3G, 4G and 5G signals to their customers. The geographic area that a Phone Mast provides coverage to is called a cell. These cells then connect into what is called a cellular network. Phone masts generally have a life span of around 30 years and are subject to annual health and safety checks, so they are maintained properly and safe to climb.",
       },
       {
         question: "What is a phone mast lease?",
         answer:
-          "A phone mast lease is a legal contract granting a mobile network operator (or infrastructure company) exclusive possession of land or property for a specified period, in return for consideration — usually in the form of annual rent. Leases granted after 28 December 2017 are governed by the Electronic Communications Code introduced by the Digital Economy Act 2017. Pre-2017 leases may also benefit from Landlord and Tenant Act 1954 protections.",
+          "A Phone Mast lease is a legal contract, with exclusive possession, over land or property for a period of time (fixed or periodic) in return for consideration, usually in the form of rent. This is not to be confused with a Phone Mast Lease Premium.",
       },
       {
         question: "What is phone mast rent?",
         answer:
-          "Phone mast rent is the monetary compensation paid by a telecoms operator to a landlord or property owner for the right to use their land or property to host a phone mast. The amount is agreed in the lease and typically paid annually or quarterly. Under the Electronic Communications Code introduced in 2017, rent is assessed using a 'no-scheme' valuation model rather than a market value approach, which often produces lower figures — particularly on agricultural land.",
+          "Phone Mast rent refers to the monetary compensation paid by a telecoms operator or a third-party investor to a landlord or property owner for the use of their land or property to host a mobile Phone Mast. This rent is typically agreed upon in a lease agreement between the landlord (lessor) and the operator or investor (lessee). The amount of Phone Mast rent can vary depending on factors such as the location, size, and type of mast, as well as the prevailing market conditions and demand for mobile coverage in the area. Phone Mast rent represents a source of income for landlords, providing them with ongoing financial compensation for allowing their land or property to be used for telecommunications infrastructure.",
       },
       {
-        question: "What is a phone mast lease premium?",
+        question: "What is a mobile phone mast lease premium?",
         answer:
-          "A phone mast lease premium is a lump sum payment made to a landlord in exchange for the right to use land for a phone mast — either instead of, or in addition to, ongoing annual rent. Investors regularly purchase phone mast lease income streams, paying a lump sum (the premium) in exchange for the right to receive future rent payments. Whether a premium is in your interest depends on your specific circumstances, and specialist advice is recommended before agreeing to any lump sum offer.",
+          "A mobile Phone Mast lease premium is a lump sum payment made by a mobile network operator or third party investor to a landowner or mast owner for the right to install a mobile Phone Mast on their property or mast structure. The lease premium is typically paid upfront as a one-time payment, and the amount can vary depending on various factors such as the location, size, and type of mast, as well as the demand for mobile coverage in the area. The lease premium is often negotiated as part of a lease agreement between the mast owner and the mobile network operator. In addition to the lease premium, the agreement may also include ongoing rental payments, which are typically paid monthly or annually. In some instances lease premium and lump sum payments can be used instead of an annual rental payment. In particular, third-party investors often look to secure rental income streams using lump sum premium payments.",
       },
     ],
   },
@@ -46,69 +46,14 @@ const faqCategories: Array<{ category: string; items: FAQItem[] }> = [
     category: "Rents and Reviews",
     items: [
       {
-        question: "How much is my phone mast worth in rent?",
+        question: "How much is my mobile phone mast worth?",
         answer:
-          "Phone mast rents vary considerably depending on location, operator, site type, and the applicable legal framework. Under the Electronic Communications Code, rents are assessed using a 'no-scheme' valuation model. The Vache Farm case [2024] UKUT 216 (LC) provides the current benchmark. Agricultural and rural sites typically attract lower rents than urban or rooftop sites. We offer a free rent estimate based on your specific site and circumstances — call 01691 791543.",
-      },
-      {
-        question: "What is a phone mast rent review?",
-        answer:
-          "A rent review is a formal reassessment of the rent payable under your lease, typically triggered at agreed intervals (often every five years). Operators use rent reviews to attempt to reduce rents under the 'no-scheme' model introduced by the Digital Economy Act 2017. Without specialist advice, many landlords accept significant reductions. We benchmark your rent against comparable UK deals and negotiate to secure fair rates.",
-      },
-      {
-        question: "Can operators reduce my phone mast rent?",
-        answer:
-          "Under the Electronic Communications Code, operators can apply to the Upper Tribunal (Lands Chamber) for rents to be assessed under the 'no-scheme' valuation model, which often produces lower figures than pre-2017 market-value rents. However, there are significant arguments available to landlords — particularly those with pre-2017 leases — and specialist advice can make a substantial difference to the outcome. We have successfully challenged proposed reductions on many occasions.",
+          "The value of a mobile Phone Mast can vary widely depending on various factors such as location, size and type, as well as the demand for mobile coverage in the area. To get an accurate estimate of the value of your mobile Phone Mast, you need to consult with a professional agent or a company such as a Phone Mast advice company that specialises in the sale and lease of mobile phone masts. They will be able to assess your specific mast and provide you with a detailed assessment based on market conditions and other relevant factors. Additionally, the value of a mobile Phone Mast can also be influenced by the terms of any existing leases or agreements with mobile operators, as well as any local planning regulations and government legislation in your area.",
       },
       {
         question: "Can I stop a phone mast operator from reducing my rent?",
         answer:
-          "Whether you can prevent a rent reduction depends on your lease terms and whether the lease predates December 2017. The Supreme Court ruling in Compton Beauchamp Estates v CTIL [2022] UKSC 18 established important protections for landlords with LTA 1954-protected leases. We assess your specific position and advise on what defences and negotiating strategies are available.",
-      },
-    ],
-  },
-  {
-    category: "Lease Renewals",
-    items: [
-      {
-        question: "My lease is expiring — what are my rights?",
-        answer:
-          "Your rights at lease expiry depend significantly on whether your lease was granted before or after 28 December 2017. Pre-2017 leases may benefit from both the Landlord and Tenant Act 1954 and the old Electronic Communications Code. Post-2017 leases are governed solely by the new Code. In either case, operators can continue to occupy the site whilst a new agreement is negotiated. We advise on the full extent of your rights and options before any renewal begins.",
-      },
-      {
-        question: "What is a Code lease renewal?",
-        answer:
-          "A Code lease renewal is the process of agreeing new terms for a phone mast lease governed by the Electronic Communications Code (as amended by the Digital Economy Act 2017). Unlike LTA 1954 renewals, Code lease renewals are governed by the Code's specific renewal provisions, which differ in important respects from commercial lease renewal law. Specialist advice is essential.",
-      },
-      {
-        question: "Can I refuse to renew a phone mast lease?",
-        answer:
-          "In certain circumstances, yes — particularly if you have genuine redevelopment plans for the land. However, operators can apply to the Upper Tribunal (Lands Chamber) under the Code to oppose removal and continue occupation if removal would cause significant disruption to network coverage. We assess your specific situation and the realistic options available.",
-      },
-    ],
-  },
-  {
-    category: "Operators and Industry",
-    items: [
-      {
-        question: "Who are CTIL and Cornerstone — are they the same company?",
-        answer:
-          "Yes. CTIL stands for Cornerstone Telecommunications Infrastructure Limited — that is the legal entity name. Cornerstone is the commercial trading brand. They are the same company, jointly owned by Vodafone and O2, managing approximately 14,200 macro and 1,400 micro sites across the UK. Do not be confused by them appearing as separate entities — they are not.",
-      },
-      {
-        question: "Is Arqiva still a mobile mast operator?",
-        answer:
-          "No. Arqiva sold its mobile telecommunications infrastructure business to Cellnex in July 2020. The current operating entity for those mobile mast sites is On Tower UK Ltd, which is part of the Cellnex group. Arqiva now focuses exclusively on broadcast infrastructure (television and radio transmitters). If your lease was originally with Arqiva for mobile masts, your current counterpart is On Tower (Cellnex).",
-      },
-      {
-        question: "What is MBNL?",
-        answer:
-          "MBNL (Mobile Broadband Network Limited) is the joint venture network sharing company for EE and Three (Hutchison 3G). It is separate from CTIL/Cornerstone, which is the Vodafone/O2 joint venture. Importantly, O2 is not part of MBNL — it shares infrastructure with Vodafone through CTIL/Cornerstone instead.",
-      },
-      {
-        question: "Are phone companies allowed to upgrade existing masts?",
-        answer:
-          "Yes. The Electronic Communications Code gives operators enhanced rights to upgrade equipment and share sites. Operators can upgrade within certain limits without requiring landlord consent, subject to compliance with planning regulations and the specific terms of the lease. Upgrade requests may, however, carry implications for your lease terms — particularly if the upgrade involves structural changes or additional equipment. We advise on upgrade requests from operators.",
+          "Whether you can stop a mobile Phone Mast operator from reducing your rent depends on the terms of your lease agreement and whether your contract is still within the agreed term. If the lease agreement specifies a fixed rental amount, the mobile Phone Mast operator may not be able to unilaterally reduce your rent. However, if the lease agreement allows for rent adjustments based on certain factors such as changes in market conditions or demand for mobile coverage, the mobile Phone Mast operator may have the right to reduce your rent. If your contract has expired, the operator may be able to reduce your rent and take advantage of the new government legislation — Digital Economy Act 2017 – Electronic Communications Code. If you believe that the mobile Phone Mast operator is attempting to reduce your rent unfairly or in violation of the terms of the lease agreement, you may need to consult with a property agent or lawyer who specialises in property or telecommunications law to determine your options and protect your rights.",
       },
     ],
   },
@@ -116,39 +61,49 @@ const faqCategories: Array<{ category: string; items: FAQItem[] }> = [
     category: "Legislation",
     items: [
       {
-        question: "What is the Electronic Communications Code?",
+        question: "What is the electronic communications code?",
         answer:
-          "The Electronic Communications Code (ECC) is the legal framework governing how mobile operators access land to install and maintain telecoms equipment. Originally in Schedule 2 of the Telecommunications Act 1984, it was comprehensively reformed by the Digital Economy Act 2017, which inserted a new Code as Schedule 3A of the Communications Act 2003. The reformed Code took effect on 28 December 2017 and introduced the 'no-scheme' valuation model, significantly changing how phone mast rents are assessed.",
-      },
-      {
-        question: "What is the Digital Economy Act 2017 and how does it affect my mast?",
-        answer:
-          "The Digital Economy Act 2017 introduced the new Electronic Communications Code in force from 28 December 2017. Its key changes for landlords include: replacing market-value rents with a 'no-scheme' valuation model; splitting payments into 'consideration' and 'compensation' components; giving operators enhanced rights to share and upgrade equipment; and creating new imposition procedures enabling operators to apply to the Upper Tribunal (Lands Chamber) for Code agreements when negotiations fail.",
-      },
-      {
-        question: "What is the PSTI Act 2022?",
-        answer:
-          "The Product Security and Telecommunications Infrastructure Act 2022 amends the Electronic Communications Code. Sections 61-64 are expected to commence on 7 April 2026, bringing further changes to how operators can upgrade and share equipment, and to Code agreement imposition procedures. Landlords with leases coming up for renewal around this date should take specialist advice on the timing implications.",
+          "The Electronic Communications Code (ECC), as reformed by the Digital Economy Act 2017, is the legal framework governing telecommunications operators' rights to install and maintain equipment on land. Originally contained in Schedule 2 of the Telecommunications Act 1984, it was comprehensively reformed by the Digital Economy Act 2017, which inserted a new Code as Schedule 3A of the Communications Act 2003. The previous laws introduced a telecoms code which set out guidelines for the implementation and maintenance of Phone Mast sites and sought to resolve disputes between landlords and telecoms operators. The new Code will apply to telecoms sites where any loss is able to be compensated financially and where building the site is in the public interest.",
       },
     ],
   },
   {
-    category: "Sales, Removal and Costs",
+    category: "Opposing a Phone Mast",
     items: [
       {
-        question: "Can I sell my phone mast lease?",
+        question: "How do I oppose a phone mast on my land?",
         answer:
-          "Yes. Investors pay lump sum premiums for phone mast lease income streams, providing capital in place of ongoing annual rent. Selling provides financial certainty and eliminates the need to manage future lease renewals. Whether a sale is in your best interests depends on your circumstances, the lease terms, current market rates, and your personal financial objectives. We advise on the full implications before any sale.",
+          "If you do not currently have a mobile Phone Mast on your land it is important that you contact a Phone Mast agent as soon as you have received any correspondence from the operator. It is not recommended that you allow the operator on the site to carry out any surveys or engage in any dialogue as this could prejudice your position. It should be noted that once an operator has surveyed the site and is able to demonstrate the site is buildable, they will be one step closer to being able to legally force an agreement on you and install a mast on your land or property. There are a number of factors that can prevent a mobile Phone Mast being installed on your land or property, but these need to be argued effectively in line with the current legislation. Many landowners are now opposing mobile phone masts because the rental income is not worth the burden or inconvenience of having the mast on site. You could also: review local regulations to determine if there are any restrictions on the installation of mobile phone masts; gather community support and create a petition or write letters to local officials or the mobile network operator; or contact your local council or planning authority to express your concerns.",
+      },
+    ],
+  },
+  {
+    category: "Removal and Costs",
+    items: [
+      {
+        question: "How can I remove a phone mast from my land or property?",
+        answer:
+          "Removing a mobile Phone Mast from your land or property can be a complex process. It is necessary from the outset to get a Phone Mast advice agent for initial and ongoing advice. It's important to follow the proper legal and regulatory procedures to ensure that you comply with all applicable laws and regulations. You'll need to determine the cost of removing the mobile Phone Mast, including any associated costs such as site restoration, agent and legal fees. You'll need to be aware that most mobile Phone Mast installations have third party connections for power/electricity and broadband. These include companies such as Openreach and Virgin Media. Agreements may need to be terminated, and equipment and cabling that is in situ may also need to be removed. It's important to remember that removing a mobile Phone Mast from your land or property can be a complex and costly process, and it's essential to carefully consider all the legal, financial, and practical implications before proceeding.",
       },
       {
-        question: "How can I remove a phone mast from my land?",
+        question: "How do we charge? / What are our fees?",
         answer:
-          "Removing a phone mast is a complex process. Operators have Code rights that may allow them to contest removal notices through the Upper Tribunal (Lands Chamber). Practical considerations include: costs of removal, site restoration, third-party connections (Openreach, Virgin Media), and potential legal proceedings. We advise on your specific situation and options before any removal process begins.",
+          "Every site is unique, and our fees are tailored accordingly. Before we can provide an accurate breakdown of costs, we need to review the lease and any other relevant paperwork to understand the specifics of the case. Our Terms of Business are structured on a per-job basis, meaning each instruction has its own agreement that clearly outlines how our fees apply to that particular instruction. In most cases, we operate on a no-win, no-fee basis, ensuring that our clients only pay if we achieve a successful outcome. Additionally, our fees are designed to be incentivised, meaning that if we secure a higher rent or recover any backdated payments on behalf of our client, we receive a one-off payment or a small percentage of the amount gained. Since our fees are determined on a case-by-case basis, we can only provide precise details after reviewing all relevant documentation and having an initial consultation with the potential client.",
       },
       {
-        question: "How much does phone mast advice cost?",
+        question: "Are phone mast operators allowed to upgrade existing sites?",
         answer:
-          "Our initial consultation is free and without obligation. For ongoing representation, our fees are typically structured on a no-win, no-fee basis — we are paid when we achieve a successful outcome for you, often as a percentage of any improved rent secured or a one-off payment for the outcome delivered. Fees are agreed in our Terms of Business before we begin work. Contact us to discuss your specific situation.",
+          "Yes, Phone Mast operators are generally allowed to upgrade existing sites, subject to compliance with local regulations and any lease agreements in place. Upgrading an existing mobile Phone Mast can involve various changes, such as adding or replacing antennas, installing new equipment, or modifying the physical structure of the mast. These upgrades may be necessary to meet increasing demand for mobile coverage, to improve network reliability and performance, or to comply with new regulatory requirements. However, any upgrades to an existing mobile Phone Mast must comply with planning regulations, which may impose restrictions on the height, appearance, and other aspects of the mast. Additionally, any lease agreements in place between the mobile Phone Mast operator and the property owner must be reviewed to determine whether the upgrades are permitted and whether any modifications to the lease agreement are required.",
+      },
+      {
+        question: "Can the phone companies increase the height of the mast and add more equipment?",
+        answer:
+          "In most cases, phone companies are allowed to increase the height of the mast and add more equipment, subject to compliance with local regulations and any lease agreements in place. Increasing the height of a mobile Phone Mast or adding more equipment can be necessary to meet increasing demand for mobile coverage, to improve network reliability and performance, or to comply with new regulatory requirements. However, any modifications to an existing mobile Phone Mast must comply with planning regulations, which may impose restrictions on the height, appearance, and other aspects of the mast. Additionally, any lease agreements in place between the mobile Phone Mast operator and the property owner must be reviewed to determine whether the modifications are permitted and whether any modifications to the lease agreement are required.",
+      },
+      {
+        question: "What happens when I sell my phone mast?",
+        answer:
+          "Investors are willing to pay premium sums for the leasehold or freehold of your Phone Mast. When you sell your Phone Mast, investors offer a large lump sum, also known as a lease premium payment, replacing your annual rent. Selling your Phone Mast eliminates the need to navigate uncertain rents and ongoing lease renewals, providing financial security. The investor will then take over management duties, allowing you to benefit from your asset's full value.",
       },
     ],
   },

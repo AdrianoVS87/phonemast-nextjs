@@ -127,16 +127,19 @@ export default function AboutPage() {
             Our Story
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            The Phone Mast Advice Company Ltd was founded by Matt Restall to address a clear gap in the UK telecoms property market: the vast majority of landlords with phone mast leases had no specialist independent representation. Mobile network operators employ experienced agents and surveyors; without equivalent expertise, UK landlords were regularly accepting below-market rents and unfavourable lease terms.
+            We are specialist telecoms surveyors established to help the huge number of unrepresented landlords across the UK. The mobile Phone Mast operators have made huge savings over a number of years by dealing directly with landlords who have not had professional advice and will agree below market rents. We want to put a stop to that. The Phone Mast Advice Company Ltd is a one-stop shop for landlords. We can advise on all telecoms matters. Whatever your issue, we can help.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Our firm was established to level that playing field. We act exclusively for landowners and property owners — never for mobile phone operators. This independence is fundamental to the service we provide. When Vodafone, O2, EE, Three, CTIL/Cornerstone, On Tower (formerly Arqiva), Cellnex, Airwave, or Wireless Infrastructure Group approach our clients, they face specialist representation that works solely in the landlord&apos;s interest.
+            We are dedicated to all our clients, regardless of how many mobile Phone Mast sites they have. We aim to develop and maintain a friendly working relationship and ensure our clients feel well looked after and informed at every stage of the negotiations.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Over 25 years, we have built the UK&apos;s most comprehensive database of comparable phone mast deals. This evidence base underpins every negotiation and enables us to challenge operator proposals with precision. We have completed over 1,000 phone mast deals across the UK, representing individual landowners, farming estates, supermarket chains, local authorities, housing associations, and major corporations.
+            Our goal is to obtain the most favourable lease terms for the client, as well as the highest rent achievable for their mobile phone masts, ensuring the landlord is happy. At the same time, we aim to maintain a good landlord and tenant relationship.
+          </p>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            For over 25 years, we have amassed a database of thousands of mobile Phone Mast deals across the UK which allows us to confidently negotiate higher rents and excellent lease/agreement terms for our landlords. This database ensures our negotiations are successful as we always have the comparable evidence to support our case.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7 }}>
-            The Phone Mast Advice Company Ltd is registered in England and Wales (Company Registration: 13115582). We maintain offices in London, Bristol, and Oswestry.
+            Our success has not only benefited small landlords, who may only own a single mobile Phone Mast, but also large corporations such as supermarket chains and Local Authorities who often have extensive mobile Phone Mast portfolios. We are able to efficiently manage such portfolios, ensuring we always achieve the best terms and highest rents in the marketplace. We guarantee rents are paid on time, allowing peace of mind for the client.
           </p>
         </div>
       </section>
@@ -246,39 +249,39 @@ export default function AboutPage() {
             {[
               {
                 step: "1",
-                title: "First Contact — Free Consultation",
+                title: "First Contact",
                 detail:
-                  "Contact us by phone, email, or WhatsApp. We discuss your situation, the operator involved, and your current lease position. All initial consultations are free and without obligation.",
+                  "When you contact us, we will chat through any issues you are currently having and establish how we may be able to help you.",
               },
               {
                 step: "2",
-                title: "Document Review",
+                title: "Send Documents",
                 detail:
-                  "We review your current lease, any correspondence from the operator, and any heads of terms or rent proposals — at no charge. This gives us the information needed to advise on your position.",
+                  "We often require a copy of the agreement and any recent correspondence which we will review free of charge.",
               },
               {
                 step: "3",
-                title: "Terms of Business and Strategy",
+                title: "Information & Terms of Business",
                 detail:
-                  "We provide written advice on your options and our proposed strategy, together with our terms of business. Our fees are structured on a per-instruction basis, typically on a no-win, no-fee model.",
+                  "We will then send you some information on the issue discussed and our terms of business, so you can see our fees.",
               },
               {
                 step: "4",
-                title: "Dedicated Surveyor",
+                title: "Allocate Surveyor",
                 detail:
-                  "Once instructed, you are allocated a dedicated specialist surveyor who manages your case from start to finish and can be contacted for updates at any time.",
+                  "Once you instruct us, you will be allocated a dedicated surveyor who will deal with your case from start to finish and can be contacted for an update whenever you wish.",
               },
               {
                 step: "5",
-                title: "Negotiation",
+                title: "Leave it with us",
                 detail:
-                  "Your surveyor engages with the operator or their agents and conducts negotiations on your behalf, drawing on our database of comparable deals and up-to-date case law.",
+                  "Your surveyor will make contact with the operator or their agent and take the matter out of your hands.",
               },
               {
                 step: "6",
-                title: "Result",
+                title: "Results",
                 detail:
-                  "We secure the best achievable rent and lease terms for your situation, working with your solicitor on final documentation where required.",
+                  "You can be safe in the knowledge that we will negotiate the best possible deal for you and will take all the hassle away.",
               },
             ].map((item) => (
               <div
