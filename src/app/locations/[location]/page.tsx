@@ -369,23 +369,30 @@ export default async function LocationPage({
             </div>
           </div>
 
-          {/* Map placeholder */}
+          {/* Google Maps embed */}
           <div
             style={{
-              backgroundColor: "#e5e7eb",
               borderRadius: "1rem",
+              overflow: "hidden",
               height: "280px",
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              flexDirection: "column",
-              gap: "0.75rem",
-              color: "#6b7280",
-              fontSize: "1rem",
+              border: "1px solid #e5e7eb",
             }}
           >
-            <span style={{ fontSize: "2rem" }}>🗺️</span>
-            <span>Map — {data.postcode}</span>
+            <iframe
+              title={`Map showing ${data.officeName} at ${data.postcode}`}
+              width="100%"
+              height="100%"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+              src={`https://maps.google.com/maps?q=${encodeURIComponent(data.addressFull)}&output=embed`}
+              style={{ border: 0, display: "block" }}
+              aria-label={`Google Map for ${data.officeName}, ${data.postcode}`}
+            />
+          </div>
+
+          {/* View on Google Maps link */}
+          <div style={{ display: "none" }}>
+            <span>Hidden legacy block</span>
             <a
               href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(data.addressFull)}`}
               target="_blank"
