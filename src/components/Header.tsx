@@ -255,7 +255,7 @@ export default function Header() {
               aria-expanded={mobileOpen}
               style={{
                 background: "none", border: "none", cursor: "pointer",
-                padding: "0.5rem", minWidth: "44px", minHeight: "44px",
+                padding: "0.75rem", minWidth: "48px", minHeight: "48px",
                 display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff",
               }}
             >
