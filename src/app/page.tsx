@@ -3,6 +3,7 @@ import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
 import ServiceCard, { type ServiceCardProps } from "@/components/ServiceCard";
 import TestimonialCard, { type TestimonialCardProps } from "@/components/TestimonialCard";
+import TrustSignals from "@/components/TrustSignals";
 import CTASection from "@/components/CTASection";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import JsonLd from "@/components/JsonLd";
@@ -451,6 +452,9 @@ export default function HomePage() {
           </div>
         </div>
       </section>
+
+      {/* Trust Signals */}
+      <TrustSignals />
 
       {/* Testimonials */}
       <section

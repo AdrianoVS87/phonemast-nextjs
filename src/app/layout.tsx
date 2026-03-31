@@ -3,6 +3,8 @@ import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
+import StickyCtaBar from "@/components/StickyCtaBar";
+import WhatsAppButton from "@/components/WhatsAppButton";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -26,6 +28,11 @@ export const metadata: Metadata = {
   description:
     "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings. 25+ years experience. Call 01691 791543.",
   metadataBase: new URL("https://phonemastadvice.co.uk"),
+  alternates: {
+    languages: {
+      "en-GB": "https://phonemastadvice.co.uk",
+    },
+  },
   openGraph: {
     type: "website",
     locale: "en_GB",
@@ -63,6 +70,8 @@ export default function RootLayout({
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
+        <StickyCtaBar />
+        <WhatsAppButton />
       </body>
     </html>
   );

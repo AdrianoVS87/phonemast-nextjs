@@ -3,7 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
-import { getAllPostSlugs, getPostBySlug, formatDate } from "@/lib/blog";
+import { getAllPostSlugs, getAllPosts, getPostBySlug, formatDate } from "@/lib/blog";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
 
@@ -46,6 +46,12 @@ export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = getPostBySlug(slug);
   if (!post) notFound();
+
+  // Get related posts (same category, excluding current)
+  const allPosts = getAllPosts();
+  const relatedPosts = allPosts
+    .filter((p) => p.slug !== slug && p.category === post.category)
+    .slice(0, 3);
 
   const contentHtml = await markdownToHtml(post.content);
 
@@ -266,6 +272,112 @@ export default async function BlogPostPage({ params }: Props) {
           </div>
         </div>
       </article>
+
+      {/* Related Services */}
+      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
+        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.25rem, 2.5vw, 1.625rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            You May Also Need
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gap: "1rem",
+              gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+            }}
+          >
+            {[
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Expert lease renewal negotiation" },
+              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews", desc: "Are you being underpaid?" },
+              { label: "Free Lease Check", href: "/free-lease-check", desc: "Check your lease for free" },
+              { label: "Free Rent Estimate", href: "/free-rent-estimate", desc: "Find out your true market rent" },
+              { label: "New Lettings", href: "/phone-mast-services/new-lettings", desc: "Start on the right terms" },
+              { label: "Mast Sales", href: "/phone-mast-services/mast-sales", desc: "Capitalise on your lease income" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{
+                  display: "block",
+                  backgroundColor: "#ffffff",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "10px",
+                  padding: "1rem 1.25rem",
+                  textDecoration: "none",
+                  transition: "border-color 0.2s",
+                }}
+              >
+                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>
+                  {item.label}
+                </p>
+                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.9rem", lineHeight: 1.4 }}>
+                  {item.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Related Articles */}
+      {relatedPosts.length > 0 && (
+        <section style={{ padding: "3rem 1.5rem" }}>
+          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
+            <h2
+              style={{
+                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                fontWeight: 700,
+                fontSize: "clamp(1.25rem, 2.5vw, 1.625rem)",
+                color: "#1a1a2e",
+                marginBottom: "1.25rem",
+              }}
+            >
+              Related Articles
+            </h2>
+            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
+              {relatedPosts.map((rp) => (
+                <Link
+                  key={rp.slug}
+                  href={`/blog/${rp.slug}`}
+                  style={{
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "0.25rem",
+                    backgroundColor: "#f9f8f5",
+                    border: "1px solid #e5e7eb",
+                    borderRadius: "10px",
+                    padding: "1rem 1.25rem",
+                    textDecoration: "none",
+                  }}
+                >
+                  <span style={{ fontWeight: 700, color: "#1B4F72", fontSize: "1.0625rem" }}>
+                    {rp.title}
+                  </span>
+                  <span style={{ color: "#6b7280", fontSize: "0.9375rem" }}>
+                    {rp.excerpt.slice(0, 120)}...
+                  </span>
+                </Link>
+              ))}
+            </div>
+            <div style={{ marginTop: "1.5rem" }}>
+              <Link
+                href="/blog"
+                style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}
+              >
+                View all articles →
+              </Link>
+            </div>
+          </div>
+        </section>
+      )}
 
       <CTASection />
     </>

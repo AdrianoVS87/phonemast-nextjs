@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
@@ -75,6 +76,31 @@ const operators: Record<string, OperatorData> = {
         answer:
           "Yes. Investors pay lump sum premiums for phone mast lease income streams. Selling provides a capital sum in place of ongoing annual rent. We advise on whether a sale is in your best interests and can facilitate the process.",
       },
+      {
+        question: "What is a typical rent for a Vodafone phone mast?",
+        answer:
+          "Vodafone mast rents vary considerably depending on location, site type, and when the lease was originally agreed. Urban rooftop sites may command higher rents than rural greenfield sites. Since 2017, Vodafone has sought to reduce rents under the Electronic Communications Code's 'no-scheme' valuation model. We have an extensive database of comparable Vodafone deals and can give you an honest assessment of what your site should be achieving.",
+      },
+      {
+        question: "How does a Vodafone lease renewal work in practice?",
+        answer:
+          "Vodafone (or their agents acting as CTIL/Cornerstone) will typically serve a notice seeking to renew the lease, often proposing new Code terms and a lower rent. Landlords have the right to negotiate, and ultimately the matter can be referred to the Upper Tribunal (Lands Chamber) if agreement cannot be reached. The key is to engage specialist representation early — before responding to any initial contact.",
+      },
+      {
+        question: "Vodafone has contacted me about upgrading the mast — what should I know?",
+        answer:
+          "Upgrade requests from Vodafone often come packaged with requests to alter lease terms or consolidate multiple agreements. Before agreeing to any upgrade works or lease variations, you should take specialist advice. Upgrades can provide leverage in negotiations, and any changes to your agreement need careful scrutiny.",
+      },
+      {
+        question: "What does the Electronic Communications Code mean for Vodafone landlords?",
+        answer:
+          "The Electronic Communications Code (ECC), as amended by the Digital Economy Act 2017, gives Vodafone rights to apply for new Code agreements at low 'no-scheme' rents. For pre-2017 leases, Landlord and Tenant Act 1954 protections may apply, which can significantly improve your negotiating position. Specialist advice is essential to understand which regime applies to your specific lease.",
+      },
+      {
+        question: "What are common Vodafone lease terms I should watch out for?",
+        answer:
+          "Key lease terms to scrutinise include: break clauses (in the operator's favour), upgrade rights (allowing significant equipment changes without notice or additional rent), sharing rights (allowing Vodafone to host other operators on your site), access provisions (time and method of access), and rent review mechanisms (especially CPI-linked or fixed uplift clauses that may be unfavourable). We review all proposed terms and advise on what is standard, what is unacceptable, and what is negotiable.",
+      },
     ],
   },
 
@@ -132,6 +158,31 @@ const operators: Record<string, OperatorData> = {
         question: "Should I accept O2's initial rent offer?",
         answer:
           "Initial rent offers from O2 or their agents are rarely the best achievable. We consistently achieve significantly improved rents and lease terms for our clients compared to operator opening offers. Contact us before accepting anything.",
+      },
+      {
+        question: "What is a typical rent for an O2 phone mast?",
+        answer:
+          "O2 (Telefónica UK) mast rents vary by location, site type, and lease history. Urban sites in high-demand areas command higher rents than rural locations. Since 2017, O2 agents have routinely used ECC 'no-scheme' valuations to propose reduced rents. We hold an extensive database of comparable O2 and CTIL/Cornerstone deals to benchmark your site and support a strong negotiating position.",
+      },
+      {
+        question: "How does an O2 lease renewal work under the Electronic Communications Code?",
+        answer:
+          "O2 or CTIL/Cornerstone will serve formal notice seeking to renew or replace your lease, typically proposing new Code terms at a reduced rent. You have the right to respond and negotiate. If agreement is not reached, either party can apply to the Upper Tribunal (Lands Chamber). Early specialist representation ensures your rights are protected from the outset.",
+      },
+      {
+        question: "What should I do when O2 contacts me about my mast lease?",
+        answer:
+          "Do not respond until you have taken specialist advice. The first contact from O2 or their agents often sets the tone for the entire negotiation. We recommend you call us on 01691 791543 before engaging with O2, CTIL/Cornerstone, or any agent acting on their behalf.",
+      },
+      {
+        question: "How does the Electronic Communications Code affect O2 landlords?",
+        answer:
+          "The ECC, introduced by the Digital Economy Act 2017, changed how operators including O2 can value mast sites for rent purposes. The 'no-scheme' approach disregards the telecoms use of the land, which often produces lower valuations. Pre-2017 leases may have additional protections under the Landlord and Tenant Act 1954. We assess which legal framework applies to your situation.",
+      },
+      {
+        question: "What are typical O2 lease terms and what should I watch for?",
+        answer:
+          "O2 leases commonly include provisions for equipment sharing (via CTIL/Cornerstone), broad upgrade rights, and break clauses in the operator's favour. Rent review clauses should be scrutinised carefully — fixed annual uplifts or CPI linkage may be well below achievable market increases. We review every lease term and advise on the full implications before you sign anything.",
       },
     ],
   },
@@ -191,6 +242,31 @@ const operators: Record<string, OperatorData> = {
         answer:
           "Yes. Landlords can challenge operator proposals through negotiation or, ultimately, through the Upper Tribunal (Lands Chamber). We manage this process on your behalf, drawing on our database of comparable EE and MBNL deals to build a strong evidence base.",
       },
+      {
+        question: "What is a typical rent for an EE phone mast?",
+        answer:
+          "EE mast rents depend on location, site type, and lease terms. EE (as the UK's largest network) has significant infrastructure across urban and rural areas, and rents reflect those differences. Since 2017, EE agents have used the ECC 'no-scheme' approach to reduce rents substantially. Our comparable database allows us to challenge these proposals with hard evidence.",
+      },
+      {
+        question: "How does an EE lease renewal work in practice?",
+        answer:
+          "EE or MBNL will typically contact you about renewal ahead of lease expiry. They will propose new Code terms, often at a much reduced rent. We manage the response, engage in negotiation, and if necessary progress the matter to the Upper Tribunal (Lands Chamber). Most cases are resolved by negotiation before reaching tribunal.",
+      },
+      {
+        question: "What should I do when EE contacts me about my mast?",
+        answer:
+          "Do not engage with EE or their agents until you have independent specialist advice. We offer a free initial consultation and will take over all communication with EE, BT, or MBNL on your behalf. Contact us on 01691 791543.",
+      },
+      {
+        question: "How does the Electronic Communications Code affect EE landlords?",
+        answer:
+          "The ECC gives EE the right to apply to the Upper Tribunal for new agreements at 'no-scheme' rents, which can be substantially lower than pre-2017 market rents. Pre-existing leases protected by the Landlord and Tenant Act 1954 may have stronger protections. Specialist advice is essential to understand your specific position.",
+      },
+      {
+        question: "What are common EE lease terms to look out for?",
+        answer:
+          "EE leases often include broad sharing rights (allowing co-location with Three via MBNL), upgrade rights permitting significant equipment changes without additional rent, and access provisions that may be overly broad. Rent review clauses should be closely reviewed — EE typically proposes below-market fixed increases. We scrutinise every clause and negotiate strongly on your behalf.",
+      },
     ],
   },
 
@@ -249,6 +325,31 @@ const operators: Record<string, OperatorData> = {
         answer:
           "In certain circumstances, yes — particularly if you have genuine redevelopment plans. However, operators can apply to the Upper Tribunal (Lands Chamber) to contest refusals under the Code. We assess your specific situation and advise on the realistic options available to you.",
       },
+      {
+        question: "What is a typical rent for a Three (Hutchison 3G) phone mast?",
+        answer:
+          "Rents for Three mast sites vary significantly by location and site type. Three tends to have a significant presence in urban and suburban areas. Since 2017, Three agents have used ECC 'no-scheme' valuations to propose reduced rents. We have comparable evidence from many Three and MBNL negotiations to support your position.",
+      },
+      {
+        question: "How does a Three lease renewal work under the Electronic Communications Code?",
+        answer:
+          "Three or MBNL will typically serve formal notice proposing to renew the lease on new Code terms at a lower rent. You are entitled to respond, negotiate, and if necessary refer the matter to the Upper Tribunal (Lands Chamber). Early specialist advice protects your rights throughout the process.",
+      },
+      {
+        question: "What should I do when Three contacts me about my mast lease?",
+        answer:
+          "Do not respond until you have taken specialist advice. Three's agents are commercially experienced. We recommend contacting us on 01691 791543 before engaging with Three, Hutchison 3G UK Ltd, or MBNL.",
+      },
+      {
+        question: "How does the Electronic Communications Code affect Three landlords?",
+        answer:
+          "The ECC gives Three the right to apply for new agreements at 'no-scheme' rents. For leases granted before December 2017, Landlord and Tenant Act 1954 protections may apply, which can provide additional leverage. We identify which regime applies and develop the most effective negotiating strategy for your situation.",
+      },
+      {
+        question: "What are typical Three lease terms I should review carefully?",
+        answer:
+          "Three leases often include sharing rights (via MBNL with EE), upgrade rights that allow significant changes to installed equipment, and break clauses favouring the operator. Ensure any rent review mechanism is fair and reflects realistic market movements. We review all proposed terms and advise on what is standard, negotiable, or unacceptable.",
+      },
     ],
   },
 
@@ -305,7 +406,32 @@ const operators: Record<string, OperatorData> = {
       {
         question: "Who should I contact about my CTIL or Cornerstone mast lease?",
         answer:
-          "Contact The Phone Mast Advice Company. We act exclusively for landlords in negotiations with CTIL/Cornerstone and have extensive experience and comparable evidence from hundreds of similar negotiations. Call 01691 791543 or use WhatsApp: 447843352654 for a free initial consultation.",
+          "Contact The Phone Mast Advice Company. We act exclusively for landlords in negotiations with CTIL/Cornerstone and have extensive experience and comparable evidence from hundreds of similar negotiations. Call 01691 791543 or use WhatsApp for a free initial consultation.",
+      },
+      {
+        question: "What is a typical rent for a CTIL / Cornerstone phone mast?",
+        answer:
+          "CTIL/Cornerstone manages approximately 14,200 macro sites across the UK, with rents varying substantially by location and site type. Since 2017, CTIL agents have routinely sought significant rent reductions under the ECC. We have an extensive comparable database from CTIL/Cornerstone negotiations across England and Wales and can assess what your site should be achieving.",
+      },
+      {
+        question: "How does a CTIL / Cornerstone lease renewal work?",
+        answer:
+          "CTIL/Cornerstone will serve formal notice (under the ECC or LTA 1954 depending on your existing lease) seeking to renew the agreement, typically at a significantly reduced rent. Given the sophistication of their agents and the complexity of the ECC, independent specialist representation is essential. We manage the entire process from initial notice to final agreement.",
+      },
+      {
+        question: "What should I do when Cornerstone contacts me?",
+        answer:
+          "Do not engage with Cornerstone or their agents before taking specialist advice. Cornerstone employs experienced commercial agents who are skilled at securing operator-favourable terms. Even an apparently friendly initial call can prejudice your negotiating position. Call us on 01691 791543 first.",
+      },
+      {
+        question: "How does the Electronic Communications Code affect CTIL / Cornerstone landlords?",
+        answer:
+          "CTIL/Cornerstone has extensive experience using the Electronic Communications Code and the 'no-scheme' valuation approach to reduce landlord rents. We were involved in instigating and advising on Compton Beauchamp Estates v CTIL [2022] UKSC 18, which established important protections for landlords with pre-2017 LTA-protected leases. We apply this expertise to every CTIL negotiation.",
+      },
+      {
+        question: "What are common CTIL / Cornerstone lease terms to watch out for?",
+        answer:
+          "CTIL/Cornerstone leases frequently include broad sharing rights (for both Vodafone and O2 equipment), extensive upgrade rights, very broad access provisions, and break clauses in the operator's favour. Rent review clauses, if any, are often structured to minimise uplifts. We scrutinise every term and ensure your lease reflects fair, independently negotiated terms.",
       },
     ],
   },
@@ -365,6 +491,31 @@ const operators: Record<string, OperatorData> = {
         answer:
           "On Tower UK Ltd is a subsidiary within the Cellnex group. It was formerly the mobile mast infrastructure division of Arqiva, which was sold in 2020. For practical and legal purposes, On Tower operates within the Cellnex corporate structure.",
       },
+      {
+        question: "What is a typical rent for a Cellnex phone mast?",
+        answer:
+          "Cellnex mast rents vary by location, site type, and the number of operators using the site. As a neutral host infrastructure company, Cellnex may host multiple mobile networks on your land. We have comparable evidence from Cellnex and On Tower negotiations and can advise on what your site should be achieving.",
+      },
+      {
+        question: "How does a Cellnex lease renewal work?",
+        answer:
+          "Cellnex (or On Tower UK Ltd) will contact you about renewing or replacing your lease, typically proposing new Code terms. Given their commercial experience and the complexity of the ECC framework, independent specialist advice is essential before you respond to anything.",
+      },
+      {
+        question: "What should I do when Cellnex contacts me about my lease?",
+        answer:
+          "Do not engage with Cellnex or On Tower before taking specialist advice. Call us on 01691 791543 for a free initial consultation. We will review your documentation and advise on the best approach before any dialogue with the operator.",
+      },
+      {
+        question: "How does the Electronic Communications Code affect Cellnex landlords?",
+        answer:
+          "The ECC applies to Cellnex and On Tower in the same way as mobile network operators. The 'no-scheme' valuation approach can produce lower rents than pre-2017 market assessments. We advise on your specific position under both the ECC and any applicable LTA 1954 protections.",
+      },
+      {
+        question: "What are common Cellnex lease terms I should review?",
+        answer:
+          "Cellnex leases often include broad multi-operator hosting provisions, extensive upgrade and access rights, and break clauses in the operator's favour. As a neutral host, Cellnex may seek to host multiple operators on your site — understanding the implications for your rent and lease terms is important. We review all proposed terms and advise accordingly.",
+      },
     ],
   },
 
@@ -422,6 +573,31 @@ const operators: Record<string, OperatorData> = {
         question: "Should I engage with On Tower directly about my lease renewal?",
         answer:
           "We strongly advise against engaging directly with On Tower or their agents before taking specialist advice. Once you engage, you may inadvertently limit your negotiating options. Contact us for a free initial consultation before making any response.",
+      },
+      {
+        question: "What is a typical rent for an On Tower (formerly Arqiva) phone mast?",
+        answer:
+          "On Tower UK Ltd (previously Arqiva's mobile division) manages a significant UK portfolio of mast sites. Rents vary by location, site type, and lease history. Many Arqiva-origin leases were agreed before 2017 under different valuation principles. We assess your site and advise on achievable rent in the current market.",
+      },
+      {
+        question: "How does an On Tower / Arqiva lease renewal work?",
+        answer:
+          "On Tower UK Ltd (as the successor entity within Cellnex) will contact you about renewing your existing lease, typically proposing Code terms. If your lease was originally with Arqiva, you should first verify the correct legal counterpart. We manage the entire renewal process and all operator communications on your behalf.",
+      },
+      {
+        question: "What should I do when On Tower contacts me?",
+        answer:
+          "Do not respond until you have taken specialist advice. We offer a free initial consultation and will review your documentation to confirm the current legal position regarding your counterpart entity and your options. Call 01691 791543.",
+      },
+      {
+        question: "How does the Electronic Communications Code affect On Tower / Arqiva landlords?",
+        answer:
+          "On Tower UK Ltd, as part of Cellnex, is a Code operator and can apply for new agreements under the ECC's 'no-scheme' valuation framework. For legacy Arqiva leases, the transition to On Tower may also raise questions about assignment and consent. We advise on all of these issues.",
+      },
+      {
+        question: "What are typical On Tower lease terms to watch out for?",
+        answer:
+          "On Tower leases often include broad multi-operator rights, upgrade provisions, and access terms that may be more extensive than necessary. Any lease variation proposed in connection with the Arqiva-to-On Tower transition should be carefully reviewed. We check every clause and ensure your interests are fully protected.",
       },
     ],
   },
@@ -481,6 +657,31 @@ const operators: Record<string, OperatorData> = {
         answer:
           "Airwave leases relate to TETRA emergency services infrastructure rather than consumer mobile network equipment. The equipment, purpose, and contractual context differ, but the Electronic Communications Code applies in the same way. Specialist advice is required to understand the full implications for your site.",
       },
+      {
+        question: "What is a typical rent for an Airwave Solutions mast?",
+        answer:
+          "Airwave mast rents are distinct from consumer mobile network rents due to the specialist nature of the TETRA emergency services infrastructure. Rents depend on location, site type, and the ESN transition context. We hold comparable evidence and advise on what your Airwave site should be achieving in the current market.",
+      },
+      {
+        question: "How does an Airwave lease renewal work?",
+        answer:
+          "Airwave Solutions will contact you about renewing or extending your lease, often in the context of the ESN transition timeline. As a Code operator, they can apply to the Upper Tribunal (Lands Chamber) if agreement is not reached. The ESN transition creates specific complexities that make specialist advice particularly important.",
+      },
+      {
+        question: "What should I do when Airwave contacts me about my lease?",
+        answer:
+          "Do not engage with Airwave or Motorola Solutions before taking specialist advice. We offer a free initial consultation and will advise on your rights, the ESN transition implications, and the best negotiating strategy for your situation. Call 01691 791543.",
+      },
+      {
+        question: "How does the Electronic Communications Code affect Airwave landlords?",
+        answer:
+          "Airwave Solutions is a Code operator, and the ECC applies to Airwave leases in the same way as consumer mobile network leases. The 'no-scheme' valuation approach may be used to propose reduced rents. We advise on your specific rights and protections under both the ECC and any LTA 1954 provisions that may apply.",
+      },
+      {
+        question: "What are common Airwave lease terms to review?",
+        answer:
+          "Airwave leases may include provisions specific to emergency services infrastructure, including extended access rights and restrictive site-sharing terms. The ESN transition context may create uncertainty about lease duration and future site use. We review all terms and advise on protections you should seek to include in any new or renewed agreement.",
+      },
     ],
   },
 
@@ -538,6 +739,31 @@ const operators: Record<string, OperatorData> = {
         question: "Is WIG the same as Cellnex, On Tower, or CTIL/Cornerstone?",
         answer:
           "No. WIG (Wireless Infrastructure Group) is a separate and independent company from Cellnex, On Tower (formerly Arqiva mobile division), and CTIL/Cornerstone. Each is a distinct legal entity with different ownership and infrastructure portfolios.",
+      },
+      {
+        question: "What is a typical rent for a WIG phone mast?",
+        answer:
+          "Rents for WIG-managed mast sites vary by location, site type, and the number of operators using the infrastructure. As a neutral host, WIG may accommodate multiple networks on a single site. We have comparable evidence from WIG negotiations and can assess what your site should be achieving.",
+      },
+      {
+        question: "How does a WIG lease renewal work?",
+        answer:
+          "WIG will contact you about renewing or extending your lease, typically proposing Code terms. As with all operators, WIG can apply to the Upper Tribunal (Lands Chamber) if agreement is not reached. We recommend engaging specialist representation before responding to any WIG renewal proposal.",
+      },
+      {
+        question: "What should I do when WIG contacts me about my mast?",
+        answer:
+          "Do not agree to anything or respond substantively before taking specialist advice. WIG's commercial team is experienced in securing operator-favourable terms. We offer a free initial consultation and will advise on the best approach. Call 01691 791543.",
+      },
+      {
+        question: "How does the Electronic Communications Code affect WIG landlords?",
+        answer:
+          "WIG, as a Code operator, has the same rights as mobile network operators to seek 'no-scheme' valuations and new Code agreements. The ECC framework applies fully to WIG leases. Pre-2017 leases may benefit from LTA 1954 protections. We assess your specific position and advise accordingly.",
+      },
+      {
+        question: "What are typical WIG lease terms I should check?",
+        answer:
+          "WIG leases often include broad multi-operator hosting rights, upgrade provisions, and access terms. As an independent infrastructure company, WIG may seek more flexibility than a single network operator would. Any rent review mechanism should be carefully scrutinised. We review all proposed terms and negotiate to protect your position.",
       },
     ],
   },
@@ -882,6 +1108,137 @@ export default async function OperatorPage({
             Frequently Asked Questions — {data.name} Phone Mast Leases
           </h2>
           <FAQAccordion items={data.faqs} showJsonLd={false} />
+        </div>
+      </section>
+
+      {/* Related Services */}
+      <section style={{ padding: "3rem 1.5rem" }}>
+        <div className="container-max" style={{ maxWidth: "800px" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.25rem, 2.5vw, 1.75rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Related Services
+          </h2>
+          <div
+            style={{
+              display: "grid",
+              gap: "1rem",
+              gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
+              marginBottom: "2rem",
+            }}
+          >
+            {[
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Navigate ECC lease renewals confidently" },
+              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews", desc: "Benchmark and improve your rent" },
+              { label: "New Lettings", href: "/phone-mast-services/new-lettings", desc: "Get the right terms from day one" },
+              { label: "Mast Sales", href: "/phone-mast-services/mast-sales", desc: "Capitalise on your lease income" },
+              { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment", desc: "Reclaim your land when needed" },
+              { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery", desc: "Recover operator electricity costs" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{
+                  display: "block",
+                  backgroundColor: "#f9f8f5",
+                  border: "1px solid #e5e7eb",
+                  borderRadius: "10px",
+                  padding: "1rem 1.25rem",
+                  textDecoration: "none",
+                }}
+              >
+                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>
+                  {item.label}
+                </p>
+                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>
+                  {item.desc}
+                </p>
+              </Link>
+            ))}
+          </div>
+
+          <h3
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "1.25rem",
+              color: "#1a1a2e",
+              marginBottom: "1rem",
+            }}
+          >
+            Quick Links
+          </h3>
+          <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "2rem" }}>
+            {[
+              { label: "Free Lease Check", href: "/free-lease-check" },
+              { label: "Free Rent Estimate", href: "/free-rent-estimate" },
+              { label: "Contact Our Team", href: "/contact" },
+              { label: "All Operator Guides", href: "/phone-mast-services" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{
+                  display: "inline-flex",
+                  alignItems: "center",
+                  backgroundColor: "#1B4F72",
+                  color: "#ffffff",
+                  fontWeight: 600,
+                  fontSize: "0.9375rem",
+                  padding: "0.5rem 1.1rem",
+                  borderRadius: "50px",
+                  textDecoration: "none",
+                  minHeight: "44px",
+                }}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </div>
+
+          <h3
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "1.25rem",
+              color: "#1a1a2e",
+              marginBottom: "1rem",
+            }}
+          >
+            Related Articles
+          </h3>
+          <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
+            {[
+              { title: "How Lease Renewals Work Under the Electronic Communications Code", href: "/blog/forced-lease-renewals" },
+              { title: "Why Phone Mast Rents Are Being Reduced", href: "/blog/reduce-phone-mast-rents" },
+              { title: "What Is a Phone Mast Lease? A Landlord's Guide", href: "/blog/what-is-a-phone-mast-lease" },
+              { title: "Mistakes to Avoid as a Phone Mast Landlord", href: "/blog/mistakes-to-avoid-as-a-phone-mast-landlord" },
+              { title: "Telecom Code Rights vs Property Rights", href: "/blog/telecom-code-rights-vs-property-rights-what-every-phone-mast-landlord-should-know" },
+            ].map((item) => (
+              <Link
+                key={item.href}
+                href={item.href}
+                style={{
+                  color: "#1B4F72",
+                  fontWeight: 600,
+                  fontSize: "1rem",
+                  textDecoration: "none",
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "0.5rem",
+                }}
+              >
+                <span aria-hidden="true" style={{ color: "#a4ca62", fontWeight: 700 }}>→</span>
+                {item.title}
+              </Link>
+            ))}
+          </div>
         </div>
       </section>
 
