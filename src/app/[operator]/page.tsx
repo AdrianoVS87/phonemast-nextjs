@@ -15,6 +15,7 @@ interface OperatorData {
   heroSubheadline: string;
   intro: string[];
   keyFacts: string[];
+  commonScenarios: string[];
   faqs: FAQItem[];
 }
 
@@ -39,6 +40,14 @@ const operators: Record<string, OperatorData> = {
       "Vodafone's agents are experienced commercial negotiators — you need specialist representation",
       "The Electronic Communications Code (ECC), revised under the Digital Economy Act 2017, affects how Vodafone calculates and proposes rent",
       "Lease renewals with Vodafone can trigger significant rent reduction proposals — expert advice is critical",
+    ],
+    commonScenarios: [
+      "Vodafone or their agents have written requesting a rent review or lease renewal",
+      "You have received Heads of Terms from Vodafone or CTIL/Cornerstone proposing a lower rent",
+      "Your lease is approaching expiry and Vodafone has not yet made contact",
+      "Vodafone is requesting access for equipment upgrades or site sharing with another operator",
+      "You have been offered a lump sum premium to sell your Vodafone mast lease income stream",
+      "You are considering whether to grant a new Vodafone mast lease on your land",
     ],
     faqs: [
       {
@@ -90,6 +99,14 @@ const operators: Record<string, OperatorData> = {
       "The Digital Economy Act 2017 changed rent calculation mechanisms — O2 agents use this to propose lower rents",
       "We have comparable evidence from hundreds of O2 and CTIL mast negotiations across the UK",
     ],
+    commonScenarios: [
+      "O2 or their agents (often acting as CTIL/Cornerstone) have contacted you about a rent review",
+      "You have received Heads of Terms from Telefónica UK Ltd, O2, or CTIL/Cornerstone",
+      "Your O2 lease has expired and you are unsure of your rights",
+      "O2 has requested to upgrade equipment or share your site with Vodafone via CTIL",
+      "You have received a premium offer to sell your O2 mast lease income",
+      "You are unsure whether your counterpart is O2, Telefónica UK Ltd, or CTIL/Cornerstone",
+    ],
     faqs: [
       {
         question: "Who is the legal operator — O2, Telefónica, or CTIL/Cornerstone?",
@@ -139,6 +156,14 @@ const operators: Record<string, OperatorData> = {
       "MBNL is separate from CTIL/Cornerstone — the Vodafone/O2 joint venture",
       "EE leases may be held by EE Limited or MBNL depending on your agreement",
       "Under the Digital Economy Act 2017, EE agents use 'no-scheme' valuation to propose reduced rents",
+    ],
+    commonScenarios: [
+      "EE or their agents have contacted you about a rent review or lease renewal",
+      "You have received Heads of Terms from EE or MBNL proposing reduced rent",
+      "Your EE lease is expiring and you are unsure whether you are dealing with EE or MBNL",
+      "EE is requesting to upgrade equipment on your site or share it with Three via MBNL",
+      "You have been offered a lump sum premium to sell your EE mast lease income",
+      "You want to understand the difference between EE, BT, and MBNL for your specific lease",
     ],
     faqs: [
       {
@@ -190,6 +215,14 @@ const operators: Record<string, OperatorData> = {
       "Three leases may be held by Hutchison 3G UK Ltd or MBNL depending on your agreement",
       "The Digital Economy Act 2017 ECC provisions affect how Three proposes and calculates rent",
     ],
+    commonScenarios: [
+      "Three or their agents have contacted you about a rent review or lease renewal",
+      "You have received a notice from Three or Hutchison 3G UK Ltd under the Electronic Communications Code",
+      "Three has requested to upgrade or share infrastructure on your site via MBNL",
+      "Your Three or MBNL lease is expiring and you are unsure of your position",
+      "You have been offered a lump sum to sell your Three mast lease income stream",
+      "You are uncertain whether your counterpart is Three, Hutchison 3G UK Ltd, or MBNL",
+    ],
     faqs: [
       {
         question: "What is the relationship between Three, Hutchison 3G, and MBNL?",
@@ -239,6 +272,14 @@ const operators: Record<string, OperatorData> = {
       "They manage approximately 14,200 macro and 1,400 micro sites — the UK's largest infrastructure portfolio",
       "We instigated and advised on Compton Beauchamp Estates v CTIL [2022] UKSC 18 — a landmark case protecting landlord rights",
       "CTIL's agents are commercially sophisticated — independent specialist representation is critical",
+    ],
+    commonScenarios: [
+      "CTIL or Cornerstone have contacted you about a lease renewal or rent review",
+      "You have received a formal notice from CTIL under the Electronic Communications Code",
+      "CTIL/Cornerstone is proposing a significant rent reduction at lease renewal",
+      "You have received Heads of Terms from Cornerstone — CTIL's commercial brand",
+      "You have a pre-2017 lease and are unsure of your protections under LTA 1954",
+      "CTIL is requesting site sharing or equipment upgrades on your land",
     ],
     faqs: [
       {
@@ -290,6 +331,14 @@ const operators: Record<string, OperatorData> = {
       "Lease renewals and rent reviews with Cellnex require specialist independent advice",
       "The Electronic Communications Code applies to Cellnex as an operator in the same way as network operators",
     ],
+    commonScenarios: [
+      "Cellnex or On Tower have contacted you about a rent review or lease renewal",
+      "Your original Arqiva mobile mast lease has been transferred to Cellnex/On Tower",
+      "Cellnex is proposing new lease terms or a rent reduction",
+      "Multiple mobile operators now use your mast via Cellnex as a neutral host",
+      "You have received a formal Code notice from Cellnex or On Tower UK Ltd",
+      "You are considering selling your Cellnex mast lease income stream",
+    ],
     faqs: [
       {
         question: "What is Cellnex's relationship with Arqiva and On Tower?",
@@ -339,6 +388,14 @@ const operators: Record<string, OperatorData> = {
       "Arqiva remains active only in broadcast infrastructure (TV and radio transmitters)",
       "If your lease names Arqiva as the operator for mobile masts, you need to verify the current counterpart entity",
       "On Tower/Cellnex leases are subject to the Electronic Communications Code introduced by the Digital Economy Act 2017",
+    ],
+    commonScenarios: [
+      "Your lease names Arqiva but you are unsure who your current operator is",
+      "On Tower UK Ltd has contacted you about a rent review or lease renewal",
+      "You have not received an Assignment of Lease notification since the 2020 Cellnex sale",
+      "On Tower is proposing new lease terms under the Electronic Communications Code",
+      "You need to confirm whether your site relates to mobile masts or broadcast infrastructure",
+      "You want advice before responding to any communication from On Tower or Cellnex",
     ],
     faqs: [
       {
@@ -390,6 +447,14 @@ const operators: Record<string, OperatorData> = {
       "Airwave masts are distinct from consumer mobile network masts in their purpose and operation",
       "The Electronic Communications Code applies to Airwave as a Code operator",
     ],
+    commonScenarios: [
+      "Airwave Solutions has contacted you about a lease renewal or extension",
+      "Your Airwave lease is expiring and you are uncertain about your rights during the ESN transition",
+      "Airwave is proposing new or amended lease terms under the Electronic Communications Code",
+      "You are unsure whether your site will be retained when the ESN replaces the Airwave network",
+      "You want independent advice before responding to any Airwave or Motorola Solutions communication",
+      "You need to understand the ESN transition timeline and its impact on your income",
+    ],
     faqs: [
       {
         question: "What is Airwave and who owns it?",
@@ -439,6 +504,14 @@ const operators: Record<string, OperatorData> = {
       "As a neutral host, WIG may house multiple operators on your land under a single lease",
       "The Electronic Communications Code applies to WIG as a Code operator",
       "Independent infrastructure companies like WIG are commercially experienced lease negotiators",
+    ],
+    commonScenarios: [
+      "WIG has approached you about building a new mast on your land",
+      "You have received Heads of Terms from Wireless Infrastructure Group",
+      "WIG is proposing a rent review or lease renewal for an existing mast on your property",
+      "Multiple mobile operators are using your WIG mast and you want to understand the rent implications",
+      "WIG has requested to upgrade infrastructure or carry out works on your land",
+      "You want independent advice before signing anything proposed by WIG",
     ],
     faqs: [
       {
@@ -584,7 +657,7 @@ export default async function OperatorPage({
           <p
             style={{
               fontSize: "1.25rem",
-              color: "rgba(255,255,255,0.88)",
+              color: "rgba(255,255,255,0.92)",
               lineHeight: 1.65,
               marginBottom: "2rem",
             }}
@@ -695,8 +768,57 @@ export default async function OperatorPage({
         </div>
       </section>
 
-      {/* Why choose us */}
+      {/* Common Scenarios */}
       <section className="section-padding">
+        <div className="container-max" style={{ maxWidth: "800px" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#1a1a2e",
+              marginBottom: "0.75rem",
+            }}
+          >
+            Common Scenarios We Handle
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.5rem" }}>
+            If any of the following apply to you, contact us for a free initial consultation.
+          </p>
+          <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+            {data.commonScenarios.map((scenario, i) => (
+              <li
+                key={i}
+                style={{
+                  display: "flex",
+                  gap: "0.875rem",
+                  marginBottom: "0.875rem",
+                  fontSize: "1.125rem",
+                  color: "#374151",
+                  lineHeight: 1.6,
+                  alignItems: "flex-start",
+                }}
+              >
+                <span
+                  style={{
+                    flexShrink: 0,
+                    color: "#a4ca62",
+                    fontSize: "1.25rem",
+                    fontWeight: 700,
+                    marginTop: "0.05rem",
+                  }}
+                >
+                  →
+                </span>
+                {scenario}
+              </li>
+            ))}
+          </ul>
+        </div>
+      </section>
+
+      {/* Why choose us */}
+      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h2
             style={{
@@ -745,7 +867,7 @@ export default async function OperatorPage({
 
       {/* FAQ */}
       <section
-        style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}
+        style={{ backgroundColor: "#EEF5FB", padding: "3rem 1.5rem" }}
       >
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h2
