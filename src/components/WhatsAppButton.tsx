@@ -20,7 +20,7 @@ export default function WhatsAppButton() {
         aria-label="Chat with us on WhatsApp"
         style={{
           position: "fixed",
-          bottom: "5rem", // 80px from bottom — above mobile sticky bar
+          bottom: "6.5rem", // 80px from bottom — above mobile sticky bar
           right: "1rem",  // 16px from right edge
           zIndex: 999,
           display: "flex",

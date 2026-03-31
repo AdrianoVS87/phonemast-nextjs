@@ -46,6 +46,11 @@ const nextConfig: NextConfig = {
 
       // Services overview
       { source: "/phone-mast-services-overview", destination: "/phone-mast-services", permanent: true },
+
+      // Missing operator redirects (old WordPress URLs)
+      { source: "/arqiva-phone-mast-lease", destination: "/on-tower-arqiva-phone-mast-lease", permanent: true },
+      { source: "/cornerstone-phone-mast-lease", destination: "/ctil-cornerstone-phone-mast-lease", permanent: true },
+      { source: "/ctil-phone-mast-lease", destination: "/ctil-cornerstone-phone-mast-lease", permanent: true },
     ];
   },
 
