@@ -34,14 +34,14 @@ const services: ServiceCardProps[] = [
     icon: "📋",
     title: "Rent Reviews",
     description:
-      "Regularly benchmark and update your rental income using our extensive database of comparable UK deals. Ensure you receive fair market rent.",
+      "Secure fair market rent and contract terms. We benchmark your site against comparable UK deals to ensure you're fairly compensated.",
     href: "/phone-mast-services/rent-reviews",
   },
   {
     icon: "🔄",
     title: "Lease Renewals",
     description:
-      "Navigate the Electronic Communications Code confidently. We secure favourable terms when operators try to renew your lease on their terms.",
+      "Get the right lease from day one. Navigate the Electronic Communications Code confidently with specialist representation.",
     href: "/phone-mast-services/lease-renewals",
   },
   {
@@ -83,7 +83,7 @@ const services: ServiceCardProps[] = [
     icon: "➕",
     title: "Other Services",
     description:
-      "Portfolio valuations, dispute resolution support, lease interpretation — tailored specialist advice for any telecoms property situation.",
+      "Know your rights under modern telecom law. Portfolio valuations, dispute resolution, lease interpretation — tailored specialist advice.",
     href: "/phone-mast-services/other-services",
   },
 ];
@@ -161,7 +161,7 @@ export default function HomePage() {
       {/* Hero */}
       <Hero
         headline="Expert Phone Mast Lease Advice"
-        subheadline="Independent specialist telecom surveyors acting only for UK landlords and landowners. We secure fair rents, strong contracts, and long-term protection — we never act for mobile phone operators."
+        subheadline="Independent Specialist Telecom Surveyors Only Acting For Land and Property Owners — We Do Not Act For Mobile Phone Operators"
         ctaText="Get Your Free Rent Estimate"
         ctaHref="/free-rent-estimate"
         secondaryCtaText="Free Lease Check"
@@ -220,10 +220,27 @@ export default function HomePage() {
                   marginBottom: "1.25rem",
                 }}
               >
-                If you own land or property with a phone mast, telecom tower,
-                rooftop antenna, or other telecommunications equipment, you need
-                expert representation — not operator agents protecting their own
-                interests.
+                Specialist agents representing landlords, negotiating Phone Mast lease renewals with Vodafone, EE, Hutchison 3G (Three), O2, Airwave Solutions, Arqiva, On Tower, Cornerstone, Cellnex, and Wireless Infrastructure Group (WIG).
+              </p>
+              <p
+                style={{
+                  fontSize: "1.125rem",
+                  color: "#374151",
+                  lineHeight: 1.7,
+                  marginBottom: "1.25rem",
+                }}
+              >
+                A well-structured telecoms lease can protect the value of your property for decades.
+              </p>
+              <p
+                style={{
+                  fontSize: "1.125rem",
+                  color: "#374151",
+                  lineHeight: 1.7,
+                  marginBottom: "1.25rem",
+                }}
+              >
+                If you own land or property with a Phone Mast, telecom tower, rooftop antenna, or other telecommunications equipment, you need expert representation – not operator agents protecting their own interests. We help landlords secure fair rents, strong contracts, and long-term protection.
               </p>
               <p
                 style={{
@@ -233,12 +250,7 @@ export default function HomePage() {
                   marginBottom: "2rem",
                 }}
               >
-                Mobile phone mast leases are governed by both commercial law and
-                the Electronic Communications Code — a complex legal framework
-                that affects your rent, negotiation rights, and protections.
-                Without specialist advice, landlords commonly face under-market
-                rent offers, unfavourable contract terms, and loss of
-                redevelopment rights.
+                Mobile Phone Mast leases and telecom agreements are complex and governed by both commercial law and the Electronic Communications Code (ECC) – the legal framework that affects rent, negotiation rights, and landlord protections. Without specialist advice, landlords commonly face under-market rent offers, unfavourable access &amp; maintenance clauses, loss of redevelopment rights, confusing legal obligations under the ECC, and poor outcomes from operator-led negotiations.
               </p>
               <a href="/about-us" className="btn-primary">
                 About Our Firm
@@ -263,28 +275,24 @@ export default function HomePage() {
                   marginBottom: "1.5rem",
                 }}
               >
-                How We Help You
+                How We Help Landlords
               </h3>
               {[
                 {
                   icon: "🔍",
-                  text: "Review your current agreement and explain your options in plain English",
+                  text: "We review your current agreement and any offers from operators, then explain your options in clear plain English.",
                 },
                 {
                   icon: "📞",
-                  text: "Take over all communication with the operator and their agents",
+                  text: "We take over communication with the operator or their agents so you can focus on running your properties, not chasing rent increases or contract terms.",
                 },
                 {
                   icon: "📊",
-                  text: "Use our database of comparable UK deals to negotiate fair rents",
+                  text: "Using our extensive database of comparable UK deals, we negotiate strong terms and fair rents, even when facing big telecom operators.",
                 },
                 {
                   icon: "✍️",
-                  text: "Work with you and your solicitor from initial strategy to final contract",
-                },
-                {
-                  icon: "🛡️",
-                  text: "Protect your rights, income, and property value at every stage",
+                  text: "From initial strategy to final contract execution, we work with you and your solicitor to ensure your interests are fully protected.",
                 },
               ].map((item, i) => (
                 <div
@@ -572,12 +580,7 @@ export default function HomePage() {
                 marginBottom: "2rem",
               }}
             >
-              We instigated and advised on the landmark case{" "}
-              <em>Compton Beauchamp Estates v CTIL</em>{" "}
-              [2022] UKSC 18 — the most significant telecoms ruling since the
-              Telecommunications Act 1984. The Supreme Court confirmed that
-              operators cannot use the Electronic Communications Code to impose
-              new terms on existing landowners without proper process.
+                To date, we are the first firm in the UK to have successfully fought back against operators and new legislation and kept rents at the same high levels. We were involved in the landmark case that established operators cannot use the new Code to bypass existing Landlord and Tenant Act 1954 protections, preventing significantly reduced terms from being imposed on landowners (see CTIL v Compton Beauchamp Estates [2022] UKSC 18). This is the most famous case in telecoms case law history, since the introduction of the Telecommunications Act 1984.
             </p>
 
             {/* Client quote */}
