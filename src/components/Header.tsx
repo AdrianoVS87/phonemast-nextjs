@@ -124,178 +124,80 @@ export default function Header() {
 
               {servicesOpen && (
                 <div
-                  onMouseLeave={() => { setServicesOpen(false); setOperatorsOpen(false); }}
+                  onMouseLeave={() => { setServicesOpen(false); }}
                   style={{
                     position: "absolute",
                     top: "100%",
-                    left: 0,
+                    left: "50%",
+                    transform: "translateX(-50%)",
                     marginTop: "0.5rem",
                     backgroundColor: "#ffffff",
-                    borderRadius: "8px",
-                    boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-                    minWidth: "260px",
-                    maxHeight: "calc(100vh - 80px)",
-                    overflowY: "auto",
-                    overscrollBehavior: "contain",
-                    scrollbarWidth: "thin",
+                    borderRadius: "12px",
+                    boxShadow: "0 12px 48px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05)",
+                    width: "680px",
                     zIndex: 100,
-                    padding: "0.5rem 0",
+                    padding: "1.5rem",
+                    display: "grid",
+                    gridTemplateColumns: "1fr 1fr 1fr",
+                    gap: "0.25rem",
                   }}
                 >
-                  <Link
-                    href="/phone-mast-services"
-                    onClick={() => setServicesOpen(false)}
-                    style={{
-                      display: "block",
-                      padding: "0.625rem 1.25rem",
-                      color: "#1B4F72",
-                      fontSize: "0.9375rem",
-                      fontWeight: 600,
-                      borderBottom: "1px solid #f0f0f0",
-                      textDecoration: "none",
-                    }}
-                  >
-                    All Services
-                  </Link>
-                  {serviceLinks.map((link) => (
-                    <div key={link.href} className="relative">
-                      {link.label === "Lease Renewals" ? (
-                        <button
-                          onMouseEnter={() => setOperatorsOpen(true)}
-                          onClick={() => setOperatorsOpen(!operatorsOpen)}
-                          style={{
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "space-between",
-                            width: "100%",
-                            padding: "0.625rem 1.25rem",
-                            color: "#1a1a2e",
-                            fontSize: "0.9375rem",
-                            background: operatorsOpen ? "#f5f5f5" : "none",
-                            border: "none",
-                            cursor: "pointer",
-                            textAlign: "left",
-                          }}
-                        >
-                          {link.label}
-                          <svg width="10" height="10" viewBox="0 0 10 10" fill="#999">
-                            <path d="M3 2l4 3-4 3" fill="none" stroke="#999" strokeWidth="1.5" />
-                          </svg>
-                        </button>
-                      ) : (
-                        <Link
-                          href={link.href}
-                          onClick={() => setServicesOpen(false)}
-                          style={{
-                            display: "block",
-                            padding: "0.625rem 1.25rem",
-                            color: "#1a1a2e",
-                            fontSize: "0.9375rem",
-                            textDecoration: "none",
-                          }}
-                          onMouseEnter={(e) => {
-                            (e.currentTarget as HTMLElement).style.backgroundColor = "#f5f5f5";
-                            setOperatorsOpen(false);
-                          }}
-                          onMouseLeave={(e) => {
-                            (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-                          }}
-                        >
-                          {link.label}
-                        </Link>
-                      )}
-
-                      {/* Operators sub-menu */}
-                      {link.label === "Lease Renewals" && operatorsOpen && (
-                        <div
-                          style={{
-                            position: "absolute",
-                            left: "100%",
-                            top: "-0.5rem",
-                            marginLeft: "0.25rem",
-                            backgroundColor: "#ffffff",
-                            borderRadius: "8px",
-                            boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
-                            minWidth: "240px",
-                            padding: "0.5rem 0",
-                            zIndex: 101,
-                          }}
-                          onMouseLeave={() => setOperatorsOpen(false)}
-                        >
-                          <Link
-                            href="/phone-mast-services/lease-renewals"
-                            onClick={() => { setServicesOpen(false); setOperatorsOpen(false); }}
-                            style={{
-                              display: "block",
-                              padding: "0.625rem 1.25rem",
-                              color: "#1B4F72",
-                              fontSize: "0.9375rem",
-                              fontWeight: 600,
-                              borderBottom: "1px solid #f0f0f0",
-                              textDecoration: "none",
-                            }}
-                          >
-                            Lease Renewals Overview
-                          </Link>
-                          {operatorLinks.map((op) => (
-                            <Link
-                              key={op.href}
-                              href={op.href}
-                              onClick={() => { setServicesOpen(false); setOperatorsOpen(false); }}
-                              style={{
-                                display: "block",
-                                padding: "0.5rem 1.25rem",
-                                color: "#1a1a2e",
-                                fontSize: "0.875rem",
-                                textDecoration: "none",
-                              }}
-                              onMouseEnter={(e) => {
-                                (e.currentTarget as HTMLElement).style.backgroundColor = "#f5f5f5";
-                                (e.currentTarget as HTMLElement).style.color = "#1B4F72";
-                              }}
-                              onMouseLeave={(e) => {
-                                (e.currentTarget as HTMLElement).style.backgroundColor = "transparent";
-                                (e.currentTarget as HTMLElement).style.color = "#1a1a2e";
-                              }}
-                            >
-                              {op.label}
-                            </Link>
-                          ))}
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                  {/* 2026 pages */}
-                  <div style={{ borderTop: "1px solid #f0f0f0", marginTop: "0.25rem", paddingTop: "0.25rem" }}>
-                    <Link
-                      href="/phone-mast-rent-2026"
-                      onClick={() => setServicesOpen(false)}
-                      style={{
-                        display: "block",
-                        padding: "0.625rem 1.25rem",
-                        color: "#1a1a2e",
-                        fontSize: "0.9375rem",
-                        textDecoration: "none",
-                      }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f5f5f5"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}
-                    >
-                      Phone Mast Rent 2026
+                  {/* Column 1: Services */}
+                  <div>
+                    <Link href="/phone-mast-services" onClick={() => setServicesOpen(false)}
+                      style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
+                      Our Services
                     </Link>
-                    <Link
-                      href="/phone-mast-lease-2026"
-                      onClick={() => setServicesOpen(false)}
-                      style={{
-                        display: "block",
-                        padding: "0.625rem 1.25rem",
-                        color: "#1a1a2e",
-                        fontSize: "0.9375rem",
-                        textDecoration: "none",
-                      }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f5f5f5"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}
-                    >
-                      Phone Mast Lease 2026
+                    {serviceLinks.map((link) => (
+                      <Link key={link.href} href={link.href} onClick={() => setServicesOpen(false)}
+                        style={{ display: "block", padding: "0.375rem 0", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s" }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#1B4F72"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#1a1a2e"; }}>
+                        {link.label}
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Column 2: Operators */}
+                  <div style={{ borderLeft: "1px solid #f0f0f0", paddingLeft: "1.25rem" }}>
+                    <Link href="/phone-mast-services/lease-renewals" onClick={() => setServicesOpen(false)}
+                      style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
+                      By Operator
+                    </Link>
+                    {operatorLinks.map((op) => (
+                      <Link key={op.href} href={op.href} onClick={() => setServicesOpen(false)}
+                        style={{ display: "block", padding: "0.375rem 0", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s" }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#1B4F72"; }}
+                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#1a1a2e"; }}>
+                        {op.label}
+                      </Link>
+                    ))}
+                  </div>
+
+                  {/* Column 3: 2026 + CTA */}
+                  <div style={{ borderLeft: "1px solid #f0f0f0", paddingLeft: "1.25rem" }}>
+                    <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem" }}>
+                      2026 Updates
+                    </span>
+                    <Link href="/phone-mast-rent-2026" onClick={() => setServicesOpen(false)}
+                      style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "0.5rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f9f8f5", borderRadius: "8px", borderLeft: "3px solid #a4ca62", transition: "background 0.15s" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f0efe8"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}>
+                      <span style={{ fontWeight: 600 }}>Phone Mast Rent 2026</span>
+                      <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>PSTI Act changes 7 April</span>
+                    </Link>
+                    <Link href="/phone-mast-lease-2026" onClick={() => setServicesOpen(false)}
+                      style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "1rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f9f8f5", borderRadius: "8px", borderLeft: "3px solid #a4ca62", transition: "background 0.15s" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f0efe8"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}>
+                      <span style={{ fontWeight: 600 }}>Phone Mast Lease 2026</span>
+                      <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>Code renewals explained</span>
+                    </Link>
+                    <Link href="/free-rent-estimate" onClick={() => setServicesOpen(false)}
+                      style={{ display: "block", padding: "0.625rem 1rem", backgroundColor: "#a4ca62", color: "#1a1a2e", fontSize: "0.875rem", fontWeight: 600, textDecoration: "none", borderRadius: "8px", textAlign: "center" as const, transition: "background 0.15s" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#8fb854"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#a4ca62"; }}>
+                      Free Rent Estimate →
                     </Link>
                   </div>
                 </div>
