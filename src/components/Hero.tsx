@@ -19,6 +19,7 @@ export default function Hero({
 }: HeroProps) {
   return (
     <section
+      className="hero-section"
       style={{
         backgroundColor: "#1B4F72",
         position: "relative",
@@ -38,7 +39,7 @@ export default function Hero({
       />
 
       <div
-        className="container-max"
+        className="container-max hero-container"
         style={{
           position: "relative",
           paddingTop: "5rem",
@@ -47,6 +48,7 @@ export default function Hero({
       >
         {/* Trust badge */}
         <div
+          className="hero-trust-badge"
           style={{
             display: "inline-flex",
             alignItems: "center",
@@ -66,6 +68,7 @@ export default function Hero({
 
         {/* Headline */}
         <h1
+          className="hero-headline"
           style={{
             color: "#ffffff",
             fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -81,6 +84,7 @@ export default function Hero({
 
         {/* Sub-headline */}
         <p
+          className="hero-subheadline"
           style={{
             color: "rgba(255,255,255,0.92)",
             fontSize: "1.1875rem",
@@ -92,8 +96,35 @@ export default function Hero({
           {subheadline}
         </p>
 
+        {/* Mobile-only tap-to-call button (Fix 2) — hidden on desktop */}
+        <a
+          href="tel:01691791543"
+          className="hero-mobile-call"
+          aria-label="Call us on 01691 791543"
+          style={{
+            display: "none", /* shown via CSS on mobile */
+            width: "100%",
+            alignItems: "center",
+            justifyContent: "center",
+            gap: "0.625rem",
+            backgroundColor: "#1B4F72",
+            border: "2px solid rgba(255,255,255,0.5)",
+            color: "#ffffff",
+            fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+            fontWeight: 700,
+            fontSize: "1.125rem",
+            borderRadius: "0.625rem",
+            textDecoration: "none",
+            minHeight: "56px",
+            marginBottom: "0.75rem",
+          }}
+        >
+          📞 Call 01691 791543
+        </a>
+
         {/* CTA buttons */}
         <div
+          className="hero-cta-group"
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -117,8 +148,9 @@ export default function Hero({
           </Link>
         </div>
 
-        {/* Phone call strip */}
+        {/* Phone call strip — hidden on mobile (replaced by tap-to-call button above + sticky bar) */}
         <div
+          className="hero-phone-strip"
           style={{
             display: "flex",
             flexWrap: "wrap",
@@ -159,6 +191,42 @@ export default function Hero({
           </a>
         </div>
       </div>
+
+      <style>{`
+        /* Mobile hero: tighten layout so both CTAs are above the fold on 375px/360px viewports */
+        @media (max-width: 639px) {
+          .hero-container {
+            padding-top: 1.25rem !important;
+            padding-bottom: 1.25rem !important;
+          }
+          .hero-trust-badge {
+            font-size: 0.8125rem !important;
+            padding: 0.25rem 0.75rem !important;
+            margin-bottom: 0.625rem !important;
+          }
+          .hero-headline {
+            font-size: 1.625rem !important;
+            line-height: 1.15 !important;
+            margin-bottom: 0.625rem !important;
+          }
+          .hero-subheadline {
+            font-size: 1rem !important;
+            line-height: 1.55 !important;
+            margin-bottom: 0.875rem !important;
+          }
+          .hero-mobile-call {
+            display: flex !important;
+          }
+          .hero-cta-group {
+            margin-bottom: 0.875rem !important;
+            gap: 0.625rem !important;
+          }
+          /* Hide the phone strip on mobile — tap-to-call button above + sticky bar covers it */
+          .hero-phone-strip {
+            display: none !important;
+          }
+        }
+      `}</style>
     </section>
   );
 }
