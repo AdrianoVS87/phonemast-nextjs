@@ -6,6 +6,7 @@ import TestimonialCard, { type TestimonialCardProps } from "@/components/Testimo
 import CTASection from "@/components/CTASection";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import JsonLd from "@/components/JsonLd";
+import AnimatedSection from "@/components/AnimatedSection";
 
 export const revalidate = 60; // ISR — revalidate every 60 seconds
 
@@ -346,7 +347,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <div
+          <AnimatedSection
             style={{
               display: "grid",
               gap: "1.5rem",
@@ -356,7 +357,7 @@ export default function HomePage() {
             {services.map((service) => (
               <ServiceCard key={service.href} {...service} />
             ))}
-          </div>
+          </AnimatedSection>
 
           <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
             <a href="/phone-mast-services" className="btn-primary">
