@@ -63,7 +63,7 @@ export default function Hero({
             fontWeight: 600,
           }}
         >
-          ✓ Only Acting For Landlords — Never Operators
+          ✓ Representing Landlords, Never Operators
         </div>
 
         {/* Headline */}

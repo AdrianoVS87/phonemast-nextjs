@@ -198,7 +198,7 @@ export default function HomePage() {
                   border: "1px solid rgba(164,202,98,0.4)",
                 }}
               >
-                Only Acting For Landlords
+                Representing Landlords
               </span>
               <h2
                 style={{

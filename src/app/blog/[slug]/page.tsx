@@ -248,7 +248,7 @@ export default async function BlogPostPage({ params }: Props) {
               </p>
               <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>
                 Matt Restall has over 25 years&apos; experience advising UK landlords on phone mast leases and rent reviews. He instigated and advised on the landmark{" "}
-                <em>Compton Beauchamp Estates v CTIL</em> case and has completed over 1,000 deals on behalf of landowners across England and Wales. Matt acts exclusively for landlords — never operators.
+                <em>Compton Beauchamp Estates v CTIL</em> case and has completed over 1,000 deals on behalf of landowners across England and Wales. Matt represents landlords — never operators.
               </p>
             </div>
           </div>

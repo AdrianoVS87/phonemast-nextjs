@@ -248,7 +248,7 @@ export default function Footer() {
             © {new Date().getFullYear()} The Phone Mast Advice Company Ltd — Reg. 13115582. All rights reserved.
           </p>
           <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8125rem", margin: 0 }}>
-            Independent telecom surveyors — We do not act for mobile phone operators.
+            We represent landlords, never operators. Independent specialist telecoms surveyors.
           </p>
           <div style={{ display: "flex", gap: "12px", alignItems: "center" }}>
             <a
