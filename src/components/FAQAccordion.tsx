@@ -47,12 +47,17 @@ export default function FAQAccordion({ items, showJsonLd = true }: FAQAccordionP
             <div
               key={index}
               style={{
-                border: `1px solid ${isOpen ? "#a4ca62" : "#e5e7eb"}`,
-                borderRadius: "0.75rem",
+                border: `1px solid ${isOpen ? "#a4ca62" : "#E2E8F0"}`,
+                borderRadius: "0.5rem",
                 overflow: "hidden",
-                transition: "border-color 0.2s ease",
+                transition: "border-color 0.2s ease, box-shadow 0.2s ease",
                 backgroundColor: "#ffffff",
+                boxShadow: isOpen
+                  ? "0 4px 12px rgba(27,79,114,0.12)"
+                  : "0 1px 3px rgba(0,0,0,0.06)",
+                marginBottom: "0.75rem",
               }}
+              className="faq-item"
             >
               <button
                 onClick={() => toggle(index)}
@@ -62,7 +67,7 @@ export default function FAQAccordion({ items, showJsonLd = true }: FAQAccordionP
                   display: "flex",
                   justifyContent: "space-between",
                   alignItems: "center",
-                  padding: "1.25rem 1.5rem",
+                  padding: "1.25rem",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
@@ -74,8 +79,8 @@ export default function FAQAccordion({ items, showJsonLd = true }: FAQAccordionP
                 <span
                   style={{
                     fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "1.0625rem",
+                    fontWeight: 600,
+                    fontSize: "1.1875rem",
                     color: "#1a1a2e",
                     lineHeight: 1.4,
                   }}
@@ -86,18 +91,19 @@ export default function FAQAccordion({ items, showJsonLd = true }: FAQAccordionP
                   aria-hidden="true"
                   style={{
                     flexShrink: 0,
-                    width: "1.5rem",
-                    height: "1.5rem",
+                    width: "1.75rem",
+                    height: "1.75rem",
                     borderRadius: "50%",
-                    backgroundColor: isOpen ? "#a4ca62" : "#f3f4f6",
+                    backgroundColor: isOpen ? "#a4ca62" : "#EEF2FF",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
-                    color: isOpen ? "#1a1a2e" : "#6b7280",
-                    fontSize: "1rem",
+                    color: isOpen ? "#1a1a2e" : "#1B4F72",
+                    fontSize: "1.375rem",
                     fontWeight: 700,
                     transition: "background-color 0.2s ease, transform 0.2s ease",
                     transform: isOpen ? "rotate(45deg)" : "rotate(0deg)",
+                    lineHeight: 1,
                   }}
                 >
                   +
@@ -114,9 +120,9 @@ export default function FAQAccordion({ items, showJsonLd = true }: FAQAccordionP
               >
                 <div
                   style={{
-                    padding: "0 1.5rem 1.25rem",
+                    padding: "0 1.25rem 1.25rem",
                     color: "#374151",
-                    fontSize: "1.0625rem",
+                    fontSize: "1.125rem",
                     lineHeight: 1.7,
                   }}
                 >

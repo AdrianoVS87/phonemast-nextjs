@@ -197,8 +197,8 @@ export default function FAQPage() {
           </h1>
           <p
             style={{
-              fontSize: "1.125rem",
-              color: "rgba(255,255,255,0.88)",
+              fontSize: "1.1875rem",
+              color: "rgba(255,255,255,0.92)",
               lineHeight: 1.65,
             }}
           >
@@ -209,18 +209,18 @@ export default function FAQPage() {
 
       {/* FAQ categories */}
       <section className="section-padding">
-        <div className="container-max" style={{ maxWidth: "800px" }}>
+        <div className="container-max" style={{ maxWidth: "48rem" }}>
           {faqCategories.map((category, catIndex) => (
-            <div key={catIndex} style={{ marginBottom: "3rem" }}>
+            <div key={catIndex} style={{ marginBottom: "3.5rem" }}>
               <h2
                 style={{
                   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                   fontWeight: 700,
-                  fontSize: "clamp(1.25rem, 2vw, 1.625rem)",
+                  fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)",
                   color: "#1B4F72",
                   marginBottom: "1.25rem",
                   paddingBottom: "0.75rem",
-                  borderBottom: "2px solid #e5e7eb",
+                  borderBottom: "3px solid #a4ca62",
                 }}
               >
                 {category.category}
