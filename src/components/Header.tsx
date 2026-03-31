@@ -134,6 +134,8 @@ export default function Header() {
                     borderRadius: "8px",
                     boxShadow: "0 8px 32px rgba(0,0,0,0.15)",
                     minWidth: "260px",
+                    maxHeight: "calc(100vh - 80px)",
+                    overflowY: "auto",
                     zIndex: 100,
                     padding: "0.5rem 0",
                   }}
