@@ -7,7 +7,8 @@ import TrustSignals from "@/components/TrustSignals";
 import CTASection from "@/components/CTASection";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import JsonLd from "@/components/JsonLd";
-import AnimatedSection from "@/components/AnimatedSection";
+// AnimatedSection removed — Motion library's transform/opacity inline styles
+// created GPU compositor overhead in Chrome during scroll on macOS.
 
 export const revalidate = 60; // ISR — revalidate every 60 seconds
 
@@ -519,7 +520,7 @@ export default function HomePage() {
             </p>
           </div>
 
-          <AnimatedSection
+          <div
             style={{
               display: "grid",
               gap: "1.5rem",
@@ -529,7 +530,7 @@ export default function HomePage() {
             {services.map((service) => (
               <ServiceCard key={service.href} {...service} />
             ))}
-          </AnimatedSection>
+          </div>
 
           <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
             <a href="/phone-mast-services" className="btn-primary">

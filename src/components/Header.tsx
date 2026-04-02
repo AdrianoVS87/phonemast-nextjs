@@ -75,7 +75,7 @@ export default function Header() {
 
   return (
     <header
-      className="sticky top-0 z-50 w-full transition-shadow duration-200"
+      className="sticky top-0 z-50 w-full"
       style={{
         backgroundColor: "#1B4F72",
         boxShadow: scrolled ? "0 2px 16px rgba(27,79,114,0.18)" : "none",

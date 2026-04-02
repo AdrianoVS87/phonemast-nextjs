@@ -48,6 +48,24 @@ html {
    Any smooth-scroll needs (e.g. anchor links) should use JS scrollIntoView
    with { behavior: 'smooth' } on a per-element basis instead. */
 
+/* ── Chrome scroll performance hardening ──────────────────────────────────
+   Force fixed-position elements onto their own GPU compositor layers so
+   Chrome doesn't repaint the entire document during scroll. Without this,
+   Chrome re-composites fixed elements against the scrolling content on
+   every frame, which feels sluggish on macOS (especially Retina displays).
+   Safari handles this natively via its compositor — hence no issue there. */
+[aria-label="Quick contact bar"],
+[aria-label="Quick contact sidebar"],
+[aria-label="Chat with us on WhatsApp"] {
+  will-change: transform;
+}
+
+/* Promote the sticky header to its own layer.
+   Tailwind adds .sticky class; we target the <header> element directly. */
+header {
+  will-change: transform;
+}
+
 body {
   background-color: #ffffff;
   color: #1a1a2e;
