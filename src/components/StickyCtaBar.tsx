@@ -9,9 +9,11 @@ export default function StickyCtaBar() {
   useEffect(() => {
     const handleScroll = () => {
       // Show after scrolling past ~400px (past the hero)
-      setVisible(window.scrollY > 400);
+      const next = window.scrollY > 400;
+      setVisible((prev) => (prev === next ? prev : next));
     };
     window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 

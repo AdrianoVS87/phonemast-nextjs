@@ -40,8 +40,19 @@
 }
 
 html {
-  scroll-behavior: smooth;
   -webkit-text-size-adjust: 100%;
+}
+
+/* Chrome can feel sluggish with global smooth scrolling.
+   Keep smooth only for keyboard/focus navigation. */
+html:focus-within {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
 }
 
 body {
