@@ -7,14 +7,28 @@ export default function StickyCtaBar() {
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    const handleScroll = () => {
-      // Show after scrolling past ~400px (past the hero)
-      const next = window.scrollY > 400;
-      setVisible((prev) => (prev === next ? prev : next));
+    // Use IntersectionObserver instead of scroll listener.
+    // Scroll listeners run on the main thread and can make Chrome on macOS
+    // fall back from compositor-driven (fast) to main-thread (slow) scrolling.
+    // IO runs off the main thread and doesn't affect scroll performance.
+    const sentinel = document.createElement("div");
+    sentinel.style.position = "absolute";
+    sentinel.style.top = "400px";
+    sentinel.style.height = "1px";
+    sentinel.style.width = "1px";
+    sentinel.style.pointerEvents = "none";
+    document.body.prepend(sentinel);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setVisible(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(sentinel);
+
+    return () => {
+      observer.disconnect();
+      sentinel.remove();
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   return (

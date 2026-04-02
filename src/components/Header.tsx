@@ -46,13 +46,27 @@ export default function Header() {
   const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const handleScroll = () => {
-      const next = window.scrollY > 8;
-      setScrolled((prev) => (prev === next ? prev : next));
+    // Use IntersectionObserver instead of scroll listener.
+    // Scroll listeners force Chrome macOS to main-thread scrolling (slow).
+    // IO runs off the main thread — zero scroll performance impact.
+    const sentinel = document.createElement("div");
+    sentinel.style.position = "absolute";
+    sentinel.style.top = "8px";
+    sentinel.style.height = "1px";
+    sentinel.style.width = "1px";
+    sentinel.style.pointerEvents = "none";
+    document.body.prepend(sentinel);
+
+    const observer = new IntersectionObserver(
+      ([entry]) => setScrolled(!entry.isIntersecting),
+      { threshold: 0 }
+    );
+    observer.observe(sentinel);
+
+    return () => {
+      observer.disconnect();
+      sentinel.remove();
     };
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
   useEffect(() => {

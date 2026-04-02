@@ -64,9 +64,9 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
-      className={`${jakarta.variable} ${inter.variable} h-full antialiased`}
+      className={`${jakarta.variable} ${inter.variable} antialiased`}
     >
-      <body className="min-h-full flex flex-col" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "1.125rem" }}>
+      <body className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "1.125rem" }}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
