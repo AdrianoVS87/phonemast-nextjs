@@ -51,7 +51,7 @@ export default function StickyCtaBar() {
           alignItems: "center",
           justifyContent: "center",
           boxShadow: "0 -4px 20px rgba(0,0,0,0.2)",
-          transform: visible ? "translateY(0)" : "translateY(100%)",
+          transform: visible ? "translateY(0) translateZ(0)" : "translateY(100%) translateZ(0)",
           transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
         }}
         className="sticky-cta-mobile"
@@ -135,8 +135,8 @@ export default function StickyCtaBar() {
           right: 0,
           top: "50%",
           transform: visible
-            ? "translateY(-50%) translateX(0)"
-            : "translateY(-50%) translateX(100%)",
+            ? "translateY(-50%) translateX(0) translateZ(0)"
+            : "translateY(-50%) translateX(100%) translateZ(0)",
           transition: "transform 0.35s cubic-bezier(0.4, 0, 0.2, 1)",
           zIndex: 990,
           display: "flex",

@@ -93,6 +93,7 @@ export default function Header() {
       style={{
         backgroundColor: "#1B4F72",
         boxShadow: scrolled ? "0 2px 16px rgba(27,79,114,0.18)" : "none",
+        transform: "translateZ(0)", /* Force GPU layer — prevents box-shadow repaint during scroll */
       }}
     >
       <div className="container-max">

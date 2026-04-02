@@ -1,15 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
-
 export default function WhatsAppButton() {
-  const [animated, setAnimated] = useState(false);
-
-  useEffect(() => {
-    // Trigger pulse animation on first load after short delay
-    const timer = setTimeout(() => setAnimated(true), 1500);
-    return () => clearTimeout(timer);
-  }, []);
 
   return (
     <>
@@ -35,7 +26,7 @@ export default function WhatsAppButton() {
           boxShadow: "0 4px 16px rgba(37, 211, 102, 0.4)",
           textDecoration: "none",
           color: "#ffffff",
-          animation: animated ? "whatsapp-pulse 2s ease-in-out" : "none",
+          transform: "translateZ(0)", /* Force GPU layer — prevents box-shadow repaint on scroll */
         }}
       >
         <svg
@@ -49,14 +40,6 @@ export default function WhatsAppButton() {
         </svg>
       </a>
       <style>{`
-        @keyframes whatsapp-pulse {
-          0% { transform: scale(1); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
-          20% { transform: scale(1.15); box-shadow: 0 6px 24px rgba(37, 211, 102, 0.6); }
-          40% { transform: scale(1); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
-          60% { transform: scale(1.1); box-shadow: 0 5px 20px rgba(37, 211, 102, 0.5); }
-          80% { transform: scale(1); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
-          100% { transform: scale(1); box-shadow: 0 4px 16px rgba(37, 211, 102, 0.4); }
-        }
         @media (min-width: 768px) {
           /* On desktop, WhatsApp button sits 24px from bottom-right — no mobile sticky bar */
           a[aria-label="Chat with us on WhatsApp"] {

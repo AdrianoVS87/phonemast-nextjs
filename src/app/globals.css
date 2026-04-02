@@ -49,22 +49,13 @@ html {
    with { behavior: 'smooth' } on a per-element basis instead. */
 
 /* ── Chrome scroll performance hardening ──────────────────────────────────
-   Force fixed-position elements onto their own GPU compositor layers so
-   Chrome doesn't repaint the entire document during scroll. Without this,
-   Chrome re-composites fixed elements against the scrolling content on
-   every frame, which feels sluggish on macOS (especially Retina displays).
-   Safari handles this natively via its compositor — hence no issue there. */
-[aria-label="Quick contact bar"],
-[aria-label="Quick contact sidebar"],
-[aria-label="Chat with us on WhatsApp"] {
-  will-change: transform;
-}
-
-/* Promote the sticky header to its own layer.
-   Tailwind adds .sticky class; we target the <header> element directly. */
-header {
-  will-change: transform;
-}
+   Fixed/sticky elements with box-shadow cause Chrome on macOS to repaint
+   the shadow on every scroll frame (CPU-bound). translateZ(0) forces
+   each element onto its own GPU compositor layer, so the shadow is
+   rasterized once and composited without repainting.
+   Individual components now apply translateZ(0) inline.
+   The .card class below also gets it to prevent box-shadow transition
+   tracking from causing scroll repaints on the services grid. */
 
 body {
   background-color: #ffffff;
@@ -146,17 +137,17 @@ a:hover {
   border-radius: 0.625rem;
   border: none;
   cursor: pointer;
-  transition: background-color 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   min-height: 44px;
   min-width: 44px;
   text-decoration: none;
   box-shadow: 0 4px 14px rgba(164, 202, 98, 0.4);
+  transform: translateZ(0); /* GPU layer */
 }
 
 .btn-primary:hover {
   background-color: #8fb854;
   color: #1a1a2e;
-  transform: translateY(-2px);
+  transform: translateY(-2px) translateZ(0);
   box-shadow: 0 6px 20px rgba(164, 202, 98, 0.5);
 }
 
@@ -229,12 +220,12 @@ a:hover {
   border-radius: 1rem;
   border: 1px solid #e5e7eb;
   padding: 2rem;
-  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+  transform: translateZ(0); /* GPU layer — prevents box-shadow transition tracking during scroll */
 }
 
 .card:hover {
   box-shadow: 0 8px 32px rgba(27, 79, 114, 0.12);
-  transform: translateY(-2px);
+  transform: translateY(-2px) translateZ(0);
   border-color: rgba(27, 79, 114, 0.2);
 }
 
