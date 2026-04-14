@@ -62,7 +62,7 @@ const team: TeamMember[] = [
     name: "Mark Dernes",
     role: "Telecoms Consultant",
     credentials: "40+ Years Telecoms Experience",
-    photo: "/images/team/Mark-Dernes.png",
+    photo: "/images/team/Mark-Dernes.jpg",
     bio: "Mark Dernes is an experienced consultant whose career spans over four decades in telecoms, finance, and real estate. Mark specialises in facilitating lease negotiations — including renewals and mast sales — drawing on unique insight from having worked with both of the United Kingdom's leading mast investment companies. His breadth of negotiating experience across multiple sectors adds significant depth to The Phone Mast Advice Company's advisory offering.",
     linkedin: "https://www.linkedin.com/in/markdernes/",
   },
