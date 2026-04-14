@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     template: "%s | Phone Mast Advice",
   },
   description:
-    "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings. 25+ years experience. Call 01691 791543.",
+    "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings. 30+ years experience. Call 01691 791543.",
   metadataBase: new URL("https://phonemastadvice.co.uk"),
   alternates: {
     languages: {

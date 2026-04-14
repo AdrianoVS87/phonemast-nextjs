@@ -94,7 +94,7 @@ export default function HandbookPage() {
               margin: "0 auto",
             }}
           >
-            Everything UK landlords need to know about phone mast leases, rents, and their rights — written by our specialist surveying team with 25+ years of experience.
+            Everything UK landlords need to know about phone mast leases, rents, and their rights — written by our specialist surveying team with 30+ years of experience.
           </p>
         </div>
       </section>
@@ -174,7 +174,7 @@ export default function HandbookPage() {
                     Written by specialist telecom surveyors
                   </p>
                   <p style={{ color: "#374151", fontSize: "1rem", margin: 0, lineHeight: 1.65 }}>
-                    This handbook is based on over 25 years of experience and 1,000+ deals completed on behalf of UK landlords. It&apos;s the same knowledge we share with our paying clients — free, because we believe in informed landlords.
+                    This handbook is based on over 30 years of experience and 10,000+ deals completed on behalf of UK landlords. It&apos;s the same knowledge we share with our paying clients — free, because we believe in informed landlords.
                   </p>
                 </div>
               </div>

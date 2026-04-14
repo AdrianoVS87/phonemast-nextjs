@@ -55,7 +55,7 @@ export default function FreeRentEstimatePage() {
 
               {[
                 { icon: "📊", text: "Based on comparable deals across the UK" },
-                { icon: "🎯", text: "Accurate estimates from 25+ years of data" },
+                { icon: "🎯", text: "Accurate estimates from 30+ years of data" },
                 { icon: "💰", text: "Find out if you&apos;re being underpaid" },
                 { icon: "🔒", text: "100% independent — we never act for operators" },
                 { icon: "⚡", text: "Response within one working day" },

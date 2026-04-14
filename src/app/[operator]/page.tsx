@@ -33,7 +33,7 @@ const operators: Record<string, OperatorData> = {
     intro: [
       "Vodafone is one of the UK's largest mobile network operators with thousands of phone mast sites on privately owned land. If you have a Vodafone phone mast lease, you need independent specialist advice to ensure the terms and rent reflect the true value of your site.",
       "Vodafone, like all major operators, employs experienced agents to minimise lease costs. Without specialist representation, UK landlords regularly accept below-market rents and unfavourable lease terms that persist for years.",
-      "The Phone Mast Advice Company acts exclusively for landlords — never for mobile phone operators. We bring over 25 years of experience and an extensive database of comparable Vodafone mast deals to every negotiation.",
+      "The Phone Mast Advice Company acts exclusively for landlords — never for mobile phone operators. We bring over 30 years of experience and an extensive database of comparable Vodafone mast deals to every negotiation.",
     ],
     keyFacts: [
       "Vodafone operates thousands of mast sites across the UK, including rooftops, greenfield towers, and street furniture",
@@ -116,7 +116,7 @@ const operators: Record<string, OperatorData> = {
     intro: [
       "O2 (Telefónica UK Ltd) operates one of the UK's four main mobile networks, with a significant portfolio of phone mast sites on privately owned land. If O2 or their agents have contacted you about a lease renewal, rent review, or new agreement, specialist advice is essential.",
       "O2 shares infrastructure with Vodafone through CTIL (Cornerstone Telecommunications Infrastructure Limited). Your lease may be held by Telefónica UK, O2, or CTIL/Cornerstone — the legal entity matters when negotiating.",
-      "We act exclusively for landlords, bringing 25+ years of UK telecoms expertise and a comprehensive database of O2 mast comparable deals to every negotiation.",
+      "We act exclusively for landlords, bringing 30+ years of UK telecoms expertise and a comprehensive database of O2 mast comparable deals to every negotiation.",
     ],
     keyFacts: [
       "O2 is owned by Telefónica UK Ltd and operates extensive mast infrastructure across the UK",
@@ -199,7 +199,7 @@ const operators: Record<string, OperatorData> = {
     intro: [
       "EE (part of BT Group) operates the UK's largest mobile network with a substantial portfolio of phone mast sites across the country. EE leases may be held directly by EE or through MBNL, the joint network infrastructure company EE shares with Three (Hutchison 3G).",
       "EE's infrastructure agents are commercially experienced and will typically open with rent and terms that favour the operator. Without specialist representation, many landlords accept significant rent reductions and unfavourable lease clauses.",
-      "The Phone Mast Advice Company acts only for landlords. We have over 25 years of experience with EE and MBNL negotiations, and our database of comparable UK mast deals ensures every negotiation is evidence-based.",
+      "The Phone Mast Advice Company acts only for landlords. We have over 30 years of experience with EE and MBNL negotiations, and our database of comparable UK mast deals ensures every negotiation is evidence-based.",
     ],
     keyFacts: [
       "EE is owned by BT Group and operates the UK's largest 4G/5G network",
@@ -282,7 +282,7 @@ const operators: Record<string, OperatorData> = {
     intro: [
       "Three UK (Hutchison 3G UK Ltd) operates one of the UK's four main mobile networks and holds a significant portfolio of phone mast sites on privately owned land. Three shares infrastructure with EE through MBNL, the joint network infrastructure company.",
       "Three's infrastructure agents routinely use the Electronic Communications Code to propose rent reductions and operator-favourable lease terms. Without specialist representation, many landlords unknowingly accept below-market income for decades.",
-      "We act exclusively for UK landlords in negotiations with Three, Hutchison 3G, and MBNL. Our 25+ years of experience and extensive deal database ensure evidence-based negotiations on your behalf.",
+      "We act exclusively for UK landlords in negotiations with Three, Hutchison 3G, and MBNL. Our 30+ years of experience and extensive deal database ensure evidence-based negotiations on your behalf.",
     ],
     keyFacts: [
       "Three is owned by Hutchison 3G UK Ltd (CK Hutchison Holdings)",
@@ -448,7 +448,7 @@ const operators: Record<string, OperatorData> = {
     intro: [
       "Cellnex UK is a major independent telecoms infrastructure company that acquired a significant UK portfolio of phone mast sites. Cellnex operates as a neutral host infrastructure provider, leasing mast capacity to multiple mobile network operators.",
       "Cellnex acquired On Tower UK (formerly Arqiva's mobile infrastructure division) and other UK infrastructure assets. If you have a mast lease with Cellnex, you need specialist advice to navigate their commercial approach to lease renewals and rent reviews.",
-      "We act exclusively for UK landlords in negotiations with Cellnex, drawing on 25+ years of telecoms property expertise and an extensive database of comparable deals.",
+      "We act exclusively for UK landlords in negotiations with Cellnex, drawing on 30+ years of telecoms property expertise and an extensive database of comparable deals.",
     ],
     keyFacts: [
       "Cellnex UK is one of Europe's largest independent mobile infrastructure companies",
@@ -697,7 +697,7 @@ const operators: Record<string, OperatorData> = {
     intro: [
       "Wireless Infrastructure Group (WIG) is one of the UK's leading independent wireless infrastructure companies. WIG builds, owns, and operates telecoms towers and infrastructure on behalf of mobile network operators. If WIG holds a lease on your land, you need specialist independent advice.",
       "As an infrastructure company rather than a network operator, WIG hosts multiple mobile networks on its masts. This can create particular considerations around consideration, upgrade rights, and the structure of lease agreements.",
-      "We act exclusively for UK landlords in negotiations with Wireless Infrastructure Group, bringing 25+ years of experience and a comprehensive database of WIG and independent infrastructure company comparable deals.",
+      "We act exclusively for UK landlords in negotiations with Wireless Infrastructure Group, bringing 30+ years of experience and a comprehensive database of WIG and independent infrastructure company comparable deals.",
     ],
     keyFacts: [
       "WIG (Wireless Infrastructure Group) is an independent telecoms infrastructure company — not a mobile network operator",
@@ -1075,7 +1075,7 @@ export default async function OperatorPage({
               marginBottom: "1.25rem",
             }}
           >
-            Our 25+ years of experience and extensive database of comparable UK mast deals means every negotiation is backed by hard evidence. We were involved in instigating and advising on{" "}
+            Our 30+ years of experience and extensive database of comparable UK mast deals means every negotiation is backed by hard evidence. We were involved in instigating and advising on{" "}
             <em>Compton Beauchamp Estates v CTIL</em> [2022] UKSC 18 — the most significant UK telecoms ruling since the Telecommunications Act 1984.
           </p>
           <p

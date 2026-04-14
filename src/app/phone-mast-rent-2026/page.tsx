@@ -632,7 +632,7 @@ export default function PhoneMastRent2026Page() {
           </h2>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            At The Phone Mast Advice Company Ltd, we act exclusively for landowners — we never act for operators. With over 25 years of experience advising on phone mast leases across the United Kingdom, we understand the complexities of the Electronic Communications Code and the practical impact of the 7 April 2026 changes.
+            At The Phone Mast Advice Company Ltd, we act exclusively for landowners — we never act for operators. With over 30 years of experience advising on phone mast leases across the United Kingdom, we understand the complexities of the Electronic Communications Code and the practical impact of the 7 April 2026 changes.
           </p>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>

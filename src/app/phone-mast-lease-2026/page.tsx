@@ -623,7 +623,7 @@ export default function PhoneMastLease2026Page() {
           </h2>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            At The Phone Mast Advice Company Ltd, we specialise exclusively in advising landowners on phone mast leases. We never act for operators. With over 25 years of experience negotiating lease terms with Vodafone, O2, EE, Three, CTIL, Cornerstone, Cellnex, On Tower, Airwave, and every other major operator in the UK, we understand the detail of every clause in your agreement.
+            At The Phone Mast Advice Company Ltd, we specialise exclusively in advising landowners on phone mast leases. We never act for operators. With over 30 years of experience negotiating lease terms with Vodafone, O2, EE, Three, CTIL, Cornerstone, Cellnex, On Tower, Airwave, and every other major operator in the UK, we understand the detail of every clause in your agreement.
           </p>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>

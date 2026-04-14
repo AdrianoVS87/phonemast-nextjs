@@ -7,12 +7,12 @@ import JsonLd from "@/components/JsonLd";
 export const metadata: Metadata = {
   title: "About Us | The Phone Mast Advice Company | UK Specialists Since 1999",
   description:
-    "Independent specialist telecom surveyors with 25+ years experience advising UK landlords on phone mast leases. Involved in landmark Supreme Court case [2022] UKSC 18. RICS credentials. Reg. 13115582.",
+    "Independent specialist telecom surveyors with 30+ years experience advising UK landlords on phone mast leases. Involved in landmark Supreme Court case [2022] UKSC 18. RICS credentials. Reg. 13115582.",
   alternates: { canonical: "https://phonemastadvice.co.uk/about-us" },
   openGraph: {
     title: "About The Phone Mast Advice Company Ltd",
     description:
-      "Independent specialist telecom surveyors acting only for UK landlords since 1999. RICS credentials, landmark case involvement, 1,000+ deals.",
+      "Independent specialist telecom surveyors acting only for UK landlords since 1999. RICS credentials, landmark case involvement, 10,000+ deals.",
     type: "website",
   },
 };
@@ -28,7 +28,7 @@ export default function AboutPage() {
           telephone: "01691 791543",
           email: "info@phonemastadvice.co.uk",
           description:
-            "Independent specialist telecom surveyors acting only for UK landlords with 25+ years experience. RICS registered surveyors. Company registration 13115582.",
+            "Independent specialist telecom surveyors acting only for UK landlords with 30+ years experience. RICS registered surveyors. Company registration 13115582.",
           priceRange: "££",
           areaServed: "United Kingdom",
         }}
@@ -137,7 +137,7 @@ export default function AboutPage() {
             Our goal is to obtain the most favourable lease terms for the client, as well as the highest rent achievable for their mobile phone masts, ensuring the landlord is happy. At the same time, we aim to maintain a good landlord and tenant relationship.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            For over 25 years, we have amassed a database of thousands of mobile Phone Mast deals across the UK which allows us to confidently negotiate higher rents and excellent lease/agreement terms for our landlords. This database ensures our negotiations are successful as we always have the comparable evidence to support our case.
+            For over 30 years, we have amassed a database of thousands of mobile Phone Mast deals across the UK which allows us to confidently negotiate higher rents and excellent lease/agreement terms for our landlords. This database ensures our negotiations are successful as we always have the comparable evidence to support our case.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7 }}>
             Our success has not only benefited small landlords, who may only own a single mobile Phone Mast, but also large corporations such as supermarket chains and Local Authorities who often have extensive mobile Phone Mast portfolios. We are able to efficiently manage such portfolios, ensuring we always achieve the best terms and highest rents in the marketplace. We guarantee rents are paid on time, allowing peace of mind for the client.
