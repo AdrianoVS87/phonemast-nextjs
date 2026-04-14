@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
@@ -21,6 +22,7 @@ interface TeamMember {
   credentials?: string;
   bio: string;
   linkedin?: string;
+  photo?: string;
 }
 
 const team: TeamMember[] = [
@@ -28,6 +30,7 @@ const team: TeamMember[] = [
     name: "Matt Restall",
     role: "Founder & Director",
     credentials: "Specialist Telecoms Surveyor",
+    photo: "/images/team/Matt-Restall.jpg",
     bio: "Matt Restall is the founder of The Phone Mast Advice Company Ltd and has over 25 years of specialist experience advising UK landlords on telecoms property matters — leases, rent reviews, new lettings, and lease sales. Matt was involved in instigating and advising on Compton Beauchamp Estates v CTIL [2022] UKSC 18 — the Supreme Court case that is the most significant UK telecoms ruling since the Telecommunications Act 1984. The case established that operators with existing Landlord and Tenant Act 1954 protected leases cannot use the Electronic Communications Code to impose significantly reduced rents. Matt has represented landlords across the UK — from individual rural landowners to large corporate property portfolios — and has developed one of the most comprehensive databases of comparable UK phone mast deals in the industry.",
     linkedin: "https://www.linkedin.com/in/matthew-restall-7a64669b/",
   },
@@ -35,6 +38,7 @@ const team: TeamMember[] = [
     name: "Andrew Chinn",
     role: "Head Surveyor",
     credentials: "Chartered Surveyor — RICS Registered",
+    photo: "/images/team/Andrew-Chinn.jpg",
     bio: "Andrew Chinn is a Chartered Surveyor and RICS-registered Head Surveyor with The Phone Mast Advice Company Ltd. His primary focus is providing professional advice to site providers and landlords, helping them to optimise the financial returns from telecommunications equipment on their premises. Andrew brings a diverse background in surveying across the North West of England, having consulted widely and run his own practice for over a decade before joining the firm. His RICS registration reflects his professional standing and adherence to the highest standards in surveying practice.",
     linkedin: "https://www.linkedin.com/in/andrew-chinn-9836a828/",
   },
@@ -42,6 +46,7 @@ const team: TeamMember[] = [
     name: "Raquel Smook",
     role: "Senior Business Manager",
     credentials: "",
+    photo: "/images/team/Raquel-Smook.jpg",
     bio: "Raquel Smook is our Senior Business Manager, responsible for client relationships, office administration, and working closely with the surveying team. Raquel specialises in reviewing lease agreements and tracking outstanding payments, ensuring clients maximise their financial returns from telecommunications equipment on their land or buildings. Her meticulous approach and deep knowledge of lease documentation means nothing is missed in the management of our clients' cases.",
     linkedin: "https://www.linkedin.com/in/raquel-smook-b479b4187/",
   },
@@ -49,6 +54,7 @@ const team: TeamMember[] = [
     name: "Charleen Van Blerk",
     role: "Business Manager",
     credentials: "",
+    photo: "/images/team/Charleen-van-Blerk.jpg",
     bio: "Charleen Van Blerk is our Business Manager, working closely alongside Raquel in managing company operations and administration. Charleen also oversees our content, communications, and digital presence, ensuring The Phone Mast Advice Company's expertise is clearly communicated to the UK landlords we serve.",
     linkedin: "https://www.linkedin.com/in/charleen-van-blerk-38918a170/",
   },
@@ -56,6 +62,7 @@ const team: TeamMember[] = [
     name: "Mark Dernes",
     role: "Telecoms Consultant",
     credentials: "40+ Years Telecoms Experience",
+    photo: "/images/team/Mark-Dernes.png",
     bio: "Mark Dernes is an experienced consultant whose career spans over four decades in telecoms, finance, and real estate. Mark specialises in facilitating lease negotiations — including renewals and mast sales — drawing on unique insight from having worked with both of the United Kingdom's leading mast investment companies. His breadth of negotiating experience across multiple sectors adds significant depth to The Phone Mast Advice Company's advisory offering.",
     linkedin: "https://www.linkedin.com/in/markdernes/",
   },
@@ -131,25 +138,41 @@ export default function TeamPage() {
                     marginBottom: "1rem",
                   }}
                 >
-                  {/* Photo placeholder */}
-                  <div
-                    style={{
-                      flexShrink: 0,
-                      width: "80px",
-                      height: "80px",
-                      borderRadius: "50%",
-                      backgroundColor: "#1B4F72",
-                      display: "flex",
-                      alignItems: "center",
-                      justifyContent: "center",
-                      color: "#ffffff",
-                      fontSize: "2rem",
-                      fontWeight: 700,
-                    }}
-                    aria-hidden="true"
-                  >
-                    {member.name.split(" ").map((n) => n[0]).join("").substring(0, 2)}
-                  </div>
+                  {/* Photo */}
+                  {member.photo ? (
+                    <Image
+                      src={member.photo}
+                      alt={member.name}
+                      width={80}
+                      height={80}
+                      style={{
+                        flexShrink: 0,
+                        width: "80px",
+                        height: "80px",
+                        borderRadius: "50%",
+                        objectFit: "cover",
+                      }}
+                    />
+                  ) : (
+                    <div
+                      style={{
+                        flexShrink: 0,
+                        width: "80px",
+                        height: "80px",
+                        borderRadius: "50%",
+                        backgroundColor: "#1B4F72",
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        color: "#ffffff",
+                        fontSize: "2rem",
+                        fontWeight: 700,
+                      }}
+                      aria-hidden="true"
+                    >
+                      {member.name.split(" ").map((n) => n[0]).join("").substring(0, 2)}
+                    </div>
+                  )}
                   <div style={{ flex: 1, minWidth: "200px" }}>
                     <h2
                       style={{
