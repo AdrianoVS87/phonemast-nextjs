@@ -9,8 +9,8 @@ interface Stat {
 }
 
 const stats: Stat[] = [
-  { value: 25, suffix: "+", label: "Years Experience" },
-  { value: 1000, suffix: "+", label: "Deals Completed" },
+  { value: 30, suffix: "+", label: "Years Experience" },
+  { value: 10000, suffix: "+", label: "Deals Completed" },
   { value: 3, suffix: "", label: "UK Offices" },
 ];
 

@@ -15,14 +15,14 @@ export const revalidate = 60; // ISR — revalidate every 60 seconds
 export const metadata: Metadata = {
   title: "Phone Mast Advice | Expert Lease & Rent Reviews | UK Specialists",
   description:
-    "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings. 25+ years experience, 1,000+ deals. Call 01691 791543.",
+    "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings. 30+ years experience, 10,000+ deals. Call 01691 791543.",
   alternates: {
     canonical: "https://phonemastadvice.co.uk",
   },
   openGraph: {
     title: "Phone Mast Advice | Expert Lease & Rent Reviews | UK Specialists",
     description:
-      "Independent specialist telecom surveyors acting only for UK landlords. 25+ years experience, 1,000+ deals completed across the UK.",
+      "Independent specialist telecom surveyors acting only for UK landlords. 30+ years experience, 10,000+ deals completed across the UK.",
     url: "https://phonemastadvice.co.uk",
     type: "website",
     locale: "en_GB",
@@ -344,7 +344,7 @@ export default function HomePage() {
                 marginBottom: "1.25rem",
               }}
             >
-              ⚠️ Urgent — Days Away
+              ⚠️ Now In Effect
             </span>
             <h2
               id="banner-2026-heading"
@@ -357,7 +357,7 @@ export default function HomePage() {
                 lineHeight: 1.2,
               }}
             >
-              Phone Mast Rent &amp; Lease Changes — 7 April 2026
+              Phone Mast Rent &amp; Lease Changes — Now In Force
             </h2>
             <p
               style={{
@@ -368,7 +368,7 @@ export default function HomePage() {
                 margin: "0 auto",
               }}
             >
-              The PSTI Act 2022 brings significant changes to how phone mast rents are calculated and leases renewed. Act now to protect your position.
+              The PSTI Act 2022 changes to phone mast rents and lease renewals are now in force. If you haven't reviewed your position, act now to protect your interests.
             </p>
           </div>
 

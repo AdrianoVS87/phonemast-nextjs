@@ -80,8 +80,8 @@ export default function AboutPage() {
           }}
         >
           {[
-            { number: "25+", label: "Years of Experience" },
-            { number: "1,000+", label: "Mast Deals Completed" },
+            { number: "30+", label: "Years of Experience" },
+            { number: "10,000+", label: "Mast Deals Completed" },
             { number: "3", label: "UK Offices" },
             { number: "100%", label: "Landlord-Only Representation" },
           ].map((stat, i) => (

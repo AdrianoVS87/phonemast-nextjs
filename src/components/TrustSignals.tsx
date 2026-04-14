@@ -143,7 +143,7 @@ export default function TrustSignals() {
                 margin: 0,
               }}
             >
-              25+ Years Combined Experience
+              30+ Years Combined Experience
             </p>
             <p
               style={{
@@ -153,7 +153,7 @@ export default function TrustSignals() {
                 textAlign: "center",
               }}
             >
-              1,000+ deals completed across England and Wales
+              10,000+ deals completed across England and Wales
             </p>
           </div>
 
