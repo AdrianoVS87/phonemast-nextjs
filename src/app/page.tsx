@@ -344,7 +344,7 @@ export default function HomePage() {
                 marginBottom: "1.25rem",
               }}
             >
-              ⚠️ Now In Effect
+              ⚠️ In Effect Since 7 April 2026
             </span>
             <h2
               id="banner-2026-heading"
@@ -357,7 +357,7 @@ export default function HomePage() {
                 lineHeight: 1.2,
               }}
             >
-              Phone Mast Rent &amp; Lease Changes — Now In Force
+              Phone Mast Rent &amp; Lease Changes — Now In Effect
             </h2>
             <p
               style={{
@@ -410,7 +410,7 @@ export default function HomePage() {
                   marginBottom: "1.5rem",
                 }}
               >
-                The no-network assumption, ECC valuation methodology, Vache Farm benchmark, and how 7 April 2026 removes the LTA 1954 rent advantage for legacy lease holders.
+                The no-network assumption, ECC valuation methodology, Vache Farm benchmark, and how the 7 April 2026 changes removed the LTA 1954 rent advantage for legacy lease holders.
               </p>
               <a
                 href="/phone-mast-rent-2026"
