@@ -37,9 +37,25 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   };
 }
 
+function slugify(text: string): string {
+  return text
+    .toLowerCase()
+    .replace(/<[^>]*>/g, "")
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-|-$/g, "");
+}
+
 async function markdownToHtml(markdown: string): Promise<string> {
   const result = await remark().use(remarkHtml, { sanitize: false }).process(markdown);
-  return result.toString();
+  let html = result.toString();
+
+  // Add IDs to headings for anchor navigation
+  html = html.replace(/<(h[2-4])>(.*?)<\/\1>/gi, (_match, tag, content) => {
+    const id = slugify(content);
+    return `<${tag} id="${id}">${content}</${tag}>`;
+  });
+
+  return html;
 }
 
 export default async function BlogPostPage({ params }: Props) {
@@ -53,7 +69,38 @@ export default async function BlogPostPage({ params }: Props) {
     .filter((p) => p.slug !== slug && p.category === post.category)
     .slice(0, 3);
 
-  const contentHtml = await markdownToHtml(post.content);
+  let contentHtml = await markdownToHtml(post.content);
+
+  // Make TOC items clickable — link list items that match heading text to their anchors
+  contentHtml = contentHtml.replace(
+    /(<li>)([^<]+)(<\/li>)/g,
+    (_match, open, text, close) => {
+      const trimmed = text.trim().replace(/:$/, "");
+      const id = slugify(trimmed);
+      // Only link if there's a matching heading ID in the content
+      if (contentHtml.includes(`id="${id}"`)) {
+        return `${open}<a href="#${id}" style="color:#1B4F72;text-decoration:none">${text}</a>${close}`;
+      }
+      return _match;
+    }
+  );
+
+  // Auto-link key service terms to internal pages (first occurrence only)
+  const serviceLinks: [RegExp, string, string][] = [
+    [/(?<!<a[^>]*>)\brent reviews?\b(?![^<]*<\/a>)/i, "/phone-mast-services/rent-reviews", "rent review"],
+    [/(?<!<a[^>]*>)\blease renewals?\b(?![^<]*<\/a>)/i, "/phone-mast-services/lease-renewals", "lease renewal"],
+    [/(?<!<a[^>]*>)\bnew lettings?\b(?![^<]*<\/a>)/i, "/phone-mast-services/new-lettings", "new letting"],
+    [/(?<!<a[^>]*>)\bmast sales?\b(?![^<]*<\/a>)/i, "/phone-mast-services/mast-sales", "mast sale"],
+    [/(?<!<a[^>]*>)\bremoval and redevelopment\b(?![^<]*<\/a>)/i, "/phone-mast-services/removal-and-redevelopment", "removal and redevelopment"],
+    [/(?<!<a[^>]*>)\belectricity costs? recovery\b(?![^<]*<\/a>)/i, "/phone-mast-services/electricity-costs-recovery", "electricity costs recovery"],
+    [/(?<!<a[^>]*>)\blease retrievals?\b(?![^<]*<\/a>)/i, "/phone-mast-services/lease-retrievals", "lease retrieval"],
+    [/(?<!<a[^>]*>)\bupgrade requests?\b(?![^<]*<\/a>)/i, "/phone-mast-services/other-services", "upgrade request"],
+  ];
+  for (const [pattern, href] of serviceLinks) {
+    contentHtml = contentHtml.replace(pattern, (match) =>
+      `<a href="${href}" style="color:#1B4F72;text-decoration:underline;text-underline-offset:2px">${match}</a>`
+    );
+  }
 
   const articleJsonLd = {
     "@context": "https://schema.org",
