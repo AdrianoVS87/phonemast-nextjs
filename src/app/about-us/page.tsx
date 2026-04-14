@@ -339,14 +339,14 @@ export default function AboutPage() {
       </section>
 
       {/* Meet Our Team */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "3rem 1.5rem" }}>
+      <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
         <div className="container-max" style={{ maxWidth: "800px", textAlign: "center" }}>
           <h2
             style={{
               fontFamily: "var(--font-jakarta), system-ui, sans-serif",
               fontWeight: 700,
               fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
-              color: "#ffffff",
+              color: "#1a1a2e",
               marginBottom: "1rem",
             }}
           >
@@ -355,9 +355,9 @@ export default function AboutPage() {
           <p
             style={{
               fontSize: "1.125rem",
-              color: "rgba(255,255,255,0.88)",
+              color: "#374151",
               lineHeight: 1.7,
-              marginBottom: "1.5rem",
+              marginBottom: "2rem",
             }}
           >
             Our team of specialist surveyors, consultants, and business managers work exclusively for UK landlords. With RICS credentials, decades of experience, and involvement in landmark telecoms cases, we bring expertise you can trust.

@@ -162,7 +162,7 @@ export default function HomePage() {
       {/* Hero */}
       <Hero
         headline="Expert Phone Mast Lease Advice"
-        subheadline="Independent Specialist Telecom Surveyors Only Acting For Land and Property Owners — We Do Not Act For Mobile Phone Operators"
+        subheadline="Independent specialist telecom surveyors acting only for UK landlords. We help you secure fair rents, strong contracts, and long-term protection — not the operator's interests."
         ctaText="Get Your Free Rent Estimate"
         ctaHref="/free-rent-estimate"
         secondaryCtaText="Free Lease Check"

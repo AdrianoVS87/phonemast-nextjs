@@ -143,29 +143,30 @@ export default function TeamPage() {
                     <Image
                       src={member.photo}
                       alt={member.name}
-                      width={80}
-                      height={80}
+                      width={120}
+                      height={120}
                       style={{
                         flexShrink: 0,
-                        width: "80px",
-                        height: "80px",
+                        width: "120px",
+                        height: "120px",
                         borderRadius: "50%",
                         objectFit: "cover",
+                        border: "3px solid #e5e7eb",
                       }}
                     />
                   ) : (
                     <div
                       style={{
                         flexShrink: 0,
-                        width: "80px",
-                        height: "80px",
+                        width: "120px",
+                        height: "120px",
                         borderRadius: "50%",
                         backgroundColor: "#1B4F72",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         color: "#ffffff",
-                        fontSize: "2rem",
+                        fontSize: "2.5rem",
                         fontWeight: 700,
                       }}
                       aria-hidden="true"
