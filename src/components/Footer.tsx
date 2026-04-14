@@ -49,7 +49,7 @@ export default function Footer() {
         {/* Logo + strapline */}
         <div style={{ marginBottom: "3rem" }}>
           <Image
-            src="/images/logo-all-white.svg"
+            src="/images/logo-white.svg"
             alt="Phone Mast Advice"
             width={180}
             height={48}

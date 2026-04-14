@@ -28,8 +28,12 @@ const operatorLinks = [
   { label: "WIG", href: "/wireless-infrastructure-group-phone-mast-lease" },
 ];
 
+const aboutLinks = [
+  { label: "About Us", href: "/about-us" },
+  { label: "Our Team", href: "/team" },
+];
+
 const navLinks = [
-  { label: "About", href: "/about-us" },
   { label: "FAQ", href: "/faq" },
   { label: "Blog", href: "/blog" },
   { label: "Contact", href: "/contact" },
@@ -39,8 +43,10 @@ export default function Header() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [servicesOpen, setServicesOpen] = useState(false);
   const [operatorsOpen, setOperatorsOpen] = useState(false);
+  const [aboutOpen, setAboutOpen] = useState(false);
   const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
   const [mobileOperatorsOpen, setMobileOperatorsOpen] = useState(false);
+  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const pathname = usePathname();
   const dropdownRef = useRef<HTMLDivElement>(null);
@@ -74,6 +80,7 @@ export default function Header() {
       if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
         setServicesOpen(false);
         setOperatorsOpen(false);
+        setAboutOpen(false);
       }
     };
     document.addEventListener("mousedown", handleClickOutside);
@@ -86,6 +93,9 @@ export default function Header() {
   const isServicesActive =
     pathname.startsWith("/phone-mast-services") ||
     pathname.includes("-phone-mast-lease");
+
+  const isAboutActive =
+    pathname === "/about-us" || pathname === "/team";
 
   return (
     <header
@@ -104,7 +114,7 @@ export default function Header() {
           {/* Logo */}
           <Link href="/" aria-label="Phone Mast Advice — Home">
             <Image
-              src="/images/logo-all-white.svg"
+              src="/images/logo-white.svg"
               alt="Phone Mast Advice"
               width={180}
               height={48}
@@ -219,6 +229,57 @@ export default function Header() {
                       Free Rent Estimate →
                     </Link>
                   </div>
+                </div>
+              )}
+            </div>
+
+            {/* About dropdown */}
+            <div className="relative">
+              <button
+                onClick={() => { setAboutOpen(!aboutOpen); setServicesOpen(false); }}
+                onMouseEnter={() => setAboutOpen(true)}
+                className="font-medium transition-colors duration-150 flex items-center gap-1"
+                style={{
+                  color: isAboutActive ? "#a4ca62" : "#ffffff",
+                  fontSize: "1rem",
+                  background: "none",
+                  border: "none",
+                  cursor: "pointer",
+                  borderBottom: isAboutActive ? "2px solid #a4ca62" : "2px solid transparent",
+                  paddingBottom: "2px",
+                }}
+              >
+                About
+                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style={{ marginTop: 1 }}>
+                  <path d="M3 5l3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.5" />
+                </svg>
+              </button>
+
+              {aboutOpen && (
+                <div
+                  onMouseLeave={() => setAboutOpen(false)}
+                  style={{
+                    position: "absolute",
+                    top: "100%",
+                    left: "50%",
+                    transform: "translateX(-50%)",
+                    marginTop: "0.5rem",
+                    backgroundColor: "#ffffff",
+                    borderRadius: "12px",
+                    boxShadow: "0 12px 48px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05)",
+                    width: "200px",
+                    zIndex: 100,
+                    padding: "0.75rem",
+                  }}
+                >
+                  {aboutLinks.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setAboutOpen(false)}
+                      style={{ display: "block", padding: "0.5rem 0.75rem", color: "#1a1a2e", fontSize: "0.9375rem", textDecoration: "none", borderRadius: "8px", transition: "background 0.15s" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}>
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
               )}
             </div>
@@ -350,6 +411,32 @@ export default function Header() {
                     style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
                     Phone Mast Lease 2026
                   </Link>
+                </div>
+              )}
+
+              {/* Mobile About accordion */}
+              <button
+                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
+                style={{
+                  color: isAboutActive ? "#a4ca62" : "#ffffff",
+                  fontSize: "1.0625rem", padding: "0.75rem 0.75rem",
+                  display: "flex", justifyContent: "space-between", alignItems: "center",
+                  background: "none", border: "none", cursor: "pointer", width: "100%",
+                  fontWeight: isAboutActive ? 700 : 500,
+                  borderLeft: isAboutActive ? "3px solid #a4ca62" : "3px solid transparent",
+                }}
+              >
+                About
+                <span style={{ fontSize: "0.75rem" }}>{mobileAboutOpen ? "▲" : "▼"}</span>
+              </button>
+              {mobileAboutOpen && (
+                <div style={{ paddingLeft: "1.5rem" }}>
+                  {aboutLinks.map((link) => (
+                    <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
+                      style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
+                      {link.label}
+                    </Link>
+                  ))}
                 </div>
               )}
 

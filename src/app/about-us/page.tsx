@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
@@ -334,6 +335,40 @@ export default function AboutPage() {
               </div>
             ))}
           </div>
+        </div>
+      </section>
+
+      {/* Meet Our Team */}
+      <section style={{ backgroundColor: "#1B4F72", padding: "3rem 1.5rem" }}>
+        <div className="container-max" style={{ maxWidth: "800px", textAlign: "center" }}>
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#ffffff",
+              marginBottom: "1rem",
+            }}
+          >
+            Meet Our Team
+          </h2>
+          <p
+            style={{
+              fontSize: "1.125rem",
+              color: "rgba(255,255,255,0.88)",
+              lineHeight: 1.7,
+              marginBottom: "1.5rem",
+            }}
+          >
+            Our team of specialist surveyors, consultants, and business managers work exclusively for UK landlords. With RICS credentials, decades of experience, and involvement in landmark telecoms cases, we bring expertise you can trust.
+          </p>
+          <Link
+            href="/team"
+            className="btn-primary"
+            style={{ fontSize: "1rem", padding: "0.875rem 2rem" }}
+          >
+            Meet the Team →
+          </Link>
         </div>
       </section>
 

@@ -44,6 +44,10 @@ export default function Hero({
           position: "relative",
           paddingTop: "5rem",
           paddingBottom: "5rem",
+          display: "flex",
+          flexDirection: "column",
+          alignItems: "center",
+          textAlign: "center",
         }}
       >
         {/* Trust badge */}
@@ -130,6 +134,7 @@ export default function Hero({
             flexWrap: "wrap",
             gap: "1rem",
             marginBottom: "2.5rem",
+            justifyContent: "center",
           }}
         >
           <Link
@@ -155,6 +160,7 @@ export default function Hero({
             display: "flex",
             flexWrap: "wrap",
             alignItems: "center",
+            justifyContent: "center",
             gap: "1.5rem",
           }}
         >
