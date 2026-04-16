@@ -27,6 +27,7 @@ export interface HandbookFormData {
 export interface FormResult {
   success: boolean;
   error?: string;
+  id?: string;
 }
 
 function escapeHtml(str: string): string {
@@ -62,7 +63,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
       : "";
 
   try {
-    await resend.emails.send({
+    const { data: sent, error } = await resend.emails.send({
       from: "Phone Mast Advice Website <noreply@phonemastadvice.co.uk>",
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
@@ -116,9 +117,18 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
       `,
     });
 
-    return { success: true };
+    if (error) {
+      console.error("Resend API error (sendLeadEmail):", JSON.stringify(error));
+      return {
+        success: false,
+        error: "Failed to send your request. Please call us on 01691 791543.",
+      };
+    }
+
+    console.log("Email sent (sendLeadEmail), Resend ID:", sent?.id);
+    return { success: true, id: sent?.id };
   } catch (error) {
-    console.error("Failed to send lead email:", error);
+    console.error("Exception in sendLeadEmail:", error);
     return {
       success: false,
       error: "Failed to send your request. Please call us on 01691 791543.",
@@ -139,7 +149,7 @@ export async function sendHandbookEmail(data: HandbookFormData): Promise<FormRes
   }
 
   try {
-    await resend.emails.send({
+    const { data: sent, error } = await resend.emails.send({
       from: "Phone Mast Advice Website <noreply@phonemastadvice.co.uk>",
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
@@ -176,9 +186,18 @@ export async function sendHandbookEmail(data: HandbookFormData): Promise<FormRes
       `,
     });
 
-    return { success: true };
+    if (error) {
+      console.error("Resend API error (sendHandbookEmail):", JSON.stringify(error));
+      return {
+        success: false,
+        error: "Failed to send your request. Please call us on 01691 791543.",
+      };
+    }
+
+    console.log("Email sent (sendHandbookEmail), Resend ID:", sent?.id);
+    return { success: true, id: sent?.id };
   } catch (error) {
-    console.error("Failed to send handbook email:", error);
+    console.error("Exception in sendHandbookEmail:", error);
     return {
       success: false,
       error: "Failed to send your request. Please call us on 01691 791543.",

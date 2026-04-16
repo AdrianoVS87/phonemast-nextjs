@@ -16,6 +16,7 @@ export interface ContactFormData {
 export interface FormResult {
   success: boolean;
   error?: string;
+  id?: string;
 }
 
 export async function sendContactEmail(
@@ -37,7 +38,7 @@ export async function sendContactEmail(
   }
 
   try {
-    await resend.emails.send({
+    const { data: sent, error } = await resend.emails.send({
       from: "Phone Mast Advice Website <noreply@phonemastadvice.co.uk>",
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
@@ -74,9 +75,18 @@ export async function sendContactEmail(
       `,
     });
 
-    return { success: true };
+    if (error) {
+      console.error("Resend API error (sendContactEmail):", JSON.stringify(error));
+      return {
+        success: false,
+        error: "Failed to send your message. Please call us on 01691 791543.",
+      };
+    }
+
+    console.log("Email sent (sendContactEmail), Resend ID:", sent?.id);
+    return { success: true, id: sent?.id };
   } catch (error) {
-    console.error("Failed to send contact email:", error);
+    console.error("Exception in sendContactEmail:", error);
     return {
       success: false,
       error: "Failed to send your message. Please call us on 01691 791543.",
