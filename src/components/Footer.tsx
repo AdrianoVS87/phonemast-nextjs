@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
 
 const services = [
   { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews" },
@@ -129,6 +130,11 @@ export default function Footer() {
                   </Link>
                 </li>
               ))}
+              <li style={{ marginBottom: "0.625rem" }}>
+                <ManageCookiesLink
+                  style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem" }}
+                />
+              </li>
             </ul>
           </div>
 
