@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { sendHandbookEmail } from "@/app/actions/sendLeadEmail";
+import { fireConversion } from "@/lib/gtagConversion";
 
 export default function HandbookForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -27,6 +28,7 @@ export default function HandbookForm() {
     const result = await sendHandbookEmail(data);
 
     if (result.success) {
+      fireConversion("handbook");
       setStatus("success");
       formRef.current?.reset();
     } else {

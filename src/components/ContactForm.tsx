@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { sendContactEmail } from "@/app/actions/sendContact";
+import { fireConversion } from "@/lib/gtagConversion";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -25,6 +26,7 @@ export default function ContactForm() {
     const result = await sendContactEmail(data);
 
     if (result.success) {
+      fireConversion("contact");
       setStatus("success");
       formRef.current?.reset();
     } else {

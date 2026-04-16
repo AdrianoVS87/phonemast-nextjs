@@ -2,6 +2,7 @@
 
 import { useState, useRef } from "react";
 import { sendLeadEmail } from "@/app/actions/sendLeadEmail";
+import { fireConversion } from "@/lib/gtagConversion";
 
 const OPERATORS = [
   "Vodafone",
@@ -60,6 +61,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
     const result = await sendLeadEmail(data);
 
     if (result.success) {
+      fireConversion("lead");
       setStatus("success");
       formRef.current?.reset();
     } else {
