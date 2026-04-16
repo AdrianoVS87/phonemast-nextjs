@@ -1,5 +1,28 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
+import { Fragment } from "react";
+
+/** Auto-link https:// URLs in policy text (see Privacy Policy for twin impl.) */
+function renderWithLinks(text: string) {
+  const urlRx = /(https?:\/\/[^\s)]+[^\s.,;:!?)])/g;
+  const parts = text.split(urlRx);
+  return parts.map((p, i) =>
+    urlRx.test(p) ? (
+      <a
+        key={i}
+        href={p}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: "#1B4F72", fontWeight: 600, textDecoration: "underline" }}
+      >
+        {p}
+      </a>
+    ) : (
+      <Fragment key={i}>{p}</Fragment>
+    ),
+  );
+}
 
 export const metadata: Metadata = {
   title: "Cookie Policy | The Phone Mast Advice Company Ltd",
@@ -90,11 +113,25 @@ You can also control and delete cookies at any time through your browser setting
 Please note that restricting cookies may affect the functionality of our website.`,
             },
             {
-              heading: "5. Third-Party Cookies",
+              heading: "5. Advertising / Marketing Cookies",
+              content: `These cookies are used for personalised and non-personalised advertising when you have consented via our cookie banner.
+
+• _gcl_au, _gcl_aw — Google Ads conversion tracking. Measures the effectiveness of our Google Ads campaigns. Provider: Google. Duration: up to 90 days.
+• IDE, test_cookie — Google Ads remarketing via Google DoubleClick. Shows our advertisements on other websites you visit. Provider: Google. Duration: up to 13 months.
+• _gads, _gpi — Google ad preferences and frequency capping. Provider: Google. Duration: up to 13 months.
+
+If you reject or only allow essential cookies, these advertising cookies will NOT be set and Google's Consent Mode will fall back to limited, cookieless signals (used for aggregated ad reporting and fraud prevention only — this is Google's "non-personalised advertising" mode).
+
+You can opt out of personalised Google advertising at any time via Google Ads Settings: https://adssettings.google.com
+
+Learn more about how Google collects and uses your data at Google's Business Data Responsibility Site: https://business.safety.google/privacy/`,
+            },
+            {
+              heading: "6. Third-Party Cookies",
               content: `Our website may include content from third parties (such as embedded maps or social media links) that may set their own cookies. We do not control these cookies, and they are governed by the relevant third party's privacy and cookie policies. We recommend reviewing those policies directly.`,
             },
             {
-              heading: "6. Changes to This Cookie Policy",
+              heading: "7. Changes to This Cookie Policy",
               content: `We may update this Cookie Policy from time to time as we add or change functionality on our website, or as legislation changes. We will post the updated policy on this page with a revised date. Continued use of our website after changes are posted constitutes your acceptance of those changes.`,
             },
           ].map((section, i) => (
@@ -118,10 +155,29 @@ Please note that restricting cookies may affect the functionality of our website
                   whiteSpace: "pre-line",
                 }}
               >
-                {section.content}
+                {renderWithLinks(section.content)}
               </div>
             </div>
           ))}
+
+          <div
+            style={{
+              backgroundColor: "#f0f7fc",
+              border: "1px solid #cddfee",
+              borderRadius: "0.75rem",
+              padding: "1.25rem 1.5rem",
+              marginTop: "2rem",
+              marginBottom: "1.5rem",
+            }}
+          >
+            <p style={{ fontSize: "1rem", color: "#1a1a2e", lineHeight: 1.6, margin: 0 }}>
+              <strong>Change your mind?</strong> You can{" "}
+              <ManageCookiesLink
+                style={{ color: "#1B4F72", fontWeight: 600, textDecoration: "underline" }}
+              />{" "}
+              at any time to review or update your consent choices.
+            </p>
+          </div>
 
           <div
             style={{
