@@ -22,16 +22,22 @@ declare global {
   }
 }
 
+function cleanEnv(v: string | undefined): string | undefined {
+  const trimmed = v?.trim();
+  if (!trimmed || trimmed === "__UNSET__") return undefined;
+  return trimmed;
+}
+
 export function fireConversion(kind: FormKind) {
   if (typeof window === "undefined") return;
 
-  const adsId = process.env.NEXT_PUBLIC_ADS_CONVERSION_ID?.trim();
+  const adsId = cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_ID);
   if (!adsId) return;
 
   const labelMap: Record<FormKind, string | undefined> = {
-    contact: process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_CONTACT?.trim(),
-    lead: process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_LEAD?.trim(),
-    handbook: process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_HANDBOOK?.trim(),
+    contact: cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_CONTACT),
+    lead: cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_LEAD),
+    handbook: cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_HANDBOOK),
   };
   const label = labelMap[kind];
   if (!label) return;

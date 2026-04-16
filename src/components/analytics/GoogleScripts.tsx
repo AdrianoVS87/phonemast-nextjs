@@ -11,9 +11,16 @@
  */
 import Script from "next/script";
 
+/** Treat the Vercel placeholder sentinel as "not set". */
+function cleanEnv(v: string | undefined): string | undefined {
+  const trimmed = v?.trim();
+  if (!trimmed || trimmed === "__UNSET__") return undefined;
+  return trimmed;
+}
+
 export default function GoogleScripts() {
-  const ga4Id = process.env.NEXT_PUBLIC_GA4_ID?.trim();
-  const adsId = process.env.NEXT_PUBLIC_ADS_CONVERSION_ID?.trim();
+  const ga4Id = cleanEnv(process.env.NEXT_PUBLIC_GA4_ID);
+  const adsId = cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_ID);
 
   // Neither configured → render nothing. Site works the same.
   if (!ga4Id && !adsId) return null;
