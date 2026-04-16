@@ -5,6 +5,9 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyCtaBar from "@/components/StickyCtaBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import ConsentDefault from "@/components/analytics/ConsentDefault";
+import GoogleScripts from "@/components/analytics/GoogleScripts";
+import ConsentBanner from "@/components/consent/ConsentBanner";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -66,12 +69,20 @@ export default function RootLayout({
       lang="en-GB"
       className={`${jakarta.variable} ${inter.variable} antialiased`}
     >
+      <head>
+        {/* MUST be first: sets Google Consent Mode v2 defaults to denied
+             before any Google script loads. See src/components/analytics/ConsentDefault.tsx */}
+        <ConsentDefault />
+        {/* Google Tag / GA4 / Ads — only render when env vars populated. */}
+        <GoogleScripts />
+      </head>
       <body className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "1.125rem" }}>
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
         <StickyCtaBar />
         <WhatsAppButton />
+        <ConsentBanner />
       </body>
     </html>
   );
