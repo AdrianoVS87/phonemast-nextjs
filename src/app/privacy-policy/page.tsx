@@ -1,5 +1,31 @@
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
+import { Fragment } from "react";
+
+/**
+ * Auto-link https:// URLs found inline in policy text, so that the required
+ * Google Advertising Services section renders real clickable links to
+ * business.safety.google/privacy/ and adssettings.google.com (Google UCP Issue 1.2).
+ */
+function renderWithLinks(text: string) {
+  const urlRx = /(https?:\/\/[^\s)]+[^\s.,;:!?)])/g;
+  const parts = text.split(urlRx);
+  return parts.map((p, i) =>
+    urlRx.test(p) ? (
+      <a
+        key={i}
+        href={p}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{ color: "#1B4F72", fontWeight: 600, textDecoration: "underline" }}
+      >
+        {p}
+      </a>
+    ) : (
+      <Fragment key={i}>{p}</Fragment>
+    ),
+  );
+}
 
 export const metadata: Metadata = {
   title: "Privacy Policy | The Phone Mast Advice Company Ltd",
@@ -133,6 +159,19 @@ We would, however, appreciate the opportunity to resolve any concerns directly �
               heading: "12. Changes to This Policy",
               content: `We may update this Privacy Policy from time to time to reflect changes in our practices or applicable law. We will post the updated policy on this page with a revised date. We encourage you to review this policy periodically.`,
             },
+            {
+              heading: "13. Google Advertising Services",
+              content: `We use Google Ads and related Google advertising services to deliver relevant advertisements. When you consent via our cookie banner, the following may apply:
+
+• Ads personalisation: Google may use cookies and mobile advertising identifiers to serve personalised advertisements based on your browsing activity on our website and across the web.
+• Non-personalised advertising: Even without full consent, limited cookies may be used for frequency capping, aggregated ad reporting, and combating fraud and abuse.
+• Remarketing: If you have previously visited our website, Google may show you our advertisements on other websites you visit (remarketing/retargeting).
+• Conversion measurement: We use Google Ads conversion tracking to understand how effective our advertising campaigns are. This involves a cookie being placed when you click on one of our ads.
+
+You can manage your Google advertising preferences and opt out of personalised ads at any time by visiting Google Ads Settings: https://adssettings.google.com
+
+For more information about how Google collects and processes your data when you use our website, please visit Google's Business Data Responsibility Site: https://business.safety.google/privacy/`,
+            },
           ].map((section, i) => (
             <div key={i} style={{ marginBottom: "2rem" }}>
               <h2
@@ -147,7 +186,7 @@ We would, however, appreciate the opportunity to resolve any concerns directly �
                 {section.heading}
               </h2>
               <div style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.75, whiteSpace: "pre-line" }}>
-                {section.content}
+                {renderWithLinks(section.content)}
               </div>
             </div>
           ))}
