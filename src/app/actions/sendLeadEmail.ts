@@ -64,7 +64,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
 
   try {
     const { data: sent, error } = await resend.emails.send({
-      from: "Phone Mast Advice Website <noreply@phonemastadvice.co.uk>",
+      from: "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>",
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
       subject: `${formTitle} from ${data.name} — phonemastadvice.co.uk`,
@@ -150,7 +150,7 @@ export async function sendHandbookEmail(data: HandbookFormData): Promise<FormRes
 
   try {
     const { data: sent, error } = await resend.emails.send({
-      from: "Phone Mast Advice Website <noreply@phonemastadvice.co.uk>",
+      from: "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>",
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
       subject: `Handbook Download Request from ${data.name} — phonemastadvice.co.uk`,

@@ -39,7 +39,7 @@ export async function sendContactEmail(
 
   try {
     const { data: sent, error } = await resend.emails.send({
-      from: "Phone Mast Advice Website <noreply@phonemastadvice.co.uk>",
+      from: "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>",
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
       subject: `New enquiry from ${data.name} — phonemastadvice.co.uk`,
