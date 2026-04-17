@@ -21,15 +21,34 @@ const REDIRECTS: Record<string, string> = {
   "electricity-costs-recovery": "/phone-mast-services/electricity-costs-recovery",
   "phone-mast-rent-review": "/phone-mast-services/rent-reviews",
 
-  // === Operator aliases (old WP slugs) ===
+  // === Operator aliases (old WP slugs + common abbreviations) ===
   "arqiva-phone-mast-lease": "/on-tower-arqiva-phone-mast-lease",
   "cornerstone-phone-mast-lease": "/ctil-cornerstone-phone-mast-lease",
   "ctil-phone-mast-lease": "/ctil-cornerstone-phone-mast-lease",
+  "wig-phone-mast-lease": "/wireless-infrastructure-group-phone-mast-lease",
+
+  // === WP service slug variants (Google-indexed alternative patterns) ===
+  "mast-rent-reviews": "/phone-mast-services/rent-reviews",
+  "phone-mast-new-lettings": "/phone-mast-services/new-lettings",
+  "phone-mast-removal": "/phone-mast-services/removal-and-redevelopment",
+  "phone-mast-sales": "/phone-mast-services/mast-sales",
+
+  // === Bare keyword slugs (common Google indexed or typed-in URLs) ===
+  "phone-mast-rent": "/phone-mast-rent-2026",
+  "phone-mast-lease": "/phone-mast-lease-2026",
+  "phone-mast-advice": "/about-us",
 
   // === Locations ===
   "phone-mast-advice-london": "/locations/london",
   "phone-mast-advice-bristol": "/locations/bristol",
   "phone-mast-advice-oswestry": "/locations/oswestry",
+
+  // === WP infrastructure (feeds, login, admin, etc.) → homepage ===
+  "feed": "/blog",
+  "wp-admin": "/",
+  "wp-login.php": "/",
+  "xmlrpc.php": "/",
+  "sitemap_index.xml": "/sitemap.xml",
 
   // === Core pages ===
   "home": "/",
@@ -40,8 +59,13 @@ const REDIRECTS: Record<string, string> = {
   "phone-mast-landlords-handbook": "/handbook",
   "cookie-policy-uk": "/cookie-policy",
 
-  // === Blog index ===
+  // === Blog index + WP category/tag/pagination patterns ===
   "news": "/blog",
+  "category/blog": "/blog",
+  "category/news": "/blog",
+  "category/uncategorized": "/blog",
+  "blog/page/2": "/blog",
+  "page/2": "/blog",
 
   // === Blog posts (52 WP posts → /blog/<slug>) ===
   "1954-act": "/blog/1954-act",
@@ -120,6 +144,13 @@ export function middleware(req: NextRequest) {
   if (slug && REDIRECTS[slug]) {
     const url = req.nextUrl.clone();
     url.pathname = REDIRECTS[slug];
+    return NextResponse.redirect(url, 308);
+  }
+
+  // Catch-all: any WP category/*, tag/*, or date archive (YYYY/MM/*) → /blog
+  if (/^(category|tag|20\d{2})\//.test(slug)) {
+    const url = req.nextUrl.clone();
+    url.pathname = "/blog";
     return NextResponse.redirect(url, 308);
   }
 
