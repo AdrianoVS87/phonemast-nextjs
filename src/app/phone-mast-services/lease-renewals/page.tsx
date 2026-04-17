@@ -5,7 +5,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease Renewals & Code Lease Renewal | Phone Mast Advice",
+  title: "Phone Mast Lease Renewals & Code Lease Renewal",
   description: "Expert phone mast lease renewal and Code lease renewal advice for UK landlords. Independent specialists acting only for landowners. Free consultation.",
   alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals" },
 };
