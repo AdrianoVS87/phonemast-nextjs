@@ -1,3 +1,4 @@
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
@@ -9,6 +10,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <>
+      <JsonLd data={{ type: "Service", name: "Phone Mast Sales", description: "Advice on selling phone mast lease income streams to investors and infrastructure funds.", provider: "The Phone Mast Advice Company", url: "https://phonemastadvice.co.uk/phone-mast-services/mast-sales", areaServed: "United Kingdom" }} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Mast Sales" }]} />
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>

@@ -12,7 +12,7 @@ const operatorSlugs = [
   "on-tower-arqiva-phone-mast-lease",
   "cellnex-phone-mast-lease",
   "airwave-phone-mast-lease",
-  "wig-phone-mast-lease",
+  "wireless-infrastructure-group-phone-mast-lease",
 ];
 
 const locationSlugs = [

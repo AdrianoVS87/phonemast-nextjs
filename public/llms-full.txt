@@ -1,0 +1,120 @@
+# The Phone Mast Advice Company — Full Information
+
+## Company Overview
+The Phone Mast Advice Company Ltd (UK Company Registration: 13115582) is an independent specialist telecom surveyor firm acting exclusively for UK landlords and landowners who host phone mast infrastructure on their property. Founded by Matt Restall, a RICS-qualified surveyor with over 25 years of experience in UK telecoms infrastructure.
+
+The company never acts for mobile phone operators — only for landlords.
+
+## Office Locations
+- **London:** 167-169 Great Portland Road, 5th Floor, London W1W 5PF
+- **Bristol:** 5 High Street, Westbury on Trym, Bristol BS9 3BY
+- **Oswestry:** Artillery Business Park, Oswestry SY11 4AD
+- **Phone:** 01691 791543
+- **Email:** info@phonemastadvice.co.uk
+- **WhatsApp:** +44 7843 352654
+
+## Services in Detail
+
+### Phone Mast Rent Reviews
+Independent valuation of mast site rental income. We benchmark rents against comparable UK deals using an extensive database and negotiate improved terms with operators on your behalf. The Electronic Communications Code (revised under the Digital Economy Act 2017) affects how operators calculate rent — expert advice is critical.
+
+### Phone Mast Lease Renewals & Code Lease Renewal
+Expert negotiation of lease renewals under the Electronic Communications Code. When operators seek to renew a lease, they typically propose significantly reduced rents using the "no-scheme" valuation model. We protect landlords' interests and negotiate fair terms.
+
+### New Lettings
+Securing new operator agreements for landowners. If an operator approaches you about placing a new mast on your land, we ensure you get fair commercial terms from the outset.
+
+### Mast Sales
+Advice on selling phone mast lease income streams to investors and infrastructure funds. We assess whether a sale is in your interest and negotiate the best price.
+
+### Removal & Redevelopment
+Managing phone mast removal to facilitate site redevelopment. If you want to develop your land, we navigate the legal process for removing existing mast infrastructure.
+
+### Electricity Cost Recovery
+Reclaiming electricity costs from phone mast operators. Many landlords unknowingly subsidise operators' power consumption — we recover those costs.
+
+### Lease Retrievals
+Recovering lost or misplaced phone mast lease documents. Essential for understanding your rights and obligations.
+
+## Mobile Phone Mast Operators in the UK
+
+### CTIL / Cornerstone
+CTIL and Cornerstone are the same entity — a joint venture between Vodafone and O2. CTIL manages approximately 14,200 macro sites and 1,400 micro sites across the UK.
+
+### On Tower (formerly Arqiva)
+Arqiva sold its mobile phone mast infrastructure to Cellnex in July 2020. The operating entity is now On Tower UK Ltd. Arqiva continues only in broadcast (TV/radio). For mobile masts, the correct reference is "On Tower (formerly Arqiva)".
+
+### MBNL
+Mobile Broadband Network Limited is a joint venture between EE and Three (NOT O2/Vodafone).
+
+### Other Operators
+- **Vodafone** — major UK MNO, shares infrastructure with O2 via CTIL
+- **O2 (Telefónica UK)** — shares infrastructure with Vodafone via CTIL
+- **EE (BT Group)** — UK's largest mobile network
+- **Three (Hutchison 3G)** — shares infrastructure with EE via MBNL
+- **Cellnex** — European tower company, acquired Arqiva's mobile sites
+- **Airwave Solutions** — owned by Motorola Solutions, operates the TETRA emergency services network
+- **Wireless Infrastructure Group (WIG)** — independent UK tower company
+
+## Key UK Telecoms Legislation
+
+### Telecommunications Act 1984
+Contained the original Electronic Communications Code in Schedule 2.
+
+### Communications Act 2003
+Created Ofcom as the UK's communications regulator. The Electronic Communications Code is now in Schedule 3A.
+
+### Digital Economy Act 2017
+Introduced the new Electronic Communications Code, which came into force on 28 December 2017. This significantly changed how phone mast rents are calculated, introducing the "no-scheme" valuation model that typically reduces rents compared to traditional market valuations.
+
+### PSTI Act 2022 (Product Security and Telecommunications Infrastructure Act)
+Sections 61-64 commenced on 7 April 2026. These provisions affect how operators can acquire and renew Code rights, with implications for landlords' negotiating positions.
+
+### Landlord and Tenant Act 1954
+Applies to phone mast leases granted before 28 December 2017. Pre-Code leases may benefit from 1954 Act protections.
+
+## Landmark Cases
+
+### Cornerstone v Compton Beauchamp Estates [2022] UKSC 18
+Supreme Court case establishing key principles for the valuation of Code rights.
+
+### EE v Islington [2019] UKUT 53 (LC)
+Upper Tribunal case addressing site valuation methodology.
+
+### Dale Park [2020] UKUT 0348 (LC)
+First renewal case under the new Code, setting important precedents.
+
+### Vache Farm [2024] UKUT 216 (LC)
+Current benchmark case for Code lease valuations. The Phone Mast Advice Company instigated and advised on this landmark case.
+
+### On Tower v BT [2025] EWCA Civ 844
+Court of Appeal case on break clauses in Code agreements.
+
+## Important Note on Vache Farm
+The Phone Mast Advice Company "instigated and advised" on the Vache Farm case. It is not accurate to say the company "won" or "fought" the case.
+
+## Court References
+The correct name for the court hearing Code cases is the "Upper Tribunal (Lands Chamber)" — never "Upper Land Tribunal".
+
+## Frequently Asked Questions
+
+### Can a phone mast operator reduce my rent?
+Under the Electronic Communications Code (Digital Economy Act 2017), operators can apply to the Upper Tribunal (Lands Chamber) for rent to be assessed under the "no-scheme" valuation model. This often produces lower figures than traditional market rents. Specialist advice can significantly improve your negotiating position.
+
+### What is the Electronic Communications Code?
+The Code is the legal framework governing how telecoms operators can install, maintain, and renew infrastructure on private land. The current version (Schedule 3A, Communications Act 2003, as amended by the Digital Economy Act 2017) gives operators significant powers but also provides protections for landowners.
+
+### Should I accept the operator's first offer?
+No. Operators and their agents are experienced commercial negotiators who aim to minimise costs. Independent specialist advice typically achieves significantly better outcomes for landlords.
+
+### What if my lease predates December 2017?
+Leases granted before the new Code came into force on 28 December 2017 may benefit from Landlord and Tenant Act 1954 protections. However, on renewal, the new Code provisions will likely apply. Expert advice is essential.
+
+### How much does your service cost?
+Contact us for a free initial consultation. Our fees depend on the complexity of your situation. Call 01691 791543 or use our online forms.
+
+## Free Resources
+- **Free Lease Check:** https://phonemastadvice.co.uk/free-lease-check
+- **Free Rent Estimate:** https://phonemastadvice.co.uk/free-rent-estimate
+- **Landlords Handbook:** https://phonemastadvice.co.uk/handbook
+- **Blog:** https://phonemastadvice.co.uk/blog

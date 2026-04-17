@@ -1,11 +1,12 @@
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease Renewals | Phone Mast Advice",
-  description: "Expert phone mast lease renewals advice for UK landlords. Independent specialists acting only for landowners. Call 01691 791543.",
+  title: "Phone Mast Lease Renewals & Code Lease Renewal | Phone Mast Advice",
+  description: "Expert phone mast lease renewal and Code lease renewal advice for UK landlords. Independent specialists acting only for landowners. Free consultation.",
   alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals" },
 };
 
@@ -33,6 +34,7 @@ const relatedPosts = [
 export default function Page() {
   return (
     <>
+      <JsonLd data={{ type: "Service", name: "Phone Mast Lease Renewals", description: "Expert negotiation of phone mast lease renewals under the Electronic Communications Code.", provider: "The Phone Mast Advice Company", url: "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals", areaServed: "United Kingdom" }} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Lease Renewals" }]} />
 
       {/* Hero */}

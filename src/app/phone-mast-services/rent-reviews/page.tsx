@@ -1,3 +1,4 @@
+import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -33,6 +34,7 @@ const relatedPosts = [
 export default function RentReviewsPage() {
   return (
     <>
+      <JsonLd data={{ type: "Service", name: "Phone Mast Rent Reviews", description: "Independent valuation and negotiation of phone mast site rental income for UK landlords.", provider: "The Phone Mast Advice Company", url: "https://phonemastadvice.co.uk/phone-mast-services/rent-reviews", areaServed: "United Kingdom" }} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Rent Reviews" }]} />
 
       {/* Hero */}

@@ -40,11 +40,33 @@ export interface FAQJsonLd {
   questions: Array<{ question: string; answer: string }>;
 }
 
+export interface WebSiteJsonLd {
+  type: "WebSite";
+  name: string;
+  url: string;
+  description: string;
+}
+
+export interface LocalBusinessJsonLd {
+  type: "LocalBusiness";
+  name: string;
+  telephone: string;
+  email: string;
+  url: string;
+  offices: Array<{
+    streetAddress: string;
+    addressLocality: string;
+    postalCode: string;
+  }>;
+}
+
 type JsonLdData =
   | ProfessionalServiceJsonLd
   | ServiceJsonLd
   | ArticleJsonLd
-  | FAQJsonLd;
+  | FAQJsonLd
+  | WebSiteJsonLd
+  | LocalBusinessJsonLd;
 
 function buildSchema(data: JsonLdData): object {
   switch (data.type) {
@@ -126,14 +148,60 @@ function buildSchema(data: JsonLdData): object {
           acceptedAnswer: { "@type": "Answer", text: q.answer },
         })),
       };
+
+    case "WebSite":
+      return {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        name: data.name,
+        url: data.url,
+        description: data.description,
+        potentialAction: {
+          "@type": "SearchAction",
+          target: `${data.url}/blog?q={search_term_string}`,
+          "query-input": "required name=search_term_string",
+        },
+      };
+
+    case "LocalBusiness":
+      return data.offices.map((office) => ({
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        name: data.name,
+        telephone: data.telephone,
+        email: data.email,
+        url: data.url,
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: office.streetAddress,
+          addressLocality: office.addressLocality,
+          postalCode: office.postalCode,
+          addressCountry: "GB",
+        },
+      }));
   }
 }
 
 export default function JsonLd({ data }: { data: JsonLdData }) {
+  const schema = buildSchema(data);
+  // LocalBusiness returns an array of schemas
+  if (Array.isArray(schema)) {
+    return (
+      <>
+        {schema.map((s, i) => (
+          <script
+            key={i}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(s) }}
+          />
+        ))}
+      </>
+    );
+  }
   return (
     <script
       type="application/ld+json"
-      dangerouslySetInnerHTML={{ __html: JSON.stringify(buildSchema(data)) }}
+      dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
     />
   );
 }

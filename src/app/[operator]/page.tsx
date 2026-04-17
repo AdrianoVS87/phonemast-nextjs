@@ -26,7 +26,7 @@ const operators: Record<string, OperatorData> = {
     name: "Vodafone",
     metaTitle: "Vodafone Phone Mast Lease | Expert Landlord Advice | UK Specialists",
     metaDescription:
-      "Expert advice for UK landlords with a Vodafone phone mast lease. We negotiate rent reviews, lease renewals, and new lettings with Vodafone on your behalf. Free consultation.",
+      "Expert advice for UK landlords with a Vodafone phone mast lease. We negotiate rent reviews, lease renewals, and new lettings on your behalf.",
     heroHeadline: "Vodafone Phone Mast Lease Advice for UK Landlords",
     heroSubheadline:
       "Independent specialists acting only for landlords in negotiations with Vodafone.",
@@ -109,7 +109,7 @@ const operators: Record<string, OperatorData> = {
     name: "O2",
     metaTitle: "O2 Phone Mast Lease | Specialist UK Landlord Advice",
     metaDescription:
-      "Specialist advice for landlords with an O2 phone mast lease. We negotiate rent, lease renewals, and new lettings with O2 on your behalf. Free consultation — 01691 791543.",
+      "Specialist advice for UK landlords with an O2 phone mast lease. We negotiate rent, lease renewals, and new lettings on your behalf.",
     heroHeadline: "O2 Phone Mast Lease Advice for UK Landlords",
     heroSubheadline:
       "Independent experts negotiating with O2 on your behalf — protecting your rent and your rights.",
@@ -441,7 +441,7 @@ const operators: Record<string, OperatorData> = {
     name: "Cellnex",
     metaTitle: "Cellnex Phone Mast Lease | Expert UK Landlord Advice",
     metaDescription:
-      "Specialist advice for landlords with a Cellnex phone mast lease. We negotiate rent and lease terms with Cellnex on your behalf. Free consultation — 01691 791543.",
+      "Specialist Cellnex phone mast lease advice for UK landlords. We negotiate rent and lease terms with Cellnex on your behalf. Free consultation.",
     heroHeadline: "Cellnex Phone Mast Lease Advice for UK Landlords",
     heroSubheadline:
       "Independent specialists negotiating with Cellnex to protect your rent and landlord rights.",
@@ -524,7 +524,7 @@ const operators: Record<string, OperatorData> = {
     name: "On Tower (formerly Arqiva)",
     metaTitle: "On Tower (formerly Arqiva) Phone Mast Lease | Expert Advice",
     metaDescription:
-      "Expert advice for landlords with an On Tower or former Arqiva phone mast lease. Arqiva sold mobile infrastructure to Cellnex 2020. Free consultation — 01691 791543.",
+      "Expert Arqiva phone mast lease advice. On Tower (formerly Arqiva) sold mobile sites to Cellnex 2020. Free UK landlord consultation.",
     heroHeadline: "On Tower (formerly Arqiva) Phone Mast Lease Advice",
     heroSubheadline:
       "Arqiva sold its mobile infrastructure to Cellnex in 2020. On Tower is the current operating entity.",
@@ -607,7 +607,7 @@ const operators: Record<string, OperatorData> = {
     name: "Airwave Solutions",
     metaTitle: "Airwave Phone Mast Lease | Expert UK Landlord Advice",
     metaDescription:
-      "Specialist advice for landlords with an Airwave Solutions phone mast lease. Airwave operates the TETRA emergency services network. Free consultation — 01691 791543.",
+      "Specialist Airwave phone mast lease advice for UK landlords. Airwave operates the TETRA emergency services network. Free consultation.",
     heroHeadline: "Airwave Solutions Phone Mast Lease Advice",
     heroSubheadline:
       "Airwave operates the UK's emergency services TETRA network. Expert independent advice for landlords.",
