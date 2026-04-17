@@ -154,6 +154,37 @@ export function middleware(req: NextRequest) {
     return NextResponse.redirect(url, 308);
   }
 
+  // Catch-all: /phone-mast-services/<something> that isn't a real service subpage
+  // Google indexed operator pages under /phone-mast-services/ in old WP site
+  const servicesPrefix = /^phone-mast-services\/(.+)$/.exec(slug);
+  if (servicesPrefix) {
+    const sub = servicesPrefix[1];
+    const realServicePages = [
+      "rent-reviews", "lease-renewals", "new-lettings", "mast-sales",
+      "removal-and-redevelopment", "electricity-costs-recovery",
+      "other-services", "lease-retrievals",
+    ];
+    if (!realServicePages.includes(sub)) {
+      const url = req.nextUrl.clone();
+      // Check if the sub-slug exists as a redirect target or a root-level page
+      if (REDIRECTS[sub]) {
+        url.pathname = REDIRECTS[sub];
+      } else {
+        // Assume it's an operator page or other root-level page
+        url.pathname = `/${sub}`;
+      }
+      return NextResponse.redirect(url, 308);
+    }
+  }
+
+  // Catch-all: /locations/<old-slug> patterns (WP had /phone-mast-advice-london etc.)
+  const locationsPrefix = /^locations\/phone-mast-advice-(.+)$/.exec(slug);
+  if (locationsPrefix) {
+    const url = req.nextUrl.clone();
+    url.pathname = `/locations/${locationsPrefix[1]}`;
+    return NextResponse.redirect(url, 308);
+  }
+
   return NextResponse.next();
 }
 
