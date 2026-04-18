@@ -70,7 +70,7 @@ export default function TrustSignals() {
                 marginBottom: "0.25rem",
               }}
             >
-              RICS REGULATED
+              RICS SURVEYORS
             </span>
             <p
               style={{
@@ -81,7 +81,7 @@ export default function TrustSignals() {
                 lineHeight: 1.4,
               }}
             >
-              Regulated by the Royal Institution of Chartered Surveyors
+              We have RICS surveyors working for The Phone Mast Advice Company Ltd
             </p>
           </div>
 
