@@ -33,10 +33,16 @@ const REDIRECTS: Record<string, string> = {
   "phone-mast-removal": "/phone-mast-services/removal-and-redevelopment",
   "phone-mast-sales": "/phone-mast-services/mast-sales",
 
-  // === Bare keyword slugs (common Google indexed or typed-in URLs) ===
+  // === Bare keyword slugs (common Google indexed, Ads sitelinks, or typed-in URLs) ===
   "phone-mast-rent": "/phone-mast-rent-2026",
   "phone-mast-lease": "/phone-mast-lease-2026",
   "phone-mast-advice": "/about-us",
+  "phone-mast-lease-renewal": "/phone-mast-services/lease-renewals",
+  "phone-mast-lease-renewals": "/phone-mast-services/lease-renewals",
+  "lease-renewal": "/phone-mast-services/lease-renewals",
+  "rent-review": "/phone-mast-services/rent-reviews",
+  "mast-rent-review": "/phone-mast-services/rent-reviews",
+  "electricity-costs": "/phone-mast-services/electricity-costs-recovery",
 
   // === Locations ===
   "phone-mast-advice-london": "/locations/london",
