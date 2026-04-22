@@ -39,7 +39,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_GB",
-    url: "https://phonemastadvice.co.uk",
+    // URL is set per-page in their own metadata export
     siteName: "Phone Mast Advice",
     images: [
       {
