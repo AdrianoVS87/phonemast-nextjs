@@ -224,6 +224,7 @@ export default function ConsentBanner() {
               how you use our site. By clicking &ldquo;Accept all&rdquo;, you
               consent to the use of cookies for{" "}
               <strong>personalised and non-personalised advertising</strong>.{" "}
+              See{" "}
               <a
                 href="https://business.safety.google/privacy/"
                 target="_blank"
@@ -231,9 +232,9 @@ export default function ConsentBanner() {
                 style={{ color: "#1B4F72", fontWeight: 600, textDecoration: "underline" }}
                 data-testid="consent-google-link"
               >
-                Learn how Google uses your data
-              </a>
-              .
+                Google's Business Data Responsibility Site
+              </a>{" "}
+              for how Google uses your data.
             </p>
           </div>
 
