@@ -340,3 +340,18 @@ a:hover {
 .dropdown-scroll::-webkit-scrollbar-track { background: transparent; }
 .dropdown-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 4px; }
 .dropdown-scroll::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
+
+/* Stats counter animation - preserves SEO value in DOM */
+@keyframes stats-countup {
+  0% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.8; }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.stats-counter {
+  display: inline-block;
+}
+
+.stats-animate {
+  animation: stats-countup 1.8s ease-in-out;
+}

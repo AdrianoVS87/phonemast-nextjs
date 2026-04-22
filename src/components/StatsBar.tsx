@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useEffect, useRef } from "react";
 
 interface Stat {
   value: number;
@@ -15,35 +15,26 @@ const stats: Stat[] = [
 ];
 
 function CountUp({ target, suffix }: { target: number; suffix: string }) {
-  const [count, setCount] = useState(0);
   const ref = useRef<HTMLSpanElement>(null);
-  const started = useRef(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
-        if (entry.isIntersecting && !started.current) {
-          started.current = true;
-          const duration = 1800;
-          const steps = 60;
-          const increment = target / steps;
-          let current = 0;
-          const interval = setInterval(() => {
-            current = Math.min(current + increment, target);
-            setCount(Math.floor(current));
-            if (current >= target) clearInterval(interval);
-          }, duration / steps);
+        if (entry.isIntersecting && ref.current) {
+          ref.current.classList.add("stats-animate");
         }
       },
       { threshold: 0.5 }
     );
     if (ref.current) observer.observe(ref.current);
     return () => observer.disconnect();
-  }, [target]);
+  }, []);
 
+  // CRITICAL: Render target value immediately for SEO (SSR) - never use client-only 0
+  // Animation via CSS class, not JS content changes
   return (
-    <span ref={ref}>
-      {count.toLocaleString()}
+    <span ref={ref} className="stats-counter">
+      {target.toLocaleString()}
       {suffix}
     </span>
   );
