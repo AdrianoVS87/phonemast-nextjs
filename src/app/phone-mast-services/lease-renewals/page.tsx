@@ -123,6 +123,47 @@ export default function Page() {
               </li>
             ))}
           </ul>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Frequently Asked Questions About Phone Mast Lease Renewals
+          </h2>
+
+          <div style={{ marginBottom: "2rem" }}>
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+              What is a phone mast lease renewal?
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
+              A phone mast lease renewal happens when your existing agreement with the telecom operator expires and they want to enter into a new contract. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve &quot;Heads of Terms&quot; for a new agreement, but these often offer lower rent than market value and include operator-friendly clauses that reduce landlord protections.
+            </p>
+
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+              When should I start my lease renewal process?
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
+              Ideally, 12-18 months before your lease expiry. This gives time for proper valuation, negotiation, and if necessary, tribunal proceedings. Starting early typically results in better outcomes than reacting to operator approaches.
+            </p>
+
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+              How does the Electronic Communications Code affect my renewal?
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
+              The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. Key changes include the &quot;no-network assumption&quot; for rent calculations (introduced April 2026) and operator rights to upgrade equipment. Understanding these regulations is crucial for effective negotiation. <a href="https://www.legislation.gov.uk/ukpga/2017/30/notes/division/6" target="_blank" rel="noopener noreferrer" style={{ color: "#1B4F72", textDecoration: "underline" }}>Read the ECC legislation on legislation.gov.uk</a>.
+            </p>
+
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+              What about renewals with specific operators like Vodafone, EE, or CTIL?
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
+              Each operator has different agents, tactics, and lease structures. Vodafone and EE renewals often involve their appointed surveyors who work to minimise rent offers. CTIL (Cornerstone) renewals follow specific Code protocols. Our team has direct experience negotiating with all major operators and their agents.
+            </p>
+
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+              Can I challenge a poor renewal offer?
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
+              Yes. If you believe the operator&apos;s offer is below market value or the terms are unfavourable, you can refuse the offer and negotiate further. If agreement cannot be reached, the matter can be referred to the Upper Tribunal (Lands Chamber). Professional representation significantly improves outcomes in these proceedings.
+            </p>
+          </div>
         </div>
       </section>
 

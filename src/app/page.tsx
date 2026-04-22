@@ -13,16 +13,16 @@ import JsonLd from "@/components/JsonLd";
 export const revalidate = 60; // ISR — revalidate every 60 seconds
 
 export const metadata: Metadata = {
-  title: "Phone Mast Advice | Expert Lease & Rent Reviews | UK Specialists",
+  title: "Phone Mast Advice for UK Landlords | Specialist Telecoms Surveyors",
   description:
-    "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings. 30+ years experience, 10,000+ deals. Call 01691 791543.",
+    "Independent specialist telecoms surveyors acting only for UK landlords. Expert representation for rent reviews, mast agreements, and tenant negotiations. 30+ years experience, 10,000+ deals. Call 01691 791543.",
   alternates: {
     canonical: "https://phonemastadvice.co.uk",
   },
   openGraph: {
-    title: "Phone Mast Advice | Expert Lease & Rent Reviews | UK Specialists",
+    title: "Phone Mast Advice for UK Landlords | Specialist Telecoms Surveyors",
     description:
-      "Independent specialist telecom surveyors acting only for UK landlords. 30+ years experience, 10,000+ deals completed across the UK.",
+      "Independent specialist telecoms surveyors acting only for UK landlords. 30+ years experience, 10,000+ deals completed across the UK.",
     url: "https://phonemastadvice.co.uk",
     type: "website",
     locale: "en_GB",
@@ -40,9 +40,9 @@ const services: ServiceCardProps[] = [
   },
   {
     icon: "🔄",
-    title: "Lease Renewals",
+    title: "Phone Mast Lease Renewals",
     description:
-      "Get the right lease from day one. Navigate the Electronic Communications Code confidently with specialist representation.",
+      "Expert phone mast lease renewal negotiations. Navigate the Electronic Communications Code with specialist representation for your mast lease. Get fair rent and terms.",
     href: "/phone-mast-services/lease-renewals",
   },
   {
@@ -185,7 +185,7 @@ export default function HomePage() {
 
       {/* Hero */}
       <Hero
-        headline="Expert Phone Mast Lease Advice"
+        headline="UK Phone Mast Specialists for Landlords"
         subheadline="Independent specialist telecom surveyors acting only for UK landlords. We help you secure fair rents, strong contracts, and long-term protection — not the operator's interests."
         ctaText="Get Your Free Rent Estimate"
         ctaHref="/free-rent-estimate"
@@ -235,7 +235,7 @@ export default function HomePage() {
                   lineHeight: 1.2,
                 }}
               >
-                Do You Need Help With a Phone Mast Lease?
+                Do You Need Help With a Telecoms Agreement?
               </h2>
               <p
                 style={{
