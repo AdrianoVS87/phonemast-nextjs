@@ -65,6 +65,7 @@ const REDIRECTS: Record<string, string> = {
   
   // === Common WP content patterns (Ads may link to these) ===
   "index.php": "/",
+  "phone-mast": "/phone-mast-services",
 
   // === Core pages ===
   "home": "/",
