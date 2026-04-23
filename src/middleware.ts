@@ -8,6 +8,12 @@ import { NextRequest, NextResponse } from "next/server";
  */
 const REDIRECTS: Record<string, string> = {
   // === Services (apex-level WP pages → nested service routes) ===
+  "our-services": "/phone-mast-services",
+  "our-services/rent-reviews": "/phone-mast-services/rent-reviews",
+  "our-services/lease-renewals": "/phone-mast-services/lease-renewals",
+  "our-services/new-lettings": "/phone-mast-services/new-lettings",
+  "our-services/mast-sales": "/phone-mast-services/mast-sales",
+  "what-we-do": "/phone-mast-services",
   "services": "/phone-mast-services",
   "phone-mast-services-overview": "/phone-mast-services",
   "rent-reviews": "/phone-mast-services/rent-reviews",
