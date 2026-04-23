@@ -61,6 +61,10 @@ const REDIRECTS: Record<string, string> = {
   "wp-login.php": "/",
   "xmlrpc.php": "/",
   "sitemap_index.xml": "/sitemap.xml",
+  "wp-json": "/",
+  
+  // === Common WP content patterns (Ads may link to these) ===
+  "index.php": "/",
 
   // === Core pages ===
   "home": "/",
