@@ -73,6 +73,22 @@ export default function RootLayout({
         {/* MUST be first: sets Google Consent Mode v2 defaults to denied
              before any Google script loads. See src/components/analytics/ConsentDefault.tsx */}
         <ConsentDefault />
+        {/* Load gtag.js unconditionally so conversion events have a target */}
+        {process.env.NEXT_PUBLIC_ADS_CONVERSION_ID && (
+          <>
+            <Script
+              id="gtag-lib"
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_ADS_CONVERSION_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="gtag-config" strategy="afterInteractive">
+              {`
+                gtag('js', new Date());
+                gtag('config', '${process.env.NEXT_PUBLIC_ADS_CONVERSION_ID}');
+              `}
+            </Script>
+          </>
+        )}
         {/* Google Tag / GA4 / Ads — only render when env vars populated. */}
         <GoogleScripts />
       </head>
