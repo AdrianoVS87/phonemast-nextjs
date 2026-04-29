@@ -14,7 +14,7 @@
  * of the EU UCP requirements.
  */
 
-type FormKind = "contact" | "lead" | "handbook";
+type FormKind = "contact" | "lead" | "handbook" | "lease-check" | "rent-estimate";
 
 declare global {
   interface Window {
@@ -34,17 +34,27 @@ export function fireConversion(kind: FormKind) {
   const adsId = cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_ID);
   if (!adsId) return;
 
+  // Support both full format (AW-123/label) and label-only format
+  // The env vars can be either:
+  //   - Full: NEXT_PUBLIC_ADS_CONVERSION_LABEL_CONTACT=AW-405554320/iZeuCO-v7qQcEJCJscEB
+  //   - Partial: NEXT_PUBLIC_ADS_CONVERSION_LABEL_CONTACT=iZeuCO-v7qQcEJCJscEB
   const labelMap: Record<FormKind, string | undefined> = {
     contact: cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_CONTACT),
     lead: cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_LEAD),
     handbook: cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_HANDBOOK),
+    "lease-check": cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_LEASE_CHECK),
+    "rent-estimate": cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_RENT_ESTIMATE),
   };
   const label = labelMap[kind];
   if (!label) return;
 
   if (typeof window.gtag !== "function") return;
 
+  // If label already contains the full format (contains /), use as-is,
+  // otherwise prepend the adsId
+  const sendTo = label.includes("/") ? label : `${adsId}/${label}`;
+
   window.gtag("event", "conversion", {
-    send_to: `${adsId}/${label}`,
+    send_to: sendTo,
   });
 }

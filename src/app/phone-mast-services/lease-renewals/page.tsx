@@ -1,4 +1,3 @@
-import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -31,68 +30,76 @@ const relatedPosts = [
   { title: "Legal Safeguards for Phone Mast Landlords", href: "/blog/legal-safeguards" },
 ];
 
+const serviceSchema = {
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "name": "Phone Mast Lease Renewals",
+  "alternateName": ["Code Lease Renewal", "Phone Mast Lease Renewal Advice"],
+  "description": "Independent expert negotiation of phone mast lease renewals under the Electronic Communications Code. UK-wide service for landowners with leases from Vodafone, EE, O2, Three, CTIL, Cornerstone, Cellnex, Arqiva and other telecom operators.",
+  "url": "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals/",
+  "serviceType": "Telecommunications Lease Renewal Advisory",
+  "areaServed": { "@type": "Country", "name": "United Kingdom" },
+  "provider": {
+    "@type": "Organization",
+    "name": "The Phone Mast Advice Company",
+    "url": "https://phonemastadvice.co.uk",
+    "telephone": "+44-1691-791543",
+    "email": "info@phonemastadvice.co.uk"
+  },
+  "audience": { "@type": "Audience", "audienceType": "UK landowners and landlords with phone mast leases" },
+  "hasOfferCatalog": {
+    "@type": "OfferCatalog",
+    "name": "Phone Mast Lease Renewal Services",
+    "itemListElement": [
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Phone Mast Lease Renewal Negotiation" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Code Lease Renewal Advice" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Operator Heads of Terms Review" } },
+      { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Free Lease Check" } }
+    ]
+  }
+};
+
+const breadcrumbJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://phonemastadvice.co.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://phonemastadvice.co.uk/phone-mast-services/" },
+    { "@type": "ListItem", "position": 3, "name": "Lease Renewals", "item": "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals/" }
+  ]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    { "@type": "Question", "name": "What is a phone mast lease renewal?", "acceptedAnswer": { "@type": "Answer", "text": "A phone mast lease renewal happens when your existing agreement with the telecom operator expires and they want to enter into a new contract. Under the UK's Electronic Communications Code (ECC), operators can serve \"Heads of Terms\" for a new agreement, but these often offer lower rent than market value and include operator-friendly clauses that reduce landlord protections." } },
+    { "@type": "Question", "name": "When should I start my lease renewal process?", "acceptedAnswer": { "@type": "Answer", "text": "Ideally, 12-18 months before your lease expiry. This gives time for proper valuation, negotiation, and if necessary, tribunal proceedings. Starting early typically results in better outcomes than reacting to operator approaches." } },
+    { "@type": "Question", "name": "How does the Electronic Communications Code affect my renewal?", "acceptedAnswer": { "@type": "Answer", "text": "The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. Key changes include the \"no-network assumption\" for rent calculations (introduced April 2026) and operator rights to upgrade equipment. Understanding these regulations is crucial for effective negotiation." } },
+    { "@type": "Question", "name": "What about renewals with specific operators like Vodafone, EE, or CTIL?", "acceptedAnswer": { "@type": "Answer", "text": "Each operator has different agents, tactics, and lease structures. Vodafone and EE renewals often involve their appointed surveyors who work to minimise rent offers. CTIL (Cornerstone) renewals follow specific Code protocols. Our team has direct experience negotiating with all major operators and their agents." } },
+    { "@type": "Question", "name": "Can I challenge a poor renewal offer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If you believe the operator's offer is below market value or the terms are unfavourable, you can refuse the offer and negotiate further. If agreement cannot be reached, the matter can be referred to the Upper Tribunal (Lands Chamber). Professional representation significantly improves outcomes in these proceedings." } }
+  ]
+};
+
+const howToSchema = {
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How Our Lease Renewal Service Works",
+  "step": [
+    { "@type": "HowToStep", "name": "1. Initial Lease Review", "text": "We assess your current contract, any Heads of Terms offered, and key rights and obligations. This ensures we start negotiations from a strong, informed position." },
+    { "@type": "HowToStep", "name": "2. Market & Legal Advice", "text": "You receive clear guidance on rent benchmarks, explanation of legal frameworks like the ECC, and strategy on what terms to accept, challenge, or change." },
+    { "@type": "HowToStep", "name": "3. Negotiation with the Operator", "text": "We handle all communications with operator agents, rent proposals, and clause revisions. Our goal: terms that protect your interests, not just conclude a deal." },
+    { "@type": "HowToStep", "name": "4. Completion with Your Solicitor", "text": "We work alongside your solicitor to finalise the lease, from drafting to signature, making sure your interests are protected through to the end." }
+  ]
+};
+
 export default function Page() {
   return (
     <>
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "Service",
-        "name": "Phone Mast Lease Renewals",
-        "alternateName": ["Code Lease Renewal", "Phone Mast Lease Renewal Advice"],
-        "description": "Independent expert negotiation of phone mast lease renewals under the Electronic Communications Code. UK-wide service for landowners with leases from Vodafone, EE, O2, Three, CTIL, Cornerstone, Cellnex, Arqiva and other telecom operators.",
-        "url": "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals/",
-        "serviceType": "Telecommunications Lease Renewal Advisory",
-        "areaServed": { "@type": "Country", "name": "United Kingdom" },
-        "provider": {
-          "@type": "Organization",
-          "name": "The Phone Mast Advice Company",
-          "url": "https://phonemastadvice.co.uk",
-          "telephone": "+44-1691-791543",
-          "email": "info@phonemastadvice.co.uk"
-        },
-        "audience": { "@type": "Audience", "audienceType": "UK landowners and landlords with phone mast leases" },
-        "hasOfferCatalog": {
-          "@type": "OfferCatalog",
-          "name": "Phone Mast Lease Renewal Services",
-          "itemListElement": [
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Phone Mast Lease Renewal Negotiation" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Code Lease Renewal Advice" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Operator Heads of Terms Review" } },
-            { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Free Lease Check" } }
-          ]
-        }
-      }} />
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "BreadcrumbList",
-        "itemListElement": [
-          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://phonemastadvice.co.uk/" },
-          { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://phonemastadvice.co.uk/phone-mast-services" },
-          { "@type": "ListItem", "position": 3, "name": "Lease Renewals", "item": "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals" }
-        ]
-      }} />
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "FAQPage",
-        "mainEntity": [
-          { "@type": "Question", "name": "What is a phone mast lease renewal?", "acceptedAnswer": { "@type": "Answer", "text": "A phone mast lease renewal happens when your existing agreement with the telecom operator expires and they want to enter into a new contract. Under the UK's Electronic Communications Code (ECC), operators can serve \"Heads of Terms\" for a new agreement, but these often offer lower rent than market value and include operator-friendly clauses that reduce landlord protections." } },
-          { "@type": "Question", "name": "When should I start my lease renewal process?", "acceptedAnswer": { "@type": "Answer", "text": "Ideally, 12-18 months before your lease expiry. This gives time for proper valuation, negotiation, and if necessary, tribunal proceedings. Starting early typically results in better outcomes than reacting to operator approaches." } },
-          { "@type": "Question", "name": "How does the Electronic Communications Code affect my renewal?", "acceptedAnswer": { "@type": "Answer", "text": "The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. Key changes include the \"no-network assumption\" for rent calculations (introduced April 2026) and operator rights to upgrade equipment. Understanding these regulations is crucial for effective negotiation." } },
-          { "@type": "Question", "name": "What about renewals with specific operators like Vodafone, EE, or CTIL?", "acceptedAnswer": { "@type": "Answer", "text": "Each operator has different agents, tactics, and lease structures. Vodafone and EE renewals often involve their appointed surveyors who work to minimise rent offers. CTIL (Cornerstone) renewals follow specific Code protocols. Our team has direct experience negotiating with all major operators and their agents." } },
-          { "@type": "Question", "name": "Can I challenge a poor renewal offer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If you believe the operator's offer is below market value or the terms are unfavourable, you can refuse the offer and negotiate further. If agreement cannot be reached, the matter can be referred to the Upper Tribunal (Lands Chamber). Professional representation significantly improves outcomes in these proceedings." } }
-        ]
-      }} />
-      <JsonLd data={{
-        "@context": "https://schema.org",
-        "@type": "HowTo",
-        "name": "How Our Lease Renewal Service Works",
-        "step": [
-          { "@type": "HowToStep", "name": "1. Initial Lease Review", "text": "We assess your current contract, any Heads of Terms offered, and key rights and obligations. This ensures we start negotiations from a strong, informed position." },
-          { "@type": "HowToStep", "name": "2. Market & Legal Advice", "text": "You receive clear guidance on rent benchmarks, explanation of legal frameworks like the ECC, and strategy on what terms to accept, challenge, or change." },
-          { "@type": "HowToStep", "name": "3. Negotiation with the Operator", "text": "We handle all communications with operator agents, rent proposals, and clause revisions. Our goal: terms that protect your interests, not just conclude a deal." },
-          { "@type": "HowToStep", "name": "4. Completion with Your Solicitor", "text": "We work alongside your solicitor to finalise the lease, from drafting to signature, making sure your interests are protected through to the end." }
-        ]
-      }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals" }]} />
 
       {/* Hero */}

@@ -61,7 +61,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
     const result = await sendLeadEmail(data);
 
     if (result.success) {
-      fireConversion("lead");
+      fireConversion(formType);
       setStatus("success");
       formRef.current?.reset();
     } else {
