@@ -6,6 +6,9 @@ export interface BlogPost {
   excerpt: string;
   author: string;
   content: string;
+  featuredImage?: string;
+  featuredImageAlt?: string;
+  featuredImageCredit?: string;
 }
 
 export function formatDate(dateStr: string): string {

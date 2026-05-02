@@ -40,5 +40,8 @@ export function getPostBySlug(slug: string): BlogPost | null {
     excerpt: data.excerpt || content.slice(0, 200).replace(/\n/g, " ") + "...",
     author: data.author || "Matt Restall",
     content,
+    featuredImage: data.featuredImage,
+    featuredImageAlt: data.featuredImageAlt,
+    featuredImageCredit: data.featuredImageCredit,
   };
 }

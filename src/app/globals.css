@@ -311,6 +311,25 @@ a:hover {
   color: #4b5563;
 }
 
+.blog-content .blog-figure {
+  margin: 0 0 2rem;
+}
+
+.blog-content .blog-figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 1rem;
+  border: 1px solid #e5e7eb;
+}
+
+.blog-content .blog-figure figcaption {
+  margin-top: 0.5rem;
+  color: #6b7280;
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+
 .blog-content a {
   color: #1B4F72;
   text-decoration: underline;

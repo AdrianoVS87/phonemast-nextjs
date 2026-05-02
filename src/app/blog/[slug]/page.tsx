@@ -21,6 +21,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = getPostBySlug(slug);
   if (!post) return {};
 
+  const featuredImage = post.featuredImage || "/images/og-default.jpg";
+
   return {
     title: post.title,
     description: post.excerpt.slice(0, 158),
@@ -32,7 +34,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
-      images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: post.title }],
+      images: [{ url: featuredImage, width: 1200, height: 630, alt: post.featuredImageAlt || post.title }],
     },
   };
 }
@@ -102,10 +104,15 @@ export default async function BlogPostPage({ params }: Props) {
     );
   }
 
+  const articleImage = post.featuredImage
+    ? `https://phonemastadvice.co.uk${post.featuredImage}`
+    : "https://phonemastadvice.co.uk/images/og-default.jpg";
+
   const articleJsonLd = {
     "@context": "https://schema.org",
     "@type": "Article",
     headline: post.title,
+    image: [articleImage],
     datePublished: post.date,
     dateModified: post.date,
     author: {
