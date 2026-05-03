@@ -424,7 +424,7 @@ export default function HomePage() {
                   marginBottom: "0.875rem",
                 }}
               >
-                Phone Mast Rent 2026
+Phone Mast Rent Advice
               </h3>
               <p
                 style={{
@@ -434,7 +434,7 @@ export default function HomePage() {
                   marginBottom: "1.5rem",
                 }}
               >
-                The no-network assumption, ECC valuation methodology, Vache Farm benchmark, and how the 7 April 2026 changes removed the LTA 1954 rent advantage for legacy lease holders.
+                Understand how phone mast rent is valued, what changed in 2026, and when to escalate into a formal rent review or valuation dispute.
               </p>
               <a
                 href="/phone-mast-rent-2026"
@@ -452,7 +452,7 @@ export default function HomePage() {
                   minHeight: "44px",
                 }}
               >
-                Understand Your Rent →
+Read the Rent Guide →
               </a>
             </div>
 
@@ -475,7 +475,7 @@ export default function HomePage() {
                   marginBottom: "0.875rem",
                 }}
               >
-                Phone Mast Lease 2026
+Phone Mast Lease Advice
               </h3>
               <p
                 style={{
@@ -485,7 +485,7 @@ export default function HomePage() {
                   marginBottom: "1.5rem",
                 }}
               >
-                Key lease clauses under the ECC — assignment, upgrading, break clauses, continuation provisions — and what the PSTI Act 2022 changes mean for your lease terms.
+                Understand the key clauses in a phone mast lease, operator rights under the ECC, and when a renewal or legal review is needed.
               </p>
               <a
                 href="/phone-mast-lease-2026"
@@ -503,7 +503,7 @@ export default function HomePage() {
                   minHeight: "44px",
                 }}
               >
-                Review Your Lease →
+Read the Lease Guide →
               </a>
             </div>
           </div>

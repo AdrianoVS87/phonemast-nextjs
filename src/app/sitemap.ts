@@ -59,15 +59,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const serviceEntries: MetadataRoute.Sitemap = servicePages.map((path) => ({
     url: withSlash(`${BASE_URL}${path}`),
     lastModified: new Date(),
-    changeFrequency: "monthly",
-    priority: 0.85,
+    changeFrequency: path.includes("lease-renewals") || path.includes("rent-reviews") ? "weekly" : "monthly",
+    priority:
+      path.includes("lease-renewals") || path.includes("rent-reviews")
+        ? 0.9
+        : path.includes("new-lettings") || path.includes("mast-sales")
+          ? 0.8
+          : 0.7,
   }));
 
   const operatorEntries: MetadataRoute.Sitemap = operatorSlugs.map((slug) => ({
     url: withSlash(`${BASE_URL}/${slug}`),
     lastModified: new Date(),
     changeFrequency: "monthly",
-    priority: 0.85,
+    priority: 0.65,
   }));
 
   const locationEntries: MetadataRoute.Sitemap = locationSlugs.map((slug) => ({

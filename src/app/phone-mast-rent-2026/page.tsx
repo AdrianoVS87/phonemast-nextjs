@@ -3,14 +3,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Rent 2026 | ECC Valuation & PSTI Act",
+  title: "Phone Mast Rent Advice for UK Landlords (2026 Guide)",
   description:
-    "How phone mast rent is calculated under the ECC, the no-network assumption, key case law, and what changes for UK landlords on 7 April 2026.",
+    "Expert phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
   alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-rent-2026" },
   openGraph: {
-    title: "Phone Mast Rent 2026 | ECC Valuation & PSTI Act",
+    title: "Phone Mast Rent Advice for UK Landlords (2026 Guide)",
     description:
-      "How phone mast rent is calculated under the ECC, the no-network assumption, key case law, and what changes for UK landlords on 7 April 2026.",
+      "Expert phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
     type: "website",
   },
 };
@@ -40,7 +40,7 @@ export default function PhoneMastRent2026Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
-      <Breadcrumbs items={[{ label: "Phone Mast Rent 2026" }]} />
+      <Breadcrumbs items={[{ label: "Phone Mast Rent Advice" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -55,7 +55,7 @@ export default function PhoneMastRent2026Page() {
               lineHeight: 1.2,
             }}
           >
-            Phone Mast Rent 2026: What UK Landlords Need to Know
+            Phone Mast Rent Advice: What UK Landlords Need to Know in 2026
           </h1>
           <p
             style={{
@@ -65,7 +65,7 @@ export default function PhoneMastRent2026Page() {
               marginBottom: "2rem",
             }}
           >
-            The rules on phone mast rent are changing significantly in 2026. Understanding how rent is calculated — and what changes on 7 April 2026 — could make a substantial difference to your income.
+            If you are searching for clear phone mast rent advice, this is the page to start with. It explains how rent is calculated, what changed on 7 April 2026, and what UK landlords can do to protect income.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a
@@ -118,6 +118,20 @@ export default function PhoneMastRent2026Page() {
       {/* Main content */}
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "860px" }}>
+
+          <div
+            style={{
+              backgroundColor: "#f9f8f5",
+              border: "1px solid #e5e7eb",
+              borderRadius: "1rem",
+              padding: "1.25rem 1.5rem",
+              marginBottom: "2rem",
+            }}
+          >
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
+              Need practical help rather than just background reading? Our <a href="/phone-mast-services/rent-reviews" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent review service</a> is the best next step if you want negotiation support, and you can also request a <a href="/free-rent-estimate" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast rent estimate</a>.
+            </p>
+          </div>
 
           {/* How Rent Is Calculated */}
           <h2

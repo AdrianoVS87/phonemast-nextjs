@@ -4,8 +4,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease Renewals & Code Lease Renewal",
-  description: "Expert phone mast lease renewal and Code lease renewal advice for UK landlords. Independent specialists acting only for landowners. Free consultation.",
+  title: "Phone Mast Lease Renewal Service | Code Renewals for UK Landlords",
+  description: "Expert phone mast lease renewal and Code lease renewal service for UK landlords. Independent specialists acting only for landowners.",
   alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals" },
 };
 
@@ -109,7 +109,7 @@ export default function Page() {
             Phone Mast Lease Renewals
           </h1>
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
-            Independent specialists helping UK landlords navigate lease renewals with every major mobile phone operator. We act only for landowners — never for operators.
+            Independent specialists helping UK landlords navigate lease renewals with every major mobile phone operator. This page is about our lease renewal service; for the broader legal background, see our <a href="/phone-mast-lease-2026" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast lease advice page</a>.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <Link href="/free-lease-check" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
@@ -136,7 +136,7 @@ export default function Page() {
             What Is a Phone Mast Lease Renewal?
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            A lease renewal happens when your existing Phone Mast agreement comes to an end and the telecom operator wants to put a new lease in place. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve Heads of Terms for a new agreement, but these terms often offer lower rent than market value, use operator-friendly clauses, and reduce landlord protections. Professional advice ensures you don&apos;t accept terms that leave money or rights on the table.
+            A lease renewal happens when your existing Phone Mast agreement comes to an end and the telecom operator wants to put a new lease in place. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve Heads of Terms for a new agreement, but these terms often offer lower rent than market value, use operator-friendly clauses, and reduce landlord protections. Professional advice ensures you don&apos;t accept terms that leave money or rights on the table. If you first need the broader legal context, read our <a href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>

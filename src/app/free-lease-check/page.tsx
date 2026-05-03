@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Get a free review of your phone mast lease from independent UK specialists. We check your terms, identify issues, and advise on your options — no obligation. Call 01691 791543.",
   alternates: { canonical: "https://phonemastadvice.co.uk/free-lease-check" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Free Phone Mast Lease Check",
     description: "Independent phone mast lease review — completely free, no obligation.",

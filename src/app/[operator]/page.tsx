@@ -936,6 +936,16 @@ export default async function OperatorPage({
               {paragraph}
             </p>
           ))}
+          <p
+            style={{
+              fontSize: "1.125rem",
+              color: "#374151",
+              lineHeight: 1.7,
+              marginBottom: 0,
+            }}
+          >
+            If your {data.name} mast lease is approaching its renewal date, see our specialist guide on <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewals</a> for independent UK advice for landowners.
+          </p>
         </div>
       </section>
 

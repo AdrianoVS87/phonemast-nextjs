@@ -8,6 +8,7 @@ export const metadata: Metadata = {
   description:
     "Get a free estimate of your phone mast rental value from independent UK specialists. We use our database of comparable UK deals. No obligation. Call 01691 791543.",
   alternates: { canonical: "https://phonemastadvice.co.uk/free-rent-estimate" },
+  robots: { index: false, follow: true },
   openGraph: {
     title: "Free Phone Mast Rent Estimate",
     description: "Find out what your phone mast should really be paying — free estimate from UK specialists.",

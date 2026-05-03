@@ -3,14 +3,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease 2026 | ECC Clauses & PSTI Act",
+  title: "Phone Mast Lease Advice for UK Landlords (2026 Guide)",
   description:
-    "Key phone mast lease clauses under the ECC 2017, case law, rooftop vs greenfield provisions, and the 7 April 2026 PSTI Act changes explained for UK landlords.",
+    "Expert phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
   alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-lease-2026" },
   openGraph: {
-    title: "Phone Mast Lease 2026 | ECC Clauses & PSTI Act",
+    title: "Phone Mast Lease Advice for UK Landlords (2026 Guide)",
     description:
-      "Key phone mast lease clauses under the ECC 2017, case law, rooftop vs greenfield provisions, and the 7 April 2026 PSTI Act changes explained for UK landlords.",
+      "Expert phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
     type: "website",
   },
 };
@@ -40,7 +40,7 @@ export default function PhoneMastLease2026Page() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
 
-      <Breadcrumbs items={[{ label: "Phone Mast Lease 2026" }]} />
+      <Breadcrumbs items={[{ label: "Phone Mast Lease Advice" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -55,7 +55,7 @@ export default function PhoneMastLease2026Page() {
               lineHeight: 1.2,
             }}
           >
-            Phone Mast Lease 2026: What Every UK Landlord Must Know
+            Phone Mast Lease Advice: What Every UK Landlord Must Know in 2026
           </h1>
           <p
             style={{
@@ -65,7 +65,7 @@ export default function PhoneMastLease2026Page() {
               marginBottom: "2rem",
             }}
           >
-            If you own land or a building with a phone mast, your lease agreement is governed by the Electronic Communications Code. Understanding the clauses in your lease — and the rights operators now hold by statute — is essential to protecting your position in 2026.
+            If you are looking for clear phone mast lease advice, this page explains the key clauses, operator rights, renewal issues, and practical risks that matter to UK landlords in 2026.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a
@@ -118,6 +118,20 @@ export default function PhoneMastLease2026Page() {
       {/* Main content */}
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "860px" }}>
+
+          <div
+            style={{
+              backgroundColor: "#f9f8f5",
+              border: "1px solid #e5e7eb",
+              borderRadius: "1rem",
+              padding: "1.25rem 1.5rem",
+              marginBottom: "2rem",
+            }}
+          >
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
+              Need practical help with an operator approach or expired agreement? Our <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewal service</a> is the right next step, and you can also request a <a href="/free-lease-check" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast lease check</a>.
+            </p>
+          </div>
 
           {/* Legal Framework */}
           <h2
