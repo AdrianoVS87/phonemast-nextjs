@@ -13,16 +13,16 @@ import JsonLd from "@/components/JsonLd";
 export const revalidate = 60; // ISR — revalidate every 60 seconds
 
 export const metadata: Metadata = {
-  title: "Phone Mast Advice for UK Landlords | Specialist Telecoms Surveyors",
+  title: "Phone Mast Lease & Rent Advice for UK Landlords",
   description:
-    "Independent specialist telecoms surveyors acting only for UK landlords. Expert representation for rent reviews, mast agreements, and tenant negotiations. 30+ years experience, 10,000+ deals. Call 01691 791543.",
+    "Independent specialist telecom surveyors for UK landlords. Expert phone mast lease advice, phone mast rent advice, renewals, rent reviews, and negotiations.",
   alternates: {
     canonical: "https://phonemastadvice.co.uk",
   },
   openGraph: {
-    title: "Phone Mast Advice for UK Landlords | Specialist Telecoms Surveyors",
+    title: "Phone Mast Lease & Rent Advice for UK Landlords",
     description:
-      "Independent specialist telecoms surveyors acting only for UK landlords. 30+ years experience, 10,000+ deals completed across the UK.",
+      "Independent specialist telecom surveyors for UK landlords. Expert advice on phone mast leases, rents, renewals, and negotiations across the UK.",
     url: "https://phonemastadvice.co.uk",
     type: "website",
     locale: "en_GB",
@@ -33,7 +33,7 @@ export const metadata: Metadata = {
 const services: ServiceCardProps[] = [
   {
     icon: "📋",
-    title: "Rent Reviews",
+    title: "Phone Mast Rent Reviews",
     description:
       "Secure fair market rent and contract terms. We benchmark your site against comparable UK deals to ensure you're fairly compensated.",
     href: "/phone-mast-services/rent-reviews",

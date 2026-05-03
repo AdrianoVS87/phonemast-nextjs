@@ -45,15 +45,10 @@ export default function sitemap(): MetadataRoute.Sitemap {
     { url: withSlash(`${BASE_URL}/team`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
     { url: withSlash(`${BASE_URL}/contact`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: withSlash(`${BASE_URL}/faq`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: withSlash(`${BASE_URL}/free-lease-check`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: withSlash(`${BASE_URL}/free-rent-estimate`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
     { url: withSlash(`${BASE_URL}/handbook`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
     { url: withSlash(`${BASE_URL}/blog`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: withSlash(`${BASE_URL}/phone-mast-rent-2026`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: withSlash(`${BASE_URL}/phone-mast-lease-2026`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: withSlash(`${BASE_URL}/privacy-policy`), lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
-    { url: withSlash(`${BASE_URL}/disclaimer`), lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
-    { url: withSlash(`${BASE_URL}/cookie-policy`), lastModified: new Date(), changeFrequency: "yearly", priority: 0.3 },
+    { url: withSlash(`${BASE_URL}/phone-mast-rent-2026`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
+    { url: withSlash(`${BASE_URL}/phone-mast-lease-2026`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
   ];
 
   const serviceEntries: MetadataRoute.Sitemap = servicePages.map((path) => ({

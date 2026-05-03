@@ -892,11 +892,11 @@ export default async function OperatorPage({
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a
-              href="/free-rent-estimate"
+              href="/free-lease-check"
               className="btn-primary"
               style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
             >
-              Free Rent Estimate
+              Free Lease Check
             </a>
             <a
               href="tel:01691791543"
@@ -941,10 +941,20 @@ export default async function OperatorPage({
               fontSize: "1.125rem",
               color: "#374151",
               lineHeight: 1.7,
-              marginBottom: 0,
+              marginBottom: "1rem",
             }}
           >
             If your {data.name} mast lease is approaching its renewal date, see our specialist guide on <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewals</a> for independent UK advice for landowners.
+          </p>
+          <p
+            style={{
+              fontSize: "1.125rem",
+              color: "#374151",
+              lineHeight: 1.7,
+              marginBottom: 0,
+            }}
+          >
+            For the broader legal background, operator rights, and 2026 changes, start with our <a href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
           </p>
         </div>
       </section>

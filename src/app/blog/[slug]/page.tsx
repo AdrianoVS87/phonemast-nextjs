@@ -89,6 +89,8 @@ export default async function BlogPostPage({ params }: Props) {
 
   // Auto-link key service terms to internal pages (first occurrence only)
   const serviceLinks: [RegExp, string, string][] = [
+    [/(?<!<a[^>]*>)\bphone mast rent\b(?![^<]*<\/a>)/i, "/phone-mast-rent-2026", "phone mast rent"],
+    [/(?<!<a[^>]*>)\bphone mast lease\b(?![^<]*<\/a>)/i, "/phone-mast-lease-2026", "phone mast lease"],
     [/(?<!<a[^>]*>)\brent reviews?\b(?![^<]*<\/a>)/i, "/phone-mast-services/rent-reviews", "rent review"],
     [/(?<!<a[^>]*>)\blease renewals?\b(?![^<]*<\/a>)/i, "/phone-mast-services/lease-renewals", "lease renewal"],
     [/(?<!<a[^>]*>)\bnew lettings?\b(?![^<]*<\/a>)/i, "/phone-mast-services/new-lettings", "new letting"],
