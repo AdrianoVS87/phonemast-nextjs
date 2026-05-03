@@ -185,12 +185,12 @@ export default function HomePage() {
 
       {/* Hero */}
       <Hero
-        headline="UK Phone Mast Specialists for Landlords"
-        subheadline="Independent specialist telecom surveyors acting only for UK landlords. We help you secure fair rents, strong contracts, and long-term protection — not the operator's interests."
-        ctaText="Get Your Free Rent Estimate"
-        ctaHref="/free-rent-estimate"
-        secondaryCtaText="Free Lease Check"
-        secondaryCtaHref="/free-lease-check"
+        headline="Phone Mast Lease & Rent Advice for UK Landlords"
+        subheadline="Independent specialist telecom surveyors acting only for UK landlords. Get expert help with phone mast leases, phone mast rent, renewals, reviews, and operator negotiations."
+        ctaText="Free Lease Check"
+        ctaHref="/free-lease-check"
+        secondaryCtaText="Free Rent Estimate"
+        secondaryCtaHref="/free-rent-estimate"
       />
 
       {/* Stats bar */}
