@@ -4,14 +4,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Our Team | Phone Mast Advice Company | RICS Registered Surveyors",
+  title: "Our Team | Phone Mast Advice Experts & RICS Surveyors",
   description:
-    "Meet the specialist team at The Phone Mast Advice Company. RICS registered surveyors and telecom property experts acting exclusively for UK landlords. Founder Matt Restall.",
+    "Meet the phone mast advice team at The Phone Mast Advice Company. RICS registered surveyors and telecom property experts acting exclusively for UK landlords.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/team" },
   openGraph: {
     title: "Our Team — Phone Mast Advice Company",
     description:
-      "RICS registered surveyors and telecom property specialists. Founded by Matt Restall — involved in landmark case Compton Beauchamp Estates v CTIL [2022] UKSC 18.",
+      "Phone mast advice experts and RICS registered surveyors. Founded by Matt Restall — involved in landmark case Compton Beauchamp Estates v CTIL [2022] UKSC 18.",
     type: "website",
   },
 };
@@ -115,6 +115,9 @@ export default function TeamPage() {
             }}
           >
             A dedicated team of specialist surveyors and advisors, acting exclusively for UK landlords since 1999.
+          </p>
+          <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginTop: "1rem", marginBottom: 0 }}>
+            For the main guides our team supports, start with <a href="/phone-mast-lease-2026" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
           </p>
         </div>
       </section>

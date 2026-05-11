@@ -4,8 +4,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease Renewal Service | Code Renewals for UK Landlords",
-  description: "Expert phone mast lease renewal and Code lease renewal service for UK landlords. Independent specialists acting only for landowners.",
+  title: "Phone Mast Lease Renewal Advice Service | UK Landlords",
+  description: "Independent phone mast lease renewal advice service for UK landlords. Specialist support on ECC renewals, rent, clauses, and operator negotiations.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals" },
 };
 
@@ -131,6 +131,15 @@ export default function Page() {
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             If your current lease has expired or your operator has approached you with Heads of Terms, we can help you negotiate rent, protect your rights, and secure fair lease terms – even under the Electronic Communications Code.
           </p>
+
+          <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
+            <p style={{ fontSize: "0.95rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
+              Service page, not the broad explainer
+            </p>
+            <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
+              This page is designed for landlords who already need hands-on renewal support. If you need the broader legal background first, use our <a href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast lease advice guide</a>. Reviewed by the <a href="/team" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
+            </p>
+          </div>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
             What Is a Phone Mast Lease Renewal?

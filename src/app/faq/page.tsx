@@ -4,14 +4,14 @@ import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast FAQ | Leases, Rent & Landlord Rights | Expert Answers",
+  title: "Phone Mast Advice FAQ | Leases, Rent & Landlord Rights",
   description:
-    "Comprehensive answers to the most common questions about phone mast leases, rent reviews, the Electronic Communications Code, and UK landlord rights. Expert advice from specialist surveyors.",
+    "Phone mast advice FAQ with clear answers on phone mast leases, rent reviews, the Electronic Communications Code, and UK landlord rights from specialist surveyors.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/faq" },
   openGraph: {
-    title: "Phone Mast FAQ — Leases, Rent & Landlord Rights",
+    title: "Phone Mast Advice FAQ — Leases, Rent & Landlord Rights",
     description:
-      "Expert answers to common questions about phone mast leases, rent reviews, the ECC, and UK landlord rights from The Phone Mast Advice Company.",
+      "Phone mast advice answers to common questions about leases, rent reviews, the ECC, and UK landlord rights from The Phone Mast Advice Company.",
     type: "website",
   },
 };
@@ -158,6 +158,9 @@ export default function FAQPage() {
             }}
           >
             Expert answers to the most common questions from UK landlords about phone mast leases, rent reviews, and the Electronic Communications Code.
+          </p>
+          <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.92)", lineHeight: 1.65, marginTop: "1rem", marginBottom: 0 }}>
+            Start with our core guides: <a href="/phone-mast-lease-2026" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
           </p>
         </div>
       </section>

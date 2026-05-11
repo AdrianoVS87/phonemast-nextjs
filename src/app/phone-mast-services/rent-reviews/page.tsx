@@ -5,8 +5,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Rent Review Service for UK Landlords",
-  description: "Independent phone mast rent review specialists. We benchmark your rent against comparable UK deals and negotiate improved terms for UK landlords.",
+  title: "Phone Mast Rent Review Advice Service | UK Landlords",
+  description: "Independent phone mast rent review advice service for UK landlords. We benchmark rent, challenge weak offers, and negotiate improved telecom lease terms.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews" },
 };
 
@@ -63,6 +63,15 @@ export default function RentReviewsPage() {
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             Ensure your Phone Mast rent reflects the current market and the value of your land. If your telecom lease includes a rent review clause, you could be entitled to significantly more rent, sometimes including backdated payments. We help UK landowners secure fair rent, enforce missed reviews, and protect your rights under the Electronic Communications Code (ECC).
           </p>
+
+          <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
+            <p style={{ fontSize: "0.95rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
+              Service page, backed by the main valuation guide
+            </p>
+            <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
+              This page is for landlords who want practical negotiation support now. For the broader valuation and legal background, use our <a href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast rent advice guide</a>. Reviewed by the <a href="/team" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
+            </p>
+          </div>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
             What Is a Phone Mast Rent Review?

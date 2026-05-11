@@ -5,14 +5,14 @@ import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About Us | The Phone Mast Advice Company | UK Specialists Since 1999",
+  title: "About Us | Phone Mast Advice Specialists for UK Landlords",
   description:
-    "Independent specialist telecom surveyors with 30+ years experience advising UK landlords on phone mast leases. Involved in landmark Supreme Court case [2022] UKSC 18. RICS credentials. Reg. 13115582.",
+    "Independent phone mast advice specialists with 30+ years experience advising UK landlords on leases, rent, renewals, and landmark telecoms disputes.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/about-us" },
   openGraph: {
     title: "About The Phone Mast Advice Company Ltd",
     description:
-      "Independent specialist telecom surveyors acting only for UK landlords since 1999. RICS credentials, landmark case involvement, 10,000+ deals.",
+      "Independent phone mast advice specialists acting only for UK landlords since 1999. RICS credentials, landmark case involvement, 10,000+ deals.",
     type: "website",
   },
 };
@@ -132,6 +132,9 @@ export default function AboutPage() {
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             We are dedicated to all our clients, regardless of how many mobile Phone Mast sites they have. We aim to develop and maintain a friendly working relationship and ensure our clients feel well looked after and informed at every stage of the negotiations.
+          </p>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            If you are researching your options, start with our core <Link href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</Link> and <Link href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</Link> guides before moving into a specific service page.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             Our goal is to obtain the most favourable lease terms for the client, as well as the highest rent achievable for their mobile phone masts, ensuring the landlord is happy. At the same time, we aim to maintain a good landlord and tenant relationship.

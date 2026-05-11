@@ -13,16 +13,16 @@ import JsonLd from "@/components/JsonLd";
 export const revalidate = 60; // ISR — revalidate every 60 seconds
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease & Rent Advice for UK Landlords",
+  title: "Phone Mast Advice | Lease & Rent Advice for UK Landlords",
   description:
-    "Independent specialist telecom surveyors for UK landlords. Expert phone mast lease advice, phone mast rent advice, renewals, rent reviews, and negotiations.",
+    "Independent phone mast advice for UK landlords. Expert help with phone mast lease advice, phone mast rent advice, renewals, rent reviews, and operator negotiations.",
   alternates: {
     canonical: "https://www.phonemastadvice.co.uk",
   },
   openGraph: {
-    title: "Phone Mast Lease & Rent Advice for UK Landlords",
+    title: "Phone Mast Advice | Lease & Rent Advice for UK Landlords",
     description:
-      "Independent specialist telecom surveyors for UK landlords. Expert advice on phone mast leases, rents, renewals, and negotiations across the UK.",
+      "Independent phone mast advice for UK landlords. Expert advice on phone mast leases, rents, renewals, and operator negotiations across the UK.",
     url: "https://www.phonemastadvice.co.uk",
     type: "website",
     locale: "en_GB",
@@ -186,12 +186,28 @@ export default function HomePage() {
       {/* Hero */}
       <Hero
         headline="Phone Mast Lease & Rent Advice for UK Landlords"
-        subheadline="Independent specialist telecom surveyors acting only for UK landlords. Get expert help with phone mast leases, phone mast rent, renewals, reviews, and operator negotiations."
+        subheadline="Independent specialist telecom surveyors acting only for UK landlords. Get expert phone mast advice on leases, rent, renewals, reviews, and operator negotiations."
         ctaText="Free Lease Check"
         ctaHref="/free-lease-check"
         secondaryCtaText="Free Rent Estimate"
         secondaryCtaHref="/free-rent-estimate"
       />
+
+      <section style={{ backgroundColor: "#f9f8f5", padding: "1.25rem 1.5rem", borderBottom: "1px solid #e5e7eb" }}>
+        <div className="container-max" style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem 1.25rem", alignItems: "center" }}>
+          <p style={{ margin: 0, fontSize: "0.95rem", color: "#374151", fontWeight: 600 }}>Start with the right guide:</p>
+          {[
+            { href: "/phone-mast-lease-2026", label: "Phone Mast Lease Advice" },
+            { href: "/phone-mast-rent-2026", label: "Phone Mast Rent Advice" },
+            { href: "/phone-mast-services/lease-renewals", label: "Lease Renewal Advice" },
+            { href: "/phone-mast-services/rent-reviews", label: "Rent Review Advice" },
+          ].map((item) => (
+            <a key={item.href} href={item.href} style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "2px", fontSize: "0.95rem" }}>
+              {item.label}
+            </a>
+          ))}
+        </div>
+      </section>
 
       {/* Stats bar */}
       <StatsBar />

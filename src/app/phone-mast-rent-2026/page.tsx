@@ -3,14 +3,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Rent Advice for UK Landlords (2026 Guide)",
+  title: "Phone Mast Rent Advice for UK Landlords | 2026 Legal Guide",
   description:
-    "Expert phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
+    "Independent phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026" },
   openGraph: {
-    title: "Phone Mast Rent Advice for UK Landlords (2026 Guide)",
+    title: "Phone Mast Rent Advice for UK Landlords | 2026 Legal Guide",
     description:
-      "Expert phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
+      "Independent phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
     type: "website",
   },
 };
@@ -130,6 +130,26 @@ export default function PhoneMastRent2026Page() {
           >
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
               Need practical help rather than just background reading? Our <a href="/phone-mast-services/rent-reviews" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent review service</a> is the best next step if you want negotiation support, and you can also request a <a href="/free-rent-estimate" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast rent estimate</a>.
+            </p>
+          </div>
+
+          <div
+            style={{
+              backgroundColor: "#f0f7ff",
+              border: "1px solid #cfe3f5",
+              borderRadius: "1rem",
+              padding: "1.25rem 1.5rem",
+              marginBottom: "2rem",
+            }}
+          >
+            <p style={{ fontSize: "0.95rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
+              Main rent guide for this topic
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
+              This is our main <strong>phone mast rent advice</strong> page for UK landlords. It covers the core valuation background first, then points you to hands-on help such as our <a href="/phone-mast-services/rent-reviews" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>rent review service</a> when you need negotiation support.
+            </p>
+            <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
+              Reviewed by <a href="/team" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Matt Restall and the Phone Mast Advice team</a>, using landlord-side telecoms experience and comparable deal evidence built over 30+ years.
             </p>
           </div>
 

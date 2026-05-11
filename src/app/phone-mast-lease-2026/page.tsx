@@ -3,14 +3,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease Advice for UK Landlords (2026 Guide)",
+  title: "Phone Mast Lease Advice for UK Landlords | 2026 Legal Guide",
   description:
-    "Expert phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
+    "Independent phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026" },
   openGraph: {
-    title: "Phone Mast Lease Advice for UK Landlords (2026 Guide)",
+    title: "Phone Mast Lease Advice for UK Landlords | 2026 Legal Guide",
     description:
-      "Expert phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
+      "Independent phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
     type: "website",
   },
 };
@@ -130,6 +130,26 @@ export default function PhoneMastLease2026Page() {
           >
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
               Need practical help with an operator approach or expired agreement? Our <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewal service</a> is the right next step, and you can also request a <a href="/free-lease-check" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast lease check</a>.
+            </p>
+          </div>
+
+          <div
+            style={{
+              backgroundColor: "#f0f7ff",
+              border: "1px solid #cfe3f5",
+              borderRadius: "1rem",
+              padding: "1.25rem 1.5rem",
+              marginBottom: "2rem",
+            }}
+          >
+            <p style={{ fontSize: "0.95rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
+              Main lease guide for this topic
+            </p>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
+              This is our main <strong>phone mast lease advice</strong> page for UK landlords. It is reviewed against current telecoms practice and written to give the broader legal context before you move into a service page such as <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>lease renewals</a>.
+            </p>
+            <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
+              Reviewed by <a href="/team" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Matt Restall and the Phone Mast Advice team</a>, drawing on 30+ years of landlord-side telecoms experience. For firm background, see <a href="/about-us" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>About Us</a>.
             </p>
           </div>
 
