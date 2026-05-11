@@ -7,12 +7,12 @@ export const metadata: Metadata = {
   title: "Free Phone Mast Lease Check | Independent UK Specialists",
   description:
     "Get a free review of your phone mast lease from independent UK specialists. We check your terms, identify issues, and advise on your options — no obligation. Call 01691 791543.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/free-lease-check" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/free-lease-check" },
   robots: { index: false, follow: true },
   openGraph: {
     title: "Free Phone Mast Lease Check",
     description: "Independent phone mast lease review — completely free, no obligation.",
-    url: "https://phonemastadvice.co.uk/free-lease-check",
+    url: "https://www.phonemastadvice.co.uk/free-lease-check",
     images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Free Phone Mast Lease Check" }],
   },
 };
@@ -21,8 +21,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Free Lease Check", item: "https://phonemastadvice.co.uk/free-lease-check" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
+    { "@type": "ListItem", position: 2, name: "Free Lease Check", item: "https://www.phonemastadvice.co.uk/free-lease-check" },
   ],
 };
 

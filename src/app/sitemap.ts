@@ -1,7 +1,7 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
 
-const BASE_URL = "https://phonemastadvice.co.uk";
+const BASE_URL = "https://www.phonemastadvice.co.uk";
 
 const operatorSlugs = [
   "vodafone-phone-mast-lease",

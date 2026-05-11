@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Phone Mast Advice Blog | Expert Guidance for UK Landlords",
   description:
     "Expert articles on phone mast leases, rent reviews, the Electronic Communications Code, and landlord rights. Written by specialist UK telecom surveyors.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/blog" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/blog" },
   openGraph: {
     title: "Phone Mast Advice Blog",
     description: "Expert guidance on phone mast leases and landlord rights from UK specialists.",
-    url: "https://phonemastadvice.co.uk/blog",
+    url: "https://www.phonemastadvice.co.uk/blog",
     images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Phone Mast Advice Blog" }],
   },
 };
@@ -25,8 +25,8 @@ export default function BlogIndexPage() {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://phonemastadvice.co.uk" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://phonemastadvice.co.uk/blog" },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.phonemastadvice.co.uk/blog" },
     ],
   };
 

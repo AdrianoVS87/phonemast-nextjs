@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Phone Mast Rent Advice for UK Landlords (2026 Guide)",
   description:
     "Expert phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-rent-2026" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026" },
   openGraph: {
     title: "Phone Mast Rent Advice for UK Landlords (2026 Guide)",
     description:
@@ -24,13 +24,13 @@ export default function PhoneMastRent2026Page() {
     provider: {
       "@type": "ProfessionalService",
       name: "The Phone Mast Advice Company Ltd",
-      url: "https://phonemastadvice.co.uk",
+      url: "https://www.phonemastadvice.co.uk",
       telephone: "01691 791543",
     },
     areaServed: "United Kingdom",
     description:
       "Expert independent advice for UK landlords on phone mast rent under the Electronic Communications Code, including valuation methodology, case law, and 7 April 2026 PSTI Act changes.",
-    url: "https://phonemastadvice.co.uk/phone-mast-rent-2026",
+    url: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026",
   };
 
   return (

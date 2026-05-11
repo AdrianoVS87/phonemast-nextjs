@@ -5,12 +5,12 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Phone Mast Other Services | Phone Mast Advice",
   description: "Expert phone mast other services advice for UK landlords. Independent specialists acting only for landowners. Call 01691 791543.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-services/other-services" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services" },
 };
 export default function Page() {
   return (
     <>
-      <JsonLd data={{ type: "Service", name: "Other Phone Mast Services", description: "Additional specialist phone mast advisory services for UK landlords and landowners.", provider: "The Phone Mast Advice Company", url: "https://phonemastadvice.co.uk/phone-mast-services/other-services", areaServed: "United Kingdom" }} />
+      <JsonLd data={{ type: "Service", name: "Other Phone Mast Services", description: "Additional specialist phone mast advisory services for UK landlords and landowners.", provider: "The Phone Mast Advice Company", url: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services", areaServed: "United Kingdom" }} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Other Services" }]} />
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>

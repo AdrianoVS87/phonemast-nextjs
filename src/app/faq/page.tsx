@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Phone Mast FAQ | Leases, Rent & Landlord Rights | Expert Answers",
   description:
     "Comprehensive answers to the most common questions about phone mast leases, rent reviews, the Electronic Communications Code, and UK landlord rights. Expert advice from specialist surveyors.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/faq" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/faq" },
   openGraph: {
     title: "Phone Mast FAQ — Leases, Rent & Landlord Rights",
     description:

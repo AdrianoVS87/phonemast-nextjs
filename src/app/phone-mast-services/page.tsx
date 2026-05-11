@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Phone Mast Services | Expert Telecom Surveyors | Phone Mast Advice",
   description:
     "Specialist phone mast services for UK landlords: rent reviews, lease renewals, new lettings, mast sales, removal and more. Independent advisors — never acting for operators.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-services" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services" },
 };
 
 const services: ServiceCardProps[] = [

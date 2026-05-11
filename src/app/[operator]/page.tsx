@@ -789,12 +789,12 @@ export async function generateMetadata({
     title: data.metaTitle,
     description: data.metaDescription,
     alternates: {
-      canonical: `https://phonemastadvice.co.uk/${data.slug}`,
+      canonical: `https://www.phonemastadvice.co.uk/${data.slug}`,
     },
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,
-      url: `https://phonemastadvice.co.uk/${data.slug}`,
+      url: `https://www.phonemastadvice.co.uk/${data.slug}`,
       type: "website",
     },
   };
@@ -815,7 +815,7 @@ export default async function OperatorPage({
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
     name: "The Phone Mast Advice Company Ltd",
-    url: `https://phonemastadvice.co.uk/${data.slug}`,
+    url: `https://www.phonemastadvice.co.uk/${data.slug}`,
     telephone: "01691 791543",
     email: "info@phonemastadvice.co.uk",
     description: `Independent specialist telecom surveyors advising UK landlords on ${data.name} phone mast leases.`,

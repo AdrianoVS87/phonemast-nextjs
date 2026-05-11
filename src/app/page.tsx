@@ -17,13 +17,13 @@ export const metadata: Metadata = {
   description:
     "Independent specialist telecom surveyors for UK landlords. Expert phone mast lease advice, phone mast rent advice, renewals, rent reviews, and negotiations.",
   alternates: {
-    canonical: "https://phonemastadvice.co.uk",
+    canonical: "https://www.phonemastadvice.co.uk",
   },
   openGraph: {
     title: "Phone Mast Lease & Rent Advice for UK Landlords",
     description:
       "Independent specialist telecom surveyors for UK landlords. Expert advice on phone mast leases, rents, renewals, and negotiations across the UK.",
-    url: "https://phonemastadvice.co.uk",
+    url: "https://www.phonemastadvice.co.uk",
     type: "website",
     locale: "en_GB",
     siteName: "Phone Mast Advice",
@@ -149,7 +149,7 @@ export default function HomePage() {
         data={{
           type: "WebSite",
           name: "The Phone Mast Advice Company",
-          url: "https://phonemastadvice.co.uk",
+          url: "https://www.phonemastadvice.co.uk",
           description: "Independent specialist telecom surveyors helping UK landlords with phone mast leases, rent reviews, and lease renewals.",
         }}
       />
@@ -160,7 +160,7 @@ export default function HomePage() {
           name: "The Phone Mast Advice Company Ltd",
           telephone: "01691 791543",
           email: "info@phonemastadvice.co.uk",
-          url: "https://phonemastadvice.co.uk",
+          url: "https://www.phonemastadvice.co.uk",
           offices: [
             { streetAddress: "167-169 Great Portland Road, 5th Floor", addressLocality: "London", postalCode: "W1W 5PF" },
             { streetAddress: "5 High Street, Westbury on Trym", addressLocality: "Bristol", postalCode: "BS9 3BY" },
@@ -173,7 +173,7 @@ export default function HomePage() {
         data={{
           type: "ProfessionalService",
           name: "The Phone Mast Advice Company Ltd",
-          url: "https://phonemastadvice.co.uk",
+          url: "https://www.phonemastadvice.co.uk",
           telephone: "01691 791543",
           email: "info@phonemastadvice.co.uk",
           description:

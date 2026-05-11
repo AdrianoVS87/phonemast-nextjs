@@ -9,7 +9,7 @@ export default function robots(): MetadataRoute.Robots {
         disallow: ["/studio/", "/api/"],
       },
     ],
-    sitemap: "https://phonemastadvice.co.uk/sitemap.xml",
-    host: "https://phonemastadvice.co.uk",
+    sitemap: "https://www.phonemastadvice.co.uk/sitemap.xml",
+    host: "https://www.phonemastadvice.co.uk",
   };
 }

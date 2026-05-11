@@ -149,12 +149,12 @@ export async function generateMetadata({
     title: data.metaTitle,
     description: data.metaDescription,
     alternates: {
-      canonical: `https://phonemastadvice.co.uk/locations/${data.slug}`,
+      canonical: `https://www.phonemastadvice.co.uk/locations/${data.slug}`,
     },
     openGraph: {
       title: data.metaTitle,
       description: data.metaDescription,
-      url: `https://phonemastadvice.co.uk/locations/${data.slug}`,
+      url: `https://www.phonemastadvice.co.uk/locations/${data.slug}`,
       type: "website",
     },
   };
@@ -175,7 +175,7 @@ export default async function LocationPage({
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     name: `The Phone Mast Advice Company Ltd — ${data.city}`,
-    url: `https://phonemastadvice.co.uk/locations/${data.slug}`,
+    url: `https://www.phonemastadvice.co.uk/locations/${data.slug}`,
     telephone: "01691 791543",
     email: "info@phonemastadvice.co.uk",
     description: `Independent specialist phone mast lease advisors serving ${data.city} and surrounding areas.`,

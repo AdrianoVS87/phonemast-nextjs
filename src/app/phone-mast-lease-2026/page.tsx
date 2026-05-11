@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: "Phone Mast Lease Advice for UK Landlords (2026 Guide)",
   description:
     "Expert phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-lease-2026" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026" },
   openGraph: {
     title: "Phone Mast Lease Advice for UK Landlords (2026 Guide)",
     description:
@@ -24,13 +24,13 @@ export default function PhoneMastLease2026Page() {
     provider: {
       "@type": "ProfessionalService",
       name: "The Phone Mast Advice Company Ltd",
-      url: "https://phonemastadvice.co.uk",
+      url: "https://www.phonemastadvice.co.uk",
       telephone: "01691 791543",
     },
     areaServed: "United Kingdom",
     description:
       "Expert independent advice for UK landlords on phone mast lease clauses, ECC provisions, case law, and the 7 April 2026 PSTI Act changes.",
-    url: "https://phonemastadvice.co.uk/phone-mast-lease-2026",
+    url: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026",
   };
 
   return (

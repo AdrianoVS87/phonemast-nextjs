@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   title: "Privacy Policy | The Phone Mast Advice Company Ltd",
   description:
     "Privacy policy for The Phone Mast Advice Company Ltd. How we collect, use, and protect your personal data in accordance with UK GDPR and the Data Protection Act 2018.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/privacy-policy" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/privacy-policy" },
   robots: { index: false },
 };
 

@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   title: "Free Phone Mast Handbook | Essential Guide for UK Landlords",
   description:
     "Download your free Phone Mast Handbook — the essential guide for UK landlords. Covers leases, rent reviews, the Electronic Communications Code, and your rights. Free PDF.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/handbook" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/handbook" },
   openGraph: {
     title: "Free Phone Mast Handbook for UK Landlords",
     description: "Download your free essential guide to phone mast leases, rent reviews, and landlord rights.",
-    url: "https://phonemastadvice.co.uk/handbook",
+    url: "https://www.phonemastadvice.co.uk/handbook",
     images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Free Phone Mast Handbook" }],
   },
 };
@@ -20,8 +20,8 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Handbook", item: "https://phonemastadvice.co.uk/handbook" },
+    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
+    { "@type": "ListItem", position: 2, name: "Handbook", item: "https://www.phonemastadvice.co.uk/handbook" },
   ],
 };
 

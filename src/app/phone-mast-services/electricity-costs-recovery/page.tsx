@@ -5,12 +5,12 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Phone Mast Electricity Costs Recovery | Phone Mast Advice",
   description: "Expert phone mast electricity costs recovery advice for UK landlords. Independent specialists acting only for landowners. Call 01691 791543.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery" },
 };
 export default function Page() {
   return (
     <>
-      <JsonLd data={{ type: "Service", name: "Electricity Costs Recovery", description: "Reclaiming electricity costs from phone mast operators on behalf of UK landlords.", provider: "The Phone Mast Advice Company", url: "https://phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery", areaServed: "United Kingdom" }} />
+      <JsonLd data={{ type: "Service", name: "Electricity Costs Recovery", description: "Reclaiming electricity costs from phone mast operators on behalf of UK landlords.", provider: "The Phone Mast Advice Company", url: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery", areaServed: "United Kingdom" }} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Electricity Costs Recovery" }]} />
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>

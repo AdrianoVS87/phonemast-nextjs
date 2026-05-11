@@ -19,7 +19,7 @@ export function generateMetadata({
   image = "/og-default.jpg",
   noIndex = false,
 }: PageMetaOptions): Metadata {
-  const url = `https://phonemastadvice.co.uk${path}`;
+  const url = `https://www.phonemastadvice.co.uk${path}`;
 
   return {
     title,

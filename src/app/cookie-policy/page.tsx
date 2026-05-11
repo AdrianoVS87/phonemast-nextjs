@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy | The Phone Mast Advice Company Ltd",
   description:
     "Cookie policy for The Phone Mast Advice Company Ltd. Information on cookies used on our website and how to manage them.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/cookie-policy" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/cookie-policy" },
   robots: { index: false },
 };
 

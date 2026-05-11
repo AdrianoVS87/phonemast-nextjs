@@ -7,7 +7,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Phone Mast Rent Review Service for UK Landlords",
   description: "Independent phone mast rent review specialists. We benchmark your rent against comparable UK deals and negotiate improved terms for UK landlords.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-services/rent-reviews" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews" },
 };
 
 const operators = [
@@ -34,7 +34,7 @@ const relatedPosts = [
 export default function RentReviewsPage() {
   return (
     <>
-      <JsonLd data={{ type: "Service", name: "Phone Mast Rent Reviews", description: "Independent valuation and negotiation of phone mast site rental income for UK landlords.", provider: "The Phone Mast Advice Company", url: "https://phonemastadvice.co.uk/phone-mast-services/rent-reviews", areaServed: "United Kingdom" }} />
+      <JsonLd data={{ type: "Service", name: "Phone Mast Rent Reviews", description: "Independent valuation and negotiation of phone mast site rental income for UK landlords.", provider: "The Phone Mast Advice Company", url: "https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews", areaServed: "United Kingdom" }} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Rent Reviews" }]} />
 
       {/* Hero */}

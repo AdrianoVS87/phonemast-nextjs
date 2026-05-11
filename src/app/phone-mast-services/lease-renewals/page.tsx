@@ -6,7 +6,7 @@ import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
   title: "Phone Mast Lease Renewal Service | Code Renewals for UK Landlords",
   description: "Expert phone mast lease renewal and Code lease renewal service for UK landlords. Independent specialists acting only for landowners.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals" },
 };
 
 const operators = [
@@ -36,13 +36,13 @@ const serviceSchema = {
   "name": "Phone Mast Lease Renewals",
   "alternateName": ["Code Lease Renewal", "Phone Mast Lease Renewal Advice"],
   "description": "Independent expert negotiation of phone mast lease renewals under the Electronic Communications Code. UK-wide service for landowners with leases from Vodafone, EE, O2, Three, CTIL, Cornerstone, Cellnex, Arqiva and other telecom operators.",
-  "url": "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals/",
+  "url": "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals/",
   "serviceType": "Telecommunications Lease Renewal Advisory",
   "areaServed": { "@type": "Country", "name": "United Kingdom" },
   "provider": {
     "@type": "Organization",
     "name": "The Phone Mast Advice Company",
-    "url": "https://phonemastadvice.co.uk",
+    "url": "https://www.phonemastadvice.co.uk",
     "telephone": "+44-1691-791543",
     "email": "info@phonemastadvice.co.uk"
   },
@@ -63,9 +63,9 @@ const breadcrumbJsonLd = {
   "@context": "https://schema.org",
   "@type": "BreadcrumbList",
   "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://phonemastadvice.co.uk/" },
-    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://phonemastadvice.co.uk/phone-mast-services/" },
-    { "@type": "ListItem", "position": 3, "name": "Lease Renewals", "item": "https://phonemastadvice.co.uk/phone-mast-services/lease-renewals/" }
+    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.phonemastadvice.co.uk/" },
+    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.phonemastadvice.co.uk/phone-mast-services/" },
+    { "@type": "ListItem", "position": 3, "name": "Lease Renewals", "item": "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals/" }
   ]
 };
 

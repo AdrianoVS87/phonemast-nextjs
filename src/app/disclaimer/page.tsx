@@ -5,7 +5,7 @@ export const metadata: Metadata = {
   title: "Disclaimer | The Phone Mast Advice Company Ltd",
   description:
     "Website disclaimer and terms of use for The Phone Mast Advice Company Ltd. Information provided on this site is for general guidance only.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/disclaimer" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/disclaimer" },
   robots: { index: false },
 };
 

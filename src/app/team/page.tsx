@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Our Team | Phone Mast Advice Company | RICS Registered Surveyors",
   description:
     "Meet the specialist team at The Phone Mast Advice Company. RICS registered surveyors and telecom property experts acting exclusively for UK landlords. Founder Matt Restall.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/team" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/team" },
   openGraph: {
     title: "Our Team — Phone Mast Advice Company",
     description:
@@ -73,7 +73,7 @@ export default function TeamPage() {
     "@context": "https://schema.org",
     "@type": "Organization",
     name: "The Phone Mast Advice Company Ltd",
-    url: "https://phonemastadvice.co.uk",
+    url: "https://www.phonemastadvice.co.uk",
     member: team.map((member) => ({
       "@type": "Person",
       name: member.name,

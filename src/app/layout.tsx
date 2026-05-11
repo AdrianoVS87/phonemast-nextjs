@@ -31,10 +31,10 @@ export const metadata: Metadata = {
   },
   description:
     "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings. 30+ years experience. Call 01691 791543.",
-  metadataBase: new URL("https://phonemastadvice.co.uk"),
+  metadataBase: new URL("https://www.phonemastadvice.co.uk"),
   alternates: {
     languages: {
-      "en-GB": "https://phonemastadvice.co.uk",
+      "en-GB": "https://www.phonemastadvice.co.uk",
     },
   },
   openGraph: {

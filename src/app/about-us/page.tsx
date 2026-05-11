@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "About Us | The Phone Mast Advice Company | UK Specialists Since 1999",
   description:
     "Independent specialist telecom surveyors with 30+ years experience advising UK landlords on phone mast leases. Involved in landmark Supreme Court case [2022] UKSC 18. RICS credentials. Reg. 13115582.",
-  alternates: { canonical: "https://phonemastadvice.co.uk/about-us" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/about-us" },
   openGraph: {
     title: "About The Phone Mast Advice Company Ltd",
     description:
@@ -24,7 +24,7 @@ export default function AboutPage() {
         data={{
           type: "ProfessionalService",
           name: "The Phone Mast Advice Company Ltd",
-          url: "https://phonemastadvice.co.uk/about-us",
+          url: "https://www.phonemastadvice.co.uk/about-us",
           telephone: "01691 791543",
           email: "info@phonemastadvice.co.uk",
           description:

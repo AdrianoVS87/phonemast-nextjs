@@ -26,11 +26,11 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   return {
     title: post.title,
     description: post.excerpt.slice(0, 158),
-    alternates: { canonical: `https://phonemastadvice.co.uk/blog/${post.slug}` },
+    alternates: { canonical: `https://www.phonemastadvice.co.uk/blog/${post.slug}` },
     openGraph: {
       title: post.title,
       description: post.excerpt.slice(0, 158),
-      url: `https://phonemastadvice.co.uk/blog/${post.slug}`,
+      url: `https://www.phonemastadvice.co.uk/blog/${post.slug}`,
       type: "article",
       publishedTime: post.date,
       authors: [post.author],
@@ -107,8 +107,8 @@ export default async function BlogPostPage({ params }: Props) {
   }
 
   const articleImage = post.featuredImage
-    ? `https://phonemastadvice.co.uk${post.featuredImage}`
-    : "https://phonemastadvice.co.uk/images/og-default.jpg";
+    ? `https://www.phonemastadvice.co.uk${post.featuredImage}`
+    : "https://www.phonemastadvice.co.uk/images/og-default.jpg";
 
   const articleJsonLd = {
     "@context": "https://schema.org",
@@ -121,17 +121,17 @@ export default async function BlogPostPage({ params }: Props) {
       "@type": "Person",
       name: post.author,
       jobTitle: "Specialist Telecom Surveyor",
-      url: "https://phonemastadvice.co.uk/team",
+      url: "https://www.phonemastadvice.co.uk/team",
     },
     publisher: {
       "@type": "Organization",
       name: "The Phone Mast Advice Company Ltd",
-      url: "https://phonemastadvice.co.uk",
+      url: "https://www.phonemastadvice.co.uk",
     },
     description: post.excerpt,
     mainEntityOfPage: {
       "@type": "WebPage",
-      "@id": `https://phonemastadvice.co.uk/blog/${post.slug}`,
+      "@id": `https://www.phonemastadvice.co.uk/blog/${post.slug}`,
     },
   };
 
@@ -139,9 +139,9 @@ export default async function BlogPostPage({ params }: Props) {
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
     itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://phonemastadvice.co.uk" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://phonemastadvice.co.uk/blog" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://phonemastadvice.co.uk/blog/${post.slug}` },
+      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.phonemastadvice.co.uk/blog" },
+      { "@type": "ListItem", position: 3, name: post.title, item: `https://www.phonemastadvice.co.uk/blog/${post.slug}` },
     ],
   };
 

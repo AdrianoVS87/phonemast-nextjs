@@ -110,7 +110,7 @@ function buildSchema(data: JsonLdData): object {
         provider: {
           "@type": "Organization",
           name: data.provider,
-          url: "https://phonemastadvice.co.uk",
+          url: "https://www.phonemastadvice.co.uk",
         },
       };
 
@@ -128,13 +128,13 @@ function buildSchema(data: JsonLdData): object {
           : {
               "@type": "Organization",
               name: "The Phone Mast Advice Company",
-              url: "https://phonemastadvice.co.uk",
+              url: "https://www.phonemastadvice.co.uk",
             },
         image: data.image,
         publisher: {
           "@type": "Organization",
           name: "The Phone Mast Advice Company",
-          url: "https://phonemastadvice.co.uk",
+          url: "https://www.phonemastadvice.co.uk",
         },
       };
 
