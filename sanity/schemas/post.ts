@@ -1,5 +1,13 @@
 import { defineField, defineType } from "sanity";
 
+/**
+ * Blog Post schema.
+ *
+ * Fields mirror the MDX frontmatter at src/content/blog/*.mdx exactly,
+ * so renderer behaviour (remark → HTML) is unchanged after migration.
+ * Body is stored as raw Markdown in `content` (text) — keeps custom
+ * inline HTML (<figure>, <img>) and external links intact.
+ */
 export const post = defineType({
   name: "post",
   title: "Blog Post",
@@ -9,124 +17,107 @@ export const post = defineType({
       name: "title",
       title: "Title",
       type: "string",
-      validation: (Rule) => Rule.required().max(100),
+      validation: (Rule) => Rule.required().max(200),
     }),
     defineField({
       name: "slug",
       title: "Slug",
       type: "slug",
-      options: { source: "title", maxLength: 96 },
+      options: { source: "title", maxLength: 120 },
       validation: (Rule) => Rule.required(),
     }),
     defineField({
-      name: "publishedAt",
-      title: "Published At",
+      name: "date",
+      title: "Published Date",
       type: "datetime",
       validation: (Rule) => Rule.required(),
     }),
     defineField({
       name: "category",
       title: "Category",
-      type: "reference",
-      to: [{ type: "category" }],
+      type: "string",
+      options: {
+        list: [
+          { title: "Advice", value: "Advice" },
+          { title: "Cases", value: "Cases" },
+          { title: "Industry News", value: "Industry News" },
+          { title: "Informative", value: "Informative" },
+          { title: "Guides", value: "Guides" },
+          { title: "Operators", value: "Operators" },
+          { title: "Uncategorised", value: "Uncategorised" },
+        ],
+      },
+      initialValue: "Advice",
+    }),
+    defineField({
+      name: "author",
+      title: "Author",
+      type: "string",
+      initialValue: "Matt Restall",
+    }),
+    defineField({
+      name: "excerpt",
+      title: "Excerpt",
+      type: "text",
+      rows: 3,
+      description:
+        "Used as meta description, OG card, and blog index card. ~158 chars ideal for SEO.",
+      validation: (Rule) => Rule.required().max(400),
     }),
     defineField({
       name: "featuredImage",
-      title: "Featured Image",
-      type: "image",
-      options: { hotspot: true },
-      fields: [
-        defineField({
-          name: "alt",
-          title: "Alt Text",
-          type: "string",
-          validation: (Rule) => Rule.required(),
-        }),
-      ],
-    }),
-    defineField({
-      name: "body",
-      title: "Body",
-      type: "array",
-      of: [
-        {
-          type: "block",
-          styles: [
-            { title: "Normal", value: "normal" },
-            { title: "H2", value: "h2" },
-            { title: "H3", value: "h3" },
-            { title: "H4", value: "h4" },
-            { title: "Quote", value: "blockquote" },
-          ],
-          marks: {
-            decorators: [
-              { title: "Bold", value: "strong" },
-              { title: "Italic", value: "em" },
-              { title: "Underline", value: "underline" },
-            ],
-            annotations: [
-              {
-                name: "link",
-                type: "object",
-                title: "Link",
-                fields: [
-                  { name: "href", type: "url", title: "URL" },
-                  {
-                    name: "blank",
-                    type: "boolean",
-                    title: "Open in new tab",
-                    initialValue: false,
-                  },
-                ],
-              },
-            ],
-          },
-        },
-        {
-          type: "image",
-          options: { hotspot: true },
-          fields: [
-            defineField({ name: "alt", type: "string", title: "Alt Text" }),
-            defineField({ name: "caption", type: "string", title: "Caption" }),
-          ],
-        },
-      ],
-    }),
-    defineField({
-      name: "seoTitle",
-      title: "SEO Title",
+      title: "Featured Image (path)",
       type: "string",
-      description: "Override for browser tab / search results (max 60 chars)",
-      validation: (Rule) => Rule.max(60),
+      description:
+        'Absolute path under /public, e.g. "/images/blog/my-post.jpg". Leave empty to use default OG image.',
     }),
     defineField({
-      name: "seoDescription",
-      title: "SEO Description",
+      name: "featuredImageAlt",
+      title: "Featured Image Alt Text",
+      type: "string",
+      description: "Required if featuredImage is set.",
+    }),
+    defineField({
+      name: "featuredImageCredit",
+      title: "Featured Image Credit",
+      type: "string",
+      description: 'Optional, e.g. "Image credit: David Neale".',
+    }),
+    defineField({
+      name: "content",
+      title: "Content (Markdown)",
       type: "text",
-      rows: 3,
-      description: "Meta description for search results (max 160 chars)",
-      validation: (Rule) => Rule.max(160),
+      rows: 40,
+      description:
+        "Raw Markdown body. Supports inline HTML (<figure>, <img>), links, ## headings, blockquotes, lists. Rendered via remark → HTML at request time.",
+      validation: (Rule) => Rule.required(),
     }),
   ],
   preview: {
     select: {
       title: "title",
-      media: "featuredImage",
-      date: "publishedAt",
+      subtitle: "category",
+      date: "date",
     },
-    prepare({ title, media, date }) {
+    prepare({ title, subtitle, date }) {
       return {
         title,
-        media,
-        subtitle: date ? new Date(date).toLocaleDateString("en-GB") : "No date",
+        subtitle: `${subtitle || "Uncategorised"} · ${
+          date ? new Date(date).toLocaleDateString("en-GB") : "No date"
+        }`,
       };
     },
   },
   orderings: [
     {
-      title: "Published (newest first)",
-      name: "publishedAtDesc",
-      by: [{ field: "publishedAt", direction: "desc" }],
+      title: "Date (newest first)",
+      name: "dateDesc",
+      by: [{ field: "date", direction: "desc" }],
+    },
+    {
+      title: "Title (A→Z)",
+      name: "titleAsc",
+      by: [{ field: "title", direction: "asc" }],
     },
   ],
 });

@@ -18,8 +18,8 @@ export const metadata: Metadata = {
   },
 };
 
-export default function BlogIndexPage() {
-  const posts = getAllPosts();
+export default async function BlogIndexPage() {
+  const posts = await getAllPosts();
 
   const breadcrumbJsonLd = {
     "@context": "https://schema.org",

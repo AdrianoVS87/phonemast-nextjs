@@ -1,47 +1,66 @@
-import fs from "fs";
-import path from "path";
-import matter from "gray-matter";
+/**
+ * Blog API — backed by Sanity dataset "production" (project fn50r1sg).
+ *
+ * Public interface is unchanged from the previous MDX-filesystem impl:
+ * getAllPostSlugs, getAllPosts, getPostBySlug, BlogPost, formatDate.
+ * Routes/components consuming these helpers do not need changes.
+ *
+ * Caching: Next.js `fetch` revalidate keeps build/render fast. ISR ensures
+ * Studio edits surface within `REVALIDATE_SECONDS`.
+ */
+import { createClient } from "@sanity/client";
 import type { BlogPost } from "./blog-types";
 
 export type { BlogPost };
 export { formatDate } from "./blog-types";
 
-const BLOG_DIR = path.join(process.cwd(), "src/content/blog");
+const REVALIDATE_SECONDS = 60;
 
-export function getAllPostSlugs(): string[] {
-  if (!fs.existsSync(BLOG_DIR)) return [];
-  return fs
-    .readdirSync(BLOG_DIR)
-    .filter((f) => f.endsWith(".mdx") || f.endsWith(".md"))
-    .map((f) => f.replace(/\.mdx?$/, ""));
+const client = createClient({
+  projectId: process.env.NEXT_PUBLIC_SANITY_PROJECT_ID || "fn50r1sg",
+  dataset: process.env.NEXT_PUBLIC_SANITY_DATASET || "production",
+  apiVersion: "2024-01-01",
+  // Read-only — no token needed for public dataset.
+  useCdn: true,
+  perspective: "published",
+});
+
+const POST_FIELDS = `
+  "slug": slug.current,
+  title,
+  date,
+  category,
+  excerpt,
+  author,
+  "content": content,
+  featuredImage,
+  featuredImageAlt,
+  featuredImageCredit
+`;
+
+export async function getAllPostSlugs(): Promise<string[]> {
+  const slugs = await client.fetch<string[]>(
+    `*[_type == "post" && defined(slug.current)].slug.current`,
+    {},
+    { next: { revalidate: REVALIDATE_SECONDS } },
+  );
+  return slugs;
 }
 
-export function getAllPosts(): BlogPost[] {
-  const slugs = getAllPostSlugs();
-  const posts = slugs.map((slug) => getPostBySlug(slug)).filter(Boolean) as BlogPost[];
-  return posts.sort((a, b) => (a.date < b.date ? 1 : -1));
+export async function getAllPosts(): Promise<BlogPost[]> {
+  const posts = await client.fetch<BlogPost[]>(
+    `*[_type == "post" && defined(slug.current)] | order(date desc) {${POST_FIELDS}}`,
+    {},
+    { next: { revalidate: REVALIDATE_SECONDS } },
+  );
+  return posts;
 }
 
-export function getPostBySlug(slug: string): BlogPost | null {
-  const mdxPath = path.join(BLOG_DIR, `${slug}.mdx`);
-  const mdPath = path.join(BLOG_DIR, `${slug}.md`);
-  const filePath = fs.existsSync(mdxPath) ? mdxPath : fs.existsSync(mdPath) ? mdPath : null;
-
-  if (!filePath) return null;
-
-  const raw = fs.readFileSync(filePath, "utf-8");
-  const { data, content } = matter(raw);
-
-  return {
-    slug: data.slug || slug,
-    title: data.title || slug,
-    date: data.date || "",
-    category: data.category || "Uncategorised",
-    excerpt: data.excerpt || content.slice(0, 200).replace(/\n/g, " ") + "...",
-    author: data.author || "Matt Restall",
-    content,
-    featuredImage: data.featuredImage,
-    featuredImageAlt: data.featuredImageAlt,
-    featuredImageCredit: data.featuredImageCredit,
-  };
+export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
+  const post = await client.fetch<BlogPost | null>(
+    `*[_type == "post" && slug.current == $slug][0]{${POST_FIELDS}}`,
+    { slug },
+    { next: { revalidate: REVALIDATE_SECONDS } },
+  );
+  return post;
 }
