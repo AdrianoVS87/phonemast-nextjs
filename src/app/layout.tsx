@@ -15,6 +15,7 @@ const jakarta = Plus_Jakarta_Sans({
   weight: ["700", "800"],
   variable: "--font-jakarta",
   display: "swap",
+  preload: true,
 });
 
 const inter = Inter({
@@ -22,6 +23,7 @@ const inter = Inter({
   weight: ["400", "500", "600"],
   variable: "--font-inter",
   display: "swap",
+  preload: true,
 });
 
 export const metadata: Metadata = {
@@ -71,6 +73,10 @@ export default function RootLayout({
       className={`${jakarta.variable} ${inter.variable} antialiased`}
     >
       <head>
+        {/* Preconnect to third-party origins used early in load. */}
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* MUST be first: sets Google Consent Mode v2 defaults to denied
              before any Google script loads. See src/components/analytics/ConsentDefault.tsx */}
         <ConsentDefault />

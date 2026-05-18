@@ -73,6 +73,8 @@ export default function Hero({
         {/* Headline */}
         <h1
           className="hero-headline"
+          // fetchPriority hints Chromium that this is the LCP candidate
+          {...{ fetchpriority: "high" } as Record<string, string>}
           style={{
             color: "#ffffff",
             fontFamily: "var(--font-jakarta), system-ui, sans-serif",

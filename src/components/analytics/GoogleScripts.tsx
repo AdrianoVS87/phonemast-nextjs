@@ -33,11 +33,11 @@ export default function GoogleScripts() {
     <>
       <Script
         src={`https://www.googletagmanager.com/gtag/js?id=${gtagContainerId}`}
-        strategy="afterInteractive"
+        strategy="lazyOnload"
       />
       <Script
         id="gtag-config"
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             window.dataLayer = window.dataLayer || [];
