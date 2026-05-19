@@ -8,6 +8,7 @@ import StickyCtaBar from "@/components/StickyCtaBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
 import ConsentDefault from "@/components/analytics/ConsentDefault";
 import GoogleScripts from "@/components/analytics/GoogleScripts";
+import GoogleTagManager, { GoogleTagManagerNoscript } from "@/components/analytics/GoogleTagManager";
 import ConsentBanner from "@/components/consent/ConsentBanner";
 
 const jakarta = Plus_Jakarta_Sans({
@@ -82,8 +83,12 @@ export default function RootLayout({
         <ConsentDefault />
         {/* Google Tag / GA4 / Ads — only render when env vars populated. */}
         <GoogleScripts />
+        {/* Google Tag Manager container — parallel to gtag, for agency-managed tags only.
+            Do NOT add GA4 / Ads conversion inside this container — already wired via GoogleScripts. */}
+        <GoogleTagManager />
       </head>
       <body className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "1.125rem" }}>
+        <GoogleTagManagerNoscript />
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
