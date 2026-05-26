@@ -111,6 +111,13 @@ const testimonials: TestimonialCardProps[] = [
       "When Cornerstone came to us about renewing our lease at a drastically reduced rent, we turned to Phone Mast Advice. They fought our corner and secured terms we were genuinely happy with. Highly professional service.",
     rating: 5,
   },
+  {
+    name: "Mr. Robert Kell",
+    county: "Rent Review Client",
+    quote:
+      "I recently worked with The Phone Mast Advice Company who assisted with my rent review, and I could not be more pleased with the outcome. The process was handled swiftly and efficiently from start to finish. Their professionalism and expertise gave me complete confidence, and the fact that they operate on a no-win, no-fee basis made the experience even more reassuring. I would highly recommend their services to anyone seeking expert advice and results you can trust.",
+    rating: 5,
+  },
 ];
 
 const faqs: FAQItem[] = [
