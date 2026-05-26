@@ -151,6 +151,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
             errorMsg={errorMsg}
             formRef={formRef}
             onSubmit={handleSubmit}
+            onDismiss={onClose}
           />
         )}
       </div>
@@ -167,6 +168,7 @@ function FormPanel({
   errorMsg,
   formRef,
   onSubmit,
+  onDismiss,
 }: {
   titleId: string;
   descId: string;
@@ -174,6 +176,7 @@ function FormPanel({
   errorMsg: string;
   formRef: React.RefObject<HTMLFormElement | null>;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
+  onDismiss: () => void;
 }) {
   return (
     <div>
@@ -266,6 +269,25 @@ function FormPanel({
             }}
           >
             {status === "sending" ? "Sending…" : "Download Free Handbook"}
+          </button>
+
+          <button
+            type="button"
+            onClick={onDismiss}
+            style={{
+              width: "100%",
+              background: "transparent",
+              border: "none",
+              color: "#6b7280",
+              fontSize: "0.9375rem",
+              fontWeight: 500,
+              padding: "0.5rem",
+              cursor: "pointer",
+              textDecoration: "underline",
+              textUnderlineOffset: "3px",
+            }}
+          >
+            No thanks, maybe later
           </button>
 
           <p style={{ textAlign: "center", color: "#6b7280", fontSize: "0.8125rem", margin: 0, lineHeight: 1.5 }}>
