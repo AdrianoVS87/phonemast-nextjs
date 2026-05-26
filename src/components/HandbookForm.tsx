@@ -25,7 +25,7 @@ export default function HandbookForm() {
       _trap: get("_trap"),
     };
 
-    const result = await sendHandbookEmail(data);
+    const result = await sendHandbookEmail(data, "/handbook");
 
     if (result.success) {
       fireConversion("handbook");
@@ -79,14 +79,14 @@ export default function HandbookForm() {
             marginBottom: "0.75rem",
           }}
         >
-          Request Received!
+          Check Your Inbox
         </h3>
         <p style={{ color: "#374151", fontSize: "1.0625rem", margin: 0, lineHeight: 1.65 }}>
-          Thank you! We&apos;ll send your copy of the Phone Mast Handbook within one working day. In the meantime, please call us on{" "}
+          The link to download your handbook has been sent to your email. If you don&apos;t see it within a few minutes, please check your spam or promotions folder, or call us on{" "}
           <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
             01691 791543
-          </a>{" "}
-          if you have any questions.
+          </a>
+          .
         </p>
       </div>
     );

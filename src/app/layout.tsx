@@ -6,6 +6,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import StickyCtaBar from "@/components/StickyCtaBar";
 import WhatsAppButton from "@/components/WhatsAppButton";
+import HandbookPopupGate from "@/components/HandbookPopupGate";
 import ConsentDefault from "@/components/analytics/ConsentDefault";
 import GoogleScripts from "@/components/analytics/GoogleScripts";
 import GoogleTagManager, { GoogleTagManagerNoscript } from "@/components/analytics/GoogleTagManager";
@@ -95,6 +96,7 @@ export default function RootLayout({
         <StickyCtaBar />
         <WhatsAppButton />
         <ConsentBanner />
+        <HandbookPopupGate />
       </body>
     </html>
   );
