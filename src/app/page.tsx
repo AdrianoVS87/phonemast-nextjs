@@ -2,11 +2,12 @@ import type { Metadata } from "next";
 import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
 import ServiceCard, { type ServiceCardProps } from "@/components/ServiceCard";
-import TestimonialCard, { type TestimonialCardProps } from "@/components/TestimonialCard";
+import TestimonialCard from "@/components/TestimonialCard";
 import TrustSignals from "@/components/TrustSignals";
 import CTASection from "@/components/CTASection";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import JsonLd from "@/components/JsonLd";
+import { sanityClient, testimonialsQuery, type Testimonial } from "@/lib/sanity";
 // AnimatedSection removed — Motion library's transform/opacity inline styles
 // created GPU compositor overhead in Chrome during scroll on macOS.
 
@@ -89,34 +90,61 @@ const services: ServiceCardProps[] = [
   },
 ];
 
-const testimonials: TestimonialCardProps[] = [
+/**
+ * Build the secondary attribution line shown beneath a testimonial author.
+ * Combines role + location with an em-dash when both are present, otherwise
+ * shows whichever is set. Falls back to "Verified client" so the card never
+ * looks empty when an authored entry omits both fields.
+ */
+function attributionLine(t: Testimonial): string {
+  const parts = [t.role, t.location].filter(Boolean) as string[];
+  return parts.length > 0 ? parts.join(" — ") : "Verified client";
+}
+
+/**
+ * Fallback shown only if Sanity returns zero featured testimonials —
+ * keeps the homepage from going empty between schema deploy and seed
+ * script run, and gives us a safety net if Sanity is briefly unavailable
+ * at build time. Once Charleen / Raquel manage testimonials via /studio
+ * this fallback path should never fire in production.
+ */
+const FALLBACK_TESTIMONIALS: Testimonial[] = [
   {
-    name: "John & Patricia Hargreaves",
-    county: "Yorkshire",
-    quote:
-      "Matt secured a rent review settlement that was nearly four times what the operator initially offered. We had no idea how much we were being underpaid. The whole process was handled professionally and the advice was always clear.",
-    rating: 5,
-  },
-  {
-    name: "Compton Beauchamp Estates",
-    county: "Oxfordshire",
-    quote:
-      "Matt Restall has been managing our Phone Mast site portfolio since 2012. He was involved in instigating and advising on the famous case Compton Beauchamp Estates v CTIL [2022] UKSC 18. We value the advice we have received and would happily recommend his services to any landlords with Phone Mast sites.",
-    rating: 5,
-  },
-  {
-    name: "David & Susan Alderton",
-    county: "Shropshire",
-    quote:
-      "When Cornerstone came to us about renewing our lease at a drastically reduced rent, we turned to Phone Mast Advice. They fought our corner and secured terms we were genuinely happy with. Highly professional service.",
-    rating: 5,
-  },
-  {
+    _id: "fallback-robert-kell",
     name: "Mr. Robert Kell",
-    county: "Rent Review Client",
+    role: "Rent Review Client",
     quote:
       "I recently worked with The Phone Mast Advice Company who assisted with my rent review, and I could not be more pleased with the outcome. The process was handled swiftly and efficiently from start to finish. Their professionalism and expertise gave me complete confidence, and the fact that they operate on a no-win, no-fee basis made the experience even more reassuring. I would highly recommend their services to anyone seeking expert advice and results you can trust.",
     rating: 5,
+    datePublished: "2026-05-12",
+  },
+  {
+    _id: "fallback-richard-salmon",
+    name: "Richard Salmon",
+    role: "Director",
+    location: "Compton Beauchamp Estates, Oxfordshire",
+    quote:
+      "Matt Restall has been managing the Compton Beauchamp Estates phone mast site portfolio since 2012. Matt was involved in instigating and advising on the famous court case Compton Beauchamp Estates v CTIL. We value the advice we have received from him over the last 12 years, and we would be happy to recommend his services to any landlords who have got Phone Mast sites.",
+    rating: 5,
+    datePublished: "2024-01-15",
+  },
+  {
+    _id: "fallback-hargreaves",
+    name: "John & Patricia Hargreaves",
+    location: "Yorkshire",
+    quote:
+      "Matt secured a rent review settlement that was nearly four times what the operator initially offered. We had no idea how much we were being underpaid. The whole process was handled professionally and the advice was always clear.",
+    rating: 5,
+    datePublished: "2024-06-01",
+  },
+  {
+    _id: "fallback-alderton",
+    name: "David & Susan Alderton",
+    location: "Shropshire",
+    quote:
+      "When Cornerstone came to us about renewing our lease at a drastically reduced rent, we turned to Phone Mast Advice. They fought our corner and secured terms we were genuinely happy with. Highly professional service.",
+    rating: 5,
+    datePublished: "2024-09-01",
   },
 ];
 
@@ -148,7 +176,18 @@ const faqs: FAQItem[] = [
   },
 ];
 
-export default function HomePage() {
+export default async function HomePage() {
+  // Testimonials are authored in Sanity Studio (/studio) by the Phone Mast Advice team.
+  // ISR keeps fetches cheap (revalidate = 60 above) and the page stays a static-feel landing.
+  let testimonials: Testimonial[];
+  try {
+    const sanityData = await sanityClient.fetch<Testimonial[]>(testimonialsQuery);
+    testimonials = sanityData.length > 0 ? sanityData : FALLBACK_TESTIMONIALS;
+  } catch (err) {
+    console.error("Sanity testimonials fetch failed, using fallback:", err);
+    testimonials = FALLBACK_TESTIMONIALS;
+  }
+
   return (
     <>
       {/* JSON-LD: WebSite */}
@@ -710,7 +749,13 @@ Read the Lease Guide →
             }}
           >
             {testimonials.map((t) => (
-              <TestimonialCard key={t.name} {...t} />
+              <TestimonialCard
+                key={t._id}
+                name={t.name}
+                county={attributionLine(t)}
+                quote={t.quote}
+                rating={t.rating}
+              />
             ))}
           </div>
         </div>

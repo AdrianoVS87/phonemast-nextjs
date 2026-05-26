@@ -54,3 +54,28 @@ export type BlogPost = {
   body?: unknown[];
   category?: { name: string; slug: { current: string } };
 };
+
+// Testimonials — featured only, manual order first then newest by date.
+// `coalesce(order, 9999)` puts unordered entries at the end of the manual band.
+export const testimonialsQuery = `*[_type == "testimonial" && featured == true]
+  | order(coalesce(order, 9999) asc, datePublished desc) {
+    _id,
+    name,
+    role,
+    location,
+    quote,
+    rating,
+    datePublished,
+    order
+  }`;
+
+export type Testimonial = {
+  _id: string;
+  name: string;
+  role?: string;
+  location?: string;
+  quote: string;
+  rating: number;
+  datePublished: string;
+  order?: number;
+};
