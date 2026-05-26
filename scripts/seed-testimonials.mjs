@@ -5,17 +5,34 @@
  * Idempotent: deterministic _id = `testimonial-<slug>` + createOrReplace,
  * so re-running this script does not duplicate records.
  *
- * Source: the 4 testimonials previously hardcoded in src/app/page.tsx plus
- * 6 testimonials recovered from the legacy WordPress site (archive.org
- * snapshot 13 Aug 2022 of /testimonials/).
+ * Sources of truth:
+ *   1. The 2 currently on production that we cannot independently verify
+ *      from any archive (John & Patricia Hargreaves, David & Susan
+ *      Alderton) — kept as-is, flagged below.
+ *   2. The single testimonial preserved on the migrated home page
+ *      (Richard Salmon, Compton Beauchamp Estates) — recovered with
+ *      proper attribution from the WordPress home (page_17_Home.json
+ *      in backup_2026-03-25).
+ *   3. The recent client testimonial received from Charleen on 12 May
+ *      2026 (Mr. Robert Kell).
+ *   4. Recovered from https://web.archive.org/web/20240221035545/
+ *      https://www.phonemastadvice.co.uk/meet-the-team/  — the most
+ *      recent WP snapshot listing all testimonials, including 2 that
+ *      had been dropped from the archive.org /testimonials/ snapshot
+ *      of Aug 2022 (Mollie & Peter Ward, Muhammad Parvez).
  *
- * Note on dates: where the testimonial's true date is unknown, the
- * datePublished is set to the snapshot date the testimonial was recovered
- * from. Charleen can correct this in /studio later.
+ * Attribution accuracy: the 2022 /testimonials/ snapshot's structure
+ * caused mis-pairing of quotes to authors during an earlier parse.
+ * The 2024 team-page snapshot uses a cleaner QUOTE → NAME → COMPANY
+ * markup, which is the authoritative pairing used here.
+ *
+ * Note: Matt mentioned "Leon Parish" as missing from the current site.
+ * Not present in any WP backup, archive.org snapshot, or media file.
+ * Charleen will need to send the quote separately.
  *
  * Usage:
- *   SANITY_API_TOKEN=skXXX node scripts/seed-testimonials.mjs
  *   SANITY_API_TOKEN=skXXX node scripts/seed-testimonials.mjs --dry-run
+ *   SANITY_API_TOKEN=skXXX node scripts/seed-testimonials.mjs
  */
 import { createClient } from "@sanity/client";
 
@@ -43,9 +60,9 @@ function slugify(s) {
 }
 
 // Order controls homepage display sequence. Lower = first.
-// Strongest/most recent client wins the top slots.
+// Strongest / most recent client wins the top slots.
 const testimonials = [
-  // ───────────────── Currently on production (from hardcoded array) ─────────
+  // ───────────── Most recent / strongest first ───────────────────────────────
   {
     name: "Mr. Robert Kell",
     role: "Rent Review Client",
@@ -68,6 +85,102 @@ const testimonials = [
     featured: true,
     order: 2,
   },
+
+  // ───────────── Recovered from Feb 2024 archive of /meet-the-team/ ─────────
+  // Source: https://web.archive.org/web/20240221035545/.../meet-the-team/
+  {
+    name: "Mollie and Peter Ward",
+    role: null,
+    location: null,
+    quote:
+      "We were very impressed with the exceptional service provided by The Phone Mast Advice Company. They efficiently handled our site upgrade and assignment, and their prompt resolution of a rental payment issue with the operator was impressive. Highly recommend their professional and reliable service.",
+    rating: 5,
+    datePublished: "2024-02-21",
+    featured: true,
+    order: 3,
+  },
+  {
+    name: "Muhammad Parvez",
+    role: null,
+    location: null,
+    quote:
+      "My experience with The Phone Mast Advice Company was exceptional. Their service was professional, logical, and entirely satisfying. They promptly addressed all my queries and there were no hidden fees. I'd rate them a solid five stars. Highly recommended!",
+    rating: 5,
+    datePublished: "2024-02-21",
+    featured: true,
+    order: 4,
+  },
+  {
+    name: "Linda and Anthony Winter",
+    role: null,
+    location: null,
+    quote:
+      "We contacted The Phone Mast Advice Company as we had been approached by On Tower for a mast sale. The Phone Mast Advice Company successfully increased our offer and improved our contractual terms for a long lease. They also helped to oversee the completion of the mast sale. We were very happy with the advice we received on our mast sale.",
+    rating: 5,
+    datePublished: "2024-02-21",
+    featured: true,
+    order: 5,
+  },
+  {
+    name: "Carole Adcock",
+    role: null,
+    location: "Atec Security",
+    quote:
+      "The Phone Mast Advice Company managed to recover all rent arrears and instigated the removal of an adjacent mast, which had been left redundant and was unsightly.",
+    rating: 5,
+    datePublished: "2024-02-21",
+    featured: true,
+    order: 6,
+  },
+  {
+    name: "William Newell",
+    role: null,
+    location: null,
+    quote:
+      "Many thanks for all your attention and efforts regarding the sale of the Mast Plot. We are very grateful to you for keeping us up to date as you did.",
+    rating: 5,
+    datePublished: "2024-02-21",
+    featured: true,
+    order: 7,
+  },
+  {
+    name: "Paul Harper",
+    role: null,
+    location: "N.S Engineering",
+    quote:
+      "I have an annual rental increase of over 20%, better rent review terms and site sharing benefits. All this was carried out with little effort and paid for by the telecom company thanks to your company.",
+    rating: 5,
+    datePublished: "2024-02-21",
+    featured: true,
+    order: 8,
+  },
+  {
+    name: "Ruth Astbury",
+    role: null,
+    location: null,
+    quote:
+      "Thank you for all your assistance — you have been very helpful and have given us an excellent service.",
+    rating: 5,
+    datePublished: "2024-02-21",
+    featured: true,
+    order: 9,
+  },
+  {
+    name: "Matthew McCarrick",
+    role: null,
+    location: "McCarrick Construction",
+    quote:
+      "I wanted some advice regarding rent reviews on some phone mast sites. I googled and found The Phone Mast Advice Company. I was impressed from the outset with their knowledge of this field and their professionalism. They advised on a number of options for rent review but also the ability to sell the sites on a long lease. The Phone Mast Advice Company negotiated us a good sale price and contractual terms with AP Wireless and oversaw the whole process using a specialist solicitor. I was pleased with the service provided, would happily recommend.",
+    rating: 5,
+    datePublished: "2024-02-21",
+    featured: true,
+    order: 10,
+  },
+
+  // ───────────── Currently on production but not in any backup ─────────────
+  // These two were in the Next.js hardcoded array but I cannot find them in
+  // either WP backup or any archive.org snapshot. Keeping them — Adriano
+  // can correct if the source was something else (e.g. a private email).
   {
     name: "John & Patricia Hargreaves",
     role: null,
@@ -77,7 +190,7 @@ const testimonials = [
     rating: 5,
     datePublished: "2024-06-01",
     featured: true,
-    order: 3,
+    order: 11,
   },
   {
     name: "David & Susan Alderton",
@@ -88,76 +201,7 @@ const testimonials = [
     rating: 5,
     datePublished: "2024-09-01",
     featured: true,
-    order: 4,
-  },
-
-  // ───────────────── Recovered from legacy WordPress site ────────────────────
-  // Source: https://web.archive.org/web/20220813210118/https://www.phonemastadvice.co.uk/testimonials/
-  {
-    name: "Matthew McCarrick",
-    role: null,
-    location: "McCarrick Construction",
-    quote:
-      "I wanted some advice regarding rent reviews on some phone mast sites. I googled and found The Phone Mast Advice Company. I was impressed from the outset with their knowledge of this field and their professionalism. They advised on a number of options for rent review but also the ability to sell the sites on a long lease. The Phone Mast Advice Company negotiated us a good sale price and contractual terms with AP Wireless and oversaw the whole process using a specialist solicitor. I was pleased with the service provided, would happily recommend.",
-    rating: 5,
-    datePublished: "2022-08-13",
-    featured: true,
-    order: 5,
-  },
-  {
-    name: "Linda and Anthony Winter",
-    role: null,
-    location: null,
-    quote:
-      "We contacted The Phone Mast Advice Company as we had been approached by On Tower for a mast sale. The Phone Mast Advice Company successfully increased our offer and improved our contractual terms for a long lease. They also helped to oversee the completion of the mast sale. We were very happy with the advice we received on our mast sale.",
-    rating: 5,
-    datePublished: "2022-08-13",
-    featured: true,
-    order: 6,
-  },
-  {
-    name: "Paul Harper",
-    role: null,
-    location: "N.S Engineering",
-    quote:
-      "I have an annual rental increase of over 20%, better rent review terms and site sharing benefits. All this was carried out with little effort and paid for by the telecom company thanks to your company.",
-    rating: 5,
-    datePublished: "2022-08-13",
-    featured: true,
-    order: 7,
-  },
-  {
-    name: "Carole Adcock",
-    role: null,
-    location: "Atec Security",
-    quote:
-      "The Phone Mast Advice Company managed to recover all rent arrears and instigated the removal of an adjacent mast, which had been left redundant and was unsightly.",
-    rating: 5,
-    datePublished: "2022-08-13",
-    featured: true,
-    order: 8,
-  },
-  {
-    name: "William Newell",
-    role: null,
-    location: null,
-    quote:
-      "Many thanks for all your attention and efforts regarding the sale of the Mast Plot. We are very grateful to you for keeping us up to date as you did.",
-    rating: 5,
-    datePublished: "2022-08-13",
-    featured: true,
-    order: 9,
-  },
-  {
-    name: "Ruth Astbury",
-    role: null,
-    location: null,
-    quote:
-      "Thank you for all your assistance — you have been very helpful and have given us an excellent service.",
-    rating: 5,
-    datePublished: "2022-08-13",
-    featured: true,
-    order: 10,
+    order: 12,
   },
 ];
 
