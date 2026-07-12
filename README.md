@@ -5,11 +5,6 @@ WordPress into a fast, SEO-first **Next.js 15** site with a headless CMS.
 
 **Live:** [phonemast-nextjs.vercel.app](https://phonemast-nextjs.vercel.app)
 
-## Screenshots
-
-![Home](docs/screenshots/home.png)
-![Services](docs/screenshots/services.png)
-
 ---
 
 ## Overview
