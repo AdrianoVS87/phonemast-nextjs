@@ -4,7 +4,7 @@ import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Advice FAQ | Leases, Rent & Landlord Rights",
+  title: "Phone Mast FAQ — Leases, Rent & Landlord Rights",
   description:
     "Phone mast advice FAQ with clear answers on phone mast leases, rent reviews, the Electronic Communications Code, and UK landlord rights from specialist surveyors.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/faq" },

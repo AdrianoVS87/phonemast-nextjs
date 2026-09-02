@@ -3,14 +3,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease Advice for UK Landlords | 2026 Legal Guide",
+  title: { absolute: "Phone Mast Lease: UK Landlord Guide 2026 | Phone Mast Advice" },
   description:
-    "Independent phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
+    "Phone mast lease guide for UK landlords: key Code clauses, break clauses, renewals, upgrade and sharing rights, and the PSTI Act changes now in force.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026" },
   openGraph: {
-    title: "Phone Mast Lease Advice for UK Landlords | 2026 Legal Guide",
+    title: "Phone Mast Lease: UK Landlord Guide 2026",
     description:
-      "Independent phone mast lease advice for UK landlords: key ECC clauses, renewal issues, operator rights, and what changed in 2026.",
+      "Phone mast lease guide for UK landlords: key Code clauses, break clauses, renewals, upgrade and sharing rights, and the PSTI Act changes now in force.",
     type: "website",
   },
 };
@@ -33,11 +33,48 @@ export default function PhoneMastLease2026Page() {
     url: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026",
   };
 
+  const leaseFaqs = [
+    {
+      q: "How long does a phone mast lease last?",
+      a: "There is no statutory minimum or maximum, but the Upper Tribunal now typically imposes a 10-year term with a tenant break at year 5 and a landlord's redevelopment break exercisable from the fifth anniversary on 18 months' notice — the pattern set in the 2024 Vache Farm decision. Rent is usually reviewed every five years, linked to RPI or CPI.",
+    },
+    {
+      q: "What happens when my phone mast lease expires?",
+      a: "It does not simply end. Under Paragraph 30 of the Electronic Communications Code the agreement continues in force by statute until it is properly terminated. To end it, the site provider must serve a Paragraph 31 notice giving at least 18 months' notice on one of four statutory grounds — and if the operator serves a counter-notice within three months, the matter goes to the Tribunal.",
+    },
+    {
+      q: "Can I refuse a phone mast lease or make the operator leave?",
+      a: "Rarely. Under Paragraph 21 the Tribunal can impose an agreement if the prejudice to you can be adequately compensated in money and the public benefit outweighs it — a test operators almost always satisfy. The main exception is the redevelopment defence under Paragraph 21(5): a firm, settled and unconditional intention to redevelop, with a reasonable prospect of carrying it out.",
+    },
+    {
+      q: "Can the operator upgrade or share the mast without my consent?",
+      a: "Usually, yes. Paragraph 17 permits upgrading and sharing without consent where there is no more than a minimal adverse impact on appearance and no additional burden on you, and the PSTI Act extended similar rights to older agreements through Paragraph 17A, subject to 21 days' notice. Terms restricting assignment to another operator are void under Paragraph 16.",
+    },
+    {
+      q: "Should I sign the operator's proposed lease terms?",
+      a: "Not without advice. Draft Heads of Terms are prepared by the operator's advisers and represent an opening position. Break clause drafting is critical — in On Tower v BT (2025) a termination failed because the break notice cited the wrong ground — and protections such as fee recovery, reinstatement obligations and rent review terms are commonly improved with landlord-side input.",
+    },
+  ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: leaseFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <Breadcrumbs items={[{ label: "Phone Mast Lease Advice" }]} />
@@ -129,7 +166,7 @@ export default function PhoneMastLease2026Page() {
             }}
           >
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
-              Need practical help with an operator approach or expired agreement? Our <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewal service</a> is the right next step, and you can also request a <a href="/free-lease-check" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast lease check</a>.
+              Need practical help with an operator approach or expired agreement? Our <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewal service</a> is the right next step, and you can also request a <a href="/free-lease-check" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast lease check</a>. Negotiating the money side? See our <a href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent</a> guide for how consideration is assessed.
             </p>
           </div>
 
@@ -560,7 +597,7 @@ export default function PhoneMastLease2026Page() {
               },
               {
                 citation: "Cornerstone v Compton Beauchamp Estates [2022] UKSC 18",
-                summary: "A Supreme Court decision that confirmed operators with existing agreements protected under the Landlord and Tenant Act 1954 must renew under that Act, not under the Code. This has been one of the most important protections for landowners with pre-2017 leases — until now.",
+                summary: "A Supreme Court decision that confirmed operators with existing agreements protected under the Landlord and Tenant Act 1954 must renew under that Act, not under the Code. This was one of the most important protections for landowners with pre-2017 leases, until the PSTI Act changes took effect on 7 April 2026.",
               },
             ].map((item, i) => (
               <div
@@ -609,19 +646,19 @@ export default function PhoneMastLease2026Page() {
                 marginBottom: "1rem",
               }}
             >
-              ⚠️ What Changes on 7 April 2026
+              ⚠️ What Changed on 7 April 2026 — Now in Force
             </h2>
             <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1rem" }}>
-              On <strong>7 April 2026</strong>, Sections 61 to 64 of the PSTI Act 2022 come into force, inserting a new <strong>Section 34A into the Landlord and Tenant Act 1954</strong>. For the first time, qualifying telecoms tenancies that renew under the 1954 Act will be subject to the Code&rsquo;s no-network assumption when rent is assessed on renewal.
+              On <strong>7 April 2026</strong>, Sections 61 to 64 of the PSTI Act 2022 came into force, inserting a new <strong>Section 34A into the Landlord and Tenant Act 1954</strong>. For the first time, qualifying telecoms tenancies that renew under the 1954 Act are subject to the Code&rsquo;s no-network assumption when rent is assessed on renewal.
             </p>
             <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1rem" }}>
-              This removes the significant financial advantage that landowners with pre-2017 leases have enjoyed under the <em>Cornerstone v Compton Beauchamp</em> Supreme Court ruling. An estimated <strong>15,000 legacy telecoms agreements</strong> across the UK will be affected.
+              This removed the significant financial advantage that landowners with pre-2017 leases previously enjoyed under the <em>Cornerstone v Compton Beauchamp</em> Supreme Court ruling. An estimated <strong>15,000 legacy telecoms agreements</strong> across the UK are affected.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem 0" }}>
               {[
                 "Transitional provisions ensure that rents already received are not required to be repaid",
                 "Interim rent is split: periods before 7 April 2026 are valued under the old rules, and periods from that date onwards under the new framework",
-                "From the same date, jurisdiction for telecoms disputes transfers from the Upper Tribunal (Lands Chamber) to the First-tier Tribunal (Property Chamber)",
+                "From the same date, jurisdiction for telecoms disputes transferred from the Upper Tribunal (Lands Chamber) to the First-tier Tribunal (Property Chamber)",
                 "Since November 2023, operators and site providers are required to consider Alternative Dispute Resolution before applying to the Tribunal for renewal or modification of agreements",
               ].map((point, i) => (
                 <li
@@ -663,6 +700,46 @@ export default function PhoneMastLease2026Page() {
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
             Whether you are negotiating a new lease, facing a renewal, or have received a notice from an operator, our specialist telecoms surveyors can review your terms and advise on the best course of action.
           </p>
+
+          {/* FAQ */}
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Phone Mast Lease: Frequently Asked Questions
+          </h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}>
+            {leaseFaqs.map((f, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "#f9f8f5",
+                  borderRadius: "0.75rem",
+                  padding: "1.5rem 1.75rem",
+                  border: "1px solid #e5e7eb",
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "1.125rem",
+                    color: "#1B4F72",
+                    marginBottom: "0.625rem",
+                  }}
+                >
+                  {f.q}
+                </h3>
+                <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>{f.a}</p>
+              </div>
+            ))}
+          </div>
 
           {/* CTA contact box */}
           <div
@@ -745,14 +822,14 @@ export default function PhoneMastLease2026Page() {
               paddingTop: "1.5rem",
             }}
           >
-            This page was last updated on 30 March 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
+            This page was last updated on 2 September 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
           </p>
         </div>
       </section>
 
       <CTASection
         headline="Expert Phone Mast Lease Advice for 2026"
-        subheadline="7 April 2026 is days away. The PSTI Act changes remove key protections for legacy lease holders. Specialist advice now protects your income for years to come."
+        subheadline="The PSTI Act changes are now in force and the legacy protections have changed. Specialist advice on your lease terms protects your income for years to come."
         ctaText="Free Lease Check"
         ctaHref="/free-lease-check"
       />

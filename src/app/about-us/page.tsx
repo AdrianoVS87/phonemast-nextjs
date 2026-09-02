@@ -5,7 +5,7 @@ import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "About Us | Phone Mast Advice Specialists for UK Landlords",
+  title: "About Us — UK Phone Mast Specialists",
   description:
     "Independent phone mast advice specialists with 30+ years experience advising UK landlords on leases, rent, renewals, and landmark telecoms disputes.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/about-us" },

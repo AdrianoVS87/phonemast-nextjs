@@ -6,7 +6,7 @@ import BlogCard from "@/components/BlogCard";
 import { getAllPosts } from "@/lib/blog";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Advice Blog | Expert Guidance for UK Landlords",
+  title: "Blog — Phone Mast Guidance for UK Landlords",
   description:
     "Expert articles on phone mast leases, rent reviews, the Electronic Communications Code, and landlord rights. Written by specialist UK telecom surveyors.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/blog" },

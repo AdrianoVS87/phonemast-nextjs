@@ -49,6 +49,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: withSlash(`${BASE_URL}/blog`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: withSlash(`${BASE_URL}/phone-mast-rent-2026`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
     { url: withSlash(`${BASE_URL}/phone-mast-lease-2026`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
+    { url: withSlash(`${BASE_URL}/free-lease-check`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
+    { url: withSlash(`${BASE_URL}/free-rent-estimate`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
   ];
 
   const serviceEntries: MetadataRoute.Sitemap = servicePages.map((path) => ({

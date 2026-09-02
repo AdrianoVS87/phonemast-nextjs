@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 export const metadata: Metadata = {
-  title: "Phone Mast Removal And Redevelopment | Phone Mast Advice",
+  title: "Phone Mast Removal & Redevelopment",
   description: "Expert phone mast removal and redevelopment advice for UK landlords. Independent specialists acting only for landowners. Call 01691 791543.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment" },
 };

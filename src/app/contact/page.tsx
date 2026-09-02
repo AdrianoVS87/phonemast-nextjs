@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 
 export const metadata: Metadata = {
-  title: "Contact Us | Phone Mast Advice",
+  title: "Contact Us",
   description:
     "Contact The Phone Mast Advice Company. Call 01691 791543, email info@phonemastadvice.co.uk or use our online form. Offices in London, Bristol and Oswestry.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/contact" },

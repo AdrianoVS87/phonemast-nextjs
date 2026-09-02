@@ -3,14 +3,14 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Rent Advice for UK Landlords | 2026 Legal Guide",
+  title: { absolute: "Phone Mast Rent: UK Landlord Guide 2026 | Phone Mast Advice" },
   description:
-    "Independent phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
+    "How phone mast rent is calculated in 2026: the no-network assumption, Tribunal benchmarks, what you can still charge, and the PSTI Act changes now in force.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026" },
   openGraph: {
-    title: "Phone Mast Rent Advice for UK Landlords | 2026 Legal Guide",
+    title: "Phone Mast Rent: UK Landlord Guide 2026",
     description:
-      "Independent phone mast rent advice for UK landlords: ECC valuation, no-network assumption, key case law, and what changed in 2026.",
+      "How phone mast rent is calculated in 2026: the no-network assumption, Tribunal benchmarks, what you can still charge, and the PSTI Act changes now in force.",
     type: "website",
   },
 };
@@ -33,11 +33,48 @@ export default function PhoneMastRent2026Page() {
     url: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026",
   };
 
+  const rentFaqs = [
+    {
+      q: "How much rent can I get for a phone mast in 2026?",
+      a: "It depends on the site type. Under the Code's no-network assumption, rent reflects your land's alternative use value rather than its value to the operator's network. For a standard rural greenfield mast, the Upper Tribunal's Vache Farm decision (2024) set consideration at £1,750 per annum, while rooftop and urban sites are generally assessed at higher levels. On top of this you can recover professional fees, compensation and electricity costs. Request a free rent estimate for a figure specific to your site.",
+    },
+    {
+      q: "How is phone mast rent calculated?",
+      a: "Under Paragraph 24 of the Electronic Communications Code, rent (known in the legislation as consideration) is assessed on the no-network assumption: your land is valued at its best alternative, non-telecoms use, ignoring its value to the operator's network. The Upper Tribunal applies a three-stage approach — alternative use value, plus any additional benefits the site confers on the operator, plus an allowance for the burdens the telecoms use imposes on you.",
+    },
+    {
+      q: "Can the operator reduce my phone mast rent?",
+      a: "On renewal, yes — Code valuations are typically much lower than legacy open-market rents, and since 7 April 2026 the no-network assumption also applies to qualifying renewals under the Landlord and Tenant Act 1954. However, the operator's proposed figure is an opening position: professional fees, compensation and electricity costs remain recoverable, and terms can usually be improved with landlord-side advice.",
+    },
+    {
+      q: "What can I charge in addition to phone mast rent?",
+      a: "Compensation for loss or damage under Paragraph 25, reasonable professional fees under Paragraph 84, electricity costs where the operator uses your supply, payment for access rights over your retained land, and the cost of any physical damage caused by the operator or its contractors.",
+    },
+    {
+      q: "Do the 7 April 2026 PSTI Act changes affect my rent?",
+      a: "If your agreement pre-dates 28 December 2017 and renews under the Landlord and Tenant Act 1954, renewal rent is now assessed on the no-network basis under the new Section 34A — an estimated 15,000 legacy agreements are affected. Rent already received does not have to be repaid, interim rent is split at 7 April 2026, and telecoms disputes are now heard by the First-tier Tribunal (Property Chamber).",
+    },
+  ];
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: rentFaqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  };
+
   return (
     <>
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
       />
 
       <Breadcrumbs items={[{ label: "Phone Mast Rent Advice" }]} />
@@ -129,7 +166,7 @@ export default function PhoneMastRent2026Page() {
             }}
           >
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
-              Need practical help rather than just background reading? Our <a href="/phone-mast-services/rent-reviews" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent review service</a> is the best next step if you want negotiation support, and you can also request a <a href="/free-rent-estimate" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast rent estimate</a>.
+              Need practical help rather than just background reading? Our <a href="/phone-mast-services/rent-reviews" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent review service</a> is the best next step if you want negotiation support, and you can also request a <a href="/free-rent-estimate" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast rent estimate</a>. Reviewing the agreement itself? Read our <a href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease</a> guide for terms, renewals and operator rights.
             </p>
           </div>
 
@@ -461,16 +498,16 @@ export default function PhoneMastRent2026Page() {
                 marginBottom: "1rem",
               }}
             >
-              ⚠️ What Changes on 7 April 2026
+              ⚠️ What Changed on 7 April 2026 — Now in Force
             </h2>
             <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1rem" }}>
-              On <strong>7 April 2026</strong>, Sections 61 to 64 of the Product Security and Telecommunications Infrastructure Act 2022 come into force. This is one of the most significant changes to phone mast rent law since 2017.
+              On <strong>7 April 2026</strong>, Sections 61 to 64 of the Product Security and Telecommunications Infrastructure Act 2022 came into force. It is one of the most significant changes to phone mast rent law since 2017 — and it now applies to renewals.
             </p>
             <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1rem" }}>
-              These provisions insert a new <strong>Section 34A into the Landlord and Tenant Act 1954</strong>. For the first time, qualifying telecoms tenancies that renew under the 1954 Act will be subject to the no-network assumption when rent is assessed.
+              These provisions inserted a new <strong>Section 34A into the Landlord and Tenant Act 1954</strong>. For the first time, qualifying telecoms tenancies that renew under the 1954 Act are subject to the no-network assumption when rent is assessed.
             </p>
             <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1.5rem" }}>
-              Until now, landowners with legacy mast leases protected under the 1954 Act have benefited from open market rent valuations on renewal — often producing significantly higher rents than the Code valuation. The Supreme Court confirmed this protection in <em>Cornerstone v Compton Beauchamp</em> [2022] UKSC 18. From 7 April 2026, that advantage is removed.
+              Until now, landowners with legacy mast leases protected under the 1954 Act have benefited from open market rent valuations on renewal — often producing significantly higher rents than the Code valuation. The Supreme Court confirmed this protection in <em>Cornerstone v Compton Beauchamp</em> [2022] UKSC 18. Since 7 April 2026, that advantage has been removed.
             </p>
 
             <h3
@@ -486,11 +523,11 @@ export default function PhoneMastRent2026Page() {
             </h3>
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {[
-                "If your mast lease pre-dates 28 December 2017 and is protected under the Landlord and Tenant Act 1954, your rent on renewal will now be assessed using the no-network assumption",
+                "If your mast lease pre-dates 28 December 2017 and is protected under the Landlord and Tenant Act 1954, your rent on renewal is now assessed using the no-network assumption",
                 "This affects an estimated 15,000 legacy telecoms agreements across the United Kingdom",
                 "Transitional provisions ensure that rents already received are not required to be repaid",
                 "Interim rent is split: periods before 7 April 2026 are valued under the old rules, periods from 7 April onwards under the new framework",
-                "Jurisdiction for telecoms disputes transfers from the Upper Tribunal (Lands Chamber) to the First-tier Tribunal (Property Chamber) from the same date",
+                "Jurisdiction for telecoms disputes transferred from the Upper Tribunal (Lands Chamber) to the First-tier Tribunal (Property Chamber) on the same date",
               ].map((point, i) => (
                 <li
                   key={i}
@@ -673,6 +710,46 @@ export default function PhoneMastRent2026Page() {
             Whether your lease is coming up for renewal, you have received a notice from an operator, or you simply want to understand what your mast site is worth in 2026, our specialist telecoms surveyors can advise you.
           </p>
 
+          {/* FAQ */}
+          <h2
+            style={{
+              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+              fontWeight: 700,
+              fontSize: "clamp(1.375rem, 2.5vw, 1.875rem)",
+              color: "#1a1a2e",
+              marginBottom: "1.25rem",
+            }}
+          >
+            Phone Mast Rent: Frequently Asked Questions
+          </h2>
+
+          <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}>
+            {rentFaqs.map((f, i) => (
+              <div
+                key={i}
+                style={{
+                  backgroundColor: "#f9f8f5",
+                  borderRadius: "0.75rem",
+                  padding: "1.5rem 1.75rem",
+                  border: "1px solid #e5e7eb",
+                }}
+              >
+                <h3
+                  style={{
+                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "1.125rem",
+                    color: "#1B4F72",
+                    marginBottom: "0.625rem",
+                  }}
+                >
+                  {f.q}
+                </h3>
+                <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>{f.a}</p>
+              </div>
+            ))}
+          </div>
+
           {/* CTA contact box */}
           <div
             style={{
@@ -754,14 +831,14 @@ export default function PhoneMastRent2026Page() {
               paddingTop: "1.5rem",
             }}
           >
-            This page was last updated on 30 March 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
+            This page was last updated on 2 September 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
           </p>
         </div>
       </section>
 
       <CTASection
         headline="Protect Your Phone Mast Rent Income in 2026"
-        subheadline="7 April 2026 is days away. The PSTI Act changes remove key protections for legacy lease holders. Take specialist advice now. Free initial consultation."
+        subheadline="The PSTI Act changes are now in force: legacy 1954 Act leases renew on no-network valuations. Take specialist advice before your renewal. Free initial consultation."
         ctaText="Free Rent Estimate"
         ctaHref="/free-rent-estimate"
       />

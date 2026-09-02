@@ -4,7 +4,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Services | Expert Telecom Surveyors | Phone Mast Advice",
+  title: "Phone Mast Services for UK Landlords",
   description:
     "Specialist phone mast services for UK landlords: rent reviews, lease renewals, new lettings, mast sales, removal and more. Independent advisors — never acting for operators.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services" },
