@@ -3,10 +3,39 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
+import FAQAccordion from "@/components/FAQAccordion";
+
+const rentReviewFaqs = [
+  {
+    question: "How often is phone mast rent reviewed?",
+    answer:
+      "It depends on your lease, but most agreements review the rent every three to five years, and the Upper Tribunal now treats a five-yearly review linked to RPI or CPI as the standard for new Code agreements. If your lease contains a review clause that has never been operated, the review may still be capable of being triggered.",
+  },
+  {
+    question: "Can the operator reduce my phone mast rent at a rent review?",
+    answer:
+      "Under an index-linked clause, no: the review is arithmetic and follows the index. Under an open market clause the answer depends on the agreement. A Code agreement is valued on the no-network assumption, which is usually lower than legacy rents, whereas a lease protected by the Landlord and Tenant Act 1954 keeps its contractual review basis until renewal. Since 7 April 2026 those 1954 Act leases are valued on the no-network basis when they renew, so the renewal, rather than the review, is where the reduction usually bites.",
+  },
+  {
+    question: "What is the benchmark phone mast rent in 2026?",
+    answer:
+      "For a standard rural greenfield mast under the Code, the Upper Tribunal's 2024 Vache Farm decision set consideration at £1,750 per annum, with rooftop and urban sites generally assessed at higher levels. Legacy leases still on their original review basis can be considerably higher, which is why the wording of your review clause matters so much.",
+  },
+  {
+    question: "My rent has not been reviewed for years. Can I claim backdated rent?",
+    answer:
+      "Often, yes. Whether a missed review can be operated late, and whether the uplift is backdated, depends on the wording of the clause, in particular whether time is stated to be of the essence. We read the clause, calculate what should have been paid, and pursue the arrears where the agreement supports it.",
+  },
+  {
+    question: "Do I need a surveyor for a phone mast rent review?",
+    answer:
+      "For an index-linked review the arithmetic is simple, but operators and their agents frequently miscalculate, delay, or dispute the figure. For an open market review you need valuation evidence the operator cannot dismiss. In both cases independent, landlord-side advice usually pays for itself, and our initial review is free.",
+  },
+];
 
 export const metadata: Metadata = {
-  title: "Phone Mast Rent Review Advice Service | UK Landlords",
-  description: "Independent phone mast rent review advice service for UK landlords. We benchmark rent, challenge weak offers, and negotiate improved telecom lease terms.",
+  title: { absolute: "Phone Mast Rent Review Advice | Phone Mast Advice" },
+  description: "Phone mast rent review advice for UK landlords: how rent is assessed, whether it can go down, missed and backdated reviews, the 2026 benchmarks, and how we negotiate with operators.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews" },
 };
 
@@ -81,6 +110,27 @@ export default function RentReviewsPage() {
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            How Is Phone Mast Rent Assessed at a Rent Review?
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            The answer is in the wording of your review clause. An index-linked review (RPI or CPI) is arithmetic and should be applied without argument. An open market review depends on which regime governs the agreement: a Code agreement is valued on the no-network assumption in Paragraph 24, where the Upper Tribunal&rsquo;s 2024 <em>Vache Farm</em> decision set the benchmark for a standard rural greenfield mast at £1,750 per annum, with rooftop and urban sites assessed at higher levels. A lease still protected by the Landlord and Tenant Act 1954 keeps its contractual review basis until it renews.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Can My Phone Mast Rent Go Down at a Review?
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            Not under an index-linked clause, and not under most legacy open market clauses while the lease runs. The reduction operators talk about usually arrives at <em>renewal</em>, not at review: since 7 April 2026, qualifying 1954 Act leases are valued on the no-network basis when they renew, and Code agreements have been valued that way since December 2017. Knowing which event you are facing, a review or a renewal, changes the advice completely. See our <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>lease renewal service</a> for the renewal side.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Missed and Backdated Rent Reviews
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            A surprising number of mast leases contain review clauses that have never been operated, sometimes for a decade or more. Whether the review can still be triggered, and whether the uplift is backdated, turns on the wording of the clause, in particular whether time is of the essence. We read the clause, calculate what should have been paid, and pursue the arrears where the agreement supports it.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
             Why You Need Expert Rent Review Advice
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
@@ -129,6 +179,11 @@ export default function RentReviewsPage() {
               </li>
             ))}
           </ul>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Phone Mast Rent Reviews: Frequently Asked Questions
+          </h2>
+          <FAQAccordion items={rentReviewFaqs} showJsonLd={true} />
         </div>
       </section>
 

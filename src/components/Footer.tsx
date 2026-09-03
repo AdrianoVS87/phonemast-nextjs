@@ -25,7 +25,7 @@ const legal = [
 const offices = [
   {
     city: "London",
-    address: "167–169 Great Portland Road, 5th Floor",
+    address: "167–169 Great Portland Street, 5th Floor",
     postcode: "W1W 5PF",
   },
   {

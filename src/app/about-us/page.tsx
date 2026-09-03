@@ -400,7 +400,7 @@ export default function AboutPage() {
             {[
               {
                 city: "London",
-                address: "167-169 Great Portland Road\n5th Floor\nLondon\nW1W 5PF",
+                address: "167-169 Great Portland Street\n5th Floor\nLondon\nW1W 5PF",
               },
               {
                 city: "Bristol",

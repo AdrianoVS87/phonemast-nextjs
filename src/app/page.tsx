@@ -208,7 +208,7 @@ export default async function HomePage() {
           email: "info@phonemastadvice.co.uk",
           url: "https://www.phonemastadvice.co.uk",
           offices: [
-            { streetAddress: "167-169 Great Portland Road, 5th Floor", addressLocality: "London", postalCode: "W1W 5PF" },
+            { streetAddress: "167-169 Great Portland Street, 5th Floor", addressLocality: "London", postalCode: "W1W 5PF" },
             { streetAddress: "5 High Street, Westbury on Trym", addressLocality: "Bristol", postalCode: "BS9 3BY" },
             { streetAddress: "Artillery Business Park", addressLocality: "Oswestry", postalCode: "SY11 4AD" },
           ],

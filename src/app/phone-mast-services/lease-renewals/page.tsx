@@ -4,8 +4,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Phone Mast Lease Renewal Advice Service | UK Landlords",
-  description: "Independent phone mast lease renewal advice service for UK landlords. Specialist support on ECC renewals, rent, clauses, and operator negotiations.",
+  title: { absolute: "Phone Mast Lease Renewal Advice | Phone Mast Advice" },
+  description: "Phone mast lease renewal advice for UK landlords: what happens when your lease ends, the notices to expect, who pays your fees, the 7 April 2026 changes, and how we negotiate better terms.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals" },
 };
 
@@ -35,7 +35,7 @@ const serviceSchema = {
   "@type": "Service",
   "name": "Phone Mast Lease Renewals",
   "alternateName": ["Code Lease Renewal", "Phone Mast Lease Renewal Advice"],
-  "description": "Independent expert negotiation of phone mast lease renewals under the Electronic Communications Code. UK-wide service for landowners with leases from Vodafone, EE, O2, Three, CTIL, Cornerstone, Cellnex, Arqiva and other telecom operators.",
+  "description": "Independent expert negotiation of phone mast lease renewals under the Electronic Communications Code. UK-wide service for landowners with leases from Vodafone, EE, O2, Three, CTIL (Cornerstone), Cellnex, On Tower (formerly Arqiva) and other telecom operators.",
   "url": "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals/",
   "serviceType": "Telecommunications Lease Renewal Advisory",
   "areaServed": { "@type": "Country", "name": "United Kingdom" },
@@ -75,9 +75,11 @@ const faqSchema = {
   "mainEntity": [
     { "@type": "Question", "name": "What is a phone mast lease renewal?", "acceptedAnswer": { "@type": "Answer", "text": "A phone mast lease renewal happens when your existing agreement with the telecom operator expires and they want to enter into a new contract. Under the UK's Electronic Communications Code (ECC), operators can serve \"Heads of Terms\" for a new agreement, but these often offer lower rent than market value and include operator-friendly clauses that reduce landlord protections." } },
     { "@type": "Question", "name": "When should I start my lease renewal process?", "acceptedAnswer": { "@type": "Answer", "text": "Ideally, 12-18 months before your lease expiry. This gives time for proper valuation, negotiation, and if necessary, tribunal proceedings. Starting early typically results in better outcomes than reacting to operator approaches." } },
-    { "@type": "Question", "name": "How does the Electronic Communications Code affect my renewal?", "acceptedAnswer": { "@type": "Answer", "text": "The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. Key changes include the \"no-network assumption\" for rent calculations (introduced April 2026) and operator rights to upgrade equipment. Understanding these regulations is crucial for effective negotiation." } },
+    { "@type": "Question", "name": "How does the Electronic Communications Code affect my renewal?", "acceptedAnswer": { "@type": "Answer", "text": "The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. The 2017 Code introduced the \"no-network assumption\" for rent, and since 7 April 2026 the PSTI Act has extended that assumption to qualifying renewals under the Landlord and Tenant Act 1954. The Code also gives operators statutory rights to upgrade and share equipment. Understanding these rules is crucial for effective negotiation." } },
     { "@type": "Question", "name": "What about renewals with specific operators like Vodafone, EE, or CTIL?", "acceptedAnswer": { "@type": "Answer", "text": "Each operator has different agents, tactics, and lease structures. Vodafone and EE renewals often involve their appointed surveyors who work to minimise rent offers. CTIL (Cornerstone) renewals follow specific Code protocols. Our team has direct experience negotiating with all major operators and their agents." } },
-    { "@type": "Question", "name": "Can I challenge a poor renewal offer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If you believe the operator's offer is below market value or the terms are unfavourable, you can refuse the offer and negotiate further. If agreement cannot be reached, the matter can be referred to the Upper Tribunal (Lands Chamber). Professional representation significantly improves outcomes in these proceedings." } }
+    { "@type": "Question", "name": "Can I challenge a poor renewal offer?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. If you believe the operator's offer is below market value or the terms are unfavourable, you can refuse the offer and negotiate further. If agreement cannot be reached, the matter can be referred to the Tribunal (since 7 April 2026, the First-tier Tribunal (Property Chamber)), after both sides have considered alternative dispute resolution. Professional representation significantly improves outcomes in these proceedings." } },
+    { "@type": "Question", "name": "Who pays my professional fees on a phone mast lease renewal?", "acceptedAnswer": { "@type": "Answer", "text": "Usually the operator. Paragraph 84 of the Electronic Communications Code allows reasonable legal and valuation expenses to be recovered from the operator, and operators normally provide a written fee undertaking, typically capped, while the renewal proceeds on a negotiated basis. That cover can fall away if the landlord refuses to engage, which is one reason to respond to a renewal letter promptly." } },
+    { "@type": "Question", "name": "What changed for phone mast lease renewals on 7 April 2026?", "acceptedAnswer": { "@type": "Answer", "text": "Sections 61 to 64 of the PSTI Act 2022 came into force, inserting Section 34A into the Landlord and Tenant Act 1954. Qualifying telecoms leases that renew under the 1954 Act are now valued on the Code's no-network basis, ending the open-market advantage confirmed in Cornerstone v Compton Beauchamp. Rent already received is not repayable, interim rent is split at 7 April 2026, and Code disputes moved to the First-tier Tribunal (Property Chamber)." } }
   ]
 };
 
@@ -126,7 +128,7 @@ export default function Page() {
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Maximise the Value of Your Phone Mast Lease. Have your Phone Mast lease renewed for the best possible terms.
+            A phone mast lease renewal is the point at which an operator&rsquo;s existing agreement ends and a new one is negotiated or imposed. It is also the point at which most landlords give up rent and rights they did not need to give up. We act only for landlords, and our job is to make sure the renewed lease is on the best terms the law allows.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             If your current lease has expired or your operator has approached you with Heads of Terms, we can help you negotiate rent, protect your rights, and secure fair lease terms – even under the Electronic Communications Code.
@@ -147,6 +149,69 @@ export default function Page() {
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             A lease renewal happens when your existing Phone Mast agreement comes to an end and the telecom operator wants to put a new lease in place. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve Heads of Terms for a new agreement, but these terms often offer lower rent than market value, use operator-friendly clauses, and reduce landlord protections. Professional advice ensures you don&apos;t accept terms that leave money or rights on the table. If you first need the broader legal context, read our <a href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
           </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Do I Have to Renew My Phone Mast Lease?
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            In most cases the operator has a statutory right to a new agreement, so the realistic question is not whether the lease renews but on what terms. Under Paragraph 30 of the Code an expired agreement continues until it is formally ended, and under Paragraph 33 the operator can require a renewal. A landlord can resist only on limited grounds, chiefly a firm and settled intention to redevelop. What is entirely open to negotiation is the rent, the term, the break rights, and every protective clause in the document.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            What Notices Will I Receive Before a Renewal?
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            Renewals usually begin with a letter from a surveying firm acting for the operator, enclosing draft Heads of Terms and a response deadline. A formal notice often follows, and which one depends on your agreement:
+          </p>
+          <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.25rem" }}>
+            {[
+              "A Section 26 notice under the Landlord and Tenant Act 1954, where the agreement is still protected by that Act: the operator's formal request for a new tenancy, with a strict window for the landlord to respond",
+              "A Paragraph 33 notice under the Electronic Communications Code, where the operator seeks to renew, modify, or replace an existing Code agreement: at least six months' notice",
+              "A Paragraph 20 notice under the Code, where the operator seeks new Code rights, for example on a site it does not yet have a Code agreement for",
+            ].map((item, i) => (
+              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#1B4F72", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>{i + 1}</span>
+                {item}
+              </li>
+            ))}
+          </ul>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            Each notice carries statutory deadlines, and missing one weakens your position. Acknowledge any letter promptly, in writing, and take advice before responding on the substance.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            Who Pays My Professional Fees?
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            Usually the operator. Paragraph 84 of the Code allows a landlord to recover reasonable legal and valuation expenses incurred in connection with the grant or renewal of Code rights, and operators normally provide a written fee undertaking, typically capped, while the renewal proceeds on a negotiated basis. We confirm the undertaking before detailed work begins. That cover can fall away if a landlord refuses to engage and forces the operator into formal proceedings, which is one more reason to respond to a renewal letter rather than ignore it.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            What Changed on 7 April 2026
+          </h2>
+          <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
+            Sections 61 to 64 of the PSTI Act 2022 came into force, inserting Section 34A into the Landlord and Tenant Act 1954. Qualifying telecoms leases that renew under the 1954 Act are now valued on the Code&rsquo;s no-network basis, ending the open-market advantage that <em>Cornerstone v Compton Beauchamp</em> [2022] UKSC 18 had preserved for pre-2017 leases. Rent already received is not repayable, interim rent is split at 7 April 2026, and Code disputes moved from the Upper Tribunal (Lands Chamber) to the First-tier Tribunal (Property Chamber). Our <a href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent guide</a> explains the valuation consequences in full.
+          </p>
+
+          <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
+            What We Negotiate in a Renewed Lease
+          </h2>
+          <ul style={{ listStyle: "none", padding: 0, margin: "0 0 2rem" }}>
+            {[
+              "Rent: the consideration under Paragraph 24, plus compensation, electricity, and access payments recoverable on top",
+              "Term and breaks: typically a 10-year term with a landlord's redevelopment break, following the Tribunal's Vache Farm pattern",
+              "Rent review: index-linked (RPI or CPI) reviews every five years so the rent keeps pace",
+              "Lift and shift: for rooftops, the operator relocates equipment for building works at its own cost",
+              "Upgrading and sharing: the apparatus is defined and additional occupiers are addressed as far as the Code allows",
+              "Access and works: defined routes, notice periods, and restrictions on hours and heavy vehicles",
+              "Reinstatement: full removal and restoration under Paragraph 40 when the operator leaves",
+            ].map((item, i) => (
+              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
+                {item}
+              </li>
+            ))}
+          </ul>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
             How Our Lease Renewal Service Works
@@ -221,7 +286,7 @@ export default function Page() {
               How does the Electronic Communications Code affect my renewal?
             </h3>
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
-              The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. Key changes include the &quot;no-network assumption&quot; for rent calculations (introduced April 2026) and operator rights to upgrade equipment. Understanding these regulations is crucial for effective negotiation. <a href="https://www.legislation.gov.uk/ukpga/2017/30/notes/division/6" target="_blank" rel="noopener noreferrer" style={{ color: "#1B4F72", textDecoration: "underline" }}>Read the ECC legislation on legislation.gov.uk</a>.
+              The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. The 2017 Code introduced the &quot;no-network assumption&quot; for rent, and since 7 April 2026 the PSTI Act has extended that assumption to qualifying renewals under the Landlord and Tenant Act 1954. The Code also gives operators statutory rights to upgrade and share equipment. Understanding these rules is crucial for effective negotiation. <a href="https://www.legislation.gov.uk/ukpga/2017/30/notes/division/6" target="_blank" rel="noopener noreferrer" style={{ color: "#1B4F72", textDecoration: "underline" }}>Read the ECC legislation on legislation.gov.uk</a>.
             </p>
 
             <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
@@ -235,7 +300,21 @@ export default function Page() {
               Can I challenge a poor renewal offer?
             </h3>
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
-              Yes. If you believe the operator&apos;s offer is below market value or the terms are unfavourable, you can refuse the offer and negotiate further. If agreement cannot be reached, the matter can be referred to the Upper Tribunal (Lands Chamber). Professional representation significantly improves outcomes in these proceedings.
+              Yes. If you believe the operator&apos;s offer is below market value or the terms are unfavourable, you can refuse the offer and negotiate further. If agreement cannot be reached, the matter can be referred to the Tribunal (since 7 April 2026, the First-tier Tribunal (Property Chamber)), after both sides have considered alternative dispute resolution. Professional representation significantly improves outcomes in these proceedings.
+            </p>
+
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+              Who pays my professional fees on a phone mast lease renewal?
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
+              Usually the operator. Paragraph 84 of the Electronic Communications Code allows reasonable legal and valuation expenses to be recovered from the operator, and operators normally provide a written fee undertaking, typically capped, while the renewal proceeds on a negotiated basis. That cover can fall away if the landlord refuses to engage, which is one reason to respond to a renewal letter promptly.
+            </p>
+
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+              What changed for phone mast lease renewals on 7 April 2026?
+            </h3>
+            <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
+              Sections 61 to 64 of the PSTI Act 2022 came into force, inserting Section 34A into the Landlord and Tenant Act 1954. Qualifying telecoms leases that renew under the 1954 Act are now valued on the Code&rsquo;s no-network basis, ending the open-market advantage confirmed in <em>Cornerstone v Compton Beauchamp</em>. Rent already received is not repayable, interim rent is split at 7 April 2026, and Code disputes moved to the First-tier Tribunal (Property Chamber).
             </p>
           </div>
         </div>

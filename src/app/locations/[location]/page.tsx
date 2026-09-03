@@ -27,17 +27,17 @@ const locations: Record<string, LocationData> = {
     slug: "london",
     city: "London",
     officeName: "London Office",
-    address: "167-169 Great Portland Road, 5th Floor",
+    address: "167-169 Great Portland Street, 5th Floor",
     postcode: "W1W 5PF",
-    addressFull: "167-169 Great Portland Road, 5th Floor, London, W1W 5PF",
+    addressFull: "167-169 Great Portland Street, 5th Floor, London, W1W 5PF",
     metaTitle: "Phone Mast Lease Advice London | Expert Surveyors W1W 5PF",
     metaDescription:
-      "Phone mast lease advice from our London office. Independent UK landlord specialists at 167-169 Great Portland Road, W1W 5PF. Free consultation — 01691 791543.",
+      "Phone mast lease advice from our London office. Independent UK landlord specialists at 167-169 Great Portland Street, W1W 5PF. Free consultation — 01691 791543.",
     heroHeadline: "Phone Mast Lease Advice — London Office",
     heroSubheadline:
       "Independent specialist surveyors acting for London and South East landlords. Office in the heart of London's West End.",
     intro: [
-      "The Phone Mast Advice Company maintains its London office at 167-169 Great Portland Road, 5th Floor, W1W 5PF — in the heart of London's West End. Our London team advises landlords across Greater London, the Home Counties, and the South East on all aspects of phone mast leases.",
+      "The Phone Mast Advice Company maintains its London office at 167-169 Great Portland Street, 5th Floor, W1W 5PF — in the heart of London's West End. Our London team advises landlords across Greater London, the Home Counties, and the South East on all aspects of phone mast leases.",
       "London presents a unique landscape for phone mast advice. Urban rooftop installations, street furniture sites, and high-density commercial properties each carry distinct considerations for rent, access rights, and lease structure. Our London specialists bring deep expertise in navigating these issues.",
       "We act exclusively for landlords — never for mobile phone operators — ensuring independent, objective advice that protects your interests.",
     ],

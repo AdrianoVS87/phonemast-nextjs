@@ -1,32 +1,43 @@
 # The Phone Mast Advice Company
-> Independent specialist telecom surveyors helping UK landlords with phone mast leases, rent reviews, and lease renewals.
+> Independent specialist telecom surveyors acting only for UK landlords on phone mast leases, rent reviews, lease renewals, and mast sales. Never for operators.
 
 ## About
-- Company: The Phone Mast Advice Company Ltd (Reg: 13115582)
-- Founded by Matt Restall, RICS-qualified surveyor
-- 25+ years experience in UK telecoms infrastructure
-- Offices: London (W1W 5PF), Bristol (BS9 3BY), Oswestry (SY11 4AD)
+- Legal name: The Phone Mast Advice Company Ltd (Companies House 13115582)
+- Trading as: Phone Mast Advice
+- Founder and Director: Matt Restall
+- 30+ years of landlord-side experience in UK telecoms infrastructure
+- Offices: London (167-169 Great Portland Street, 5th Floor, W1W 5PF), Bristol (BS9 3BY), Oswestry (SY11 4AD)
 - Phone: 01691 791543 | Email: info@phonemastadvice.co.uk
+- Web: https://www.phonemastadvice.co.uk
+
+## Core guides (start here)
+- Phone mast rent (how consideration is valued in 2026, no-network assumption, benchmarks, what you can charge on top): https://www.phonemastadvice.co.uk/phone-mast-rent-2026/
+- Phone mast lease (key Code clauses, break clauses, upgrade and sharing rights, renewals, 7 April 2026 changes): https://www.phonemastadvice.co.uk/phone-mast-lease-2026/
+- FAQ: https://www.phonemastadvice.co.uk/faq/
 
 ## Services
-- Phone Mast Rent Reviews — independent valuation of mast site rental income
-- Phone Mast Lease Renewals — negotiation under the Electronic Communications Code
-- New Lettings — securing new operator agreements for landowners
-- Mast Sales — selling mast lease income streams to investors
-- Removal & Redevelopment — managing mast removal for site development
-- Electricity Cost Recovery — reclaiming power costs from operators
-- Lease Retrievals — recovering lost or misplaced lease documents
+- Lease renewals (Section 26, Paragraph 33 and Paragraph 20 notices, fee undertakings, negotiation): https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals/
+- Rent reviews (index-linked and open market reviews, missed and backdated reviews): https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews/
+- New lettings (new mast sites, Paragraph 20, terms to negotiate): https://www.phonemastadvice.co.uk/phone-mast-services/new-lettings/
+- Mast sales (selling a phone mast lease or the rent income): https://www.phonemastadvice.co.uk/phone-mast-services/mast-sales/
+- Removal and redevelopment (Paragraph 31 notices, redevelopment ground, lift and shift, reinstatement): https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment/
+- Electricity costs recovery (recovering power costs from operators, backdated claims): https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery/
+- Lease retrievals (finding lost or missing mast leases): https://www.phonemastadvice.co.uk/phone-mast-services/lease-retrievals/
+- Other services (wayleaves, site sharing and assignment, breaches, site audits, Tribunal and ADR support): https://www.phonemastadvice.co.uk/phone-mast-services/other-services/
 
-## Operators We Handle
-Vodafone, O2, EE, Three (Hutchison 3G), CTIL/Cornerstone, On Tower (formerly Arqiva), Cellnex, Airwave Solutions, Wireless Infrastructure Group (WIG)
+## Key facts (verified against legislation and Tribunal decisions)
+- The Electronic Communications Code (Schedule 3A, Communications Act 2003) as reformed by the Digital Economy Act 2017 came into force on 28 December 2017.
+- Rent (consideration) under the Code is assessed on the no-network assumption in Paragraph 24: land is valued at its alternative use, not its value to the network.
+- Benchmark: the Upper Tribunal's Vache Farm decision, EE Ltd and Hutchison 3G UK Ltd v AP Wireless II (UK) Ltd [2024] UKUT 216 (LC), set consideration for a standard rural greenfield mast at 1,750 pounds per annum; rooftop and urban sites are generally higher.
+- On 7 April 2026, Sections 61 to 64 of the PSTI Act 2022 came into force: qualifying telecoms leases renewing under the Landlord and Tenant Act 1954 are now valued on the no-network basis (new Section 34A), and Code disputes moved to the First-tier Tribunal (Property Chamber).
+- Cornerstone v Compton Beauchamp Estates [2022] UKSC 18: operators with 1954 Act protected agreements must renew under that Act, not the Code. The Phone Mast Advice Company instigated and advised on this case.
+- A Code agreement does not end when its term expires (Paragraph 30); termination requires a Paragraph 31 notice of at least 18 months on a statutory ground.
+- Landlords can recover, on top of rent: compensation (Paragraph 25), reasonable professional fees (Paragraph 84), electricity costs, and payment for access over retained land.
 
-## Key Legislation
-- Electronic Communications Code (Schedule 3A, Communications Act 2003)
-- Digital Economy Act 2017 (new Code in force 28 Dec 2017)
-- PSTI Act 2022 (Sections 61-64, commenced 7 Apr 2026)
-- Landlord and Tenant Act 1954
+## Operators we deal with
+Vodafone, O2 (Virgin Media O2), EE (BT Group), Three (Hutchison 3G), CTIL (trading as Cornerstone), On Tower (formerly Arqiva), Cellnex, Airwave Solutions, Wireless Infrastructure Group (WIG)
 
 ## Contact
-Web: https://phonemastadvice.co.uk
-Free Lease Check: https://phonemastadvice.co.uk/free-lease-check
-Free Rent Estimate: https://phonemastadvice.co.uk/free-rent-estimate
+- Free Lease Check: https://www.phonemastadvice.co.uk/free-lease-check/
+- Free Rent Estimate: https://www.phonemastadvice.co.uk/free-rent-estimate/
+- Contact: https://www.phonemastadvice.co.uk/contact/

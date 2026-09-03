@@ -88,14 +88,39 @@ function buildSchema(data: JsonLdData): object {
             }
           : {
               "@type": "PostalAddress",
-              streetAddress: "167-169 Great Portland Road, 5th Floor",
+              streetAddress: "167-169 Great Portland Street, 5th Floor",
               addressLocality: "London",
               postalCode: "W1W 5PF",
               addressCountry: "GB",
             },
+        legalName: "The Phone Mast Advice Company Ltd",
+        alternateName: "Phone Mast Advice",
+        identifier: {
+          "@type": "PropertyValue",
+          propertyID: "Companies House",
+          value: "13115582",
+        },
+        founder: {
+          "@type": "Person",
+          name: "Matt Restall",
+          jobTitle: "Founder and Director",
+        },
+        knowsAbout: [
+          "Phone mast lease renewals",
+          "Phone mast rent reviews",
+          "Electronic Communications Code",
+          "Landlord and Tenant Act 1954 telecoms leases",
+          "Phone mast lease sales",
+          "Telecoms wayleaves",
+        ],
         sameAs: [
-          "https://www.linkedin.com/company/phone-mast-advice",
-          "https://www.facebook.com/phonemastadvice",
+          "https://www.linkedin.com/company/93187362",
+          "https://www.facebook.com/thephonemastadvicecompany",
+          "https://www.instagram.com/thephonemastadvicecompany/",
+          "https://www.youtube.com/@PhoneMastAdviceCompany",
+          "https://www.tiktok.com/@thephonemastadviceco",
+          "https://twitter.com/phonemastadvice",
+          "https://find-and-update.company-information.service.gov.uk/company/13115582",
         ],
       };
 
