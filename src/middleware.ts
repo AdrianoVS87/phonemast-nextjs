@@ -76,6 +76,14 @@ const REDIRECTS: Record<string, string> = {
   "phone-mast-landlords-handbook": "/handbook",
   "cookie-policy-uk": "/cookie-policy",
 
+  // === Old WP URLs that returned 404 in the 10 Sep 2026 audit ===
+  "about-phone-mast-advice-company": "/about-us",
+  "the-ultimate-handbook-for-landlords": "/handbook",
+  "understanding-the-role-of-surveyors-in-phone-mast-lease-negotiations": "/blog/phone-mast-surveyor-understanding-this-role",
+  "understanding-operator-rights-to-access-your-electricity-supply": "/blog/operator-rights-to-access-your-electricity-supply",
+  "important-changes-ahead-government-proposes-further-rent-cuts-for-phone-mast-landlords-under-the-1954-act":
+    "/blog/1954-act", // same article, new slug (title verified 10 Sep 2026)
+
   // === Blog index + WP category/tag/pagination patterns ===
   "news": "/blog",
   "category/blog": "/blog",
@@ -152,11 +160,33 @@ const REDIRECTS: Record<string, string> = {
     "/blog/why-property-managers-are-turning-to-specialist-phone-mast-advisors-and-why-your-landlords-will-thank-you",
 };
 
+/** Spam pages injected into the old WordPress site. 410 Gone tells Google they are permanently removed. */
+const GONE = new Set<string>([
+  "free-game-casino-bonuses",
+  "the-safest-online-casino-site-a-comprehensive-overview-to-choosing-a-secure-betting-platform",
+  "free-online-penny-slot-machine-an-overview-to-playing-and-winning",
+]);
+
+const CANONICAL_HOST = "www.phonemastadvice.co.uk";
+
 export function middleware(req: NextRequest) {
-  const { pathname, search } = req.nextUrl;
+  const { pathname } = req.nextUrl;
 
   // Strip leading and trailing slash to get the slug
   const slug = pathname.replace(/^\/+/, "").replace(/\/+$/, "");
+
+  if (GONE.has(slug)) {
+    return new NextResponse("Gone", { status: 410, headers: { "X-Robots-Tag": "noindex" } });
+  }
+
+  // Bare domain: if it ever reaches this middleware (today Vercel redirects it at the domain level),
+  // send host + path to the final URL in ONE hop instead of host hop + path hop.
+  if ((req.headers.get("host") ?? "") === "phonemastadvice.co.uk") {
+    const target = REDIRECTS[slug] ?? (slug ? `/${slug}` : "/");
+    const url = new URL(target.endsWith("/") ? target : `${target}/`, `https://${CANONICAL_HOST}`);
+    url.search = req.nextUrl.search;
+    return NextResponse.redirect(url, 308);
+  }
 
   if (slug && REDIRECTS[slug]) {
     const url = req.nextUrl.clone();

@@ -247,6 +247,58 @@ export default async function BlogPostPage({ params }: Props) {
             </time>
           </div>
 
+          {/* Landowner call-out on the mast locator post: most of its readers check coverage,
+              but the ones who host a mast are the firm's clients. */}
+          {slug === "how-to-find-the-closest-phone-mast-to-you" && (
+            <aside
+              aria-label="Advice for landowners with a phone mast"
+              style={{
+                backgroundColor: "#f9f8f5",
+                border: "1px solid #e5e7eb",
+                borderRadius: "1rem",
+                padding: "1.5rem 1.75rem",
+                marginBottom: "2.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1.25rem",
+                  color: "#1a1a2e",
+                  margin: "0 0 0.5rem",
+                }}
+              >
+                Is the mast on your land or building?
+              </p>
+              <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: "0 0 1rem" }}>
+                If an operator pays you rent for a phone mast, the terms of that agreement matter far more than its coverage. Since 7 April 2026, many older agreements renew on lower Code valuations. We act only for landowners and can tell you what your site should earn.
+              </p>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
+                <Link href="/free-rent-estimate" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "0.875rem 1.5rem" }}>
+                  Free Rent Estimate
+                </Link>
+                <Link
+                  href="/phone-mast-rent-2026"
+                  style={{
+                    display: "inline-flex",
+                    alignItems: "center",
+                    padding: "0.875rem 1.5rem",
+                    color: "#1B4F72",
+                    border: "2px solid #1B4F72",
+                    borderRadius: "10px",
+                    fontWeight: 600,
+                    fontSize: "1.0625rem",
+                    textDecoration: "none",
+                    minHeight: "44px",
+                  }}
+                >
+                  How mast rent is worked out
+                </Link>
+              </div>
+            </aside>
+          )}
+
           {/* Content */}
           <div
             className="blog-content"

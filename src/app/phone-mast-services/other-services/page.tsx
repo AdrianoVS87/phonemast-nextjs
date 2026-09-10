@@ -161,7 +161,7 @@ export default function Page() {
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               For the two core services, see <a href="/phone-mast-services/lease-renewals" style={link}>lease renewals</a> and{" "}
               <a href="/phone-mast-services/rent-reviews" style={link}>rent reviews</a>. For the legal background, read our{" "}
-              <a href="/phone-mast-lease-2026" style={link}>phone mast lease</a> and <a href="/phone-mast-rent-2026" style={link}>phone mast rent</a> guides. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease-2026" style={link}>phone mast lease</a> and <a href="/phone-mast-rent-2026" style={link}>phone mast rent</a> guides. Looking for a <a href="/phone-mast-solicitors" style={link}>phone mast solicitor</a>? See who you need, and when. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 

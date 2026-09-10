@@ -49,6 +49,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: withSlash(`${BASE_URL}/blog`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
     { url: withSlash(`${BASE_URL}/phone-mast-rent-2026`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
     { url: withSlash(`${BASE_URL}/phone-mast-lease-2026`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
+    { url: withSlash(`${BASE_URL}/phone-mast-solicitors`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.85 },
     // /free-lease-check and /free-rent-estimate are intentionally noindex (form pages), so they stay out of the sitemap.
   ];
 

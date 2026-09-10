@@ -176,7 +176,7 @@ export default function Page() {
             ))}
           </ul>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Each notice carries statutory deadlines, and missing one weakens your position. Acknowledge any letter promptly, in writing, and take advice before responding on the substance.
+            Each notice carries statutory deadlines, and missing one weakens your position. Acknowledge any letter promptly, in writing, and take advice before responding on the substance. Once a formal notice has been served you will usually need a solicitor as well as a surveyor; our guide to <a href="/phone-mast-solicitors" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast solicitors</a> explains who does what.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
