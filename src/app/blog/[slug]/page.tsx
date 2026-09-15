@@ -122,7 +122,7 @@ export default async function BlogPostPage({ params }: Props) {
       "@type": "Person",
       name: post.author,
       jobTitle: "Specialist Telecom Surveyor",
-      url: "https://www.phonemastadvice.co.uk/team",
+      url: "https://www.phonemastadvice.co.uk/team/",
     },
     publisher: {
       "@type": "Organization",
@@ -141,7 +141,7 @@ export default async function BlogPostPage({ params }: Props) {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.phonemastadvice.co.uk/blog" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.phonemastadvice.co.uk/blog/" },
       { "@type": "ListItem", position: 3, name: post.title, item: `https://www.phonemastadvice.co.uk/blog/${post.slug}` },
     ],
   };
@@ -159,7 +159,7 @@ export default async function BlogPostPage({ params }: Props) {
 
       <Breadcrumbs
         items={[
-          { label: "Blog", href: "/blog" },
+          { label: "Blog", href: "/blog/" },
           { label: post.title },
         ]}
       />
@@ -169,7 +169,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Category */}
           <div style={{ marginBottom: "1.25rem" }}>
             <Link
-              href="/blog"
+              href="/blog/"
               style={{
                 display: "inline-block",
                 backgroundColor: "#eff6ff",
@@ -247,6 +247,38 @@ export default async function BlogPostPage({ params }: Props) {
             </time>
           </div>
 
+          {/* Section 26 posts: point readers to the full landlord guide for telecoms leases. */}
+          {(slug === "section-26-notices" || slug === "1954-act") && (
+            <aside
+              aria-label="Full guide to Section 26 notices for phone mast landlords"
+              style={{
+                backgroundColor: "#f9f8f5",
+                border: "1px solid #e5e7eb",
+                borderRadius: "1rem",
+                padding: "1.5rem 1.75rem",
+                marginBottom: "2.5rem",
+              }}
+            >
+              <p
+                style={{
+                  fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                  fontWeight: 700,
+                  fontSize: "1.25rem",
+                  color: "#1a1a2e",
+                  margin: "0 0 0.5rem",
+                }}
+              >
+                Received a Section 26 notice for a phone mast?
+              </p>
+              <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: "0 0 1rem" }}>
+                Our updated guide explains the deadlines, your options and what changed for telecoms leases in 2026, step by step.
+              </p>
+              <Link href="/section-26-notice/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "0.875rem 1.5rem" }}>
+                Read the Section 26 Notice Guide
+              </Link>
+            </aside>
+          )}
+
           {/* Landowner call-out on the mast locator post: most of its readers check coverage,
               but the ones who host a mast are the firm's clients. */}
           {slug === "how-to-find-the-closest-phone-mast-to-you" && (
@@ -275,11 +307,11 @@ export default async function BlogPostPage({ params }: Props) {
                 If an operator pays you rent for a phone mast, the terms of that agreement matter far more than its coverage. Since 7 April 2026, many older agreements renew on lower Code valuations. We act only for landowners and can tell you what your site should earn.
               </p>
               <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-                <Link href="/free-rent-estimate" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "0.875rem 1.5rem" }}>
+                <Link href="/free-rent-estimate/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "0.875rem 1.5rem" }}>
                   Free Rent Estimate
                 </Link>
                 <Link
-                  href="/phone-mast-rent-2026"
+                  href="/phone-mast-rent-2026/"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -366,7 +398,7 @@ export default async function BlogPostPage({ params }: Props) {
           {/* Back to blog */}
           <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "1px solid #e5e7eb" }}>
             <Link
-              href="/blog"
+              href="/blog/"
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -405,12 +437,12 @@ export default async function BlogPostPage({ params }: Props) {
             }}
           >
             {[
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Expert lease renewal negotiation" },
-              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews", desc: "Are you being underpaid?" },
-              { label: "Free Lease Check", href: "/free-lease-check", desc: "Check your lease for free" },
-              { label: "Free Rent Estimate", href: "/free-rent-estimate", desc: "Find out your true market rent" },
-              { label: "New Lettings", href: "/phone-mast-services/new-lettings", desc: "Start on the right terms" },
-              { label: "Mast Sales", href: "/phone-mast-services/mast-sales", desc: "Capitalise on your lease income" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Expert lease renewal negotiation" },
+              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Are you being underpaid?" },
+              { label: "Free Lease Check", href: "/free-lease-check/", desc: "Check your lease for free" },
+              { label: "Free Rent Estimate", href: "/free-rent-estimate/", desc: "Find out your true market rent" },
+              { label: "New Lettings", href: "/phone-mast-services/new-lettings/", desc: "Start on the right terms" },
+              { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Capitalise on your lease income" },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -456,7 +488,7 @@ export default async function BlogPostPage({ params }: Props) {
               {relatedPosts.map((rp) => (
                 <Link
                   key={rp.slug}
-                  href={`/blog/${rp.slug}`}
+                  href={`/blog/${rp.slug}/`}
                   style={{
                     display: "flex",
                     flexDirection: "column",
@@ -479,7 +511,7 @@ export default async function BlogPostPage({ params }: Props) {
             </div>
             <div style={{ marginTop: "1.5rem" }}>
               <Link
-                href="/blog"
+                href="/blog/"
                 style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}
               >
                 View all articles →

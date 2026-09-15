@@ -19,13 +19,13 @@ export const metadata: Metadata = {
     "free phone mast PDF",
     "phone mast lease advice UK",
   ],
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/handbook" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/handbook/" },
   openGraph: {
     type: "article",
     title: "Free Phone Mast Handbook for UK Landlords — 2026 Edition",
     description:
       "Free essential guide for UK phone mast landlords. Updated May 2026 for the PSTI Act 2022, Vache Farm ruling, and the 7 April 2026 changes. Download free PDF.",
-    url: "https://www.phonemastadvice.co.uk/handbook",
+    url: "https://www.phonemastadvice.co.uk/handbook/",
     siteName: "The Phone Mast Advice Company",
     locale: "en_GB",
     images: [
@@ -61,7 +61,7 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Handbook", item: "https://www.phonemastadvice.co.uk/handbook" },
+    { "@type": "ListItem", position: 2, name: "Handbook", item: "https://www.phonemastadvice.co.uk/handbook/" },
   ],
 };
 
@@ -76,7 +76,7 @@ const bookJsonLd = {
   numberOfPages: 27,
   datePublished: "2024-06-14",
   dateModified: "2026-05-26",
-  url: "https://www.phonemastadvice.co.uk/handbook",
+  url: "https://www.phonemastadvice.co.uk/handbook/",
   image: "https://www.phonemastadvice.co.uk/images/og-handbook.jpg",
   description:
     "A free 27-page guide for UK phone mast landlords, covering the Electronic Communications Code, the PSTI Act 2022, the Vache Farm Upper Tribunal rent ruling (July 2024, £1,750 per annum tonal rent), and the 7 April 2026 changes to LTA 1954 renewals.",
@@ -209,7 +209,7 @@ export default function HandbookPage() {
                 Our free handbook covers everything you need to know as a UK phone mast landlord — from understanding your lease to knowing your rights under the Electronic Communications Code.
               </p>
               <p style={{ fontSize: "1.0625rem", color: "#4b5563", lineHeight: 1.7, marginBottom: "2.5rem" }}>
-                For focused online guidance, start with our <a href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a> pages.
+                For focused online guidance, start with our <a href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a> pages.
               </p>
 
               <div

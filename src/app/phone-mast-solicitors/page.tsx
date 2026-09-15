@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Phone Mast Solicitors or Surveyors? Who You Need",
   description:
     "Looking for a phone mast solicitor? What a solicitor does, what a telecoms surveyor does, when a UK landlord needs each, who pays the fees, and how we work alongside your solicitor.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-solicitors" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-solicitors/" },
   openGraph: {
     title: "Phone Mast Solicitors or Surveyors? Who UK Landlords Need, and When",
     description:
@@ -89,7 +89,7 @@ export default function Page() {
           description:
             "Specialist telecoms surveying for UK landowners with phone masts: valuation and negotiation of leases, rent and notices, working alongside the landowner's solicitor.",
           provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-solicitors",
+          url: "https://www.phonemastadvice.co.uk/phone-mast-solicitors/",
           areaServed: "United Kingdom",
         }}
       />
@@ -114,7 +114,7 @@ export default function Page() {
             Most landlords search for a phone mast solicitor the day a letter or notice arrives. In practice a phone mast matter usually needs two specialists: a telecoms surveyor to value the site and negotiate the terms, and a solicitor to advise on the law and complete the paperwork. We are specialist telecoms surveyors, we act only for landowners, and we work alongside your solicitor.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-lease-check" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Lease Check
             </a>
             <a
@@ -145,8 +145,8 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This page explains who does what. For the legal background, read our{" "}
-              <a href="/phone-mast-lease-2026" style={link}>phone mast lease</a> guide; if an operator wants to renew, see{" "}
-              <a href="/phone-mast-services/lease-renewals" style={link}>lease renewals</a>. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide; if an operator wants to renew, see{" "}
+              <a href="/phone-mast-services/lease-renewals/" style={link}>lease renewals</a>. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -180,7 +180,7 @@ export default function Page() {
           <Ticks
             items={[
               "A formal notice has been served, such as a Section 26 request under the Landlord and Tenant Act 1954 or a Paragraph 20, 31 or 33 notice under the Code. Each carries strict statutory deadlines: under the 1954 Act, for example, a landlord has two months to serve a counter-notice opposing a Section 26 request.",
-              "The operator has applied, or says it will apply, to the Tribunal. Since 7 April 2026, telecoms Code disputes are heard by the First-tier Tribunal (Property Chamber).",
+              "The operator has applied, or says it will apply, to the Tribunal. Code disputes are heard by the First-tier Tribunal (Property Chamber) or the Upper Tribunal (Lands Chamber), and since 30 July 2026 so are new 1954 Act renewals of telecoms leases.",
               "You want to end the agreement, for example to redevelop, and a termination notice has to be drafted precisely.",
               "There is a question about who owns the land, the terms of an older lease, or whether the agreement has been assigned to another operator.",
             ]}
@@ -214,14 +214,14 @@ export default function Page() {
             ]}
           />
           <p style={p}>
-            If you already have a solicitor, we work with them. If you do not, we can introduce firms experienced in telecoms Code work. You can also start with a free <a href="/free-lease-check" style={link}>lease check</a>.
+            If you already have a solicitor, we work with them. If you do not, we can introduce firms experienced in telecoms Code work. You can also start with a free <a href="/free-lease-check/" style={link}>lease check</a>.
           </p>
 
           <h2 style={h2}>Phone mast solicitors: frequently asked questions</h2>
           <FAQAccordion items={faqs} showJsonLd={true} />
 
           <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
-            This page was last updated on 10 September 2026. It is general guidance and does not constitute legal advice. We are surveyors, not solicitors: for legal advice on your circumstances, consult a solicitor.
+            This page was last updated on 15 September 2026. It is general guidance and does not constitute legal advice. We are surveyors, not solicitors: for legal advice on your circumstances, consult a solicitor.
           </p>
         </div>
       </section>
@@ -230,7 +230,7 @@ export default function Page() {
         headline="Received a Phone Mast Letter or Notice?"
         subheadline="Send it to us before you reply. We review it free, explain the deadlines, and tell you whether you need a solicitor now."
         ctaText="Free Lease Check"
-        ctaHref="/free-lease-check"
+        ctaHref="/free-lease-check/"
       />
     </>
   );

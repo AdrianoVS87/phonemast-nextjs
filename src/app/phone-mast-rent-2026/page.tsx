@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: { absolute: "Phone Mast Rent: UK Landlord Guide 2026 | Phone Mast Advice" },
   description:
     "How phone mast rent is calculated in 2026: the no-network assumption, Tribunal benchmarks, what you can still charge, and the PSTI Act changes now in force.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026/" },
   openGraph: {
     title: "Phone Mast Rent: UK Landlord Guide 2026",
     description:
@@ -30,7 +30,7 @@ export default function PhoneMastRent2026Page() {
     areaServed: "United Kingdom",
     description:
       "Expert independent advice for UK landlords on phone mast rent under the Electronic Communications Code, including valuation methodology, case law, and 7 April 2026 PSTI Act changes.",
-    url: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026",
+    url: "https://www.phonemastadvice.co.uk/phone-mast-rent-2026/",
   };
 
   const rentFaqs = [
@@ -52,7 +52,7 @@ export default function PhoneMastRent2026Page() {
     },
     {
       q: "Do the 7 April 2026 PSTI Act changes affect my rent?",
-      a: "If your agreement pre-dates 28 December 2017 and renews under the Landlord and Tenant Act 1954, renewal rent is now assessed on the no-network basis under the new Section 34A — an estimated 15,000 legacy agreements are affected. Rent already received does not have to be repaid, interim rent is split at 7 April 2026, and telecoms disputes are now heard by the First-tier Tribunal (Property Chamber).",
+      a: "If your agreement pre-dates 28 December 2017 and renews under the Landlord and Tenant Act 1954, renewal rent is now assessed on the no-network basis under the new Section 34A — an estimated 15,000 legacy agreements are affected. Rent already received does not have to be repaid, interim rent is split at 7 April 2026, and since 30 July 2026 new renewal proceedings for these leases go to the First-tier Tribunal and the Upper Tribunal instead of the courts.",
     },
   ];
 
@@ -106,7 +106,7 @@ export default function PhoneMastRent2026Page() {
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a
-              href="/free-rent-estimate"
+              href="/free-rent-estimate/"
               className="btn-primary"
               style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
             >
@@ -166,7 +166,7 @@ export default function PhoneMastRent2026Page() {
             }}
           >
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
-              Need practical help rather than just background reading? Our <a href="/phone-mast-services/rent-reviews" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent review service</a> is the best next step if you want negotiation support, and you can also request a <a href="/free-rent-estimate" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast rent estimate</a>. Reviewing the agreement itself? Read our <a href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease</a> guide for terms, renewals and operator rights.
+              Need practical help rather than just background reading? Our <a href="/phone-mast-services/rent-reviews/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent review service</a> is the best next step if you want negotiation support, and you can also request a <a href="/free-rent-estimate/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast rent estimate</a>. Reviewing the agreement itself? Read our <a href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease</a> guide for terms, renewals and operator rights.
             </p>
           </div>
 
@@ -183,10 +183,10 @@ export default function PhoneMastRent2026Page() {
               Main rent guide for this topic
             </p>
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
-              This is our main <strong>phone mast rent advice</strong> page for UK landlords. It covers the core valuation background first, then points you to hands-on help such as our <a href="/phone-mast-services/rent-reviews" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>rent review service</a> when you need negotiation support.
+              This is our main <strong>phone mast rent advice</strong> page for UK landlords. It covers the core valuation background first, then points you to hands-on help such as our <a href="/phone-mast-services/rent-reviews/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>rent review service</a> when you need negotiation support.
             </p>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              Reviewed by <a href="/team" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Matt Restall and the Phone Mast Advice team</a>, using landlord-side telecoms experience and comparable deal evidence built over 30+ years.
+              Reviewed by <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Matt Restall and the Phone Mast Advice team</a>, using landlord-side telecoms experience and comparable deal evidence built over 30+ years.
             </p>
           </div>
 
@@ -527,7 +527,7 @@ export default function PhoneMastRent2026Page() {
                 "This affects an estimated 15,000 legacy telecoms agreements across the United Kingdom",
                 "Transitional provisions ensure that rents already received are not required to be repaid",
                 "Interim rent is split: periods before 7 April 2026 are valued under the old rules, periods from 7 April onwards under the new framework",
-                "Jurisdiction for telecoms disputes transferred from the Upper Tribunal (Lands Chamber) to the First-tier Tribunal (Property Chamber) on the same date",
+                "Since 30 July 2026, new renewal proceedings for these leases are heard by the First-tier Tribunal and the Upper Tribunal instead of the courts",
               ].map((point, i) => (
                 <li
                   key={i}
@@ -801,7 +801,7 @@ export default function PhoneMastRent2026Page() {
                 💬 WhatsApp Us
               </a>
               <a
-                href="/free-rent-estimate"
+                href="/free-rent-estimate/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -831,7 +831,7 @@ export default function PhoneMastRent2026Page() {
               paddingTop: "1.5rem",
             }}
           >
-            This page was last updated on 2 September 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
+            This page was last updated on 15 September 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
           </p>
         </div>
       </section>
@@ -840,7 +840,7 @@ export default function PhoneMastRent2026Page() {
         headline="Protect Your Phone Mast Rent Income in 2026"
         subheadline="The PSTI Act changes are now in force: legacy 1954 Act leases renew on no-network valuations. Take specialist advice before your renewal. Free initial consultation."
         ctaText="Free Rent Estimate"
-        ctaHref="/free-rent-estimate"
+        ctaHref="/free-rent-estimate/"
       />
     </>
   );

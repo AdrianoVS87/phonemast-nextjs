@@ -62,7 +62,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         }}
       >
         <Link
-          href={`/blog/${post.slug}`}
+          href={`/blog/${post.slug}/`}
           style={{ color: "inherit", textDecoration: "none" }}
         >
           {post.title}
@@ -99,7 +99,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
           {formatDate(post.date)}
         </time>
         <Link
-          href={`/blog/${post.slug}`}
+          href={`/blog/${post.slug}/`}
           style={{
             color: "#1B4F72",
             fontWeight: 600,

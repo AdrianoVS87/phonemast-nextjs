@@ -6,37 +6,37 @@ import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
 
 const serviceLinks = [
-  { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews" },
-  { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals" },
-  { label: "New Lettings", href: "/phone-mast-services/new-lettings" },
-  { label: "Mast Sales", href: "/phone-mast-services/mast-sales" },
-  { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment" },
-  { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery" },
-  { label: "Lease Retrievals", href: "/phone-mast-services/lease-retrievals" },
-  { label: "Other Services", href: "/phone-mast-services/other-services" },
+  { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/" },
+  { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/" },
+  { label: "New Lettings", href: "/phone-mast-services/new-lettings/" },
+  { label: "Mast Sales", href: "/phone-mast-services/mast-sales/" },
+  { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment/" },
+  { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery/" },
+  { label: "Lease Retrievals", href: "/phone-mast-services/lease-retrievals/" },
+  { label: "Other Services", href: "/phone-mast-services/other-services/" },
 ];
 
 const operatorLinks = [
-  { label: "Vodafone", href: "/vodafone-phone-mast-lease" },
-  { label: "O2", href: "/o2-phone-mast-lease" },
-  { label: "EE", href: "/ee-phone-mast-lease" },
-  { label: "Three", href: "/three-phone-mast-lease" },
-  { label: "CTIL / Cornerstone", href: "/ctil-cornerstone-phone-mast-lease" },
-  { label: "Cellnex", href: "/cellnex-phone-mast-lease" },
-  { label: "On Tower (formerly Arqiva)", href: "/on-tower-arqiva-phone-mast-lease" },
-  { label: "Airwave", href: "/airwave-phone-mast-lease" },
-  { label: "WIG", href: "/wireless-infrastructure-group-phone-mast-lease" },
+  { label: "Vodafone", href: "/vodafone-phone-mast-lease/" },
+  { label: "O2", href: "/o2-phone-mast-lease/" },
+  { label: "EE", href: "/ee-phone-mast-lease/" },
+  { label: "Three", href: "/three-phone-mast-lease/" },
+  { label: "CTIL / Cornerstone", href: "/ctil-cornerstone-phone-mast-lease/" },
+  { label: "Cellnex", href: "/cellnex-phone-mast-lease/" },
+  { label: "On Tower (formerly Arqiva)", href: "/on-tower-arqiva-phone-mast-lease/" },
+  { label: "Airwave", href: "/airwave-phone-mast-lease/" },
+  { label: "WIG", href: "/wireless-infrastructure-group-phone-mast-lease/" },
 ];
 
 const aboutLinks = [
-  { label: "About Us", href: "/about-us" },
-  { label: "Our Team", href: "/team" },
+  { label: "About Us", href: "/about-us/" },
+  { label: "Our Team", href: "/team/" },
 ];
 
 const navLinks = [
-  { label: "FAQ", href: "/faq" },
-  { label: "Blog", href: "/blog" },
-  { label: "Contact", href: "/contact" },
+  { label: "FAQ", href: "/faq/" },
+  { label: "Blog", href: "/blog/" },
+  { label: "Contact", href: "/contact/" },
 ];
 
 export default function Header() {
@@ -87,15 +87,19 @@ export default function Header() {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  const isActive = (href: string) =>
-    pathname === href || pathname.startsWith(href + "/");
+  const strip = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
+  const isActive = (href: string) => {
+    const current = strip(pathname ?? "");
+    const target = strip(href);
+    return current === target || current.startsWith(target + "/");
+  };
 
   const isServicesActive =
     pathname.startsWith("/phone-mast-services") ||
     pathname.includes("-phone-mast-lease");
 
   const isAboutActive =
-    pathname === "/about-us" || pathname === "/team";
+    isActive("/about-us/") || isActive("/team/");
 
   return (
     <header
@@ -173,7 +177,7 @@ export default function Header() {
                 >
                   {/* Column 1: Services */}
                   <div>
-                    <Link href="/phone-mast-services" onClick={() => setServicesOpen(false)}
+                    <Link href="/phone-mast-services/" onClick={() => setServicesOpen(false)}
                       style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
                       Our Services
                     </Link>
@@ -189,7 +193,7 @@ export default function Header() {
 
                   {/* Column 2: Operators */}
                   <div style={{ borderLeft: "1px solid #f0f0f0", paddingLeft: "1.25rem" }}>
-                    <Link href="/phone-mast-services/lease-renewals" onClick={() => setServicesOpen(false)}
+                    <Link href="/phone-mast-services/lease-renewals/" onClick={() => setServicesOpen(false)}
                       style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
                       By Operator
                     </Link>
@@ -208,21 +212,21 @@ export default function Header() {
                     <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem" }}>
                       2026 Updates
                     </span>
-                    <Link href="/phone-mast-rent-2026" onClick={() => setServicesOpen(false)}
+                    <Link href="/phone-mast-rent-2026/" onClick={() => setServicesOpen(false)}
                       style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "0.5rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f9f8f5", borderRadius: "8px", borderLeft: "3px solid #a4ca62", transition: "background 0.15s" }}
                       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f0efe8"; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}>
                       <span style={{ fontWeight: 600 }}>Phone Mast Rent 2026</span>
                       <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>PSTI Act changes 7 April</span>
                     </Link>
-                    <Link href="/phone-mast-lease-2026" onClick={() => setServicesOpen(false)}
+                    <Link href="/phone-mast-lease-2026/" onClick={() => setServicesOpen(false)}
                       style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "1rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f9f8f5", borderRadius: "8px", borderLeft: "3px solid #a4ca62", transition: "background 0.15s" }}
                       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f0efe8"; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}>
                       <span style={{ fontWeight: 600 }}>Phone Mast Lease 2026</span>
                       <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>Code renewals explained</span>
                     </Link>
-                    <Link href="/free-rent-estimate" onClick={() => setServicesOpen(false)}
+                    <Link href="/free-rent-estimate/" onClick={() => setServicesOpen(false)}
                       style={{ display: "block", padding: "0.625rem 1rem", backgroundColor: "#a4ca62", color: "#1a1a2e", fontSize: "0.875rem", fontWeight: 600, textDecoration: "none", borderRadius: "8px", textAlign: "center" as const, transition: "background 0.15s" }}
                       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#8fb854"; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#a4ca62"; }}>
@@ -319,7 +323,7 @@ export default function Header() {
             </a>
 
             {/* CTA pill */}
-            <Link href="/free-rent-estimate" className="btn-pill">
+            <Link href="/free-rent-estimate/" className="btn-pill">
               Free Rent Estimate
             </Link>
           </nav>
@@ -373,7 +377,7 @@ export default function Header() {
               </button>
               {mobileServicesOpen && (
                 <div style={{ paddingLeft: "1.5rem" }}>
-                  <Link href="/phone-mast-services" onClick={() => setMobileOpen(false)}
+                  <Link href="/phone-mast-services/" onClick={() => setMobileOpen(false)}
                     style={{ display: "block", padding: "0.5rem 0", color: "#a4ca62", fontSize: "0.9375rem", fontWeight: 600 }}>
                     All Services
                   </Link>
@@ -403,11 +407,11 @@ export default function Header() {
                       )}
                     </div>
                   ))}
-                  <Link href="/phone-mast-rent-2026" onClick={() => setMobileOpen(false)}
+                  <Link href="/phone-mast-rent-2026/" onClick={() => setMobileOpen(false)}
                     style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
                     Phone Mast Rent 2026
                   </Link>
-                  <Link href="/phone-mast-lease-2026" onClick={() => setMobileOpen(false)}
+                  <Link href="/phone-mast-lease-2026/" onClick={() => setMobileOpen(false)}
                     style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
                     Phone Mast Lease 2026
                   </Link>
@@ -453,7 +457,7 @@ export default function Header() {
                   </Link>
                 );
               })}
-              <Link href="/free-rent-estimate" onClick={() => setMobileOpen(false)}
+              <Link href="/free-rent-estimate/" onClick={() => setMobileOpen(false)}
                 className="btn-pill" style={{ marginTop: "0.75rem", marginLeft: "0.75rem", alignSelf: "flex-start" }}>
                 Free Rent Estimate
               </Link>

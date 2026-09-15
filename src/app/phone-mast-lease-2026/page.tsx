@@ -6,7 +6,7 @@ export const metadata: Metadata = {
   title: { absolute: "Phone Mast Lease: UK Landlord Guide 2026 | Phone Mast Advice" },
   description:
     "Phone mast lease guide for UK landlords: key Code clauses, break clauses, renewals, upgrade and sharing rights, and the PSTI Act changes now in force.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026/" },
   openGraph: {
     title: "Phone Mast Lease: UK Landlord Guide 2026",
     description:
@@ -30,7 +30,7 @@ export default function PhoneMastLease2026Page() {
     areaServed: "United Kingdom",
     description:
       "Expert independent advice for UK landlords on phone mast lease clauses, ECC provisions, case law, and the 7 April 2026 PSTI Act changes.",
-    url: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026",
+    url: "https://www.phonemastadvice.co.uk/phone-mast-lease-2026/",
   };
 
   const leaseFaqs = [
@@ -106,7 +106,7 @@ export default function PhoneMastLease2026Page() {
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a
-              href="/free-lease-check"
+              href="/free-lease-check/"
               className="btn-primary"
               style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
             >
@@ -166,7 +166,7 @@ export default function PhoneMastLease2026Page() {
             }}
           >
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
-              Need practical help with an operator approach or expired agreement? Our <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewal service</a> is the right next step, and you can also request a <a href="/free-lease-check" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast lease check</a>. Negotiating the money side? See our <a href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent</a> guide for how consideration is assessed.
+              Need practical help with an operator approach or expired agreement? Our <a href="/phone-mast-services/lease-renewals/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewal service</a> is the right next step, and you can also request a <a href="/free-lease-check/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>free phone mast lease check</a>. Negotiating the money side? See our <a href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent</a> guide for how consideration is assessed.
             </p>
           </div>
 
@@ -183,10 +183,10 @@ export default function PhoneMastLease2026Page() {
               Main lease guide for this topic
             </p>
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: "0 0 0.75rem" }}>
-              This is our main <strong>phone mast lease advice</strong> page for UK landlords. It is reviewed against current telecoms practice and written to give the broader legal context before you move into a service page such as <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>lease renewals</a>.
+              This is our main <strong>phone mast lease advice</strong> page for UK landlords. It is reviewed against current telecoms practice and written to give the broader legal context before you move into a service page such as <a href="/phone-mast-services/lease-renewals/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>lease renewals</a>.
             </p>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              Reviewed by <a href="/team" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Matt Restall and the Phone Mast Advice team</a>, drawing on 30+ years of landlord-side telecoms experience. For firm background, see <a href="/about-us" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>About Us</a>.
+              Reviewed by <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Matt Restall and the Phone Mast Advice team</a>, drawing on 30+ years of landlord-side telecoms experience. For firm background, see <a href="/about-us/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>About Us</a>.
             </p>
           </div>
 
@@ -208,7 +208,7 @@ export default function PhoneMastLease2026Page() {
           </p>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            What makes the Code significant for landowners is that it gives operators the power to apply to the Upper Tribunal (Lands Chamber) to have a lease agreement imposed on an unwilling site provider. Under <strong>Paragraph 21</strong>, the Tribunal will impose an agreement if two conditions are met: the prejudice to the site provider is capable of being adequately compensated in money, and the public benefit of the installation outweighs that prejudice. In practice, operators almost always satisfy this test.
+            What makes the Code significant for landowners is that it gives operators the power to apply to the Tribunal (in England and Wales, the First-tier Tribunal (Property Chamber) or the Upper Tribunal (Lands Chamber)) to have a lease agreement imposed on an unwilling site provider. Under <strong>Paragraph 21</strong>, the Tribunal will impose an agreement if two conditions are met: the prejudice to the site provider is capable of being adequately compensated in money, and the public benefit of the installation outweighs that prejudice. In practice, operators almost always satisfy this test.
           </p>
 
           <div
@@ -658,8 +658,8 @@ export default function PhoneMastLease2026Page() {
               {[
                 "Transitional provisions ensure that rents already received are not required to be repaid",
                 "Interim rent is split: periods before 7 April 2026 are valued under the old rules, and periods from that date onwards under the new framework",
-                "From the same date, jurisdiction for telecoms disputes transferred from the Upper Tribunal (Lands Chamber) to the First-tier Tribunal (Property Chamber)",
-                "Since November 2023, operators and site providers are required to consider Alternative Dispute Resolution before applying to the Tribunal for renewal or modification of agreements",
+                "Since 30 July 2026, new 1954 Act renewal proceedings for these telecoms leases are heard by the First-tier Tribunal and the Upper Tribunal instead of the courts; Code disputes have been heard by the First-tier Tribunal (Property Chamber) since 6 April 2024",
+                "Since November 2023, an operator must consider alternative dispute resolution, where reasonably practicable, before applying to impose Code rights, and both sides must do so before applying for new terms under Paragraph 33",
               ].map((point, i) => (
                 <li
                   key={i}
@@ -792,7 +792,7 @@ export default function PhoneMastLease2026Page() {
                 💬 WhatsApp Us
               </a>
               <a
-                href="/free-lease-check"
+                href="/free-lease-check/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -822,7 +822,7 @@ export default function PhoneMastLease2026Page() {
               paddingTop: "1.5rem",
             }}
           >
-            This page was last updated on 2 September 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
+            This page was last updated on 15 September 2026. The information provided is for general guidance only and does not constitute legal advice. For advice specific to your circumstances, please contact us directly.
           </p>
         </div>
       </section>
@@ -831,7 +831,7 @@ export default function PhoneMastLease2026Page() {
         headline="Expert Phone Mast Lease Advice for 2026"
         subheadline="The PSTI Act changes are now in force and the legacy protections have changed. Specialist advice on your lease terms protects your income for years to come."
         ctaText="Free Lease Check"
-        ctaHref="/free-lease-check"
+        ctaHref="/free-lease-check/"
       />
     </>
   );

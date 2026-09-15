@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "New Phone Mast on Your Land | New Lettings",
   description:
     "Been approached by an operator to put a phone mast on your land? Independent advice for UK landowners on new lettings: rent, Code rights, terms to negotiate, and next steps.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/new-lettings" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/new-lettings/" },
   openGraph: {
     title: "New Phone Mast on Your Land: New Lettings Advice for UK Landowners",
     description:
@@ -74,11 +74,11 @@ export default function Page() {
           description:
             "Independent advice for UK landowners approached by mobile operators for a new phone mast site: rent under the Electronic Communications Code, terms to negotiate, and Paragraph 20 notices.",
           provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/new-lettings",
+          url: "https://www.phonemastadvice.co.uk/phone-mast-services/new-lettings/",
           areaServed: "United Kingdom",
         }}
       />
-      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "New Lettings" }]} />
+      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "New Lettings" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -99,7 +99,7 @@ export default function Page() {
             If a mobile operator or its agent has approached you about a new mast site, the terms you agree now will govern the site for decades. We act only for landowners and negotiate the rent, the rights, and the protections before anything is signed.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-rent-estimate" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <a href="/free-rent-estimate/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Rent Estimate
             </a>
             <a
@@ -130,8 +130,8 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our new lettings service page. For how rent is assessed under the Code, read our{" "}
-              <a href="/phone-mast-rent-2026" style={link}>phone mast rent</a> guide; for the clauses that matter in any agreement, see our{" "}
-              <a href="/phone-mast-lease-2026" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-rent-2026/" style={link}>phone mast rent</a> guide; for the clauses that matter in any agreement, see our{" "}
+              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -156,7 +156,7 @@ export default function Page() {
             Rent, called consideration in the Code, is assessed under Paragraph 24 on the no-network assumption: your land is valued for its best alternative use, ignoring its value to the operator&rsquo;s network. For a standard rural greenfield site the Upper Tribunal&rsquo;s 2024 <em>Vache Farm</em> decision set the benchmark at £1,750 per annum; rooftop and urban sites are generally assessed at higher levels.
           </p>
           <p style={p}>
-            The headline rent is not the whole picture. You are also entitled to compensation for loss or damage under Paragraph 25, to reasonable professional fees under Paragraph 84, to recover electricity costs where the operator uses your supply, and to payment for access rights across your retained land. Our <a href="/phone-mast-rent-2026" style={link}>phone mast rent guide</a> explains the valuation approach in detail.
+            The headline rent is not the whole picture. You are also entitled to compensation for loss or damage under Paragraph 25, to reasonable professional fees under Paragraph 84, to recover electricity costs where the operator uses your supply, and to payment for access rights across your retained land. Our <a href="/phone-mast-rent-2026/" style={link}>phone mast rent guide</a> explains the valuation approach in detail.
           </p>
 
           <h2 style={h2}>What terms should I negotiate in a new mast agreement?</h2>
@@ -198,12 +198,12 @@ export default function Page() {
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
-              { label: "Free Rent Estimate", href: "/free-rent-estimate", desc: "What your site could be worth" },
-              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent-2026", desc: "How consideration is assessed" },
-              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026", desc: "The clauses that matter" },
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "When an existing agreement ends" },
-              { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment", desc: "Protecting building plans" },
-              { label: "Contact Our Team", href: "/contact", desc: "Speak to a specialist today" },
+              { label: "Free Rent Estimate", href: "/free-rent-estimate/", desc: "What your site could be worth" },
+              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent-2026/", desc: "How consideration is assessed" },
+              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026/", desc: "The clauses that matter" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "When an existing agreement ends" },
+              { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment/", desc: "Protecting building plans" },
+              { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
@@ -222,7 +222,7 @@ export default function Page() {
         headline="Approached About a New Phone Mast?"
         subheadline="Do not sign the operator's terms before an independent review. The first agreement sets the rules for decades. Free initial consultation."
         ctaText="Free Rent Estimate"
-        ctaHref="/free-rent-estimate"
+        ctaHref="/free-rent-estimate/"
       />
     </>
   );

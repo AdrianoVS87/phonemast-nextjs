@@ -72,6 +72,7 @@ export default function RootLayout({
   return (
     <html
       lang="en-GB"
+      suppressHydrationWarning
       className={`${jakarta.variable} ${inter.variable} antialiased`}
     >
       <head>
@@ -81,6 +82,12 @@ export default function RootLayout({
         <link rel="preconnect" href="https://www.googletagmanager.com" />
         {/* MUST be first: sets Google Consent Mode v2 defaults to denied
              before any Google script loads. See src/components/analytics/ConsentDefault.tsx */}
+        {/* Before first paint: if a consent decision is stored, hide the server-rendered banner via CSS. */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `try{if(localStorage.getItem('cookie_consent_v1'))document.documentElement.setAttribute('data-consent','set')}catch(e){}`,
+          }}
+        />
         <ConsentDefault />
         {/* Google Tag / GA4 / Ads — only render when env vars populated. */}
         <GoogleScripts />

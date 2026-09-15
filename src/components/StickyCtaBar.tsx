@@ -77,7 +77,7 @@ export default function StickyCtaBar() {
 
         {/* Free Rent Estimate CTA */}
         <Link
-          href="/free-rent-estimate"
+          href="/free-rent-estimate/"
           aria-label="Get a free rent estimate"
           style={{
             display: "inline-flex",
@@ -166,7 +166,7 @@ export default function StickyCtaBar() {
           📞 01691 791543
         </a>
         <Link
-          href="/free-rent-estimate"
+          href="/free-rent-estimate/"
           aria-label="Get a free rent estimate"
           style={{
             display: "flex",

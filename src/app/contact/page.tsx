@@ -7,11 +7,11 @@ export const metadata: Metadata = {
   title: "Contact Us",
   description:
     "Contact The Phone Mast Advice Company. Call 01691 791543, email info@phonemastadvice.co.uk or use our online form. Offices in London, Bristol and Oswestry.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/contact" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/contact/" },
   openGraph: {
     title: "Contact Phone Mast Advice",
     description: "Get in touch with our specialist phone mast surveyors — offices in London, Bristol and Oswestry.",
-    url: "https://www.phonemastadvice.co.uk/contact",
+    url: "https://www.phonemastadvice.co.uk/contact/",
     images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Contact Phone Mast Advice" }],
   },
 };
@@ -21,7 +21,7 @@ const breadcrumbJsonLd = {
   "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Contact Us", item: "https://www.phonemastadvice.co.uk/contact" },
+    { "@type": "ListItem", position: 2, name: "Contact Us", item: "https://www.phonemastadvice.co.uk/contact/" },
   ],
 };
 
@@ -57,7 +57,7 @@ export default function ContactPage() {
         data={{
           type: "ProfessionalService",
           name: "The Phone Mast Advice Company Ltd",
-          url: "https://www.phonemastadvice.co.uk/contact",
+          url: "https://www.phonemastadvice.co.uk/contact/",
           telephone: "01691 791543",
           email: "info@phonemastadvice.co.uk",
           description: "Independent specialist telecom surveyors acting only for UK landlords.",

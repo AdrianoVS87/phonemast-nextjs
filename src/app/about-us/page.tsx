@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "About Us — UK Phone Mast Specialists",
   description:
     "Independent phone mast advice specialists with 30+ years experience advising UK landlords on leases, rent, renewals, and landmark telecoms disputes.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/about-us" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/about-us/" },
   openGraph: {
     title: "About The Phone Mast Advice Company Ltd",
     description:
@@ -24,7 +24,7 @@ export default function AboutPage() {
         data={{
           type: "ProfessionalService",
           name: "The Phone Mast Advice Company Ltd",
-          url: "https://www.phonemastadvice.co.uk/about-us",
+          url: "https://www.phonemastadvice.co.uk/about-us/",
           telephone: "01691 791543",
           email: "info@phonemastadvice.co.uk",
           description:
@@ -134,7 +134,7 @@ export default function AboutPage() {
             We are dedicated to all our clients, regardless of how many mobile Phone Mast sites they have. We aim to develop and maintain a friendly working relationship and ensure our clients feel well looked after and informed at every stage of the negotiations.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            If you are researching your options, start with our core <Link href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</Link> and <Link href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</Link> guides before moving into a specific service page.
+            If you are researching your options, start with our core <Link href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</Link> and <Link href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</Link> guides before moving into a specific service page.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             Our goal is to obtain the most favourable lease terms for the client, as well as the highest rent achievable for their mobile phone masts, ensuring the landlord is happy. At the same time, we aim to maintain a good landlord and tenant relationship.
@@ -366,7 +366,7 @@ export default function AboutPage() {
             Our team of specialist surveyors, consultants, and business managers work exclusively for UK landlords. With RICS credentials, decades of experience, and involvement in landmark telecoms cases, we bring expertise you can trust.
           </p>
           <Link
-            href="/team"
+            href="/team/"
             className="btn-primary"
             style={{ fontSize: "1rem", padding: "0.875rem 2rem" }}
           >
@@ -448,7 +448,7 @@ export default function AboutPage() {
         headline="Ready to Protect Your Phone Mast Income?"
         subheadline="Contact us today for a free, no-obligation consultation. We only act for landlords — never for mobile phone operators. Company Reg: 13115582."
         ctaText="Get Your Free Rent Estimate"
-        ctaHref="/free-rent-estimate"
+        ctaHref="/free-rent-estimate/"
       />
     </>
   );

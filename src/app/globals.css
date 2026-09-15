@@ -374,3 +374,8 @@ a:hover {
 .stats-animate {
   animation: stats-countup 1.8s ease-in-out;
 }
+
+/* Cookie banner is server-rendered; hide it before first paint for visitors who already chose. */
+html[data-consent="set"] .consent-ui {
+  display: none !important;
+}

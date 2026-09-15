@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Wayleaves, Lift & Shift, Breaches & Site Audits",
   description:
     "Specialist phone mast services for UK landlords beyond renewals and rent reviews: wayleaves, lift and shift, site sharing and assignment, breaches, site audits, and Tribunal or ADR support.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services/" },
   openGraph: {
     title: "Other Phone Mast Services: Wayleaves, Lift & Shift, Breaches, Site Audits",
     description:
@@ -62,7 +62,7 @@ const services = [
   {
     title: "Tribunal and ADR support",
     body:
-      "Since 7 April 2026, Code disputes are heard by the First-tier Tribunal (Property Chamber), and parties must consider alternative dispute resolution first. We prepare the valuation evidence and support your solicitor through negotiation, ADR, and any Tribunal hearing.",
+      "Code disputes in England and Wales are heard by the First-tier Tribunal (Property Chamber) or the Upper Tribunal (Lands Chamber), and since 30 July 2026 so are new 1954 Act renewals of telecoms leases. The Code also expects alternative dispute resolution to be considered before imposed rights and renewal applications. We prepare the valuation evidence and support your solicitor through negotiation, ADR, and any Tribunal hearing.",
   },
 ];
 
@@ -104,11 +104,11 @@ export default function Page() {
           description:
             "Telecoms wayleaves, lift and shift, site sharing and assignment reviews, breach enforcement, site audits, interim rent, and Tribunal or ADR support for UK landlords with phone mast agreements.",
           provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services",
+          url: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services/",
           areaServed: "United Kingdom",
         }}
       />
-      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Other Services" }]} />
+      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Other Services" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -129,7 +129,7 @@ export default function Page() {
             Renewals and rent reviews are the headline work, but a mast site raises a dozen other questions over its life. These are the specialist services landlords ask us for, and what each one involves.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-lease-check" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Lease Check
             </a>
             <a
@@ -159,9 +159,9 @@ export default function Page() {
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              For the two core services, see <a href="/phone-mast-services/lease-renewals" style={link}>lease renewals</a> and{" "}
-              <a href="/phone-mast-services/rent-reviews" style={link}>rent reviews</a>. For the legal background, read our{" "}
-              <a href="/phone-mast-lease-2026" style={link}>phone mast lease</a> and <a href="/phone-mast-rent-2026" style={link}>phone mast rent</a> guides. Looking for a <a href="/phone-mast-solicitors" style={link}>phone mast solicitor</a>? See who you need, and when. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
+              For the two core services, see <a href="/phone-mast-services/lease-renewals/" style={link}>lease renewals</a> and{" "}
+              <a href="/phone-mast-services/rent-reviews/" style={link}>rent reviews</a>. For the legal background, read our{" "}
+              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> and <a href="/phone-mast-rent-2026/" style={link}>phone mast rent</a> guides. Looking for a <a href="/phone-mast-solicitors/" style={link}>phone mast solicitor</a>? See who you need, and when. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -183,12 +183,12 @@ export default function Page() {
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
-              { label: "Free Lease Check", href: "/free-lease-check", desc: "We review your agreement for free" },
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Renewal advice under the Code" },
-              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews", desc: "Is your rent right?" },
-              { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment", desc: "Ending an agreement" },
-              { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery", desc: "Claim back power costs" },
-              { label: "Contact Our Team", href: "/contact", desc: "Speak to a specialist today" },
+              { label: "Free Lease Check", href: "/free-lease-check/", desc: "We review your agreement for free" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Renewal advice under the Code" },
+              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Is your rent right?" },
+              { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment/", desc: "Ending an agreement" },
+              { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery/", desc: "Claim back power costs" },
+              { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
@@ -198,7 +198,7 @@ export default function Page() {
           </div>
 
           <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
-            This page was last updated on 3 September 2026. It is general guidance for landlords and does not constitute legal advice. Please contact us for advice on your circumstances.
+            This page was last updated on 15 September 2026. It is general guidance for landlords and does not constitute legal advice. Please contact us for advice on your circumstances.
           </p>
         </div>
       </section>
@@ -207,7 +207,7 @@ export default function Page() {
         headline="A Phone Mast Question That Does Not Fit the Usual Boxes?"
         subheadline="Wayleaves, sharing, breaches, roof works, audits. If it involves an operator on your land, we deal with it. Free initial consultation."
         ctaText="Free Lease Check"
-        ctaHref="/free-lease-check"
+        ctaHref="/free-lease-check/"
       />
     </>
   );

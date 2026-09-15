@@ -9,11 +9,11 @@ export const metadata: Metadata = {
   title: "Blog — Phone Mast Guidance for UK Landlords",
   description:
     "Expert articles on phone mast leases, rent reviews, the Electronic Communications Code, and landlord rights. Written by specialist UK telecom surveyors.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/blog" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/blog/" },
   openGraph: {
     title: "Phone Mast Advice Blog",
     description: "Expert guidance on phone mast leases and landlord rights from UK specialists.",
-    url: "https://www.phonemastadvice.co.uk/blog",
+    url: "https://www.phonemastadvice.co.uk/blog/",
     images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Phone Mast Advice Blog" }],
   },
 };
@@ -26,7 +26,7 @@ export default async function BlogIndexPage() {
     "@type": "BreadcrumbList",
     itemListElement: [
       { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.phonemastadvice.co.uk/blog" },
+      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.phonemastadvice.co.uk/blog/" },
     ],
   };
 
@@ -68,12 +68,12 @@ export default async function BlogIndexPage() {
             >
               <p style={{ fontSize: "1.125rem", color: "#6b7280", marginBottom: "1.5rem" }}>
                 Blog posts are being migrated. Please{" "}
-                <Link href="/contact" style={{ color: "#1B4F72", fontWeight: 600 }}>
+                <Link href="/contact/" style={{ color: "#1B4F72", fontWeight: 600 }}>
                   contact us
                 </Link>{" "}
                 with any questions.
               </p>
-              <Link href="/contact" className="btn-primary">
+              <Link href="/contact/" className="btn-primary">
                 Get Expert Advice
               </Link>
             </div>

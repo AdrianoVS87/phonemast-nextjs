@@ -37,56 +37,56 @@ const services: ServiceCardProps[] = [
     title: "Phone Mast Rent Reviews",
     description:
       "Secure fair market rent and contract terms. We benchmark your site against comparable UK deals to ensure you're fairly compensated.",
-    href: "/phone-mast-services/rent-reviews",
+    href: "/phone-mast-services/rent-reviews/",
   },
   {
     icon: "🔄",
     title: "Phone Mast Lease Renewals",
     description:
       "Expert phone mast lease renewal negotiations. Navigate the Electronic Communications Code with specialist representation for your mast lease. Get fair rent and terms.",
-    href: "/phone-mast-services/lease-renewals",
+    href: "/phone-mast-services/lease-renewals/",
   },
   {
     icon: "📝",
     title: "New Lettings",
     description:
       "Get the right lease from day one. We negotiate new mast lettings ensuring strong rents, access restrictions, and redevelopment protections.",
-    href: "/phone-mast-services/new-lettings",
+    href: "/phone-mast-services/new-lettings/",
   },
   {
     icon: "💷",
     title: "Mast Sales",
     description:
       "Capitalise on your valuable lease asset. We advise on and facilitate mast sales, ensuring you receive the best achievable consideration.",
-    href: "/phone-mast-services/mast-sales",
+    href: "/phone-mast-services/mast-sales/",
   },
   {
     icon: "🏗️",
     title: "Removal & Redevelopment",
     description:
       "Reclaim your land when needed. We advise on removing masts and protecting your redevelopment rights under the Electronic Communications Code.",
-    href: "/phone-mast-services/removal-and-redevelopment",
+    href: "/phone-mast-services/removal-and-redevelopment/",
   },
   {
     icon: "⚡",
     title: "Electricity Costs Recovery",
     description:
       "Many landlords are unknowingly subsidising operator electricity costs. We identify and recover these charges on your behalf.",
-    href: "/phone-mast-services/electricity-costs-recovery",
+    href: "/phone-mast-services/electricity-costs-recovery/",
   },
   {
     icon: "📁",
     title: "Lease Retrievals",
     description:
       "Lost or misplaced your original lease? We assist with documentation retrieval, record clarification and archive searches so nothing is missed.",
-    href: "/phone-mast-services/lease-retrievals",
+    href: "/phone-mast-services/lease-retrievals/",
   },
   {
     icon: "➕",
     title: "Other Services",
     description:
       "Know your rights under modern telecom law. Portfolio valuations, dispute resolution, lease interpretation — tailored specialist advice.",
-    href: "/phone-mast-services/other-services",
+    href: "/phone-mast-services/other-services/",
   },
 ];
 
@@ -234,19 +234,19 @@ export default async function HomePage() {
         headline="Phone Mast Lease & Rent Advice for UK Landlords"
         subheadline="Independent specialist telecom surveyors acting only for UK landlords. Get expert phone mast advice on leases, rent, renewals, reviews, and operator negotiations."
         ctaText="Free Lease Check"
-        ctaHref="/free-lease-check"
+        ctaHref="/free-lease-check/"
         secondaryCtaText="Free Rent Estimate"
-        secondaryCtaHref="/free-rent-estimate"
+        secondaryCtaHref="/free-rent-estimate/"
       />
 
       <section style={{ backgroundColor: "#f9f8f5", padding: "1.25rem 1.5rem", borderBottom: "1px solid #e5e7eb" }}>
         <div className="container-max" style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem 1.25rem", alignItems: "center" }}>
           <p style={{ margin: 0, fontSize: "0.95rem", color: "#374151", fontWeight: 600 }}>Start with the right guide:</p>
           {[
-            { href: "/phone-mast-lease-2026", label: "Phone Mast Lease Advice" },
-            { href: "/phone-mast-rent-2026", label: "Phone Mast Rent Advice" },
-            { href: "/phone-mast-services/lease-renewals", label: "Lease Renewal Advice" },
-            { href: "/phone-mast-services/rent-reviews", label: "Rent Review Advice" },
+            { href: "/phone-mast-lease-2026/", label: "Phone Mast Lease Advice" },
+            { href: "/phone-mast-rent-2026/", label: "Phone Mast Rent Advice" },
+            { href: "/phone-mast-services/lease-renewals/", label: "Lease Renewal Advice" },
+            { href: "/phone-mast-services/rent-reviews/", label: "Rent Review Advice" },
           ].map((item) => (
             <a key={item.href} href={item.href} style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "2px", fontSize: "0.95rem" }}>
               {item.label}
@@ -339,7 +339,7 @@ export default async function HomePage() {
               >
                 Mobile Phone Mast leases and telecom agreements are complex and governed by both commercial law and the Electronic Communications Code (ECC) – the legal framework that affects rent, negotiation rights, and landlord protections. Without specialist advice, landlords commonly face under-market rent offers, unfavourable access &amp; maintenance clauses, loss of redevelopment rights, confusing legal obligations under the ECC, and poor outcomes from operator-led negotiations.
               </p>
-              <a href="/about-us" className="btn-primary">
+              <a href="/about-us/" className="btn-primary">
                 About Our Firm
               </a>
             </div>
@@ -499,7 +499,7 @@ Phone Mast Rent Advice
                 Understand how phone mast rent is valued, what changed in 2026, and when to escalate into a formal rent review or valuation dispute.
               </p>
               <a
-                href="/phone-mast-rent-2026"
+                href="/phone-mast-rent-2026/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -550,7 +550,7 @@ Phone Mast Lease Advice
                 Understand the key clauses in a phone mast lease, operator rights under the ECC, and when a renewal or legal review is needed.
               </p>
               <a
-                href="/phone-mast-lease-2026"
+                href="/phone-mast-lease-2026/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -619,7 +619,7 @@ Read the Lease Guide →
           </div>
 
           <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
-            <a href="/phone-mast-services" className="btn-primary">
+            <a href="/phone-mast-services/" className="btn-primary">
               View All Services
             </a>
           </div>
@@ -800,7 +800,7 @@ Read the Lease Guide →
                 Answers to the questions we hear most from UK landlords about
                 phone mast leases.
               </p>
-              <a href="/faq" className="btn-primary">
+              <a href="/faq/" className="btn-primary">
                 View All FAQs
               </a>
             </div>
@@ -814,7 +814,7 @@ Read the Lease Guide →
         headline="Ready to Protect Your Phone Mast Income?"
         subheadline="Get a free, no-obligation consultation with one of our specialist telecom surveyors. We only act for landlords."
         ctaText="Get Your Free Rent Estimate"
-        ctaHref="/free-rent-estimate"
+        ctaHref="/free-rent-estimate/"
       />
     </>
   );

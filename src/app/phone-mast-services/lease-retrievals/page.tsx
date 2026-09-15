@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Lost Phone Mast Lease? Lease Retrievals",
   description:
     "Cannot find your phone mast lease? We locate and retrieve lost or missing telecoms agreements from the Land Registry, operators, and deeds, so you can renew, review, or sell with confidence.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-retrievals" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-retrievals/" },
   openGraph: {
     title: "Lost or Missing Phone Mast Lease: Lease Retrieval Service",
     description:
@@ -74,11 +74,11 @@ export default function Page() {
           description:
             "Locating and retrieving lost or missing phone mast leases and telecoms agreements for UK landlords from HM Land Registry, operators, agents, and solicitors' archives.",
           provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-retrievals",
+          url: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-retrievals/",
           areaServed: "United Kingdom",
         }}
       />
-      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Lease Retrievals" }]} />
+      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Lease Retrievals" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -99,7 +99,7 @@ export default function Page() {
             Many mast agreements were signed decades ago and the paperwork has moved with solicitors, lenders, and previous owners. We track the document down, confirm what it actually says, and tell you where you stand before you deal with the operator.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-lease-check" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Lease Check
             </a>
             <a
@@ -130,7 +130,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our lease retrieval service page. Once the document is found, our{" "}
-              <a href="/phone-mast-lease-2026" style={link}>phone mast lease</a> guide explains the clauses to look for. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide explains the clauses to look for. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -181,12 +181,12 @@ export default function Page() {
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
-              { label: "Free Lease Check", href: "/free-lease-check", desc: "Send us what you have" },
-              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026", desc: "What the clauses mean" },
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Usually the reason for the search" },
-              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews", desc: "Check the rent is right" },
-              { label: "Mast Sales", href: "/phone-mast-services/mast-sales", desc: "Buyers will need the document" },
-              { label: "Contact Our Team", href: "/contact", desc: "Speak to a specialist today" },
+              { label: "Free Lease Check", href: "/free-lease-check/", desc: "Send us what you have" },
+              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026/", desc: "What the clauses mean" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Usually the reason for the search" },
+              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Check the rent is right" },
+              { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Buyers will need the document" },
+              { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
@@ -205,7 +205,7 @@ export default function Page() {
         headline="Cannot Find Your Phone Mast Lease?"
         subheadline="Do not respond to an operator until you know what the agreement says. We will find it and explain it. Free initial consultation."
         ctaText="Free Lease Check"
-        ctaHref="/free-lease-check"
+        ctaHref="/free-lease-check/"
       />
     </>
   );

@@ -7,18 +7,18 @@ export const metadata: Metadata = {
   title: "Phone Mast Services for UK Landlords",
   description:
     "Specialist phone mast services for UK landlords: rent reviews, lease renewals, new lettings, mast sales, removal and more. Independent advisors — never acting for operators.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/" },
 };
 
 const services: ServiceCardProps[] = [
-  { icon: "📋", title: "Rent Reviews", description: "Regularly benchmark and update your rental income using our extensive database of comparable UK deals.", href: "/phone-mast-services/rent-reviews" },
-  { icon: "🔄", title: "Lease Renewals", description: "Navigate the Electronic Communications Code confidently. We secure favourable terms when operators try to renew on their terms.", href: "/phone-mast-services/lease-renewals" },
-  { icon: "📝", title: "New Lettings", description: "Get the right lease from day one — strong rents, access restrictions, and redevelopment protections built in.", href: "/phone-mast-services/new-lettings" },
-  { icon: "💷", title: "Mast Sales", description: "Capitalise on your valuable lease asset. We advise on and facilitate mast sales to maximise your consideration.", href: "/phone-mast-services/mast-sales" },
-  { icon: "🏗️", title: "Removal & Redevelopment", description: "Reclaim your land when needed. Expert advice on removing masts and protecting redevelopment rights.", href: "/phone-mast-services/removal-and-redevelopment" },
-  { icon: "⚡", title: "Electricity Costs Recovery", description: "Many landlords unknowingly subsidise operator electricity costs. We identify and recover these charges.", href: "/phone-mast-services/electricity-costs-recovery" },
-  { icon: "📁", title: "Lease Retrievals", description: "Lost or misplaced your original lease? We assist with documentation retrieval and record clarification.", href: "/phone-mast-services/lease-retrievals" },
-  { icon: "➕", title: "Other Services", description: "Portfolio valuations, dispute resolution, lease interpretation — tailored advice for any telecoms property situation.", href: "/phone-mast-services/other-services" },
+  { icon: "📋", title: "Rent Reviews", description: "Regularly benchmark and update your rental income using our extensive database of comparable UK deals.", href: "/phone-mast-services/rent-reviews/" },
+  { icon: "🔄", title: "Lease Renewals", description: "Navigate the Electronic Communications Code confidently. We secure favourable terms when operators try to renew on their terms.", href: "/phone-mast-services/lease-renewals/" },
+  { icon: "📝", title: "New Lettings", description: "Get the right lease from day one — strong rents, access restrictions, and redevelopment protections built in.", href: "/phone-mast-services/new-lettings/" },
+  { icon: "💷", title: "Mast Sales", description: "Capitalise on your valuable lease asset. We advise on and facilitate mast sales to maximise your consideration.", href: "/phone-mast-services/mast-sales/" },
+  { icon: "🏗️", title: "Removal & Redevelopment", description: "Reclaim your land when needed. Expert advice on removing masts and protecting redevelopment rights.", href: "/phone-mast-services/removal-and-redevelopment/" },
+  { icon: "⚡", title: "Electricity Costs Recovery", description: "Many landlords unknowingly subsidise operator electricity costs. We identify and recover these charges.", href: "/phone-mast-services/electricity-costs-recovery/" },
+  { icon: "📁", title: "Lease Retrievals", description: "Lost or misplaced your original lease? We assist with documentation retrieval and record clarification.", href: "/phone-mast-services/lease-retrievals/" },
+  { icon: "➕", title: "Other Services", description: "Portfolio valuations, dispute resolution, lease interpretation — tailored advice for any telecoms property situation.", href: "/phone-mast-services/other-services/" },
 ];
 
 export default function ServicesPage() {

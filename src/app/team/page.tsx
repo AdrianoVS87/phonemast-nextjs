@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   title: "Our Team | Phone Mast Advice Experts & RICS Surveyors",
   description:
     "Meet the phone mast advice team at The Phone Mast Advice Company. RICS registered surveyors and telecom property experts acting exclusively for UK landlords.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/team" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/team/" },
   openGraph: {
     title: "Our Team — Phone Mast Advice Company",
     description:
@@ -117,7 +117,7 @@ export default function TeamPage() {
             A dedicated team of specialist surveyors and advisors, acting exclusively for UK landlords since 1999.
           </p>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginTop: "1rem", marginBottom: 0 }}>
-            For the main guides our team supports, start with <a href="/phone-mast-lease-2026" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
+            For the main guides our team supports, start with <a href="/phone-mast-lease-2026/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
           </p>
         </div>
       </section>
@@ -282,7 +282,7 @@ export default function TeamPage() {
         headline="Speak to a Phone Mast Specialist Today"
         subheadline="Our team offers a free initial consultation. We act only for landlords — never for mobile phone operators."
         ctaText="Contact Our Team"
-        ctaHref="/contact"
+        ctaHref="/contact/"
       />
     </>
   );

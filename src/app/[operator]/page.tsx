@@ -855,7 +855,7 @@ export default async function OperatorPage({
 
       <Breadcrumbs
         items={[
-          { label: "Services", href: "/phone-mast-services" },
+          { label: "Services", href: "/phone-mast-services/" },
           { label: `${data.name} Phone Mast Lease` },
         ]}
       />
@@ -892,7 +892,7 @@ export default async function OperatorPage({
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a
-              href="/free-lease-check"
+              href="/free-lease-check/"
               className="btn-primary"
               style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
             >
@@ -944,7 +944,7 @@ export default async function OperatorPage({
               marginBottom: "1rem",
             }}
           >
-            If your {data.name} mast lease is approaching its renewal date, see our specialist guide on <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewals</a> for independent UK advice for landowners.
+            If your {data.name} mast lease is approaching its renewal date, see our specialist guide on <a href="/phone-mast-services/lease-renewals/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewals</a> for independent UK advice for landowners.
           </p>
           <p
             style={{
@@ -954,7 +954,7 @@ export default async function OperatorPage({
               marginBottom: 0,
             }}
           >
-            For the broader legal background, operator rights, and 2026 changes, start with our <a href="/phone-mast-lease-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
+            For the broader legal background, operator rights, and 2026 changes, start with our <a href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
           </p>
         </div>
       </section>
@@ -1154,12 +1154,12 @@ export default async function OperatorPage({
             }}
           >
             {[
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Navigate ECC lease renewals confidently" },
-              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews", desc: "Benchmark and improve your rent" },
-              { label: "New Lettings", href: "/phone-mast-services/new-lettings", desc: "Get the right terms from day one" },
-              { label: "Mast Sales", href: "/phone-mast-services/mast-sales", desc: "Capitalise on your lease income" },
-              { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment", desc: "Reclaim your land when needed" },
-              { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery", desc: "Recover operator electricity costs" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Navigate ECC lease renewals confidently" },
+              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Benchmark and improve your rent" },
+              { label: "New Lettings", href: "/phone-mast-services/new-lettings/", desc: "Get the right terms from day one" },
+              { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Capitalise on your lease income" },
+              { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment/", desc: "Reclaim your land when needed" },
+              { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery/", desc: "Recover operator electricity costs" },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -1196,10 +1196,10 @@ export default async function OperatorPage({
           </h3>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem", marginBottom: "2rem" }}>
             {[
-              { label: "Free Lease Check", href: "/free-lease-check" },
-              { label: "Free Rent Estimate", href: "/free-rent-estimate" },
-              { label: "Contact Our Team", href: "/contact" },
-              { label: "All Operator Guides", href: "/phone-mast-services" },
+              { label: "Free Lease Check", href: "/free-lease-check/" },
+              { label: "Free Rent Estimate", href: "/free-rent-estimate/" },
+              { label: "Contact Our Team", href: "/contact/" },
+              { label: "All Operator Guides", href: "/phone-mast-services/" },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -1235,11 +1235,11 @@ export default async function OperatorPage({
           </h3>
           <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
             {[
-              { title: "How Lease Renewals Work Under the Electronic Communications Code", href: "/blog/forced-lease-renewals" },
-              { title: "Why Phone Mast Rents Are Being Reduced", href: "/blog/reduce-phone-mast-rents" },
-              { title: "What Is a Phone Mast Lease? A Landlord's Guide", href: "/blog/what-is-a-phone-mast-lease" },
-              { title: "Mistakes to Avoid as a Phone Mast Landlord", href: "/blog/mistakes-to-avoid-as-a-phone-mast-landlord" },
-              { title: "Telecom Code Rights vs Property Rights", href: "/blog/telecom-code-rights-vs-property-rights-what-every-phone-mast-landlord-should-know" },
+              { title: "How Lease Renewals Work Under the Electronic Communications Code", href: "/blog/forced-lease-renewals/" },
+              { title: "Why Phone Mast Rents Are Being Reduced", href: "/blog/reduce-phone-mast-rents/" },
+              { title: "What Is a Phone Mast Lease? A Landlord's Guide", href: "/blog/what-is-a-phone-mast-lease/" },
+              { title: "Mistakes to Avoid as a Phone Mast Landlord", href: "/blog/mistakes-to-avoid-as-a-phone-mast-landlord/" },
+              { title: "Telecom Code Rights vs Property Rights", href: "/blog/telecom-code-rights-vs-property-rights-what-every-phone-mast-landlord-should-know/" },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -1266,7 +1266,7 @@ export default async function OperatorPage({
         headline={`Need Advice on Your ${data.name} Phone Mast Lease?`}
         subheadline="Contact us for a free, no-obligation consultation. We act only for landlords — never for mobile phone operators."
         ctaText="Free Rent Estimate"
-        ctaHref="/free-rent-estimate"
+        ctaHref="/free-rent-estimate/"
       />
     </>
   );

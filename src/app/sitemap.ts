@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
 import { getAllPosts } from "@/lib/blog";
+import { PAGE_DATES } from "@/lib/page-dates";
 
 const BASE_URL = "https://www.phonemastadvice.co.uk";
 
@@ -38,24 +39,28 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // Helper to add trailing slash (matching trailingSlash: true in next.config)
   const withSlash = (url: string) => url.endsWith("/") ? url : `${url}/`;
+  // Real last-change dates (see scripts/generate-page-dates.mjs); Google ignores lastmod that is always "now".
+  const dated = (key: string) => new Date(PAGE_DATES[key] ?? PAGE_DATES["/"]);
 
   const staticPages: MetadataRoute.Sitemap = [
-    { url: withSlash(BASE_URL), lastModified: new Date(), changeFrequency: "weekly", priority: 1.0 },
-    { url: withSlash(`${BASE_URL}/about-us`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: withSlash(`${BASE_URL}/team`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.7 },
-    { url: withSlash(`${BASE_URL}/contact`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.9 },
-    { url: withSlash(`${BASE_URL}/faq`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: withSlash(`${BASE_URL}/handbook`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.8 },
-    { url: withSlash(`${BASE_URL}/blog`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.8 },
-    { url: withSlash(`${BASE_URL}/phone-mast-rent-2026`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
-    { url: withSlash(`${BASE_URL}/phone-mast-lease-2026`), lastModified: new Date(), changeFrequency: "weekly", priority: 0.95 },
-    { url: withSlash(`${BASE_URL}/phone-mast-solicitors`), lastModified: new Date(), changeFrequency: "monthly", priority: 0.85 },
+    { url: withSlash(BASE_URL), lastModified: dated("/"), changeFrequency: "weekly", priority: 1.0 },
+    { url: withSlash(`${BASE_URL}/about-us`), lastModified: dated("/about-us"), changeFrequency: "monthly", priority: 0.8 },
+    { url: withSlash(`${BASE_URL}/team`), lastModified: dated("/team"), changeFrequency: "monthly", priority: 0.7 },
+    { url: withSlash(`${BASE_URL}/contact`), lastModified: dated("/contact"), changeFrequency: "monthly", priority: 0.9 },
+    { url: withSlash(`${BASE_URL}/faq`), lastModified: dated("/faq"), changeFrequency: "monthly", priority: 0.8 },
+    { url: withSlash(`${BASE_URL}/handbook`), lastModified: dated("/handbook"), changeFrequency: "monthly", priority: 0.8 },
+    { url: withSlash(`${BASE_URL}/blog`), lastModified: dated("/blog"), changeFrequency: "weekly", priority: 0.8 },
+    { url: withSlash(`${BASE_URL}/phone-mast-rent-2026`), lastModified: dated("/phone-mast-rent-2026"), changeFrequency: "weekly", priority: 0.95 },
+    { url: withSlash(`${BASE_URL}/phone-mast-lease-2026`), lastModified: dated("/phone-mast-lease-2026"), changeFrequency: "weekly", priority: 0.95 },
+    { url: withSlash(`${BASE_URL}/phone-mast-solicitors`), lastModified: dated("/phone-mast-solicitors"), changeFrequency: "monthly", priority: 0.85 },
+    { url: withSlash(`${BASE_URL}/electronic-communications-code`), lastModified: dated("/electronic-communications-code"), changeFrequency: "monthly", priority: 0.9 },
+    { url: withSlash(`${BASE_URL}/section-26-notice`), lastModified: dated("/section-26-notice"), changeFrequency: "monthly", priority: 0.9 },
     // /free-lease-check and /free-rent-estimate are intentionally noindex (form pages), so they stay out of the sitemap.
   ];
 
   const serviceEntries: MetadataRoute.Sitemap = servicePages.map((path) => ({
     url: withSlash(`${BASE_URL}${path}`),
-    lastModified: new Date(),
+    lastModified: dated(path),
     changeFrequency: path.includes("lease-renewals") || path.includes("rent-reviews") ? "weekly" : "monthly",
     priority:
       path.includes("lease-renewals") || path.includes("rent-reviews")
@@ -67,14 +72,14 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   const operatorEntries: MetadataRoute.Sitemap = operatorSlugs.map((slug) => ({
     url: withSlash(`${BASE_URL}/${slug}`),
-    lastModified: new Date(),
+    lastModified: dated("operator"),
     changeFrequency: "monthly",
     priority: 0.65,
   }));
 
   const locationEntries: MetadataRoute.Sitemap = locationSlugs.map((slug) => ({
     url: withSlash(`${BASE_URL}/locations/${slug}`),
-    lastModified: new Date(),
+    lastModified: dated("location"),
     changeFrequency: "monthly",
     priority: 0.75,
   }));

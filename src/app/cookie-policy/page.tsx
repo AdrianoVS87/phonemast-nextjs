@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   title: "Cookie Policy | The Phone Mast Advice Company Ltd",
   description:
     "Cookie policy for The Phone Mast Advice Company Ltd. Information on cookies used on our website and how to manage them.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/cookie-policy" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/cookie-policy/" },
   robots: { index: false },
 };
 
@@ -56,7 +56,7 @@ export default function CookiePolicyPage() {
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
             This Cookie Policy explains how The Phone Mast Advice Company Ltd (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) uses cookies and similar tracking technologies on our website. It should be read alongside our{" "}
-            <a href="/privacy-policy" style={{ color: "#1B4F72", fontWeight: 600 }}>
+            <a href="/privacy-policy/" style={{ color: "#1B4F72", fontWeight: 600 }}>
               Privacy Policy
             </a>
             .

@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Phone Mast Removal for Redevelopment",
   description:
     "Need a phone mast removed so you can redevelop? Independent advice for UK landowners on Paragraph 31 notices, the redevelopment ground, timescales, and getting the operator off your land.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment/" },
   openGraph: {
     title: "Phone Mast Removal & Redevelopment: Getting an Operator Off Your Land",
     description:
@@ -74,11 +74,11 @@ export default function Page() {
           description:
             "Independent advice for UK landowners who need a phone mast removed for redevelopment: Paragraph 31 notices, the redevelopment ground, lift and shift, reinstatement, and Tribunal proceedings under the Electronic Communications Code.",
           provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment",
+          url: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment/",
           areaServed: "United Kingdom",
         }}
       />
-      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Removal & Redevelopment" }]} />
+      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Removal & Redevelopment" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -99,7 +99,7 @@ export default function Page() {
             A phone mast does not leave when the lease runs out. Ending a Code agreement for redevelopment means serving the right notice, on the right ground, with enough time built in. We manage the whole process for landowners, from notice to reinstatement.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-lease-check" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Lease Check
             </a>
             <a
@@ -130,7 +130,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our removal and redevelopment service page. For the legal framework behind every clause and notice mentioned here, read our{" "}
-              <a href="/phone-mast-lease-2026" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -157,7 +157,7 @@ export default function Page() {
             ))}
           </ul>
           <p style={p}>
-            If the operator serves a counter-notice within three months, the agreement continues until the Tribunal determines the matter. Since 7 April 2026, Code disputes are heard by the First-tier Tribunal (Property Chamber), and since November 2023 both parties are required to consider alternative dispute resolution before applying. A defective notice, or the wrong ground, can void the whole process, as the Court of Appeal made clear in <em>On Tower UK Ltd v BT plc</em> [2025] EWCA Civ 844.
+            If the operator serves a counter-notice within three months, the agreement continues until the Tribunal determines the matter. In England and Wales, Code disputes are heard by the First-tier Tribunal (Property Chamber) or the Upper Tribunal (Lands Chamber). A defective notice, or the wrong ground, can void the whole process, as the Court of Appeal made clear in <em>On Tower UK Ltd v BT plc</em> [2025] EWCA Civ 844.
           </p>
           <p style={p}>
             Where the agreement is still protected by the Landlord and Tenant Act 1954 rather than the Code, the equivalent route is to oppose renewal on the redevelopment ground in section 30(1)(f), which has its own notice rules and may carry statutory compensation. We identify which regime applies before any notice is served.
@@ -202,12 +202,12 @@ export default function Page() {
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
-              { label: "Free Lease Check", href: "/free-lease-check", desc: "Find out which regime applies" },
-              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026", desc: "Paragraphs 21, 30, 31, and 40 explained" },
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "If you decide to keep the mast" },
-              { label: "New Lettings", href: "/phone-mast-services/new-lettings", desc: "Protecting plans from day one" },
-              { label: "Mast Sales", href: "/phone-mast-services/mast-sales", desc: "Selling the income instead" },
-              { label: "Contact Our Team", href: "/contact", desc: "Speak to a specialist today" },
+              { label: "Free Lease Check", href: "/free-lease-check/", desc: "Find out which regime applies" },
+              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026/", desc: "Paragraphs 21, 30, 31, and 40 explained" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "If you decide to keep the mast" },
+              { label: "New Lettings", href: "/phone-mast-services/new-lettings/", desc: "Protecting plans from day one" },
+              { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Selling the income instead" },
+              { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
@@ -217,7 +217,7 @@ export default function Page() {
           </div>
 
           <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
-            This page was last updated on 3 September 2026. It is general guidance for landowners and does not constitute legal advice. Notices under the Code carry strict requirements; please contact us before serving one.
+            This page was last updated on 15 September 2026. It is general guidance for landowners and does not constitute legal advice. Notices under the Code carry strict requirements; please contact us before serving one.
           </p>
         </div>
       </section>
@@ -226,7 +226,7 @@ export default function Page() {
         headline="Planning to Redevelop a Site With a Phone Mast?"
         subheadline="The notice period alone is 18 months. The earlier we start, the more control you keep over your timetable. Free initial consultation."
         ctaText="Free Lease Check"
-        ctaHref="/free-lease-check"
+        ctaHref="/free-lease-check/"
       />
     </>
   );

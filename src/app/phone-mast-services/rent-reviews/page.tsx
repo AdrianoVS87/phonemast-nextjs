@@ -36,35 +36,35 @@ const rentReviewFaqs = [
 export const metadata: Metadata = {
   title: { absolute: "Phone Mast Rent Review Advice | Phone Mast Advice" },
   description: "Phone mast rent review advice for UK landlords: how rent is assessed, whether it can go down, missed and backdated reviews, the 2026 benchmarks, and how we negotiate with operators.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews/" },
 };
 
 const operators = [
-  { name: "Vodafone", href: "/vodafone-phone-mast-lease" },
-  { name: "O2 (Telefónica UK)", href: "/o2-phone-mast-lease" },
-  { name: "EE (BT Group)", href: "/ee-phone-mast-lease" },
-  { name: "Three (Hutchison 3G)", href: "/three-phone-mast-lease" },
-  { name: "CTIL / Cornerstone", href: "/ctil-cornerstone-phone-mast-lease" },
-  { name: "Cellnex", href: "/cellnex-phone-mast-lease" },
-  { name: "On Tower (formerly Arqiva)", href: "/on-tower-arqiva-phone-mast-lease" },
-  { name: "Airwave Solutions", href: "/airwave-phone-mast-lease" },
-  { name: "Wireless Infrastructure Group (WIG)", href: "/wireless-infrastructure-group-phone-mast-lease" },
+  { name: "Vodafone", href: "/vodafone-phone-mast-lease/" },
+  { name: "O2 (Telefónica UK)", href: "/o2-phone-mast-lease/" },
+  { name: "EE (BT Group)", href: "/ee-phone-mast-lease/" },
+  { name: "Three (Hutchison 3G)", href: "/three-phone-mast-lease/" },
+  { name: "CTIL / Cornerstone", href: "/ctil-cornerstone-phone-mast-lease/" },
+  { name: "Cellnex", href: "/cellnex-phone-mast-lease/" },
+  { name: "On Tower (formerly Arqiva)", href: "/on-tower-arqiva-phone-mast-lease/" },
+  { name: "Airwave Solutions", href: "/airwave-phone-mast-lease/" },
+  { name: "Wireless Infrastructure Group (WIG)", href: "/wireless-infrastructure-group-phone-mast-lease/" },
 ];
 
 const relatedPosts = [
-  { title: "Why Phone Mast Rents Are Being Reduced & What It Means for Landlords", href: "/blog/reduce-phone-mast-rents" },
-  { title: "What Is a Phone Mast Lease? A Landlord's Guide", href: "/blog/what-is-a-phone-mast-lease" },
-  { title: "5 Key Things to Know Before Leasing Land for a Phone Mast", href: "/blog/five-things-you-should-know-about-leasing-your-land-to-a-mobile-phone-mast-operator" },
-  { title: "Mistakes to Avoid as a Phone Mast Landlord", href: "/blog/mistakes-to-avoid-as-a-phone-mast-landlord" },
-  { title: "Changes to the Electronic Communications Code 2022", href: "/blog/communications-code-2022" },
-  { title: "How the 5G Rollout Will Impact Existing Phone Mast Leases", href: "/blog/how-the-5g-rollout-will-impact-existing-phone-mast-leases-what-landlords-should-prepare-for" },
+  { title: "Why Phone Mast Rents Are Being Reduced & What It Means for Landlords", href: "/blog/reduce-phone-mast-rents/" },
+  { title: "What Is a Phone Mast Lease? A Landlord's Guide", href: "/blog/what-is-a-phone-mast-lease/" },
+  { title: "5 Key Things to Know Before Leasing Land for a Phone Mast", href: "/blog/five-things-you-should-know-about-leasing-your-land-to-a-mobile-phone-mast-operator/" },
+  { title: "Mistakes to Avoid as a Phone Mast Landlord", href: "/blog/mistakes-to-avoid-as-a-phone-mast-landlord/" },
+  { title: "Changes to the Electronic Communications Code 2022", href: "/blog/communications-code-2022/" },
+  { title: "How the 5G Rollout Will Impact Existing Phone Mast Leases", href: "/blog/how-the-5g-rollout-will-impact-existing-phone-mast-leases-what-landlords-should-prepare-for/" },
 ];
 
 export default function RentReviewsPage() {
   return (
     <>
-      <JsonLd data={{ type: "Service", name: "Phone Mast Rent Reviews", description: "Independent valuation and negotiation of phone mast site rental income for UK landlords.", provider: "The Phone Mast Advice Company", url: "https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews", areaServed: "United Kingdom" }} />
-      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Rent Reviews" }]} />
+      <JsonLd data={{ type: "Service", name: "Phone Mast Rent Reviews", description: "Independent valuation and negotiation of phone mast site rental income for UK landlords.", provider: "The Phone Mast Advice Company", url: "https://www.phonemastadvice.co.uk/phone-mast-services/rent-reviews/", areaServed: "United Kingdom" }} />
+      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Rent Reviews" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -73,10 +73,10 @@ export default function RentReviewsPage() {
             Phone Mast Rent Reviews
           </h1>
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
-            Independent rent review specialists acting exclusively for UK landlords. This page is about our rent review service; for the main background guide, see our <a href="/phone-mast-rent-2026" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast rent advice page</a>.
+            Independent rent review specialists acting exclusively for UK landlords. This page is about our rent review service; for the main background guide, see our <a href="/phone-mast-rent-2026/" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast rent advice page</a>.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <Link href="/free-rent-estimate" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <Link href="/free-rent-estimate/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Rent Estimate
             </Link>
             <a href="tel:01691791543" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", color: "#ffffff", border: "2px solid rgba(255,255,255,0.6)", borderRadius: "10px", fontWeight: 600, fontSize: "1.0625rem", textDecoration: "none", minHeight: "44px" }}>
@@ -98,7 +98,7 @@ export default function RentReviewsPage() {
               Service page, backed by the main valuation guide
             </p>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              This page is for landlords who want practical negotiation support now. For the broader valuation and legal background, use our <a href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast rent advice guide</a>. Reviewed by the <a href="/team" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
+              This page is for landlords who want practical negotiation support now. For the broader valuation and legal background, use our <a href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast rent advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -106,7 +106,7 @@ export default function RentReviewsPage() {
             What Is a Phone Mast Rent Review?
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            A Phone Mast rent review is a formal reassessment of the rent you receive under your telecom lease. Typically triggered every 3–5 years (or as specified in your lease), the review ensures your rent reflects current market rates, accounts for technological or operator changes, and maximises income for the duration of the lease. Operators sometimes propose reduced rents or try to avoid paying increases — expert advice ensures your rent reflects your land&apos;s true value. If you first need the broader legal and valuation background, read our <a href="/phone-mast-rent-2026" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice guide</a>.
+            A Phone Mast rent review is a formal reassessment of the rent you receive under your telecom lease. Typically triggered every 3–5 years (or as specified in your lease), the review ensures your rent reflects current market rates, accounts for technological or operator changes, and maximises income for the duration of the lease. Operators sometimes propose reduced rents or try to avoid paying increases — expert advice ensures your rent reflects your land&apos;s true value. If you first need the broader legal and valuation background, read our <a href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice guide</a>.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
@@ -120,7 +120,7 @@ export default function RentReviewsPage() {
             Can My Phone Mast Rent Go Down at a Review?
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Not under an index-linked clause, and not under most legacy open market clauses while the lease runs. The reduction operators talk about usually arrives at <em>renewal</em>, not at review: since 7 April 2026, qualifying 1954 Act leases are valued on the no-network basis when they renew, and Code agreements have been valued that way since December 2017. Knowing which event you are facing, a review or a renewal, changes the advice completely. See our <a href="/phone-mast-services/lease-renewals" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>lease renewal service</a> for the renewal side.
+            Not under an index-linked clause, and not under most legacy open market clauses while the lease runs. The reduction operators talk about usually arrives at <em>renewal</em>, not at review: since 7 April 2026, qualifying 1954 Act leases are valued on the no-network basis when they renew, and Code agreements have been valued that way since December 2017. Knowing which event you are facing, a review or a renewal, changes the advice completely. See our <a href="/phone-mast-services/lease-renewals/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>lease renewal service</a> for the renewal side.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
@@ -232,11 +232,11 @@ export default function RentReviewsPage() {
           </h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "2.5rem" }}>
             {[
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Navigate ECC lease renewals confidently" },
-              { label: "Free Rent Estimate", href: "/free-rent-estimate", desc: "Find out your true market rent" },
-              { label: "Free Lease Check", href: "/free-lease-check", desc: "Review your lease for free" },
-              { label: "Mast Sales", href: "/phone-mast-services/mast-sales", desc: "Capitalise on your lease income" },
-              { label: "Contact Our Team", href: "/contact", desc: "Speak to a specialist today" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Navigate ECC lease renewals confidently" },
+              { label: "Free Rent Estimate", href: "/free-rent-estimate/", desc: "Find out your true market rent" },
+              { label: "Free Lease Check", href: "/free-lease-check/", desc: "Review your lease for free" },
+              { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Capitalise on your lease income" },
+              { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
               <Link
                 key={item.href}
@@ -272,7 +272,7 @@ export default function RentReviewsPage() {
             ))}
           </div>
           <div style={{ marginTop: "1.5rem" }}>
-            <Link href="/blog" style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}>
+            <Link href="/blog/" style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}>
               View all articles →
             </Link>
           </div>

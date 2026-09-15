@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Sell Your Phone Mast Lease | Mast Sales",
   description:
     "Thinking of selling your phone mast lease? Independent advice for UK landlords on what a mast lease sale is worth, how buyers value it, and how to sell safely.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/mast-sales" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/mast-sales/" },
   openGraph: {
     title: "Sell Your Phone Mast Lease: Mast Sales Advice for UK Landlords",
     description:
@@ -74,11 +74,11 @@ export default function Page() {
           description:
             "Independent advice for UK landowners selling a phone mast lease or the right to receive mast rent: valuation, marketing to specialist buyers, and negotiation of price and terms.",
           provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/mast-sales",
+          url: "https://www.phonemastadvice.co.uk/phone-mast-services/mast-sales/",
           areaServed: "United Kingdom",
         }}
       />
-      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Mast Sales" }]} />
+      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Mast Sales" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -99,7 +99,7 @@ export default function Page() {
             A phone mast lease sale turns years of future rent into a lump sum today. We act only for landowners, so our job is to find out what your lease is really worth, bring in competing buyers, and make sure the paperwork does not cost you your land.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-lease-check" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Lease Check
             </a>
             <a
@@ -130,8 +130,8 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our mast sales service page. For the valuation background that drives every sale price, read our{" "}
-              <a href="/phone-mast-rent-2026" style={link}>phone mast rent</a> guide; for the terms buyers will ask you to sign, see our{" "}
-              <a href="/phone-mast-lease-2026" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-rent-2026/" style={link}>phone mast rent</a> guide; for the terms buyers will ask you to sign, see our{" "}
+              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -219,12 +219,12 @@ export default function Page() {
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
-              { label: "Free Lease Check", href: "/free-lease-check", desc: "We review your agreement for free" },
-              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent-2026", desc: "How mast rent is valued in 2026" },
-              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026", desc: "Key clauses and operator rights" },
-              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews", desc: "Increase the income before you sell" },
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Renewal advice under the Code" },
-              { label: "Contact Our Team", href: "/contact", desc: "Speak to a specialist today" },
+              { label: "Free Lease Check", href: "/free-lease-check/", desc: "We review your agreement for free" },
+              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent-2026/", desc: "How mast rent is valued in 2026" },
+              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026/", desc: "Key clauses and operator rights" },
+              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Increase the income before you sell" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Renewal advice under the Code" },
+              { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
@@ -243,7 +243,7 @@ export default function Page() {
         headline="Thinking of Selling Your Phone Mast Lease?"
         subheadline="Get an independent view of what it is really worth before you accept an offer. Free initial consultation, landowners only."
         ctaText="Free Lease Check"
-        ctaHref="/free-lease-check"
+        ctaHref="/free-lease-check/"
       />
     </>
   );

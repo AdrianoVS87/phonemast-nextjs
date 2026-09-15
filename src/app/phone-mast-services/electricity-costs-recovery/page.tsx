@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   title: "Phone Mast Electricity Costs Recovery",
   description:
     "Is a mobile operator using your electricity supply? Independent advice for UK landlords on recovering phone mast electricity costs, backdated charges, and fixing the arrangement for good.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery" },
+  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery/" },
   openGraph: {
     title: "Phone Mast Electricity Costs Recovery for UK Landlords",
     description:
@@ -74,11 +74,11 @@ export default function Page() {
           description:
             "Recovery of electricity costs from mobile operators whose phone mast equipment draws power from a landlord's supply, including backdated claims and putting a proper metering arrangement in place.",
           provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery",
+          url: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery/",
           areaServed: "United Kingdom",
         }}
       />
-      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services" }, { label: "Electricity Costs Recovery" }]} />
+      <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Electricity Costs Recovery" }]} />
 
       {/* Hero */}
       <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
@@ -99,7 +99,7 @@ export default function Page() {
             A mast runs 24 hours a day, and if it runs on your supply you are paying for it. We establish what the operator owes, recover backdated costs where the agreement allows, and put the arrangement on a proper metered footing so it never happens again.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-lease-check" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Lease Check
             </a>
             <a
@@ -130,7 +130,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our electricity costs recovery service page. Electricity is one of several sums you can recover on top of the rent; our{" "}
-              <a href="/phone-mast-rent-2026" style={link}>phone mast rent</a> guide lists the others. Reviewed by the <a href="/team" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-rent-2026/" style={link}>phone mast rent</a> guide lists the others. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -183,12 +183,12 @@ export default function Page() {
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
-              { label: "Free Lease Check", href: "/free-lease-check", desc: "We check what your agreement says about power" },
-              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent-2026", desc: "Everything recoverable on top of rent" },
-              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews", desc: "Fix the rent at the same time" },
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals", desc: "Write the fix into the new lease" },
-              { label: "Other Services", href: "/phone-mast-services/other-services", desc: "Wayleaves, breaches, site audits" },
-              { label: "Contact Our Team", href: "/contact", desc: "Speak to a specialist today" },
+              { label: "Free Lease Check", href: "/free-lease-check/", desc: "We check what your agreement says about power" },
+              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent-2026/", desc: "Everything recoverable on top of rent" },
+              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Fix the rent at the same time" },
+              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Write the fix into the new lease" },
+              { label: "Other Services", href: "/phone-mast-services/other-services/", desc: "Wayleaves, breaches, site audits" },
+              { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
@@ -207,7 +207,7 @@ export default function Page() {
         headline="Is a Phone Mast Running on Your Electricity?"
         subheadline="Most landlords we review are owed money. Find out what your agreement says and what you can claim back. Free initial consultation."
         ctaText="Free Lease Check"
-        ctaHref="/free-lease-check"
+        ctaHref="/free-lease-check/"
       />
     </>
   );

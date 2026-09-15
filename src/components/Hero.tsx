@@ -13,9 +13,9 @@ export default function Hero({
   headline = "Phone Mast Lease & Rent Advice for UK Landlords",
   subheadline = "Independent specialist telecom surveyors acting only for UK landlords. Get expert help with phone mast leases, phone mast rent, renewals, reviews, and operator negotiations.",
   ctaText = "Free Lease Check",
-  ctaHref = "/free-lease-check",
+  ctaHref = "/free-lease-check/",
   secondaryCtaText = "Free Rent Estimate",
-  secondaryCtaHref = "/free-rent-estimate",
+  secondaryCtaHref = "/free-rent-estimate/",
 }: HeroProps) {
   return (
     <section

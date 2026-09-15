@@ -208,7 +208,7 @@ export default async function LocationPage({
 
       <Breadcrumbs
         items={[
-          { label: "Locations", href: "/locations" },
+          { label: "Locations", href: "/locations/" },
           { label: data.city },
         ]}
       />
@@ -245,7 +245,7 @@ export default async function LocationPage({
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a
-              href="/free-rent-estimate"
+              href="/free-rent-estimate/"
               className="btn-primary"
               style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
             >
@@ -525,7 +525,7 @@ export default async function LocationPage({
         headline={`Speak to Our ${data.city} Phone Mast Specialists`}
         subheadline={`Our ${data.city} team offers a free, no-obligation consultation. We act only for landlords.`}
         ctaText="Get a Free Consultation"
-        ctaHref="/contact"
+        ctaHref="/contact/"
       />
     </>
   );

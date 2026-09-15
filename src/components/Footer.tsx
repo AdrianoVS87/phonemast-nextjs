@@ -3,23 +3,32 @@ import Image from "next/image";
 import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
 
 const services = [
-  { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews" },
-  { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals" },
-  { label: "New Lettings", href: "/phone-mast-services/new-lettings" },
-  { label: "Mast Sales", href: "/phone-mast-services/mast-sales" },
-  { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment" },
-  { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery" },
-  { label: "Lease Retrievals", href: "/phone-mast-services/lease-retrievals" },
-  { label: "Other Services", href: "/phone-mast-services/other-services" },
+  { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/" },
+  { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/" },
+  { label: "New Lettings", href: "/phone-mast-services/new-lettings/" },
+  { label: "Mast Sales", href: "/phone-mast-services/mast-sales/" },
+  { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment/" },
+  { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery/" },
+  { label: "Lease Retrievals", href: "/phone-mast-services/lease-retrievals/" },
+  { label: "Other Services", href: "/phone-mast-services/other-services/" },
+];
+
+const guides = [
+  { label: "Phone Mast Rent 2026", href: "/phone-mast-rent-2026/" },
+  { label: "Phone Mast Lease 2026", href: "/phone-mast-lease-2026/" },
+  { label: "Electronic Communications Code", href: "/electronic-communications-code/" },
+  { label: "Section 26 Notices", href: "/section-26-notice/" },
+  { label: "Phone Mast Solicitors", href: "/phone-mast-solicitors/" },
+  { label: "Landlord Blog", href: "/blog/" },
 ];
 
 const legal = [
-  { label: "Privacy Policy", href: "/privacy-policy" },
-  { label: "Disclaimer", href: "/disclaimer" },
-  { label: "Cookie Policy", href: "/cookie-policy" },
-  { label: "FAQ", href: "/faq" },
-  { label: "About Us", href: "/about-us" },
-  { label: "Team", href: "/team" },
+  { label: "Privacy Policy", href: "/privacy-policy/" },
+  { label: "Disclaimer", href: "/disclaimer/" },
+  { label: "Cookie Policy", href: "/cookie-policy/" },
+  { label: "FAQ", href: "/faq/" },
+  { label: "About Us", href: "/about-us/" },
+  { label: "Team", href: "/team/" },
 ];
 
 const offices = [
@@ -99,6 +108,34 @@ export default function Footer() {
                     style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem" }}
                   >
                     {s.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Landlord guides: plain links so search engines see them on every page */}
+          <div>
+            <h3
+              style={{
+                fontSize: "1rem",
+                fontWeight: 700,
+                marginBottom: "1.25rem",
+                textTransform: "uppercase",
+                letterSpacing: "0.06em",
+                color: "#a4ca62",
+              }}
+            >
+              Landlord Guides
+            </h3>
+            <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
+              {guides.map((g) => (
+                <li key={g.href} style={{ marginBottom: "0.625rem" }}>
+                  <Link
+                    href={g.href}
+                    style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem" }}
+                  >
+                    {g.label}
                   </Link>
                 </li>
               ))}
@@ -223,7 +260,7 @@ export default function Footer() {
                 </a>
               </li>
               <li style={{ marginTop: "1.5rem" }}>
-                <Link href="/free-rent-estimate" className="btn-pill" style={{ fontSize: "0.875rem" }}>
+                <Link href="/free-rent-estimate/" className="btn-pill" style={{ fontSize: "0.875rem" }}>
                   Free Rent Estimate
                 </Link>
               </li>

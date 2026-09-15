@@ -11,7 +11,7 @@ export default function CTASection({
   headline = "Ready to Get Expert Phone Mast Advice?",
   subheadline = "Contact us today for a free, no-obligation consultation. We only act for landlords — never for mobile phone operators.",
   ctaText = "Get Your Free Rent Estimate",
-  ctaHref = "/free-rent-estimate",
+  ctaHref = "/free-rent-estimate/",
 }: CTASectionProps) {
   return (
     <section
@@ -64,7 +64,7 @@ export default function CTASection({
             {ctaText}
           </Link>
           <Link
-            href="/contact"
+            href="/contact/"
             className="btn-secondary"
             style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
           >

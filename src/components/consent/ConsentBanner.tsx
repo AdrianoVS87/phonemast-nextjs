@@ -79,7 +79,11 @@ function persist(status: StoredConsent["status"], prefs: ConsentPrefs) {
 }
 
 export default function ConsentBanner() {
-  const [visible, setVisible] = useState(false);
+  // Starts visible so the banner is in the server HTML and paints with the first frame
+  // (it was the Largest Contentful Paint element and only appeared after hydration).
+  // Returning visitors never see it: an inline script in <head> sets html[data-consent="set"]
+  // before first paint, and globals.css hides .consent-ui for that state.
+  const [visible, setVisible] = useState(true);
   const [showManage, setShowManage] = useState(false);
   const [analytics, setAnalytics] = useState(false);
   const [advertising, setAdvertising] = useState(false);
@@ -92,6 +96,7 @@ export default function ConsentBanner() {
       try {
         const raw = window.localStorage.getItem(STORAGE_KEY);
         if (!raw) {
+          document.documentElement.removeAttribute("data-consent");
           setVisible(true);
           return;
         }
@@ -109,6 +114,7 @@ export default function ConsentBanner() {
       } catch {
         /* ignore */
       }
+      document.documentElement.removeAttribute("data-consent");
       setShowManage(false);
       setVisible(true);
     };
@@ -156,6 +162,7 @@ export default function ConsentBanner() {
     <>
       {/* Backdrop */}
       <div
+        className="consent-ui"
         aria-hidden="true"
         style={{
           position: "fixed",
@@ -168,6 +175,7 @@ export default function ConsentBanner() {
 
       {/* Banner */}
       <div
+        className="consent-ui"
         role="dialog"
         aria-modal="true"
         aria-labelledby="consent-title"
