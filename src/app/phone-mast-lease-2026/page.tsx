@@ -652,7 +652,7 @@ export default function PhoneMastLease2026Page() {
               On <strong>7 April 2026</strong>, Sections 61 to 64 of the PSTI Act 2022 came into force, inserting a new <strong>Section 34A into the Landlord and Tenant Act 1954</strong>. For the first time, qualifying telecoms tenancies that renew under the 1954 Act are subject to the Code&rsquo;s no-network assumption when rent is assessed on renewal.
             </p>
             <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1rem" }}>
-              This removed the significant financial advantage that landowners with pre-2017 leases previously enjoyed under the <em>Cornerstone v Compton Beauchamp</em> Supreme Court ruling. An estimated <strong>15,000 legacy telecoms agreements</strong> across the UK are affected.
+              This removed the significant financial advantage that landowners with pre-2017 leases previously enjoyed under the <em>Cornerstone v Compton Beauchamp</em> Supreme Court ruling.
             </p>
             <ul style={{ listStyle: "none", padding: 0, margin: "0 0 1.5rem 0" }}>
               {[

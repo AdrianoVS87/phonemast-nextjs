@@ -10,7 +10,7 @@
  */
 import { createClient } from "@sanity/client";
 import type { BlogPost } from "./blog-types";
-import { LOCAL_POSTS } from "./local-posts";
+import { LOCAL_POSTS, LOCAL_POST_OVERRIDES } from "./local-posts";
 
 export type { BlogPost };
 export { formatDate } from "./blog-types";
@@ -54,9 +54,11 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     {},
     { next: { revalidate: REVALIDATE_SECONDS } },
   );
+  const overrides = new Map(LOCAL_POST_OVERRIDES.map((p) => [p.slug, p]));
+  const merged = posts.map((p) => overrides.get(p.slug) ?? p);
   const sanitySlugs = new Set(posts.map((p) => p.slug));
-  const local = LOCAL_POSTS.filter((p) => !sanitySlugs.has(p.slug));
-  return [...posts, ...local].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+  const local = [...LOCAL_POSTS, ...LOCAL_POST_OVERRIDES].filter((p) => !sanitySlugs.has(p.slug));
+  return [...merged, ...local].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
@@ -65,5 +67,7 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     { slug },
     { next: { revalidate: REVALIDATE_SECONDS } },
   );
+  const override = LOCAL_POST_OVERRIDES.find((p) => p.slug === slug);
+  if (override) return override;
   return post ?? LOCAL_POSTS.find((p) => p.slug === slug) ?? null;
 }

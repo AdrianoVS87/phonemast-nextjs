@@ -117,7 +117,7 @@ export default async function BlogPostPage({ params }: Props) {
     headline: post.title,
     image: [articleImage],
     datePublished: post.date,
-    dateModified: post.date,
+    dateModified: post.updated ?? post.date,
     author: {
       "@type": "Person",
       name: post.author,
@@ -239,16 +239,19 @@ export default async function BlogPostPage({ params }: Props) {
                 </p>
               </div>
             </div>
-            <time
-              dateTime={post.date}
-              style={{ color: "#6b7280", fontSize: "0.9375rem" }}
-            >
-              {formatDate(post.date)}
-            </time>
+            <span style={{ color: "#6b7280", fontSize: "0.9375rem" }}>
+              <time dateTime={post.date}>{formatDate(post.date)}</time>
+              {post.updated && (
+                <>
+                  {" · Updated "}
+                  <time dateTime={post.updated}>{formatDate(post.updated)}</time>
+                </>
+              )}
+            </span>
           </div>
 
           {/* Section 26 posts: point readers to the full landlord guide for telecoms leases. */}
-          {(slug === "section-26-notices" || slug === "1954-act") && (
+          {slug === "1954-act" && (
             <aside
               aria-label="Full guide to Section 26 notices for phone mast landlords"
               style={{

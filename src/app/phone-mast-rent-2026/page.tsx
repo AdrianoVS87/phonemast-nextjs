@@ -52,7 +52,7 @@ export default function PhoneMastRent2026Page() {
     },
     {
       q: "Do the 7 April 2026 PSTI Act changes affect my rent?",
-      a: "If your agreement pre-dates 28 December 2017 and renews under the Landlord and Tenant Act 1954, renewal rent is now assessed on the no-network basis under the new Section 34A — an estimated 15,000 legacy agreements are affected. Rent already received does not have to be repaid, interim rent is split at 7 April 2026, and since 30 July 2026 new renewal proceedings for these leases go to the First-tier Tribunal and the Upper Tribunal instead of the courts.",
+      a: "If your agreement pre-dates 28 December 2017 and renews under the Landlord and Tenant Act 1954, renewal rent is now assessed on the no-network basis under the new Section 34A. Rent already received does not have to be repaid, interim rent is split at 7 April 2026, and since 30 July 2026 new renewal proceedings for these leases go to the First-tier Tribunal and the Upper Tribunal instead of the courts.",
     },
   ];
 
@@ -524,7 +524,6 @@ export default function PhoneMastRent2026Page() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               {[
                 "If your mast lease pre-dates 28 December 2017 and is protected under the Landlord and Tenant Act 1954, your rent on renewal is now assessed using the no-network assumption",
-                "This affects an estimated 15,000 legacy telecoms agreements across the United Kingdom",
                 "Transitional provisions ensure that rents already received are not required to be repaid",
                 "Interim rent is split: periods before 7 April 2026 are valued under the old rules, periods from 7 April onwards under the new framework",
                 "Since 30 July 2026, new renewal proceedings for these leases are heard by the First-tier Tribunal and the Upper Tribunal instead of the courts",

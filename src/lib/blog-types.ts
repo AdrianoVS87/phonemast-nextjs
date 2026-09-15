@@ -6,6 +6,8 @@ export interface BlogPost {
   excerpt: string;
   author: string;
   content: string;
+  /** ISO date of the last significant update, when it differs from the published date. */
+  updated?: string;
   featuredImage?: string;
   featuredImageAlt?: string;
   featuredImageCredit?: string;
