@@ -10,6 +10,7 @@
  */
 import { createClient } from "@sanity/client";
 import type { BlogPost } from "./blog-types";
+import { LOCAL_POSTS } from "./local-posts";
 
 export type { BlogPost };
 export { formatDate } from "./blog-types";
@@ -44,7 +45,7 @@ export async function getAllPostSlugs(): Promise<string[]> {
     {},
     { next: { revalidate: REVALIDATE_SECONDS } },
   );
-  return slugs;
+  return Array.from(new Set([...slugs, ...LOCAL_POSTS.map((p) => p.slug)]));
 }
 
 export async function getAllPosts(): Promise<BlogPost[]> {
@@ -53,7 +54,9 @@ export async function getAllPosts(): Promise<BlogPost[]> {
     {},
     { next: { revalidate: REVALIDATE_SECONDS } },
   );
-  return posts;
+  const sanitySlugs = new Set(posts.map((p) => p.slug));
+  const local = LOCAL_POSTS.filter((p) => !sanitySlugs.has(p.slug));
+  return [...posts, ...local].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 }
 
 export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
@@ -62,5 +65,5 @@ export async function getPostBySlug(slug: string): Promise<BlogPost | null> {
     { slug },
     { next: { revalidate: REVALIDATE_SECONDS } },
   );
-  return post;
+  return post ?? LOCAL_POSTS.find((p) => p.slug === slug) ?? null;
 }
