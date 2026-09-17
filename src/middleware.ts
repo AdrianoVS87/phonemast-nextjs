@@ -13,6 +13,13 @@ const REDIRECTS: Record<string, string> = {
   "our-services/lease-renewals": "/phone-mast-services/lease-renewals",
   "our-services/new-lettings": "/phone-mast-services/new-lettings",
   "our-services/mast-sales": "/phone-mast-services/mast-sales",
+  // Search Console still crawls these WP children; they 404'd until 17 Sep 2026.
+  "our-services/other-services": "/phone-mast-services/other-services",
+  "our-services/lease-retrievals": "/phone-mast-services/lease-retrievals",
+  "our-services/electricity-costs-recovery": "/phone-mast-services/electricity-costs-recovery",
+  "our-services/removal-and-redevelopment": "/phone-mast-services/removal-and-redevelopment",
+  "our-services/mast-removal-and-redevelopment": "/phone-mast-services/removal-and-redevelopment",
+  "our-services/mast-removel-and-redevelopment": "/phone-mast-services/removal-and-redevelopment", // WP typo
   "what-we-do": "/phone-mast-services",
   "services": "/phone-mast-services",
   "phone-mast-services-overview": "/phone-mast-services",
@@ -155,6 +162,8 @@ const REDIRECTS: Record<string, string> = {
   "what-do-the-psti-act-2026-changes-mean-for-phone-mast-landlords":
     "/blog/what-do-the-psti-act-2026-changes-mean-for-phone-mast-landlords",
   "what-is-a-phone-mast-lease": "/blog/what-is-a-phone-mast-lease",
+  // Crawled by Google on 15 Sep 2026 and 404'd; nearest equivalent page.
+  "what-is-a-phone-mast": "/blog/what-is-a-phone-mast-lease",
   "why-can-operators-force-a-mast": "/blog/why-can-operators-force-a-mast",
   "why-property-managers-are-turning-to-specialist-phone-mast-advisors-and-why-your-landlords-will-thank-you":
     "/blog/why-property-managers-are-turning-to-specialist-phone-mast-advisors-and-why-your-landlords-will-thank-you",
