@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -119,6 +120,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
 
     if (error) {
       console.error("Resend API error (sendLeadEmail):", JSON.stringify(error));
+      await sendMonitorPing(formTitle, false);
       return {
         success: false,
         error: "Failed to send your request. Please call us on 01691 791543.",
@@ -126,9 +128,14 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
     }
 
     console.log("Email sent (sendLeadEmail), Resend ID:", sent?.id);
+    await Promise.allSettled([
+      sendAcknowledgement(data.name, data.email),
+      sendMonitorPing(formTitle, true, sent?.id),
+    ]);
     return { success: true, id: sent?.id };
   } catch (error) {
     console.error("Exception in sendLeadEmail:", error);
+    await sendMonitorPing(formTitle, false);
     return {
       success: false,
       error: "Failed to send your request. Please call us on 01691 791543.",
@@ -299,8 +306,10 @@ export async function sendHandbookEmail(
     if (error) {
       console.error("Resend API error (handbook notification to Matt):", JSON.stringify(error));
     }
+    await sendMonitorPing("Handbook download", !error);
   } catch (error) {
     console.error("Exception notifying Matt of handbook lead:", error);
+    await sendMonitorPing("Handbook download", false);
   }
 
   return { success: true, id: userMailId };

@@ -1,6 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
+import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -77,6 +78,7 @@ export async function sendContactEmail(
 
     if (error) {
       console.error("Resend API error (sendContactEmail):", JSON.stringify(error));
+      await sendMonitorPing("Contact form enquiry", false);
       return {
         success: false,
         error: "Failed to send your message. Please call us on 01691 791543.",
@@ -84,9 +86,14 @@ export async function sendContactEmail(
     }
 
     console.log("Email sent (sendContactEmail), Resend ID:", sent?.id);
+    await Promise.allSettled([
+      sendAcknowledgement(data.name, data.email),
+      sendMonitorPing("Contact form enquiry", true, sent?.id),
+    ]);
     return { success: true, id: sent?.id };
   } catch (error) {
     console.error("Exception in sendContactEmail:", error);
+    await sendMonitorPing("Contact form enquiry", false);
     return {
       success: false,
       error: "Failed to send your message. Please call us on 01691 791543.",
