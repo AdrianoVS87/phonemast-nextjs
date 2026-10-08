@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
+import { logBlocked, screenSubmission } from "@/lib/spamGuard";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -12,6 +13,8 @@ export interface ContactFormData {
   message: string;
   // Honeypot — must be empty
   _trap?: string;
+  // Anti-spam token issued when the form mounted (see src/lib/spamGuard.ts)
+  _token?: string;
 }
 
 export interface FormResult {
@@ -36,6 +39,14 @@ export async function sendContactEmail(
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(data.email)) {
     return { success: false, error: "Please enter a valid email address." };
+  }
+
+  // Bot filter: form token + content heuristics. Blocked submissions send nothing — not even
+  // the acknowledgement — so the office inbox and our sender reputation stay clean.
+  const screen = screenSubmission({ name: data.name, email: data.email, message: data.message, token: data._token });
+  if (screen.action !== "send") {
+    logBlocked("contact form", screen);
+    return screen.action === "drop" ? { success: true } : { success: false, error: screen.message };
   }
 
   try {

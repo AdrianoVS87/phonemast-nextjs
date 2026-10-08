@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { sendHandbookEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
+import { useFormToken } from "@/lib/useFormToken";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -19,6 +20,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
   const dialogRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
   const descId = useId();
+  const getToken = useFormToken();
 
   // Close on Escape
   useEffect(() => {
@@ -65,6 +67,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
           email: get("email"),
           phone: get("phone"),
           _trap: get("_trap"),
+          _token: await getToken(),
         },
         source,
       );
@@ -78,7 +81,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
         setErrorMsg(result.error ?? "Something went wrong.");
       }
     },
-    [source],
+    [source, getToken],
   );
 
   return (

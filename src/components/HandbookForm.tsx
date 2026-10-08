@@ -3,11 +3,13 @@
 import { useState, useRef } from "react";
 import { sendHandbookEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
+import { useFormToken } from "@/lib/useFormToken";
 
 export default function HandbookForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const getToken = useFormToken();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -23,6 +25,7 @@ export default function HandbookForm() {
       email: get("email"),
       phone: get("phone"),
       _trap: get("_trap"),
+      _token: await getToken(),
     };
 
     const result = await sendHandbookEmail(data, "/handbook");

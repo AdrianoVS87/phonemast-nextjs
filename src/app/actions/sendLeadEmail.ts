@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
+import { logBlocked, screenSubmission } from "@/lib/spamGuard";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -16,6 +17,8 @@ export interface LeadFormData {
   message: string;
   formType: "lease-check" | "rent-estimate";
   _trap?: string;
+  // Anti-spam token issued when the form mounted (see src/lib/spamGuard.ts)
+  _token?: string;
 }
 
 export interface HandbookFormData {
@@ -23,6 +26,7 @@ export interface HandbookFormData {
   email: string;
   phone: string;
   _trap?: string;
+  _token?: string;
 }
 
 export interface FormResult {
@@ -50,6 +54,13 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(data.email)) {
     return { success: false, error: "Please enter a valid email address." };
+  }
+
+  // Bot filter: form token + content heuristics (see src/lib/spamGuard.ts).
+  const screen = screenSubmission({ name: data.name, email: data.email, message: data.message, token: data._token });
+  if (screen.action !== "send") {
+    logBlocked(data.formType, screen);
+    return screen.action === "drop" ? { success: true } : { success: false, error: screen.message };
   }
 
   const formTitle =
@@ -260,6 +271,14 @@ export async function sendHandbookEmail(
   const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRegex.test(data.email)) {
     return { success: false, error: "Please enter a valid email address." };
+  }
+
+  // Bot filter: form token + content heuristics (see src/lib/spamGuard.ts). A blocked request
+  // gets no handbook email, so the PDF link is never mailed to a harvested address.
+  const screen = screenSubmission({ name: data.name, email: data.email, token: data._token });
+  if (screen.action !== "send") {
+    logBlocked("handbook", screen);
+    return screen.action === "drop" ? { success: true } : { success: false, error: screen.message };
   }
 
   const FROM = "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>";

@@ -3,11 +3,13 @@
 import { useState, useRef } from "react";
 import { sendContactEmail } from "@/app/actions/sendContact";
 import { fireConversion } from "@/lib/gtagConversion";
+import { useFormToken } from "@/lib/useFormToken";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
   const [errorMsg, setErrorMsg] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
+  const getToken = useFormToken();
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -21,6 +23,7 @@ export default function ContactForm() {
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
       _trap: (form.elements.namedItem("_trap") as HTMLInputElement)?.value ?? "",
+      _token: await getToken(),
     };
 
     const result = await sendContactEmail(data);
