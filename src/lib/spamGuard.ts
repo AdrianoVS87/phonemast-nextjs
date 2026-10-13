@@ -60,20 +60,39 @@ export function checkToken(token: string | undefined, now = Date.now()): TokenVe
 
 const VOWEL = /[aeiouyàáâãäåæèéêëìíîïòóôõöøùúûüýÿ]/giu;
 
-/** Random-letter "names" such as "vSKsmqsBjBHkOhGJzeh": almost no vowels, or many lower→UPPER switches inside a word. */
-export function looksRandom(name: string): boolean {
-  const letters = (name.match(/\p{L}/gu) ?? []).length;
-  if (letters === 0) return true; // "9272704595"
-  if (letters < 8) return false; // too short to judge ("Ng", "Wyn")
-  const vowels = (name.match(VOWEL) ?? []).length;
-  if (vowels / letters < 0.15) return true; // sample: 2 / 19
-  let switches = 0;
-  for (const word of name.split(/[\s\-'’.]+/)) {
-    for (let i = 1; i < word.length; i++) {
-      if (/\p{Ll}/u.test(word[i - 1]) && /\p{Lu}/u.test(word[i])) switches++;
-    }
+/**
+ * A single "word" that is random keyboard noise: "vSKsmqsBjBHkOhGJzeh", "ndilwaCWONNNMPGERLpAML",
+ * "BZTpfGuaRDXASRxjjfnTdJcx". Judged per word, so titles, initials and company suffixes in real
+ * names ("Mrs Brown", "Mr J Smith", "MKM Farms Ltd") never count against them.
+ */
+export function isGibberishWord(word: string): boolean {
+  const w = word.replace(/[^\p{L}]/gu, "");
+  if (w.length < 10) return false; // "McDonald", "Schwartz", "DeAndre", "MacDonaldson" are fine
+  const lower = (w.match(/\p{Ll}/gu) ?? []).length;
+  const upper = w.length - lower;
+  if (lower === 0 || upper === 0) {
+    // one case only: only a word with (almost) no vowels is suspicious ("BCDFGHJKLM")
+    return (w.match(VOWEL) ?? []).length / w.length < 0.1;
   }
-  return switches >= 3; // McDonald = 1, DeAndre = 1, sample = 5
+  let transitions = 0;
+  for (let i = 1; i < w.length; i++) {
+    const a = /\p{Lu}/u.test(w[i - 1]), b = /\p{Lu}/u.test(w[i]);
+    if (a !== b) transitions++;
+  }
+  const upperRun = Math.max(0, ...(w.match(/\p{Lu}+/gu) ?? []).map((r) => r.length));
+  // mixed case inside one long word: real names switch case once or twice (Mc|Do|nald)
+  return transitions >= 4 || (upperRun >= 5 && lower >= 2);
+}
+
+/** True when any word of the text is gibberish. */
+export function hasGibberish(text: string): boolean {
+  return text.split(/[\s,;:/()\-'’.&]+/).some(isGibberishWord);
+}
+
+/** Random-letter "names": a gibberish word, or no letters at all ("9272704595"). */
+export function looksRandom(name: string): boolean {
+  if (!/\p{L}/u.test(name)) return true;
+  return hasGibberish(name);
 }
 
 /** Gmail dot-trick addresses ("ng.u.y.enn.a.t.han.51.4@gmail.com"): four or more dots before the @. */
@@ -100,7 +119,7 @@ const REFUSE_MESSAGE =
   "We could not send this message automatically. Please call us on 01691 791543 or email info@phonemastadvice.co.uk and we will come straight back to you.";
 
 export function screenSubmission(
-  f: { name: string; email: string; message?: string; token?: string },
+  f: { name: string; email: string; message?: string; token?: string; address?: string; currentRent?: string },
   now = Date.now(),
 ): Screen {
   const t = checkToken(f.token, now);
@@ -121,6 +140,11 @@ export function screenSubmission(
   if (/https?:\/\/|www\./i.test(f.name)) reasons.push("name:url");
   if (isDotTrickEmail(f.email)) reasons.push("email:dots");
   if (f.message !== undefined && isLetterless(f.message)) reasons.push("message:no-letters");
+  if (f.message && hasGibberish(f.message)) reasons.push("message:gibberish");
+  // 10 Oct 2026 sample: address "9642060523", current rent "BZTpfGuaRDXASRxjjfnTdJcx"
+  if (f.address && isLetterless(f.address)) reasons.push("address:no-letters");
+  if (f.address && hasGibberish(f.address)) reasons.push("address:gibberish");
+  if (f.currentRent && hasGibberish(f.currentRent)) reasons.push("rent:gibberish");
   if (linkCount(`${f.name} ${f.message ?? ""}`) >= 3) reasons.push("message:links");
 
   return reasons.length

@@ -57,7 +57,10 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
   }
 
   // Bot filter: form token + content heuristics (see src/lib/spamGuard.ts).
-  const screen = screenSubmission({ name: data.name, email: data.email, message: data.message, token: data._token });
+  const screen = screenSubmission({
+    name: data.name, email: data.email, message: data.message, token: data._token,
+    address: data.address, currentRent: data.currentRent,
+  });
   if (screen.action !== "send") {
     logBlocked(data.formType, screen);
     return screen.action === "drop" ? { success: true } : { success: false, error: screen.message };

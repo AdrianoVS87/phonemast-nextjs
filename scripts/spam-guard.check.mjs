@@ -30,6 +30,10 @@ expect("6 Oct spam sample", screenSubmission(spam, later), {
 expect("spam without token is dropped silently", screenSubmission({ ...spam, token: undefined }, later).action, "drop");
 expect("link spam", screenSubmission({ name: "Best SEO", email: "a@b.co", message: "see http://x.com http://y.com http://z.com", token }, later).reason, "message:links");
 
+// the Free Rent Estimate spam that slipped through on 10 Oct 2026
+const spam2 = { name: "ndilwaCWONNNMPGERLpAML", email: "farmerbunch@verizon.net", message: "OMFNtXRlJsXlhxGIZFqDz", address: "9642060523", currentRent: "BZTpfGuaRDXASRxjjfnTdJcx", token };
+expect("10 Oct rent-estimate spam", screenSubmission(spam2, later).reason, "name:random,message:gibberish,address:no-letters,rent:gibberish");
+
 // real people must pass
 const people = [
   ["John Smith", "john.smith@gmail.com", "Hi, we have a Vodafone mast on our farm and the lease ends in 2027. Can you help?"],
@@ -40,7 +44,20 @@ const people = [
   ["DeAndre Johnson", "deandre.j@yahoo.co.uk", "Call me on 07700 900123 please."],
   ["Mr J P Jones", "jpjones@btinternet.com", "£4,800 pa at the moment; operator says £1,200. 2 masts."],
   ["Charleen Van Blerk", "charleen@phonemastadvice.co.uk", "TEST - Adriano (website delivery check)"],
+  // refused by the first version (audit 2026-10-11): titles, initials, company suffixes
+  ["Mrs Brown", "brown@example.co.uk", "Rent review letter received."],
+  ["Mr Wright", "wright@example.co.uk", "Lease renewal."],
+  ["Mr J Smith", "jsmith@example.co.uk", "Can you call me?"],
+  ["Dr J Smith", "drsmith@example.co.uk", "Mast on our roof."],
+  ["Mr & Mrs Smith", "smiths@example.co.uk", "Two masts on our farm."],
+  ["Cllr Smith", "cllr@example.gov.uk", "Council site enquiry."],
+  ["MKM Farms Ltd", "office@mkmfarms.co.uk", "EE mast, lease ends 2027."],
+  ["JRS Lands Ltd", "info@jrslands.co.uk", "CTIL wants to renew."],
+  ["Alexander MacDonaldson", "alex@example.co.uk", "Rent estimate please."],
+  ["Llewellyn Rhys-Pritchard", "llew@example.co.uk", "Arqiva site."],
 ];
+// rent-estimate form with real address and rent
+expect("person: rent estimate with address", screenSubmission({ name: "Jane Doe", email: "jane@doe.co.uk", message: "Vodafone site", address: "Hosier Field, Astley Bridge Farm, Bolton BL1 7HT", currentRent: "£4,800 per annum", token }, later), { action: "send" });
 for (const [name, email, message] of people) {
   expect(`person: ${name}`, screenSubmission({ name, email, message, token }, later), { action: "send" });
 }
