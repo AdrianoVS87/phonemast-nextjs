@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
+import { appendLeadRow } from "@/lib/leadLog";
 import { logBlocked, screenSubmission } from "@/lib/spamGuard";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -46,7 +47,10 @@ export async function sendContactEmail(
   const screen = screenSubmission({ name: data.name, email: data.email, message: data.message, token: data._token });
   if (screen.action !== "send") {
     logBlocked("contact form", screen);
-    return screen.action === "drop" ? { success: true } : { success: false, error: screen.message };
+    if (screen.action === "drop") return { success: true };
+    // Refused with a message: logged with the person's details so a wrong refusal can be called back.
+    await appendLeadRow({ source: "website", form: "contact", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason });
+    return { success: false, error: screen.message };
   }
 
   try {
@@ -89,7 +93,10 @@ export async function sendContactEmail(
 
     if (error) {
       console.error("Resend API error (sendContactEmail):", JSON.stringify(error));
-      await sendMonitorPing("Contact form enquiry", false);
+      await Promise.allSettled([
+        sendMonitorPing("Contact form enquiry", false),
+        appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error" }),
+      ]);
       return {
         success: false,
         error: "Failed to send your message. Please call us on 01691 791543.",
@@ -100,11 +107,15 @@ export async function sendContactEmail(
     await Promise.allSettled([
       sendAcknowledgement(data.name, data.email),
       sendMonitorPing("Contact form enquiry", true, sent?.id),
+      appendLeadRow({ source: "website", form: "contact", status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id }),
     ]);
     return { success: true, id: sent?.id };
   } catch (error) {
     console.error("Exception in sendContactEmail:", error);
-    await sendMonitorPing("Contact form enquiry", false);
+    await Promise.allSettled([
+      sendMonitorPing("Contact form enquiry", false),
+      appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception" }),
+    ]);
     return {
       success: false,
       error: "Failed to send your message. Please call us on 01691 791543.",

@@ -27,7 +27,7 @@ expect("6 Oct spam sample", screenSubmission(spam, later), {
   reason: "name:random,email:dots,message:no-letters",
   message: "We could not send this message automatically. Please call us on 01691 791543 or email info@phonemastadvice.co.uk and we will come straight back to you.",
 });
-expect("spam without token is dropped silently", screenSubmission({ ...spam, token: undefined }, later).action, "drop");
+expect("spam without token is refused with a message (never sent)", screenSubmission({ ...spam, token: undefined }, later).reason, "token:missing");
 expect("link spam", screenSubmission({ name: "Best SEO", email: "a@b.co", message: "see http://x.com http://y.com http://z.com", token }, later).reason, "message:links");
 
 // the Free Rent Estimate spam that slipped through on 10 Oct 2026

@@ -2,6 +2,7 @@
 
 import { Resend } from "resend";
 import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
+import { appendLeadRow } from "@/lib/leadLog";
 import { logBlocked, screenSubmission } from "@/lib/spamGuard";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -63,7 +64,9 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
   });
   if (screen.action !== "send") {
     logBlocked(data.formType, screen);
-    return screen.action === "drop" ? { success: true } : { success: false, error: screen.message };
+    if (screen.action === "drop") return { success: true };
+    await appendLeadRow({ source: "website", form: data.formType, status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason });
+    return { success: false, error: screen.message };
   }
 
   const formTitle =
@@ -134,7 +137,10 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
 
     if (error) {
       console.error("Resend API error (sendLeadEmail):", JSON.stringify(error));
-      await sendMonitorPing(formTitle, false);
+      await Promise.allSettled([
+        sendMonitorPing(formTitle, false),
+        appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error" }),
+      ]);
       return {
         success: false,
         error: "Failed to send your request. Please call us on 01691 791543.",
@@ -145,11 +151,15 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
     await Promise.allSettled([
       sendAcknowledgement(data.name, data.email),
       sendMonitorPing(formTitle, true, sent?.id),
+      appendLeadRow({ source: "website", form: data.formType, status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id }),
     ]);
     return { success: true, id: sent?.id };
   } catch (error) {
     console.error("Exception in sendLeadEmail:", error);
-    await sendMonitorPing(formTitle, false);
+    await Promise.allSettled([
+      sendMonitorPing(formTitle, false),
+      appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception" }),
+    ]);
     return {
       success: false,
       error: "Failed to send your request. Please call us on 01691 791543.",
@@ -281,7 +291,9 @@ export async function sendHandbookEmail(
   const screen = screenSubmission({ name: data.name, email: data.email, token: data._token });
   if (screen.action !== "send") {
     logBlocked("handbook", screen);
-    return screen.action === "drop" ? { success: true } : { success: false, error: screen.message };
+    if (screen.action === "drop") return { success: true };
+    await appendLeadRow({ source: "website", form: "handbook", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason });
+    return { success: false, error: screen.message };
   }
 
   const FROM = "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>";
@@ -328,10 +340,16 @@ export async function sendHandbookEmail(
     if (error) {
       console.error("Resend API error (handbook notification to Matt):", JSON.stringify(error));
     }
-    await sendMonitorPing("Handbook download", !error);
+    await Promise.allSettled([
+      sendMonitorPing("Handbook download", !error),
+      appendLeadRow({ source: "website", form: `handbook (${source})`, status: error ? "failed" : "sent", name: data.name, email: data.email, phone: data.phone, detail: userMailId }),
+    ]);
   } catch (error) {
     console.error("Exception notifying Matt of handbook lead:", error);
-    await sendMonitorPing("Handbook download", false);
+    await Promise.allSettled([
+      sendMonitorPing("Handbook download", false),
+      appendLeadRow({ source: "website", form: `handbook (${source})`, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception" }),
+    ]);
   }
 
   return { success: true, id: userMailId };

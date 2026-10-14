@@ -2,6 +2,7 @@ import { createHash, timingSafeEqual } from "crypto";
 import { NextResponse } from "next/server";
 
 import { LEAD_FROM, LEAD_INBOX, escapeHtml, getResend, sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
+import { appendLeadRow } from "@/lib/leadLog";
 
 export const runtime = "nodejs";
 
@@ -105,6 +106,12 @@ export async function POST(req: Request) {
     await Promise.allSettled([
       !payload.is_test && email ? sendAcknowledgement(name, email) : Promise.resolve(),
       sendMonitorPing(kind, true, sent?.id),
+      payload.is_test
+        ? Promise.resolve()
+        : appendLeadRow({
+            source: "google-ads-form", form: "Free Consultation (advert)", status: "sent", name, email,
+            phone: value("PHONE_NUMBER"), detail: `lead ${payload.lead_id ?? "n/a"}; ${sent?.id ?? ""}`,
+          }),
     ]);
     return NextResponse.json({});
   } catch (error) {

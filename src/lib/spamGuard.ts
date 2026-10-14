@@ -123,7 +123,17 @@ export function screenSubmission(
   now = Date.now(),
 ): Screen {
   const t = checkToken(f.token, now);
-  if (t === "missing" || t === "invalid") return { action: "drop", reason: `token:${t}` };
+  // A forged token can only come from a bot: drop it silently. A missing token is usually a bot
+  // too, but it is also what a real visitor sends if the token request failed on page load, so
+  // they get a message instead of a silent "sent" that went nowhere.
+  if (t === "invalid") return { action: "drop", reason: "token:invalid" };
+  if (t === "missing") {
+    return {
+      action: "refuse",
+      reason: "token:missing",
+      message: "Please refresh the page and send your message again, or call us on 01691 791543.",
+    };
+  }
   if (t === "too-fast") {
     return { action: "refuse", reason: "token:too-fast", message: "That was quick! Please press Send again." };
   }
