@@ -1,7 +1,7 @@
 "use server";
 
 import { Resend } from "resend";
-import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
+import { displayName, sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 import { appendLeadRow } from "@/lib/leadLog";
 import { logBlocked, screenSubmission } from "@/lib/spamGuard";
 
@@ -307,8 +307,8 @@ export async function sendHandbookEmail(
       to: data.email,
       replyTo: "info@phonemastadvice.co.uk",
       subject: `Your Phone Mast Handbook — ${HANDBOOK_VERSION}`,
-      html: handbookDeliveryHtml(data.name),
-      text: handbookDeliveryText(data.name),
+      html: handbookDeliveryHtml(displayName(data.name)),
+      text: handbookDeliveryText(displayName(data.name)),
     });
     if (error) {
       console.error("Resend API error (handbook delivery to user):", JSON.stringify(error));

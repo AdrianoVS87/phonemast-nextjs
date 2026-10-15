@@ -20,11 +20,38 @@ export function escapeHtml(str: string): string {
 }
 
 /**
+ * A name as typed in a form, made fit to greet someone with: "john" becomes "John",
+ * "JOHN SMITH" becomes "John Smith", "mary-jane o'brien" becomes "Mary-Jane O'Brien",
+ * "mcdonald" becomes "McDonald". A word typed with mixed case ("MacLeod") is kept as typed.
+ * Raquel, 2026-10-14: the acknowledgement said "Hi john".
+ */
+export function displayName(name: string): string {
+  return name
+    .trim()
+    .split(/\s+/)
+    .map((word) => {
+      if (/[a-z]/.test(word) && /[A-Z]/.test(word)) return word;
+      return word
+        .toLowerCase()
+        .split(/([-'’])/)
+        .map((part, i, parts) => {
+          if (!part || /^[-'’]$/.test(part)) return part;
+          // after an apostrophe only O' takes a capital (O'Brien, but not Paul's)
+          if (i > 0 && /^['’]$/.test(parts[i - 1]) && parts[i - 2] !== "o") return part;
+          if (/^mc[a-z]/.test(part)) return "Mc" + part.charAt(2).toUpperCase() + part.slice(3);
+          return part.charAt(0).toUpperCase() + part.slice(1);
+        })
+        .join("");
+    })
+    .join(" ");
+}
+
+/**
  * Confirms to the person who enquired that their message arrived, with the phone
  * number in case it is urgent. Best effort: a failure here must never fail the form.
  */
 export async function sendAcknowledgement(name: string, email: string): Promise<void> {
-  const first = name.trim().split(/\s+/)[0] || "there";
+  const first = displayName(name).split(" ")[0] || "there";
   const text = `Hi ${first},
 
 Thank you for contacting The Phone Mast Advice Company. This is a short note to confirm that your enquiry has reached us.
