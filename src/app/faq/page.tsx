@@ -160,7 +160,7 @@ export default function FAQPage() {
             Expert answers to the most common questions from UK landlords about phone mast leases, rent reviews, and the Electronic Communications Code.
           </p>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.92)", lineHeight: 1.65, marginTop: "1rem", marginBottom: 0 }}>
-            Start with our core guides: <a href="/phone-mast-lease-2026/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
+            Start with our core guides: <a href="/phone-mast-lease/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
           </p>
         </div>
       </section>

@@ -954,7 +954,7 @@ export default async function OperatorPage({
               marginBottom: 0,
             }}
           >
-            For the broader legal background, operator rights, and 2026 changes, start with our <a href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
+            For the broader legal background, operator rights, and 2026 changes, start with our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
           </p>
         </div>
       </section>

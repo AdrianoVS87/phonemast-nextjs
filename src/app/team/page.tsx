@@ -117,7 +117,7 @@ export default function TeamPage() {
             A dedicated team of specialist surveyors and advisors, acting exclusively for UK landlords since 1999.
           </p>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginTop: "1rem", marginBottom: 0 }}>
-            For the main guides our team supports, start with <a href="/phone-mast-lease-2026/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
+            For the main guides our team supports, start with <a href="/phone-mast-lease/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
           </p>
         </div>
       </section>
@@ -227,6 +227,11 @@ export default function TeamPage() {
                   {member.bio}
                 </p>
 
+                {member.name === "Matt Restall" && (
+                  <p style={{ margin: "0 0 1rem" }}>
+                    <a href="/team/matt-restall/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Read more about Matt</a>
+                  </p>
+                )}
                 {member.linkedin && (
                   <a
                     href={member.linkedin}

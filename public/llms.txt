@@ -11,8 +11,8 @@
 - Web: https://www.phonemastadvice.co.uk
 
 ## Core guides (start here)
-- Phone mast rent (how consideration is valued in 2026, no-network assumption, benchmarks, what you can charge on top): https://www.phonemastadvice.co.uk/phone-mast-rent-2026/
-- Phone mast lease (key Code clauses, break clauses, upgrade and sharing rights, renewals, 7 April 2026 changes): https://www.phonemastadvice.co.uk/phone-mast-lease-2026/
+- Phone mast rent (how consideration is valued in 2026, no-network assumption, benchmarks, what you can charge on top): https://www.phonemastadvice.co.uk/phone-mast-rent/
+- Phone mast lease (key Code clauses, break clauses, upgrade and sharing rights, renewals, 7 April 2026 changes): https://www.phonemastadvice.co.uk/phone-mast-lease/
 - FAQ: https://www.phonemastadvice.co.uk/faq/
 
 ## Services

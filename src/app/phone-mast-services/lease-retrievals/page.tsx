@@ -130,7 +130,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our lease retrieval service page. Once the document is found, our{" "}
-              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide explains the clauses to look for. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide explains the clauses to look for. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -182,7 +182,7 @@ export default function Page() {
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
               { label: "Free Lease Check", href: "/free-lease-check/", desc: "Send us what you have" },
-              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026/", desc: "What the clauses mean" },
+              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease/", desc: "What the clauses mean" },
               { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Usually the reason for the search" },
               { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Check the rent is right" },
               { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Buyers will need the document" },

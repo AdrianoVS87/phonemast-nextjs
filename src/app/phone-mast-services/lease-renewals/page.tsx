@@ -111,7 +111,7 @@ export default function Page() {
             Phone Mast Lease Renewals
           </h1>
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
-            Independent specialists helping UK landlords navigate lease renewals with every major mobile phone operator. This page is about our lease renewal service; for the broader legal background, see our <a href="/phone-mast-lease-2026/" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast lease advice page</a>.
+            Independent specialists helping UK landlords navigate lease renewals with every major mobile phone operator. This page is about our lease renewal service; for the broader legal background, see our <a href="/phone-mast-lease/" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast lease advice page</a>.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <Link href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
@@ -139,7 +139,7 @@ export default function Page() {
               Service page, not the broad explainer
             </p>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              This page is designed for landlords who already need hands-on renewal support. If you need the broader legal background first, use our <a href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast lease advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
+              This page is designed for landlords who already need hands-on renewal support. If you need the broader legal background first, use our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast lease advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -147,7 +147,7 @@ export default function Page() {
             What Is a Phone Mast Lease Renewal?
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            A lease renewal happens when your existing Phone Mast agreement comes to an end and the telecom operator wants to put a new lease in place. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve Heads of Terms for a new agreement, but these terms often offer lower rent than market value, use operator-friendly clauses, and reduce landlord protections. Professional advice ensures you don&apos;t accept terms that leave money or rights on the table. If you first need the broader legal context, read our <a href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
+            A lease renewal happens when your existing Phone Mast agreement comes to an end and the telecom operator wants to put a new lease in place. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve Heads of Terms for a new agreement, but these terms often offer lower rent than market value, use operator-friendly clauses, and reduce landlord protections. Professional advice ensures you don&apos;t accept terms that leave money or rights on the table. If you first need the broader legal context, read our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
@@ -190,7 +190,7 @@ export default function Page() {
             What Changed on 7 April 2026
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Sections 61 to 64 of the PSTI Act 2022 came into force, inserting Section 34A into the Landlord and Tenant Act 1954. Qualifying telecoms leases that renew under the 1954 Act are now valued on the Code&rsquo;s no-network basis, ending the open-market advantage that <em>Cornerstone v Compton Beauchamp</em> [2022] UKSC 18 had preserved for pre-2017 leases. Rent already received is not repayable, interim rent is split at 7 April 2026, and since 30 July 2026 new renewal proceedings for these leases go to the First-tier Tribunal and the Upper Tribunal instead of the courts. Our <a href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent guide</a> explains the valuation consequences in full.
+            Sections 61 to 64 of the PSTI Act 2022 came into force, inserting Section 34A into the Landlord and Tenant Act 1954. Qualifying telecoms leases that renew under the 1954 Act are now valued on the Code&rsquo;s no-network basis, ending the open-market advantage that <em>Cornerstone v Compton Beauchamp</em> [2022] UKSC 18 had preserved for pre-2017 leases. Rent already received is not repayable, interim rent is split at 7 April 2026, and since 30 July 2026 new renewal proceedings for these leases go to the First-tier Tribunal and the Upper Tribunal instead of the courts. Our <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent guide</a> explains the valuation consequences in full.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>

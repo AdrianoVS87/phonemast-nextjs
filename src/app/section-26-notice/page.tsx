@@ -257,7 +257,7 @@ export default function Page() {
             Sections 61 to 64 of the Product Security and Telecommunications Infrastructure Act 2022 came into force on 7 April 2026 and inserted <strong>Section 34A</strong> into the 1954 Act. It applies where the current lease is a pre-2017 &ldquo;subsisting agreement&rdquo; whose primary purpose is to confer code rights. The rent on renewal is then assessed on the assumption that the rights do not relate to the provision or use of an electronic communications network, mirroring the valuation basis of the Code. A new Section 34B allows the tenant to be ordered to pay compensation.
           </p>
           <p style={p}>
-            There are transitional rules. The old rules still apply where the new tenancy date in a Section 26 request, or the termination date in a Section 25 notice, fell before 7 April 2026. Where interim rent was applied for and runs from a date before 7 April 2026, it is calculated in two parts, before and after that date. Our <a href="/phone-mast-rent-2026/" style={link}>phone mast rent guide</a> explains what the no-network basis means in pounds.
+            There are transitional rules. The old rules still apply where the new tenancy date in a Section 26 request, or the termination date in a Section 25 notice, fell before 7 April 2026. Where interim rent was applied for and runs from a date before 7 April 2026, it is calculated in two parts, before and after that date. Our <a href="/phone-mast-rent/" style={link}>phone mast rent guide</a> explains what the no-network basis means in pounds.
           </p>
           <h3 style={h3}>30 July 2026: renewals move to the tribunals</h3>
           <p style={p}>

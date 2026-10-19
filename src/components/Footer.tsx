@@ -14,8 +14,8 @@ const services = [
 ];
 
 const guides = [
-  { label: "Phone Mast Rent 2026", href: "/phone-mast-rent-2026/" },
-  { label: "Phone Mast Lease 2026", href: "/phone-mast-lease-2026/" },
+  { label: "Phone Mast Rent", href: "/phone-mast-rent/" },
+  { label: "Phone Mast Lease", href: "/phone-mast-lease/" },
   { label: "Electronic Communications Code", href: "/electronic-communications-code/" },
   { label: "Section 26 Notices", href: "/section-26-notice/" },
   { label: "Phone Mast Solicitors", href: "/phone-mast-solicitors/" },

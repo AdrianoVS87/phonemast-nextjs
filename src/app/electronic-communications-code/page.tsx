@@ -231,7 +231,7 @@ export default function Page() {
             ]}
           />
           <p style={p}>
-            Together these strip out the value of the site to the phone network, so the rent reflects something much closer to the value of the land itself. In the Vache Farm case, <em>EE Ltd and Hutchison 3G UK Ltd v AP Wireless II (UK) Ltd</em> [2024] UKUT 216 (LC), the Upper Tribunal decided that the appropriate annual consideration for a standard rural mast site was <strong>£1,750</strong>. Rooftop and urban sites are assessed on their own facts. Our <a href="/phone-mast-rent-2026/" style={link}>phone mast rent guide</a> explains the valuation in detail.
+            Together these strip out the value of the site to the phone network, so the rent reflects something much closer to the value of the land itself. In the Vache Farm case, <em>EE Ltd and Hutchison 3G UK Ltd v AP Wireless II (UK) Ltd</em> [2024] UKUT 216 (LC), the Upper Tribunal decided that the appropriate annual consideration for a standard rural mast site was <strong>£1,750</strong>. Rooftop and urban sites are assessed on their own facts. Our <a href="/phone-mast-rent/" style={link}>phone mast rent guide</a> explains the valuation in detail.
           </p>
           <h3 style={h3}>Compensation and fees are separate</h3>
           <p style={p}>
@@ -293,7 +293,7 @@ export default function Page() {
             The transitional rules in Schedule 2 to the Digital Economy Act 2017 matter a great deal for older sites. Part 5 of the Code does not apply to a pre-2017 lease in England and Wales if it is a lease protected by Part 2 of the <strong>Landlord and Tenant Act 1954</strong> and it has not been contracted out. Those leases are renewed under the 1954 Act instead, as the Supreme Court confirmed in <em>Compton Beauchamp Estates Ltd v CTIL</em> [2022] UKSC 18, a case The Phone Mast Advice Company instigated and advised on.
           </p>
           <p style={p}>
-            That route has changed twice in 2026. Since <strong>7 April 2026</strong>, the rent on renewal of these leases is assessed on a no-network basis under the new Section 34A of the 1954 Act, unless the relevant date in the notice or request fell before 7 April 2026. Since <strong>30 July 2026</strong>, new renewal proceedings for these leases are heard by the First-tier Tribunal and the Upper Tribunal instead of the courts. If an operator has asked for a new tenancy, read our <a href="/section-26-notice/" style={link}>Section 26 notice guide</a> and our <a href="/phone-mast-lease-2026/" style={link}>phone mast lease guide</a>.
+            That route has changed twice in 2026. Since <strong>7 April 2026</strong>, the rent on renewal of these leases is assessed on a no-network basis under the new Section 34A of the 1954 Act, unless the relevant date in the notice or request fell before 7 April 2026. Since <strong>30 July 2026</strong>, new renewal proceedings for these leases are heard by the First-tier Tribunal and the Upper Tribunal instead of the courts. If an operator has asked for a new tenancy, read our <a href="/section-26-notice/" style={link}>Section 26 notice guide</a> and our <a href="/phone-mast-lease/" style={link}>phone mast lease guide</a>.
           </p>
 
           <h2 style={h2}>Which tribunal decides Code disputes?</h2>

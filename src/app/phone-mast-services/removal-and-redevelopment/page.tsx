@@ -130,7 +130,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our removal and redevelopment service page. For the legal framework behind every clause and notice mentioned here, read our{" "}
-              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -203,7 +203,7 @@ export default function Page() {
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
               { label: "Free Lease Check", href: "/free-lease-check/", desc: "Find out which regime applies" },
-              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026/", desc: "Paragraphs 21, 30, 31, and 40 explained" },
+              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease/", desc: "Paragraphs 21, 30, 31, and 40 explained" },
               { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "If you decide to keep the mast" },
               { label: "New Lettings", href: "/phone-mast-services/new-lettings/", desc: "Protecting plans from day one" },
               { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Selling the income instead" },

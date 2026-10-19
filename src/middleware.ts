@@ -47,8 +47,12 @@ const REDIRECTS: Record<string, string> = {
   "phone-mast-sales": "/phone-mast-services/mast-sales",
 
   // === Bare keyword slugs (common Google indexed, Ads sitelinks, or typed-in URLs) ===
-  "phone-mast-rent": "/phone-mast-rent-2026",
-  "phone-mast-lease": "/phone-mast-lease-2026",
+  // The two main guides moved from /phone-mast-rent-2026 and /phone-mast-lease-2026 on 19 Oct 2026.
+  "phone-mast-rent-2026": "/phone-mast-rent",
+  "phone-mast-lease-2026": "/phone-mast-lease",
+  // Two blog posts merged into the lease guide on 19 Oct 2026 (they competed with it for the same query).
+  "blog/what-is-a-phone-mast-lease": "/phone-mast-lease",
+  "blog/mastleaseagreements": "/phone-mast-lease",
   "phone-mast-advice": "/about-us",
   "phone-mast-lease-renewal": "/phone-mast-services/lease-renewals",
   "phone-mast-lease-renewals": "/phone-mast-services/lease-renewals",
@@ -127,7 +131,7 @@ const REDIRECTS: Record<string, string> = {
   "legal-safeguards": "/blog/legal-safeguards",
   "maple-house-landmark-cases": "/blog/maple-house-landmark-cases",
   "mast-sales-and-how-it-could-be-beneficial": "/blog/mast-sales-and-how-it-could-be-beneficial",
-  "mastleaseagreements": "/blog/mastleaseagreements",
+  "mastleaseagreements": "/phone-mast-lease",
   "mistakes-to-avoid-as-a-phone-mast-landlord": "/blog/mistakes-to-avoid-as-a-phone-mast-landlord",
   "obsolete-phone-mast-guide": "/blog/obsolete-phone-mast-guide",
   "operator-rights-to-access-your-electricity-supply":
@@ -161,9 +165,9 @@ const REDIRECTS: Record<string, string> = {
   "vache-farm-telecom-case": "/blog/vache-farm-telecom-case",
   "what-do-the-psti-act-2026-changes-mean-for-phone-mast-landlords":
     "/blog/what-do-the-psti-act-2026-changes-mean-for-phone-mast-landlords",
-  "what-is-a-phone-mast-lease": "/blog/what-is-a-phone-mast-lease",
+  "what-is-a-phone-mast-lease": "/phone-mast-lease",
   // Crawled by Google on 15 Sep 2026 and 404'd; nearest equivalent page.
-  "what-is-a-phone-mast": "/blog/what-is-a-phone-mast-lease",
+  "what-is-a-phone-mast": "/phone-mast-lease",
   "why-can-operators-force-a-mast": "/blog/why-can-operators-force-a-mast",
   "why-property-managers-are-turning-to-specialist-phone-mast-advisors-and-why-your-landlords-will-thank-you":
     "/blog/why-property-managers-are-turning-to-specialist-phone-mast-advisors-and-why-your-landlords-will-thank-you",

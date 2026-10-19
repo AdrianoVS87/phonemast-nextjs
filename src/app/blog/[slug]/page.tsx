@@ -90,8 +90,8 @@ export default async function BlogPostPage({ params }: Props) {
   // Auto-link key service terms to internal pages (first occurrence only)
   const serviceLinks: [RegExp, string, string][] = [
     [/(?<!<a[^>]*>)\bphone mast advice\b(?![^<]*<\/a>)/i, "/", "phone mast advice"],
-    [/(?<!<a[^>]*>)\bphone mast rent\b(?![^<]*<\/a>)/i, "/phone-mast-rent-2026", "phone mast rent"],
-    [/(?<!<a[^>]*>)\bphone mast lease\b(?![^<]*<\/a>)/i, "/phone-mast-lease-2026", "phone mast lease"],
+    [/(?<!<a[^>]*>)\bphone mast rent\b(?![^<]*<\/a>)/i, "/phone-mast-rent", "phone mast rent"],
+    [/(?<!<a[^>]*>)\bphone mast lease\b(?![^<]*<\/a>)/i, "/phone-mast-lease", "phone mast lease"],
     [/(?<!<a[^>]*>)\brent reviews?\b(?![^<]*<\/a>)/i, "/phone-mast-services/rent-reviews", "rent review"],
     [/(?<!<a[^>]*>)\blease renewals?\b(?![^<]*<\/a>)/i, "/phone-mast-services/lease-renewals", "lease renewal"],
     [/(?<!<a[^>]*>)\bnew lettings?\b(?![^<]*<\/a>)/i, "/phone-mast-services/new-lettings", "new letting"],
@@ -314,7 +314,7 @@ export default async function BlogPostPage({ params }: Props) {
                   Free Rent Estimate
                 </Link>
                 <Link
-                  href="/phone-mast-rent-2026/"
+                  href="/phone-mast-rent/"
                   style={{
                     display: "inline-flex",
                     alignItems: "center",
@@ -440,6 +440,8 @@ export default async function BlogPostPage({ params }: Props) {
             }}
           >
             {[
+              { label: "Phone Mast Lease", href: "/phone-mast-lease/", desc: "The 2026 guide to your lease" },
+              { label: "Phone Mast Rent", href: "/phone-mast-rent/", desc: "What operators pay in 2026" },
               { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Expert lease renewal negotiation" },
               { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Are you being underpaid?" },
               { label: "Free Lease Check", href: "/free-lease-check/", desc: "Check your lease for free" },

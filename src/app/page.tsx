@@ -243,8 +243,8 @@ export default async function HomePage() {
         <div className="container-max" style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem 1.25rem", alignItems: "center" }}>
           <p style={{ margin: 0, fontSize: "0.95rem", color: "#374151", fontWeight: 600 }}>Start with the right guide:</p>
           {[
-            { href: "/phone-mast-lease-2026/", label: "Phone Mast Lease Advice" },
-            { href: "/phone-mast-rent-2026/", label: "Phone Mast Rent Advice" },
+            { href: "/phone-mast-lease/", label: "Phone Mast Lease Advice" },
+            { href: "/phone-mast-rent/", label: "Phone Mast Rent Advice" },
             { href: "/phone-mast-services/lease-renewals/", label: "Lease Renewal Advice" },
             { href: "/phone-mast-services/rent-reviews/", label: "Rent Review Advice" },
           ].map((item) => (
@@ -499,7 +499,7 @@ Phone Mast Rent Advice
                 Understand how phone mast rent is valued, what changed in 2026, and when to escalate into a formal rent review or valuation dispute.
               </p>
               <a
-                href="/phone-mast-rent-2026/"
+                href="/phone-mast-rent/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
@@ -550,7 +550,7 @@ Phone Mast Lease Advice
                 Understand the key clauses in a phone mast lease, operator rights under the ECC, and when a renewal or legal review is needed.
               </p>
               <a
-                href="/phone-mast-lease-2026/"
+                href="/phone-mast-lease/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",

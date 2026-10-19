@@ -130,8 +130,8 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our mast sales service page. For the valuation background that drives every sale price, read our{" "}
-              <a href="/phone-mast-rent-2026/" style={link}>phone mast rent</a> guide; for the terms buyers will ask you to sign, see our{" "}
-              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guide; for the terms buyers will ask you to sign, see our{" "}
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -220,8 +220,8 @@ export default function Page() {
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
               { label: "Free Lease Check", href: "/free-lease-check/", desc: "We review your agreement for free" },
-              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent-2026/", desc: "How mast rent is valued in 2026" },
-              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease-2026/", desc: "Key clauses and operator rights" },
+              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent/", desc: "How mast rent is valued in 2026" },
+              { label: "Phone Mast Lease Guide", href: "/phone-mast-lease/", desc: "Key clauses and operator rights" },
               { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Increase the income before you sell" },
               { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Renewal advice under the Code" },
               { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },

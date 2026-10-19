@@ -145,7 +145,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This page explains who does what. For the legal background, read our{" "}
-              <a href="/phone-mast-lease-2026/" style={link}>phone mast lease</a> guide; if an operator wants to renew, see{" "}
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide; if an operator wants to renew, see{" "}
               <a href="/phone-mast-services/lease-renewals/" style={link}>lease renewals</a>. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>

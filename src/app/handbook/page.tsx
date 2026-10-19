@@ -209,7 +209,7 @@ export default function HandbookPage() {
                 Our free handbook covers everything you need to know as a UK phone mast landlord — from understanding your lease to knowing your rights under the Electronic Communications Code.
               </p>
               <p style={{ fontSize: "1.0625rem", color: "#4b5563", lineHeight: 1.7, marginBottom: "2.5rem" }}>
-                For focused online guidance, start with our <a href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a> pages.
+                For focused online guidance, start with our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a> pages.
               </p>
 
               <div

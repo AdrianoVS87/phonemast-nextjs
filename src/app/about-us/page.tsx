@@ -134,7 +134,7 @@ export default function AboutPage() {
             We are dedicated to all our clients, regardless of how many mobile Phone Mast sites they have. We aim to develop and maintain a friendly working relationship and ensure our clients feel well looked after and informed at every stage of the negotiations.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            If you are researching your options, start with our core <Link href="/phone-mast-lease-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</Link> and <Link href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</Link> guides before moving into a specific service page.
+            If you are researching your options, start with our core <Link href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</Link> and <Link href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</Link> guides before moving into a specific service page.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             Our goal is to obtain the most favourable lease terms for the client, as well as the highest rent achievable for their mobile phone masts, ensuring the landlord is happy. At the same time, we aim to maintain a good landlord and tenant relationship.

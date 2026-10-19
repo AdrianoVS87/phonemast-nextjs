@@ -212,18 +212,18 @@ export default function Header() {
                     <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem" }}>
                       2026 Updates
                     </span>
-                    <Link href="/phone-mast-rent-2026/" onClick={() => setServicesOpen(false)}
+                    <Link href="/phone-mast-rent/" onClick={() => setServicesOpen(false)}
                       style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "0.5rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f9f8f5", borderRadius: "8px", borderLeft: "3px solid #a4ca62", transition: "background 0.15s" }}
                       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f0efe8"; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}>
-                      <span style={{ fontWeight: 600 }}>Phone Mast Rent 2026</span>
+                      <span style={{ fontWeight: 600 }}>Phone Mast Rent</span>
                       <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>PSTI Act changes 7 April</span>
                     </Link>
-                    <Link href="/phone-mast-lease-2026/" onClick={() => setServicesOpen(false)}
+                    <Link href="/phone-mast-lease/" onClick={() => setServicesOpen(false)}
                       style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "1rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f9f8f5", borderRadius: "8px", borderLeft: "3px solid #a4ca62", transition: "background 0.15s" }}
                       onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f0efe8"; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}>
-                      <span style={{ fontWeight: 600 }}>Phone Mast Lease 2026</span>
+                      <span style={{ fontWeight: 600 }}>Phone Mast Lease</span>
                       <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>Code renewals explained</span>
                     </Link>
                     <Link href="/free-rent-estimate/" onClick={() => setServicesOpen(false)}
@@ -407,13 +407,13 @@ export default function Header() {
                       )}
                     </div>
                   ))}
-                  <Link href="/phone-mast-rent-2026/" onClick={() => setMobileOpen(false)}
+                  <Link href="/phone-mast-rent/" onClick={() => setMobileOpen(false)}
                     style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
-                    Phone Mast Rent 2026
+                    Phone Mast Rent
                   </Link>
-                  <Link href="/phone-mast-lease-2026/" onClick={() => setMobileOpen(false)}
+                  <Link href="/phone-mast-lease/" onClick={() => setMobileOpen(false)}
                     style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
-                    Phone Mast Lease 2026
+                    Phone Mast Lease
                   </Link>
                 </div>
               )}

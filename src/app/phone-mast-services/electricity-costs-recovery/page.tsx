@@ -130,7 +130,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our electricity costs recovery service page. Electricity is one of several sums you can recover on top of the rent; our{" "}
-              <a href="/phone-mast-rent-2026/" style={link}>phone mast rent</a> guide lists the others. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guide lists the others. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -184,7 +184,7 @@ export default function Page() {
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
             {[
               { label: "Free Lease Check", href: "/free-lease-check/", desc: "We check what your agreement says about power" },
-              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent-2026/", desc: "Everything recoverable on top of rent" },
+              { label: "Phone Mast Rent Guide", href: "/phone-mast-rent/", desc: "Everything recoverable on top of rent" },
               { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Fix the rent at the same time" },
               { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Write the fix into the new lease" },
               { label: "Other Services", href: "/phone-mast-services/other-services/", desc: "Wayleaves, breaches, site audits" },

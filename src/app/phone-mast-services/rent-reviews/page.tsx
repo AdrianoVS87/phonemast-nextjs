@@ -73,7 +73,7 @@ export default function RentReviewsPage() {
             Phone Mast Rent Reviews
           </h1>
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
-            Independent rent review specialists acting exclusively for UK landlords. This page is about our rent review service; for the main background guide, see our <a href="/phone-mast-rent-2026/" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast rent advice page</a>.
+            Independent rent review specialists acting exclusively for UK landlords. This page is about our rent review service; for the main background guide, see our <a href="/phone-mast-rent/" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast rent advice page</a>.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <Link href="/free-rent-estimate/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
@@ -98,7 +98,7 @@ export default function RentReviewsPage() {
               Service page, backed by the main valuation guide
             </p>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              This page is for landlords who want practical negotiation support now. For the broader valuation and legal background, use our <a href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast rent advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
+              This page is for landlords who want practical negotiation support now. For the broader valuation and legal background, use our <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast rent advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -106,7 +106,7 @@ export default function RentReviewsPage() {
             What Is a Phone Mast Rent Review?
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            A Phone Mast rent review is a formal reassessment of the rent you receive under your telecom lease. Typically triggered every 3–5 years (or as specified in your lease), the review ensures your rent reflects current market rates, accounts for technological or operator changes, and maximises income for the duration of the lease. Operators sometimes propose reduced rents or try to avoid paying increases — expert advice ensures your rent reflects your land&apos;s true value. If you first need the broader legal and valuation background, read our <a href="/phone-mast-rent-2026/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice guide</a>.
+            A Phone Mast rent review is a formal reassessment of the rent you receive under your telecom lease. Typically triggered every 3–5 years (or as specified in your lease), the review ensures your rent reflects current market rates, accounts for technological or operator changes, and maximises income for the duration of the lease. Operators sometimes propose reduced rents or try to avoid paying increases — expert advice ensures your rent reflects your land&apos;s true value. If you first need the broader legal and valuation background, read our <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice guide</a>.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
