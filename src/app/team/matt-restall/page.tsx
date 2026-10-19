@@ -6,7 +6,7 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata: Metadata = {
-  title: "Matt Restall, Founder | Phone Mast Advice",
+  title: { absolute: "Matt Restall, Founder | Phone Mast Advice" },
   description:
     "Matt Restall founded The Phone Mast Advice Company and has advised UK landlords on phone mast leases, rents and renewals for over 30 years. He instigated and advised on Compton Beauchamp Estates v CTIL [2022] UKSC 18.",
   alternates: { canonical: "https://www.phonemastadvice.co.uk/team/matt-restall/" },
