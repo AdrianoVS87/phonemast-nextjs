@@ -16,9 +16,10 @@ export interface LeadRow {
   email?: string;
   phone?: string;
   detail?: string; // refusal reason codes, Resend ID, lead ID
+  clickId?: string; // "gclid=..." / "gbraid=..." / "wbraid=..." when the visitor came from a Google ad
 }
 
-const SHEET_RANGE = "Leads!A:I";
+const SHEET_RANGE = "Leads!A:J";
 const TIMEOUT_MS = 6_000;
 
 interface ServiceAccount {
@@ -84,7 +85,8 @@ export async function appendLeadRow(row: LeadRow): Promise<void> {
       row.email ?? "",
       row.phone ?? "",
       row.detail ?? "",
-      "", // follow-up status, filled in by the office
+      "", // follow-up status, filled in by the office (qualified / junk / no answer)
+      row.clickId ?? "", // read by ads_upload_qualified.py to report qualified enquiries to Google Ads
     ]];
     const url =
       `https://sheets.googleapis.com/v4/spreadsheets/${encodeURIComponent(sheetId)}/values/` +

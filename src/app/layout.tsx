@@ -11,6 +11,7 @@ import ConsentDefault from "@/components/analytics/ConsentDefault";
 import GoogleScripts from "@/components/analytics/GoogleScripts";
 import GoogleTagManager, { GoogleTagManagerNoscript } from "@/components/analytics/GoogleTagManager";
 import ConsentBanner from "@/components/consent/ConsentBanner";
+import ClickIdCapture from "@/components/analytics/ClickIdCapture";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -104,6 +105,7 @@ export default function RootLayout({
         <WhatsAppButton />
         <ConsentBanner />
         <HandbookPopupGate />
+        <ClickIdCapture />
       </body>
     </html>
   );

@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { sendHandbookEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
+import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
 
 export default function HandbookForm() {
@@ -26,6 +27,7 @@ export default function HandbookForm() {
       phone: get("phone"),
       _trap: get("_trap"),
       _token: await getToken(),
+      clickId: getClickId(),
     };
 
     const result = await sendHandbookEmail(data, "/handbook");

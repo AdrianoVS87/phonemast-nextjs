@@ -20,6 +20,8 @@ export interface LeadFormData {
   _trap?: string;
   // Anti-spam token issued when the form mounted (see src/lib/spamGuard.ts)
   _token?: string;
+  // Google Ads click ID from the landing URL, for the lead log (see src/lib/clickId.ts)
+  clickId?: string;
 }
 
 export interface HandbookFormData {
@@ -28,6 +30,7 @@ export interface HandbookFormData {
   phone: string;
   _trap?: string;
   _token?: string;
+  clickId?: string;
 }
 
 export interface FormResult {
@@ -65,7 +68,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
   if (screen.action !== "send") {
     logBlocked(data.formType, screen);
     if (screen.action === "drop") return { success: true };
-    await appendLeadRow({ source: "website", form: data.formType, status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason });
+    await appendLeadRow({ source: "website", form: data.formType, status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId });
     return { success: false, error: screen.message };
   }
 
@@ -139,7 +142,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
       console.error("Resend API error (sendLeadEmail):", JSON.stringify(error));
       await Promise.allSettled([
         sendMonitorPing(formTitle, false),
-        appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error" }),
+        appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error", clickId: data.clickId }),
       ]);
       return {
         success: false,
@@ -151,14 +154,14 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
     await Promise.allSettled([
       sendAcknowledgement(data.name, data.email),
       sendMonitorPing(formTitle, true, sent?.id),
-      appendLeadRow({ source: "website", form: data.formType, status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id }),
+      appendLeadRow({ source: "website", form: data.formType, status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id, clickId: data.clickId }),
     ]);
     return { success: true, id: sent?.id };
   } catch (error) {
     console.error("Exception in sendLeadEmail:", error);
     await Promise.allSettled([
       sendMonitorPing(formTitle, false),
-      appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception" }),
+      appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId }),
     ]);
     return {
       success: false,
@@ -292,7 +295,7 @@ export async function sendHandbookEmail(
   if (screen.action !== "send") {
     logBlocked("handbook", screen);
     if (screen.action === "drop") return { success: true };
-    await appendLeadRow({ source: "website", form: "handbook", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason });
+    await appendLeadRow({ source: "website", form: "handbook", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId });
     return { success: false, error: screen.message };
   }
 
@@ -342,13 +345,13 @@ export async function sendHandbookEmail(
     }
     await Promise.allSettled([
       sendMonitorPing("Handbook download", !error),
-      appendLeadRow({ source: "website", form: `handbook (${source})`, status: error ? "failed" : "sent", name: data.name, email: data.email, phone: data.phone, detail: userMailId }),
+      appendLeadRow({ source: "website", form: `handbook (${source})`, status: error ? "failed" : "sent", name: data.name, email: data.email, phone: data.phone, detail: userMailId, clickId: data.clickId }),
     ]);
   } catch (error) {
     console.error("Exception notifying Matt of handbook lead:", error);
     await Promise.allSettled([
       sendMonitorPing("Handbook download", false),
-      appendLeadRow({ source: "website", form: `handbook (${source})`, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception" }),
+      appendLeadRow({ source: "website", form: `handbook (${source})`, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId }),
     ]);
   }
 

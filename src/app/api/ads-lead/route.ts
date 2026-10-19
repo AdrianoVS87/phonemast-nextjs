@@ -23,6 +23,7 @@ interface AdsLeadPayload {
   is_test?: boolean;
   campaign_id?: number | string;
   form_id?: number | string;
+  gcl_id?: string;
   user_column_data?: AdsLeadColumn[];
 }
 
@@ -111,6 +112,7 @@ export async function POST(req: Request) {
         : appendLeadRow({
             source: "google-ads-form", form: "Free Consultation (advert)", status: "sent", name, email,
             phone: value("PHONE_NUMBER"), detail: `lead ${payload.lead_id ?? "n/a"}; ${sent?.id ?? ""}`,
+            clickId: payload.gcl_id ? `gclid=${payload.gcl_id}` : undefined,
           }),
     ]);
     return NextResponse.json({});

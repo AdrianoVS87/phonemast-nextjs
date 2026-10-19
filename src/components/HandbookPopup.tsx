@@ -3,6 +3,7 @@
 import { useCallback, useEffect, useId, useRef, useState } from "react";
 import { sendHandbookEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
+import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
 
 type Status = "idle" | "sending" | "success" | "error";
@@ -68,6 +69,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
           phone: get("phone"),
           _trap: get("_trap"),
           _token: await getToken(),
+          clickId: getClickId(),
         },
         source,
       );

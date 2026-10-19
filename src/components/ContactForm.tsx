@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { sendContactEmail } from "@/app/actions/sendContact";
 import { fireConversion } from "@/lib/gtagConversion";
+import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
 
 export default function ContactForm() {
@@ -24,6 +25,7 @@ export default function ContactForm() {
       message: (form.elements.namedItem("message") as HTMLTextAreaElement).value,
       _trap: (form.elements.namedItem("_trap") as HTMLInputElement)?.value ?? "",
       _token: await getToken(),
+      clickId: getClickId(),
     };
 
     const result = await sendContactEmail(data);

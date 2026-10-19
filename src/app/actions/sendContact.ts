@@ -16,6 +16,8 @@ export interface ContactFormData {
   _trap?: string;
   // Anti-spam token issued when the form mounted (see src/lib/spamGuard.ts)
   _token?: string;
+  // Google Ads click ID from the landing URL, for the lead log (see src/lib/clickId.ts)
+  clickId?: string;
 }
 
 export interface FormResult {
@@ -49,7 +51,7 @@ export async function sendContactEmail(
     logBlocked("contact form", screen);
     if (screen.action === "drop") return { success: true };
     // Refused with a message: logged with the person's details so a wrong refusal can be called back.
-    await appendLeadRow({ source: "website", form: "contact", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason });
+    await appendLeadRow({ source: "website", form: "contact", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId });
     return { success: false, error: screen.message };
   }
 
@@ -95,7 +97,7 @@ export async function sendContactEmail(
       console.error("Resend API error (sendContactEmail):", JSON.stringify(error));
       await Promise.allSettled([
         sendMonitorPing("Contact form enquiry", false),
-        appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error" }),
+        appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error", clickId: data.clickId }),
       ]);
       return {
         success: false,
@@ -107,14 +109,14 @@ export async function sendContactEmail(
     await Promise.allSettled([
       sendAcknowledgement(data.name, data.email),
       sendMonitorPing("Contact form enquiry", true, sent?.id),
-      appendLeadRow({ source: "website", form: "contact", status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id }),
+      appendLeadRow({ source: "website", form: "contact", status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id, clickId: data.clickId }),
     ]);
     return { success: true, id: sent?.id };
   } catch (error) {
     console.error("Exception in sendContactEmail:", error);
     await Promise.allSettled([
       sendMonitorPing("Contact form enquiry", false),
-      appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception" }),
+      appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId }),
     ]);
     return {
       success: false,

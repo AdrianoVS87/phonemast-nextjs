@@ -3,6 +3,7 @@
 import { useState, useRef } from "react";
 import { sendLeadEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
+import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
 
 const OPERATORS = [
@@ -59,6 +60,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
       formType,
       _trap: get("_trap"),
       _token: await getToken(),
+      clickId: getClickId(),
     };
 
     const result = await sendLeadEmail(data);
