@@ -56,6 +56,13 @@ export async function POST(req: Request) {
     value("FULL_NAME") || [value("FIRST_NAME"), value("LAST_NAME")].filter(Boolean).join(" ") || "Unknown";
   const email = value("EMAIL");
   const kind = payload.is_test ? "TEST Google Ads lead form" : "Google Ads lead form";
+  // Everything beyond the contact fields (the qualifying question's answer, "Phone Number Verified") goes to the
+  // lead log too, so the office can see at a glance whether the lead said they have a mast.
+  const CONTACT_FIELDS = new Set(["FULL_NAME", "FIRST_NAME", "LAST_NAME", "EMAIL", "PHONE_NUMBER"]);
+  const answers = columns
+    .filter((c) => !CONTACT_FIELDS.has(c.column_id ?? ""))
+    .map((c) => `${c.column_name || c.column_id}: ${c.string_value}`)
+    .join("; ");
 
   const rows = columns
     .map(
@@ -111,7 +118,8 @@ export async function POST(req: Request) {
         ? Promise.resolve()
         : appendLeadRow({
             source: "google-ads-form", form: "Free Consultation (advert)", status: "sent", name, email,
-            phone: value("PHONE_NUMBER"), detail: `lead ${payload.lead_id ?? "n/a"}; ${sent?.id ?? ""}`,
+            phone: value("PHONE_NUMBER"),
+            detail: [answers, `lead ${payload.lead_id ?? "n/a"}`, sent?.id ?? ""].filter(Boolean).join("; "),
             clickId: payload.gcl_id ? `gclid=${payload.gcl_id}` : undefined,
           }),
     ]);
