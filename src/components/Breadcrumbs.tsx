@@ -18,7 +18,8 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      item: `https://www.phonemastadvice.co.uk${item.href ?? ""}`,
+      // The current page is the last crumb and has no link: schema.org lets it omit `item`.
+      ...(item.href ? { item: `https://www.phonemastadvice.co.uk${item.href}` } : {}),
     })),
   };
 
