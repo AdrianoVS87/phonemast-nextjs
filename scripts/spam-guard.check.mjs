@@ -1,5 +1,5 @@
-// Behavioural check for src/lib/spamGuard.ts. Run: node scripts/spam-guard.check.mjs
-import { checkToken, issueToken, screenSubmission } from "../src/lib/spamGuard.ts";
+// Behavioural check for src/lib/spamGuard.ts. Run: node --experimental-strip-types scripts/spam-guard.check.mjs
+import { checkToken, isDotTrickEmail, isLocationReference, issueToken, screenSubmission, withoutMapLinks } from "../src/lib/spamGuard.ts";
 
 let failures = 0;
 const expect = (label, got, want) => {
@@ -34,6 +34,29 @@ expect("link spam", screenSubmission({ name: "Best SEO", email: "a@b.co", messag
 const spam2 = { name: "ndilwaCWONNNMPGERLpAML", email: "farmerbunch@verizon.net", message: "OMFNtXRlJsXlhxGIZFqDz", address: "9642060523", currentRent: "BZTpfGuaRDXASRxjjfnTdJcx", token };
 expect("10 Oct rent-estimate spam", screenSubmission(spam2, later).reason, "name:random,message:gibberish,address:no-letters,rent:gibberish");
 
+// variants of those bots stay refused, however a single field is dressed up
+const refusedBy = (fields) => screenSubmission({ name: "Jane Doe", email: "jane@doe.co.uk", token, ...fields }, later).reason;
+const stillRefused = [
+  ["bot digits as address", { address: "9642060523" }, "address:no-letters"],
+  ["bot digits as message", { message: "9272704595" }, "message:no-letters"],
+  ["bot letters as message", { message: "OMFNtXRlJsXlhxGIZFqDz" }, "message:gibberish"],
+  ["bot letters as rent", { currentRent: "BZTpfGuaRDXASRxjjfnTdJcx" }, "rent:gibberish"],
+  ["bot name", { name: "ndilwaCWONNNMPGERLpAML" }, "name:random"],
+  ["dot-trick email, 8 dots", { email: "ng.u.y.enn.a.t.han.51.4@gmail.com" }, "email:dots"],
+  ["dot-trick email, 6 dots", { email: "a.b.c.d.e.f.g@gmail.com" }, "email:dots"],
+  ["phone number as address", { address: "01691 791543" }, "address:no-letters"],
+  ["two digit strings as address", { address: "964206 052312" }, "address:no-letters"],
+  ["10 digits split as address", { address: "96420 60523" }, "address:no-letters"],
+  ["decimals outside the UK", { address: "12.3456, 98.7654" }, "address:no-letters"],
+  ["lat/long swapped", { address: "-3.0543, 52.8557" }, "address:no-letters"],
+  ["gibberish link", { message: "see https://evil.com/OMFNtXRlJsXlhxGIZFqDz" }, "message:gibberish"],
+  ["look-alike host", { message: "https://maps.app.goo.gl.evil.com/OMFNtXRlJsXlhxGIZFqDz" }, "message:gibberish"],
+  ["map host inside a path", { message: "https://evil.com/maps.app.goo.gl/OMFNtXRlJsXlhxGIZFqDz" }, "message:gibberish"],
+  ["gibberish beside a map link", { message: "https://maps.app.goo.gl/XyZaBcDeFgHiJkLmN OMFNtXRlJsXlhxGIZFqDz" }, "message:gibberish"],
+  ["three other links beside a map link", { message: "http://x.com http://y.com http://z.com https://maps.app.goo.gl/abc" }, "message:links"],
+];
+for (const [label, fields, reason] of stillRefused) expect(`refused: ${label}`, refusedBy(fields), reason);
+
 // real people must pass
 const people = [
   ["John Smith", "john.smith@gmail.com", "Hi, we have a Vodafone mast on our farm and the lease ends in 2027. Can you help?"],
@@ -61,6 +84,38 @@ expect("person: rent estimate with address", screenSubmission({ name: "Jane Doe"
 for (const [name, email, message] of people) {
   expect(`person: ${name}`, screenSubmission({ name, email, message, token }, later), { action: "send" });
 }
+// sites given the way rural owners give them (audit 1.4), through the real function
+const site = (fields) => screenSubmission({ name: "Jane Doe", email: "jane@doe.co.uk", token, ...fields }, later);
+const sites = [
+  ["Maps short link in message", { message: "https://maps.app.goo.gl/XyZaBcDeFgHiJkLmN" }],
+  ["Maps short link with text", { message: "The mast is here: https://maps.app.goo.gl/XyZaBcDeFgHiJkLmN?g_st=ic thanks" }],
+  ["Maps short link in address", { address: "https://maps.app.goo.gl/XyZaBcDeFgHiJkLmN" }],
+  ["Maps link without https", { address: "maps.app.goo.gl/XyZaBcDeFgHiJkLmN" }],
+  ["older goo.gl Maps link", { message: "https://goo.gl/maps/XyZaBcDeFgHiJkLmN" }],
+  ["long Google Maps link", { message: "https://www.google.com/maps/place/52.8557,-3.0543/@52.8557,-3.0543,17z/data=!3m1!4b1" }],
+  ["Google Maps co.uk link", { message: "https://www.google.co.uk/maps/@52.8557,-3.0543,17z?entry=XyZaBcDeFgHiJkLmN" }],
+  ["three map links", { message: "https://maps.app.goo.gl/aB1 https://maps.app.goo.gl/cD2 https://maps.app.goo.gl/eF3" }],
+  ["lat/long", { address: "52.8557, -3.0543" }],
+  ["lat/long, slash", { address: "52.8557/-3.0543" }],
+  ["lat/long, no comma", { address: "52.8557 -3.0543" }],
+  ["lat/long, east of Greenwich", { address: "52.6309, 1.2974" }],
+  ["lat/long with letters", { address: "52.8557 N, 3.0543 W" }],
+  ["lat/long as message", { message: "52.8557, -3.0543" }],
+  ["grid reference, numbers", { address: "332145 / 330215" }],
+  ["grid reference, comma", { address: "332145, 330215" }],
+  ["grid reference, space", { address: "332145 330215" }],
+  ["grid reference as message", { message: "332145 / 330215" }],
+  ["grid reference, letters", { address: "SJ 321 451" }],
+  ["grid reference, letters, no spaces", { address: "SJ3214533021" }],
+  ["four-dot email", { email: "a.b.c.d.e@example.com" }],
+  ["five-dot email", { email: "mr.j.p.a.jones.farm@btinternet.com" }],
+];
+for (const [label, fields] of sites) expect(`site: ${label}`, site(fields), { action: "send" });
+expect("helper: map link removed", withoutMapLinks("see https://maps.app.goo.gl/XyZ please").trim().replace(/\s+/g, " "), "see please");
+expect("helper: other link kept", withoutMapLinks("https://evil.com/XyZ"), "https://evil.com/XyZ");
+expect("helper: bot digits are no location", isLocationReference("9642060523"), false);
+expect("helper: four dots are fine", isDotTrickEmail("a.b.c.d.e@example.com"), false);
+
 // handbook form has no message field
 expect("handbook (no message)", screenSubmission({ name: "Mary Evans", email: "mary@evans.net", token }, later), { action: "send" });
 
