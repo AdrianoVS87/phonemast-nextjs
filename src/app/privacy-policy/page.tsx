@@ -54,7 +54,7 @@ export default function PrivacyPolicyPage() {
             Privacy Policy
           </h1>
           <p style={{ fontSize: "1rem", color: "#6b7280", marginBottom: "2rem" }}>
-            Last updated: March 2025
+            Last updated: [DATE TO BE CONFIRMED BY THE FIRM]
           </p>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
@@ -75,6 +75,7 @@ Property information: details of land or property you own or manage, phone mast 
 Communication data: records of correspondence between you and us, including enquiry forms, emails, and phone calls
 Technical data: IP addresses, browser type, device information, and website usage data collected via cookies and similar technologies (see our Cookie Policy)
 Financial data: information relevant to rent reviews or fee arrangements, where provided
+Advertising data: the Google click identifier in the web address, if you reached our website by clicking a Google advert
 
 We do not collect special category data (such as health, ethnic origin, or criminal records) unless you specifically provide it in connection with a service request.`,
             },
@@ -82,7 +83,8 @@ We do not collect special category data (such as health, ethnic origin, or crimi
               heading: "3. How We Collect Personal Data",
               content: `We collect personal data:
 
-• When you complete a contact form, enquiry form, or free rent estimate/lease check form on our website
+• When you complete a contact form, enquiry form, handbook form, or free rent estimate/lease check form on our website
+• When you complete a Google Ads lead form
 • When you contact us by telephone, email, or WhatsApp
 • When you engage our professional services
 • Through website analytics and cookies (with your consent where required)
@@ -95,13 +97,18 @@ We do not collect special category data (such as health, ethnic origin, or crimi
 Contract: to provide the professional services you have requested or to take steps at your request prior to entering a contract
 Legitimate interests: to manage our business, respond to enquiries, improve our services, and protect our legal interests — where these are not overridden by your rights
 Legal obligation: where we are required to process data to comply with applicable law
-Consent: for marketing communications (where you have opted in) and non-essential cookies`,
+Consent: for marketing communications (where you have opted in) and non-essential cookies
+
+Lead log, acknowledgement emails, click identifier storage, and sending hashed identifiers to Google: [LEGAL BASIS TO BE CONFIRMED BY THE FIRM]`,
             },
             {
               heading: "5. How We Use Your Data",
               content: `We use your personal data to:
 
 • Respond to enquiries and provide advice and professional services
+• Send an automatic email acknowledging your enquiry
+• Keep a log of enquiries so that we can follow them up
+• Measure which of our adverts lead to genuine enquiries
 • Manage our client relationships and case files
 • Send you information about our services (where you have consented)
 • Improve our website and user experience
@@ -113,14 +120,20 @@ Consent: for marketing communications (where you have opted in) and non-essentia
               content: `We do not sell your personal data to third parties. We may share your data with:
 
 • Professional advisors and solicitors acting in connection with your instructions
-• Our technology and service providers (e.g. email, website hosting, analytics) who process data on our behalf under data processing agreements
+• Our technology and service providers (e.g. email, website hosting, analytics) who process data on our behalf under data processing agreements, including Resend (email delivery) and Google (lead log, analytics and advertising measurement)
 • Regulatory authorities or law enforcement, where required by law
 
 All third parties are required to keep your information confidential and to process it only for the purposes we specify.`,
             },
             {
               heading: "7. Data Retention",
-              content: `We retain personal data for as long as necessary to provide our services and to comply with our legal obligations. For client files, we typically retain data for six years after the conclusion of instructions, in accordance with standard professional practice. Website enquiry data that does not result in an engagement is retained for a shorter period. You may request deletion of your data at any time (subject to our legal obligations).`,
+              content: `We retain personal data for as long as necessary to provide our services and to comply with our legal obligations. For client files, we typically retain data for six years after the conclusion of instructions, in accordance with standard professional practice. Website enquiry data that does not result in an engagement is retained for [RETENTION PERIOD TO BE CONFIRMED BY THE FIRM].
+
+Lead log entries, including those for submissions refused by our spam filter: [RETENTION PERIOD TO BE CONFIRMED BY THE FIRM].
+
+Google Analytics and Google Ads data: [RETENTION PERIOD TO BE CONFIRMED BY THE FIRM].
+
+You may request deletion of your data at any time (subject to our legal obligations).`,
             },
             {
               heading: "8. Your Rights",
@@ -161,16 +174,31 @@ We would, however, appreciate the opportunity to resolve any concerns directly �
             },
             {
               heading: "13. Google Advertising Services",
-              content: `We use Google Ads and related Google advertising services to deliver relevant advertisements. When you consent via our cookie banner, the following may apply:
+              content: `We use the Google tag, Google Analytics 4 (GA4), Google Ads and related Google advertising services to measure our website and deliver relevant advertisements. Our Cookie Policy explains how these work. When you consent via our cookie banner, the following may apply:
 
 • Ads personalisation: Google may use cookies and mobile advertising identifiers to serve personalised advertisements based on your browsing activity on our website and across the web.
-• Non-personalised advertising: Even without full consent, limited cookies may be used for frequency capping, aggregated ad reporting, and combating fraud and abuse.
+• Non-personalised advertising: Without your consent, advertising cookies are not set, but limited cookieless signals may be sent to Google for aggregated ad reporting and combating fraud and abuse.
 • Remarketing: If you have previously visited our website, Google may show you our advertisements on other websites you visit (remarketing/retargeting).
 • Conversion measurement: We use Google Ads conversion tracking to understand how effective our advertising campaigns are. This involves a cookie being placed when you click on one of our ads.
+
+The following applies whether or not you consent via our cookie banner:
+
+• Click identifier: If you reach our website by clicking a Google advert, the click identifier is kept in your browser for that session and stored with your enquiry if you submit a form. Our Cookie Policy explains this.
+• Measuring enquiries: When our office confirms that an enquiry was genuine, we may report that to Google, with the click identifier and hashed versions of your email address and telephone number, so that we can measure which adverts lead to genuine enquiries. Hashing replaces each value with a fixed code before it is sent, which Google can compare with codes it already holds.
+
+Legal basis for the two points above: [LEGAL BASIS TO BE CONFIRMED BY THE FIRM].
 
 You can manage your Google advertising preferences and opt out of personalised ads at any time by visiting Google Ads Settings: https://adssettings.google.com
 
 For more information about how Google collects and processes your data when you use our website, please visit Google's Business Data Responsibility Site: https://business.safety.google/privacy/`,
+            },
+            {
+              heading: "14. Lead Log and Acknowledgement Emails",
+              content: `Lead log: we record website and Google Ads form enquiries in a log kept in a Google Sheet. Each entry holds the date and time, where the enquiry came from, the form used, whether it was sent, your name, email address and telephone number, your answer on whether you already have a mast, the Google click identifier if there is one, and our follow-up status.
+
+If our spam filter refuses a submission, we log it with the reason and the address and message you entered (up to 300 characters each), so that we can contact you if the refusal was a mistake.
+
+Acknowledgement emails: when we receive an enquiry through our website, we automatically send a short acknowledgement to the email address you gave.`,
             },
           ].map((section, i) => (
             <div key={i} style={{ marginBottom: "2rem" }}>

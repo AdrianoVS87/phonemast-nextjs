@@ -51,7 +51,7 @@ export default function CookiePolicyPage() {
             Cookie Policy
           </h1>
           <p style={{ fontSize: "1rem", color: "#6b7280", marginBottom: "2rem" }}>
-            Last updated: March 2025
+            Last updated: [DATE TO BE CONFIRMED BY THE FIRM]
           </p>
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
@@ -75,12 +75,16 @@ Essential/Strictly Necessary Cookies
 These cookies are required for the website to function correctly. They enable core functionality such as page navigation and access to secure areas. The website cannot function properly without these cookies, and they cannot be disabled.
 
 Analytics Cookies
-We use analytics cookies (such as Google Analytics) to understand how visitors use our website — which pages are visited, how long visitors stay, and what content is most useful. This helps us improve the site. These cookies collect information in an anonymised and aggregated form.
+With your consent, we use Google Analytics 4 (GA4) to understand how visitors use our website — which pages are visited, how long visitors stay, and what content is most useful. This helps us improve the site.
 
 Functional Cookies
 Functional cookies allow the website to remember choices you make (such as language preferences) and provide enhanced, more personalised features.
 
-We do not currently use advertising or targeting cookies on this website.`,
+Advertising Cookies
+With your consent, we use advertising cookies for Google Ads, including to measure which of our adverts lead to enquiries. See section 5.
+
+The Google Tag
+Our website loads the Google tag and Google Tag Manager on every page, including before you make a cookie choice. Until you accept, they run with consent denied: analytics and advertising cookies are not set, but limited cookieless signals may be sent to Google.`,
             },
             {
               heading: "3. Specific Cookies We Use",
@@ -91,7 +95,14 @@ Essential Cookies
 • Security cookies to prevent cross-site request forgery
 
 Analytics Cookies (with your consent)
-• Google Analytics cookies (_ga, _gid) — used to distinguish users and track sessions. Data is anonymised. Duration: up to 2 years.
+• Google Analytics 4 cookies (_ga, _ga_*) — used to distinguish users and track sessions. Duration: up to 2 years.
+
+Advertising Cookies (with your consent)
+• Listed in section 5.
+
+Browser Storage (not cookies)
+• Your cookie choice — kept in your browser's local storage so that we can remember it.
+• Google click identifier — see section 5.
 
 We review our cookie usage periodically and update this policy accordingly.`,
             },
@@ -101,7 +112,7 @@ We review our cookie usage periodically and update this policy accordingly.`,
 
 • Accept all cookies
 • Reject non-essential cookies (only strictly necessary cookies will be set)
-• Manage your preferences through your browser settings
+• Manage your preferences at any time through the "Manage cookies" link in our website footer
 
 You can also control and delete cookies at any time through your browser settings. The following links provide guidance for common browsers:
 
@@ -116,11 +127,14 @@ Please note that restricting cookies may affect the functionality of our website
               heading: "5. Advertising / Marketing Cookies",
               content: `These cookies are used for personalised and non-personalised advertising when you have consented via our cookie banner.
 
-• _gcl_au, _gcl_aw — Google Ads conversion tracking. Measures the effectiveness of our Google Ads campaigns. Provider: Google. Duration: up to 90 days.
+• _gcl_au, _gcl_aw, _gcl_gb — Google Ads conversion tracking. Measures the effectiveness of our Google Ads campaigns. Provider: Google. Duration: up to 90 days.
 • IDE, test_cookie — Google Ads remarketing via Google DoubleClick. Shows our advertisements on other websites you visit. Provider: Google. Duration: up to 13 months.
 • _gads, _gpi — Google ad preferences and frequency capping. Provider: Google. Duration: up to 13 months.
 
 If you reject or only allow essential cookies, these advertising cookies will NOT be set and Google's Consent Mode will fall back to limited, cookieless signals (used for aggregated ad reporting and fraud prevention only — this is Google's "non-personalised advertising" mode).
+
+Google click identifier
+If you reach our website by clicking a Google advert, the web address contains a click identifier (gclid, gbraid or wbraid). Our website keeps this in your browser's session storage until you close the tab, whether or not you accept advertising cookies. If you accepted advertising cookies, it may instead be read from the Google cookies above. It is sent to us only if you submit a form, and is then stored with your enquiry so that we can measure which adverts lead to genuine enquiries (see section 13 of our Privacy Policy). Legal basis: [LEGAL BASIS TO BE CONFIRMED BY THE FIRM].
 
 You can opt out of personalised Google advertising at any time via Google Ads Settings: https://adssettings.google.com
 
