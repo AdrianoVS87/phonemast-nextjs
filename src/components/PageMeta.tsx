@@ -16,7 +16,7 @@ export function generateMetadata({
   title,
   description,
   path,
-  image = "/og-default.jpg",
+  image = "/images/og-handbook.jpg",
   noIndex = false,
 }: PageMetaOptions): Metadata {
   const url = `https://www.phonemastadvice.co.uk${path}`;

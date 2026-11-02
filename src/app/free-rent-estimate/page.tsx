@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     title: "Free Phone Mast Rent Estimate",
     description: "Find out what your phone mast should really be paying — free estimate from UK specialists.",
     url: "https://www.phonemastadvice.co.uk/free-rent-estimate/",
-    images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Free Phone Mast Rent Estimate" }],
+    images: [{ url: "/images/og-handbook.jpg", width: 1200, height: 630, alt: "Free Phone Mast Rent Estimate" }],
   },
 };
 

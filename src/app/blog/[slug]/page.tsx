@@ -21,7 +21,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const post = await getPostBySlug(slug);
   if (!post) return {};
 
-  const featuredImage = post.featuredImage || "/images/og-default.jpg";
+  const featuredImage = post.featuredImage || "/images/og-handbook.jpg";
 
   return {
     title: post.title,
@@ -109,7 +109,7 @@ export default async function BlogPostPage({ params }: Props) {
 
   const articleImage = post.featuredImage
     ? `https://www.phonemastadvice.co.uk${post.featuredImage}`
-    : "https://www.phonemastadvice.co.uk/images/og-default.jpg";
+    : "https://www.phonemastadvice.co.uk/images/og-handbook.jpg";
 
   const articleJsonLd = {
     "@context": "https://schema.org",

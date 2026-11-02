@@ -49,7 +49,7 @@ export const metadata: Metadata = {
     siteName: "Phone Mast Advice",
     images: [
       {
-        url: "/og-default.jpg",
+        url: "/images/og-handbook.jpg",
         width: 1200,
         height: 630,
         alt: "Phone Mast Advice — Expert UK Telecom Surveyors",

@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Phone Mast Advice Blog",
     description: "Expert guidance on phone mast leases and landlord rights from UK specialists.",
     url: "https://www.phonemastadvice.co.uk/blog/",
-    images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Phone Mast Advice Blog" }],
+    images: [{ url: "/images/og-handbook.jpg", width: 1200, height: 630, alt: "Phone Mast Advice Blog" }],
   },
 };
 
