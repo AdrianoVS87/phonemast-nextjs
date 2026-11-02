@@ -158,7 +158,7 @@ export default function Page() {
               "Any redevelopment potential in the land, which a buyer will want to restrict and you will want to protect",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
             ))}
@@ -176,7 +176,7 @@ export default function Page() {
               "The sale fits wider estate, succession, or tax planning (take tax advice on the capital versus income treatment)",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
             ))}

@@ -9,6 +9,8 @@ interface BreadcrumbsProps {
   items: BreadcrumbItem[];
 }
 
+const linkStyle = { color: "#1B4F72", display: "inline-flex", alignItems: "center", minHeight: "44px" };
+
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   const allItems = [{ label: "Home", href: "/" }, ...items];
   const jsonLd = {
@@ -34,7 +36,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
         style={{
           backgroundColor: "#f9f8f5",
           borderBottom: "1px solid #e5e7eb",
-          padding: "0.75rem 0",
+          padding: "0.25rem 0",
         }}
       >
         <div className="container-max">
@@ -53,7 +55,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
             <li>
               <Link
                 href="/"
-                style={{ color: "#1B4F72" }}
+                style={linkStyle}
               >
                 Home
               </Link>
@@ -65,7 +67,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
               >
                 <span style={{ color: "#9ca3af", margin: "0 0.25rem" }}>›</span>
                 {item.href ? (
-                  <Link href={item.href} style={{ color: "#1B4F72" }}>
+                  <Link href={item.href} style={linkStyle}>
                     {item.label}
                   </Link>
                 ) : (
