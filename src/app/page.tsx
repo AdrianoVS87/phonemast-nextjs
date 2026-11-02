@@ -307,7 +307,7 @@ export default async function HomePage() {
                   marginBottom: "1.25rem",
                 }}
               >
-                Specialist agents representing landlords, negotiating Phone Mast lease renewals with Vodafone, EE, Hutchison 3G (Three), O2, Airwave Solutions, Arqiva, On Tower, Cornerstone, Cellnex, and Wireless Infrastructure Group (WIG).
+                Specialist agents representing landlords, negotiating Phone Mast lease renewals with Vodafone, EE, Hutchison 3G (Three), O2, Airwave Solutions, On Tower (formerly Arqiva), Cornerstone, Cellnex, and Wireless Infrastructure Group (WIG).
               </p>
               <p
                 style={{
