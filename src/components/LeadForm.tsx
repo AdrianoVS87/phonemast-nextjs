@@ -5,6 +5,7 @@ import { sendLeadEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
 import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
+import MastQuestion from "@/components/MastQuestion";
 
 const OPERATORS = [
   "Vodafone",
@@ -49,6 +50,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
         ?.value ?? "";
 
     const data = {
+      hasMast: get("hasMast"),
       name: get("name"),
       email: get("email"),
       phone: get("phone"),
@@ -66,7 +68,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
     const result = await sendLeadEmail(data);
 
     if (result.success) {
-      fireConversion(formType);
+      if (data.hasMast !== "no") fireConversion(formType);
       setStatus("success");
       formRef.current?.reset();
     } else {
@@ -143,6 +145,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
       />
 
       <div style={{ display: "grid", gap: "1.25rem" }}>
+        <MastQuestion />
         {/* Two-column grid on wider screens */}
         <div style={{ display: "grid", gap: "1.25rem", gridTemplateColumns: "repeat(auto-fit, minmax(240px, 1fr))" }}>
           {/* Name */}

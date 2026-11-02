@@ -1,5 +1,7 @@
 import { createSign } from "node:crypto";
 
+import { mastDetail } from "@/lib/hasMast";
+
 /**
  * Lead log: one row per enquiry in a Google Sheet, so enquiries can be counted per channel and
  * followed up, independently of the office inbox. Refused (suspected spam) submissions are
@@ -16,6 +18,7 @@ export interface LeadRow {
   email?: string;
   phone?: string;
   detail?: string; // refusal reason codes, Resend ID, lead ID
+  hasMast?: string; // website forms only: recorded at the start of the detail column
   clickId?: string; // "gclid=..." / "gbraid=..." / "wbraid=..." when the visitor came from a Google ad
 }
 
@@ -84,7 +87,7 @@ export async function appendLeadRow(row: LeadRow): Promise<void> {
       row.name ?? "",
       row.email ?? "",
       row.phone ?? "",
-      row.detail ?? "",
+      row.source === "website" ? mastDetail(row.hasMast, row.detail) : row.detail ?? "",
       "", // follow-up status, filled in by the office (qualified / junk / no answer)
       row.clickId ?? "", // read by ads_upload_qualified.py to report qualified enquiries to Google Ads
     ]];

@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 import { appendLeadRow } from "@/lib/leadLog";
+import { mastEmailRow, mastSubjectPrefix } from "@/lib/hasMast";
 import { logBlocked, screenSubmission } from "@/lib/spamGuard";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -18,6 +19,8 @@ export interface ContactFormData {
   _token?: string;
   // Google Ads click ID from the landing URL, for the lead log (see src/lib/clickId.ts)
   clickId?: string;
+  // Answer to "Do you already have a mast?": yes, no, or absent (see src/lib/hasMast.ts)
+  hasMast?: string;
 }
 
 export interface FormResult {
@@ -51,7 +54,7 @@ export async function sendContactEmail(
     logBlocked("contact form", screen);
     if (screen.action === "drop") return { success: true };
     // Refused with a message: logged with the person's details so a wrong refusal can be called back.
-    await appendLeadRow({ source: "website", form: "contact", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId });
+    await appendLeadRow({ source: "website", form: "contact", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId, hasMast: data.hasMast });
     return { success: false, error: screen.message };
   }
 
@@ -60,7 +63,7 @@ export async function sendContactEmail(
       from: "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>",
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
-      subject: `New enquiry from ${data.name} — phonemastadvice.co.uk`,
+      subject: `${mastSubjectPrefix(data.hasMast)}New enquiry from ${data.name} — phonemastadvice.co.uk`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: #1B4F72; padding: 24px; border-radius: 8px 8px 0 0;">
@@ -69,6 +72,7 @@ export async function sendContactEmail(
           </div>
           <div style="background: #f9f8f5; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
             <table style="width: 100%; border-collapse: collapse;">
+              ${mastEmailRow(data.hasMast)}
               <tr>
                 <td style="padding: 8px 0; font-weight: bold; width: 100px; color: #6b7280; font-size: 14px;">Name</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.name)}</td>
@@ -97,7 +101,7 @@ export async function sendContactEmail(
       console.error("Resend API error (sendContactEmail):", JSON.stringify(error));
       await Promise.allSettled([
         sendMonitorPing("Contact form enquiry", false),
-        appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error", clickId: data.clickId }),
+        appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error", clickId: data.clickId, hasMast: data.hasMast }),
       ]);
       return {
         success: false,
@@ -109,14 +113,14 @@ export async function sendContactEmail(
     await Promise.allSettled([
       sendAcknowledgement(data.name, data.email),
       sendMonitorPing("Contact form enquiry", true, sent?.id),
-      appendLeadRow({ source: "website", form: "contact", status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id, clickId: data.clickId }),
+      appendLeadRow({ source: "website", form: "contact", status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id, clickId: data.clickId, hasMast: data.hasMast }),
     ]);
     return { success: true, id: sent?.id };
   } catch (error) {
     console.error("Exception in sendContactEmail:", error);
     await Promise.allSettled([
       sendMonitorPing("Contact form enquiry", false),
-      appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId }),
+      appendLeadRow({ source: "website", form: "contact", status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId, hasMast: data.hasMast }),
     ]);
     return {
       success: false,

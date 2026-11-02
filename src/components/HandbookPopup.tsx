@@ -5,6 +5,7 @@ import { sendHandbookEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
 import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
+import MastQuestion from "@/components/MastQuestion";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -62,8 +63,10 @@ export default function HandbookPopup({ onClose, source }: Props) {
       const get = (name: string) =>
         (form.elements.namedItem(name) as HTMLInputElement)?.value ?? "";
 
+      const hasMast = get("hasMast");
       const result = await sendHandbookEmail(
         {
+          hasMast,
           name: get("name"),
           email: get("email"),
           phone: get("phone"),
@@ -75,7 +78,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
       );
 
       if (result.success) {
-        fireConversion("handbook");
+        if (hasMast !== "no") fireConversion("handbook");
         setStatus("success");
         formRef.current?.reset();
       } else {
@@ -239,6 +242,7 @@ function FormPanel({
         />
 
         <div style={{ display: "grid", gap: "1rem" }}>
+          <MastQuestion />
           <Field label="Full Name" name="name" required type="text" autoComplete="name" placeholder="e.g. John Smith" />
           <Field label="Email Address" name="email" required type="email" autoComplete="email" placeholder="you@example.com" />
           <Field label="Phone Number (optional)" name="phone" type="tel" autoComplete="tel" placeholder="e.g. 01691 791543" />
