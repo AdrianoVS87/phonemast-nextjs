@@ -34,11 +34,11 @@ export default function FreeRentEstimatePage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
       />
       <Breadcrumbs items={[{ label: "Free Rent Estimate" }]} />
-      <section className="section-padding">
+      <section className="section-padding form-page-section">
         <div className="container-max">
-          <div style={{ display: "grid", gap: "3rem" }} className="lg:grid-cols-[1fr_1.5fr]">
-            {/* Left column — info */}
-            <div>
+          {/* Phones: heading, form, then the detail. Desktop: heading and detail left, form right. */}
+          <div className="grid gap-6 lg:gap-x-12 lg:gap-y-0 lg:grid-cols-[1fr_1.5fr] lg:grid-rows-[auto_1fr]">
+            <div className="lg:col-start-1 lg:row-start-1">
               <h1
                 style={{
                   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -50,6 +50,26 @@ export default function FreeRentEstimatePage() {
               >
                 Free Phone Mast Rent Estimate
               </h1>
+            </div>
+
+            <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2">
+              <div className="card form-page-card">
+                <h2
+                  style={{
+                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
+                    fontWeight: 700,
+                    fontSize: "1.375rem",
+                    color: "#1a1a2e",
+                    marginBottom: "1.5rem",
+                  }}
+                >
+                  Request Your Free Rent Estimate
+                </h2>
+                <LeadForm formType="rent-estimate" />
+              </div>
+            </div>
+
+            <div className="lg:col-start-1 lg:row-start-2">
               <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
                 Tell us about your phone mast site and we&apos;ll provide a free, no-obligation estimate of the current market rental value. We use our extensive database of comparable UK deals to give you a realistic picture of what you should be receiving.
               </p>
@@ -88,23 +108,6 @@ export default function FreeRentEstimatePage() {
               </div>
             </div>
 
-            {/* Right column — form */}
-            <div>
-              <div className="card" style={{ padding: "2rem" }}>
-                <h2
-                  style={{
-                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "1.375rem",
-                    color: "#1a1a2e",
-                    marginBottom: "1.5rem",
-                  }}
-                >
-                  Request Your Free Rent Estimate
-                </h2>
-                <LeadForm formType="rent-estimate" />
-              </div>
-            </div>
           </div>
         </div>
       </section>
