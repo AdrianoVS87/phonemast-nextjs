@@ -1,4 +1,5 @@
-import { claimFormConversion, type SessionStore } from "./conversionDedupe";
+import { claimFormConversion, claimOnce, type SessionStore } from "./conversionDedupe";
+import type { ContactKind } from "./contactClicks";
 
 /**
  * Fire a Google Ads conversion event after the server confirms a real form send.
@@ -70,5 +71,23 @@ export function fireConversion(kind: FormKind, submission: { id?: string; hasMas
   window.gtag("event", "conversion", {
     send_to: sendTo,
     transaction_id: submission.id,
+  });
+}
+
+/**
+ * Optional Ads conversion for a phone or WhatsApp tap, once per session per kind. Off until the
+ * matching label env var is set. The caller checks advertising consent first.
+ */
+export function fireContactConversion(kind: ContactKind) {
+  const adsId = cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_ID);
+  const label =
+    kind === "phone"
+      ? cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_PHONE)
+      : cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_LABEL_WHATSAPP);
+  if (!adsId || !label || typeof window.gtag !== "function") return;
+  if (!claimOnce(`pma_conversion_${kind}`, sessionStore())) return;
+
+  window.gtag("event", "conversion", {
+    send_to: label.includes("/") ? label : `${adsId}/${label}`,
   });
 }

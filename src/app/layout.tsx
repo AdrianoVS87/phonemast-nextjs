@@ -12,6 +12,7 @@ import GoogleScripts from "@/components/analytics/GoogleScripts";
 import GoogleTagManager, { GoogleTagManagerNoscript } from "@/components/analytics/GoogleTagManager";
 import ConsentBanner from "@/components/consent/ConsentBanner";
 import ClickIdCapture from "@/components/analytics/ClickIdCapture";
+import ContactClickTracker from "@/components/analytics/ContactClickTracker";
 
 const jakarta = Plus_Jakarta_Sans({
   subsets: ["latin"],
@@ -106,6 +107,7 @@ export default function RootLayout({
         <ConsentBanner />
         <HandbookPopupGate />
         <ClickIdCapture />
+        <ContactClickTracker />
       </body>
     </html>
   );
