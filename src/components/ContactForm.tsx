@@ -36,7 +36,7 @@ export default function ContactForm() {
     const result = await submitSafely(async () => sendContactEmail({ ...data, _token: await getToken() }));
 
     if (result.success) {
-      if (data.hasMast !== "no") fireConversion("contact");
+      fireConversion("contact", { id: result.id, hasMast: data.hasMast });
       setStatus("success");
       formRef.current?.reset();
     } else {

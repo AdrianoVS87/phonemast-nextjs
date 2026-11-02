@@ -71,7 +71,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
     const result = await submitSafely(async () => sendLeadEmail({ ...data, _token: await getToken() }));
 
     if (result.success) {
-      if (data.hasMast !== "no") fireConversion(formType);
+      fireConversion(formType, { id: result.id, hasMast: data.hasMast });
       setStatus("success");
       formRef.current?.reset();
     } else {

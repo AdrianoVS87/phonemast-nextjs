@@ -1,17 +1,20 @@
+import { claimFormConversion, type SessionStore } from "./conversionDedupe";
+
 /**
- * Fire a Google Ads conversion event after a form submit succeeds.
+ * Fire a Google Ads conversion event after the server confirms a real form send.
  *
  * No-ops when:
- *  - gtag isn't loaded (env vars unset, or user rejected advertising)
+ *  - gtag isn't loaded
  *  - ADS_CONVERSION_ID env var is empty
  *  - the supplied label is empty
+ *  - the rules in conversionDedupe.ts say no: no server id (silent spam drop),
+ *    a "no" to the mast question, or this form kind already counted this session
  *
- * When both Ads ID + label are present AND the user has consented to
- * advertising storage, Consent Mode v2 + gtag.js will emit the conversion
- * hit. Otherwise Google's "non-personalised advertising" fallback applies
- * (aggregated, cookieless pings) — which is still valuable for the Matt's
- * Ads campaign and is exactly what Google asks for in "conversion measurement"
- * of the EU UCP requirements.
+ * gtag is defined by <ConsentDefault /> for every visitor, so this also runs when
+ * advertising was denied. Consent Mode then decides what is sent: a full conversion
+ * after consent, otherwise a cookieless ping that Ads can only model.
+ *
+ * The server id goes out as `transaction_id`, so Ads also dedupes on its side.
  */
 
 type FormKind = "contact" | "lead" | "handbook" | "lease-check" | "rent-estimate";
@@ -28,7 +31,15 @@ function cleanEnv(v: string | undefined): string | undefined {
   return trimmed;
 }
 
-export function fireConversion(kind: FormKind) {
+export function sessionStore(): SessionStore | null {
+  try {
+    return window.sessionStorage;
+  } catch {
+    return null;
+  }
+}
+
+export function fireConversion(kind: FormKind, submission: { id?: string; hasMast?: string }) {
   if (typeof window === "undefined") return;
 
   const adsId = cleanEnv(process.env.NEXT_PUBLIC_ADS_CONVERSION_ID);
@@ -50,11 +61,14 @@ export function fireConversion(kind: FormKind) {
 
   if (typeof window.gtag !== "function") return;
 
+  if (!claimFormConversion({ kind, ...submission }, sessionStore())) return;
+
   // If label already contains the full format (contains /), use as-is,
   // otherwise prepend the adsId
   const sendTo = label.includes("/") ? label : `${adsId}/${label}`;
 
   window.gtag("event", "conversion", {
     send_to: sendTo,
+    transaction_id: submission.id,
   });
 }
