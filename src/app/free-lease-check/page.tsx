@@ -14,7 +14,7 @@ export const metadata: Metadata = {
     title: "Free Phone Mast Lease Check",
     description: "Independent phone mast lease review — completely free, no obligation.",
     url: "https://www.phonemastadvice.co.uk/free-lease-check/",
-    images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Free Phone Mast Lease Check" }],
+    images: [{ url: "/images/og-handbook.jpg", width: 1200, height: 630, alt: "Free Phone Mast Lease Check" }],
   },
 };
 

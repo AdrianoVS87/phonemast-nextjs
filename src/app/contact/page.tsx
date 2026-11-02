@@ -12,7 +12,7 @@ export const metadata: Metadata = {
     title: "Contact Phone Mast Advice",
     description: "Get in touch with our specialist phone mast surveyors — offices in London, Bristol and Oswestry.",
     url: "https://www.phonemastadvice.co.uk/contact/",
-    images: [{ url: "/images/og-default.jpg", width: 1200, height: 630, alt: "Contact Phone Mast Advice" }],
+    images: [{ url: "/images/og-handbook.jpg", width: 1200, height: 630, alt: "Contact Phone Mast Advice" }],
   },
 };
 
