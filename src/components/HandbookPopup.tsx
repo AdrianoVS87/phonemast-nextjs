@@ -219,7 +219,7 @@ function FormPanel({
         <p
           id={descId}
           style={{
-            fontSize: "0.9375rem",
+            fontSize: "1.125rem",
             lineHeight: 1.55,
             color: "rgba(255,255,255,0.9)",
             margin: 0,
@@ -262,7 +262,7 @@ function FormPanel({
             style={{
               width: "100%",
               justifyContent: "center",
-              fontSize: "1.0625rem",
+              fontSize: "1.125rem",
               padding: "0.9375rem 1rem",
               minHeight: "48px",
               opacity: status === "sending" ? 0.7 : 1,
@@ -280,7 +280,7 @@ function FormPanel({
               background: "transparent",
               border: "none",
               color: "#6b7280",
-              fontSize: "0.9375rem",
+              fontSize: "1.125rem",
               fontWeight: 500,
               padding: "0.5rem",
               cursor: "pointer",
@@ -291,7 +291,7 @@ function FormPanel({
             No thanks, maybe later
           </button>
 
-          <p style={{ textAlign: "center", color: "#6b7280", fontSize: "0.8125rem", margin: 0, lineHeight: 1.5 }}>
+          <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0, lineHeight: 1.5 }}>
             Your details will only be used to send you the handbook and relevant updates. We never share your information.
           </p>
         </div>
@@ -329,7 +329,7 @@ function SuccessPanel({
       </h2>
       <p
         id={descId}
-        style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: "0 0 1.5rem" }}
+        style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.65, margin: "0 0 1.5rem" }}
       >
         Thank you — the link to download your handbook has been sent to your email.
         If you don&apos;t see it within a few minutes, please check your spam or promotions folder.
@@ -341,7 +341,7 @@ function SuccessPanel({
         style={{
           minHeight: "44px",
           padding: "0.75rem 1.75rem",
-          fontSize: "1rem",
+          fontSize: "1.125rem",
           cursor: "pointer",
         }}
       >
@@ -374,7 +374,7 @@ function Field({
         style={{
           display: "block",
           fontWeight: 600,
-          fontSize: "0.9375rem",
+          fontSize: "1.125rem",
           color: "#1a1a2e",
           marginBottom: "0.375rem",
         }}
@@ -393,7 +393,7 @@ function Field({
           padding: "0.75rem 0.875rem",
           border: "1px solid #d1d5db",
           borderRadius: "0.5rem",
-          fontSize: "1rem",
+          fontSize: "1.125rem",
           color: "#1a1a2e",
           backgroundColor: "#ffffff",
           outline: "none",

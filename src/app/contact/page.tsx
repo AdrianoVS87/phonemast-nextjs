@@ -133,13 +133,13 @@ export default function ContactPage() {
                 >
                   <span style={{ fontSize: "1.75rem", flexShrink: 0 }}>📞</span>
                   <div>
-                    <p style={{ fontWeight: 600, fontSize: "0.875rem", color: "rgba(255,255,255,0.75)", margin: "0 0 0.125rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
+                    <p style={{ fontWeight: 600, fontSize: "1.125rem", color: "rgba(255,255,255,0.75)", margin: "0 0 0.125rem", textTransform: "uppercase", letterSpacing: "0.06em" }}>
                       Call Us Free
                     </p>
                     <p style={{ fontSize: "1.375rem", color: "#ffffff", fontWeight: 700, margin: 0, lineHeight: 1.2 }}>
                       01691 791543
                     </p>
-                    <p style={{ fontSize: "0.9375rem", color: "rgba(255,255,255,0.8)", margin: "0.25rem 0 0" }}>
+                    <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.8)", margin: "0.25rem 0 0" }}>
                       Mon–Fri 9am–5:30pm
                     </p>
                   </div>
@@ -155,7 +155,7 @@ export default function ContactPage() {
                   >
                     <span style={{ fontSize: "1.5rem", flexShrink: 0, marginTop: "0.125rem" }}>{item.icon}</span>
                     <div>
-                      <p style={{ fontWeight: 700, fontSize: "0.875rem", color: "#6b7280", margin: "0 0 0.25rem", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                      <p style={{ fontWeight: 700, fontSize: "1.125rem", color: "#6b7280", margin: "0 0 0.25rem", textTransform: "uppercase", letterSpacing: "0.04em" }}>
                         {item.label}
                       </p>
                       <a
@@ -204,10 +204,10 @@ export default function ContactPage() {
                         boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
                       }}
                     >
-                      <p style={{ fontWeight: 700, fontSize: "1.0625rem", color: "#1a1a2e", margin: "0 0 0.375rem" }}>
+                      <p style={{ fontWeight: 700, fontSize: "1.125rem", color: "#1a1a2e", margin: "0 0 0.375rem" }}>
                         {office.city}
                       </p>
-                      <p style={{ fontSize: "0.9375rem", color: "#4b5563", margin: "0 0 0.625rem", lineHeight: 1.5 }}>
+                      <p style={{ fontSize: "1.125rem", color: "#4b5563", margin: "0 0 0.625rem", lineHeight: 1.5 }}>
                         {office.address}
                         <br />
                         {office.postcode}
@@ -220,7 +220,7 @@ export default function ContactPage() {
                           display: "inline-flex",
                           alignItems: "center",
                           gap: "0.25rem",
-                          fontSize: "0.875rem",
+                          fontSize: "1.125rem",
                           color: "#1B4F72",
                           fontWeight: 600,
                           textDecoration: "none",

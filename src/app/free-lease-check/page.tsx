@@ -83,7 +83,7 @@ export default function FreeLeaseCheckPage() {
               ].map((item) => (
                 <div key={item.text} style={{ display: "flex", gap: "0.875rem", alignItems: "flex-start", marginBottom: "1rem" }}>
                   <span style={{ fontSize: "1.25rem", flexShrink: 0 }}>{item.icon}</span>
-                  <p style={{ fontSize: "1.0625rem", color: "#374151", margin: 0, lineHeight: 1.55 }}>{item.text}</p>
+                  <p style={{ fontSize: "1.125rem", color: "#374151", margin: 0, lineHeight: 1.55 }}>{item.text}</p>
                 </div>
               ))}
 
@@ -96,10 +96,10 @@ export default function FreeLeaseCheckPage() {
                   borderRadius: "1rem",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "#1B4F72", marginBottom: "0.375rem", fontSize: "1rem" }}>
+                <p style={{ fontWeight: 700, color: "#1B4F72", marginBottom: "0.375rem", fontSize: "1.125rem" }}>
                   📞 Prefer to speak to someone?
                 </p>
-                <p style={{ color: "#374151", fontSize: "1rem", margin: 0 }}>
+                <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0 }}>
                   Call{" "}
                   <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
                     01691 791543

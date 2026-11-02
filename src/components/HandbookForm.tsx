@@ -54,7 +54,7 @@ export default function HandbookForm() {
     padding: "0.875rem 1rem",
     border: "1px solid #d1d5db",
     borderRadius: "0.5rem",
-    fontSize: "1.0625rem",
+    fontSize: "1.125rem",
     color: "#1a1a2e",
     backgroundColor: "#ffffff",
     outline: "none",
@@ -65,7 +65,7 @@ export default function HandbookForm() {
   const labelStyle: React.CSSProperties = {
     display: "block",
     fontWeight: 600,
-    fontSize: "1rem",
+    fontSize: "1.125rem",
     color: "#1a1a2e",
     marginBottom: "0.5rem",
   };
@@ -97,7 +97,7 @@ export default function HandbookForm() {
         >
           Check Your Inbox
         </h3>
-        <p style={{ color: "#374151", fontSize: "1.0625rem", margin: 0, lineHeight: 1.65 }}>
+        <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
           The link to download your handbook has been sent to your email. If you don&apos;t see it within a few minutes, please check your spam or promotions folder, or call us on{" "}
           <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
             01691 791543
@@ -175,7 +175,7 @@ export default function HandbookForm() {
           style={{
             width: "100%",
             justifyContent: "center",
-            fontSize: "1.0625rem",
+            fontSize: "1.125rem",
             padding: "1rem",
             opacity: status === "sending" ? 0.7 : 1,
             cursor: status === "sending" ? "not-allowed" : "pointer",
@@ -184,7 +184,7 @@ export default function HandbookForm() {
           {status === "sending" ? "Sending…" : "📥 Download Free Handbook"}
         </button>
 
-        <p style={{ textAlign: "center", color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
+        <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0 }}>
           Your details will only be used to send you the handbook and relevant updates. We will never share your information.
         </p>
       </div>
