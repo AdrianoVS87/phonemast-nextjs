@@ -5,6 +5,7 @@ import { sendHandbookEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
 import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
+import MastQuestion from "@/components/MastQuestion";
 
 export default function HandbookForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -22,6 +23,7 @@ export default function HandbookForm() {
       (form.elements.namedItem(name) as HTMLInputElement)?.value ?? "";
 
     const data = {
+      hasMast: get("hasMast"),
       name: get("name"),
       email: get("email"),
       phone: get("phone"),
@@ -33,7 +35,7 @@ export default function HandbookForm() {
     const result = await sendHandbookEmail(data, "/handbook");
 
     if (result.success) {
-      fireConversion("handbook");
+      if (data.hasMast !== "no") fireConversion("handbook");
       setStatus("success");
       formRef.current?.reset();
     } else {
@@ -110,6 +112,7 @@ export default function HandbookForm() {
       />
 
       <div style={{ display: "grid", gap: "1.25rem" }}>
+        <MastQuestion />
         <div>
           <label htmlFor="handbook-name" style={labelStyle}>
             Full Name <span style={{ color: "#dc2626" }}>*</span>

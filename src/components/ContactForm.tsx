@@ -5,6 +5,7 @@ import { sendContactEmail } from "@/app/actions/sendContact";
 import { fireConversion } from "@/lib/gtagConversion";
 import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
+import MastQuestion from "@/components/MastQuestion";
 
 export default function ContactForm() {
   const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
@@ -19,6 +20,7 @@ export default function ContactForm() {
 
     const form = e.currentTarget;
     const data = {
+      hasMast: (form.elements.namedItem("hasMast") as unknown as RadioNodeList)?.value ?? "",
       name: (form.elements.namedItem("name") as HTMLInputElement).value,
       email: (form.elements.namedItem("email") as HTMLInputElement).value,
       phone: (form.elements.namedItem("phone") as HTMLInputElement).value,
@@ -31,7 +33,7 @@ export default function ContactForm() {
     const result = await sendContactEmail(data);
 
     if (result.success) {
-      fireConversion("contact");
+      if (data.hasMast !== "no") fireConversion("contact");
       setStatus("success");
       formRef.current?.reset();
     } else {
@@ -114,6 +116,7 @@ export default function ContactForm() {
       />
 
       <div style={{ display: "grid", gap: "1.25rem" }}>
+        <MastQuestion />
         {/* Name */}
         <div>
           <label htmlFor="contact-name" style={labelStyle}>

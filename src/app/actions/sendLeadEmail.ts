@@ -3,6 +3,7 @@
 import { Resend } from "resend";
 import { displayName, sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 import { appendLeadRow } from "@/lib/leadLog";
+import { mastEmailRow, mastSubjectPrefix } from "@/lib/hasMast";
 import { logBlocked, screenSubmission } from "@/lib/spamGuard";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
@@ -22,6 +23,8 @@ export interface LeadFormData {
   _token?: string;
   // Google Ads click ID from the landing URL, for the lead log (see src/lib/clickId.ts)
   clickId?: string;
+  // Answer to "Do you already have a mast?": yes, no, or absent (see src/lib/hasMast.ts)
+  hasMast?: string;
 }
 
 export interface HandbookFormData {
@@ -31,6 +34,8 @@ export interface HandbookFormData {
   _trap?: string;
   _token?: string;
   clickId?: string;
+  // Answer to "Do you already have a mast?": yes, no, or absent (see src/lib/hasMast.ts)
+  hasMast?: string;
 }
 
 export interface FormResult {
@@ -68,7 +73,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
   if (screen.action !== "send") {
     logBlocked(data.formType, screen);
     if (screen.action === "drop") return { success: true };
-    await appendLeadRow({ source: "website", form: data.formType, status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId });
+    await appendLeadRow({ source: "website", form: data.formType, status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId, hasMast: data.hasMast });
     return { success: false, error: screen.message };
   }
 
@@ -88,7 +93,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
       from: "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>",
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
-      subject: `${formTitle} from ${data.name} — phonemastadvice.co.uk`,
+      subject: `${mastSubjectPrefix(data.hasMast)}${formTitle} from ${data.name} — phonemastadvice.co.uk`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
           <div style="background: #1B4F72; padding: 24px; border-radius: 8px 8px 0 0;">
@@ -97,6 +102,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
           </div>
           <div style="background: #f9f8f5; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
             <table style="width: 100%; border-collapse: collapse;">
+              ${mastEmailRow(data.hasMast)}
               <tr>
                 <td style="padding: 8px 0; font-weight: bold; width: 140px; color: #6b7280; font-size: 14px;">Name</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.name)}</td>
@@ -142,7 +148,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
       console.error("Resend API error (sendLeadEmail):", JSON.stringify(error));
       await Promise.allSettled([
         sendMonitorPing(formTitle, false),
-        appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error", clickId: data.clickId }),
+        appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "Resend error", clickId: data.clickId, hasMast: data.hasMast }),
       ]);
       return {
         success: false,
@@ -154,14 +160,14 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
     await Promise.allSettled([
       sendAcknowledgement(data.name, data.email),
       sendMonitorPing(formTitle, true, sent?.id),
-      appendLeadRow({ source: "website", form: data.formType, status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id, clickId: data.clickId }),
+      appendLeadRow({ source: "website", form: data.formType, status: "sent", name: data.name, email: data.email, phone: data.phone, detail: sent?.id, clickId: data.clickId, hasMast: data.hasMast }),
     ]);
     return { success: true, id: sent?.id };
   } catch (error) {
     console.error("Exception in sendLeadEmail:", error);
     await Promise.allSettled([
       sendMonitorPing(formTitle, false),
-      appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId }),
+      appendLeadRow({ source: "website", form: data.formType, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId, hasMast: data.hasMast }),
     ]);
     return {
       success: false,
@@ -183,6 +189,7 @@ function handbookNotificationHtml(data: HandbookFormData, source: string): strin
       </div>
       <div style="background: #f9f8f5; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
         <table style="width: 100%; border-collapse: collapse;">
+              ${mastEmailRow(data.hasMast)}
           <tr>
             <td style="padding: 8px 0; font-weight: bold; width: 100px; color: #6b7280; font-size: 14px;">Name</td>
             <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.name)}</td>
@@ -295,7 +302,7 @@ export async function sendHandbookEmail(
   if (screen.action !== "send") {
     logBlocked("handbook", screen);
     if (screen.action === "drop") return { success: true };
-    await appendLeadRow({ source: "website", form: "handbook", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId });
+    await appendLeadRow({ source: "website", form: "handbook", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId, hasMast: data.hasMast });
     return { success: false, error: screen.message };
   }
 
@@ -337,7 +344,7 @@ export async function sendHandbookEmail(
       from: FROM,
       to: "info@phonemastadvice.co.uk",
       replyTo: data.email,
-      subject: `Handbook download — new lead: ${data.name}`,
+      subject: `${mastSubjectPrefix(data.hasMast)}Handbook download — new lead: ${data.name}`,
       html: handbookNotificationHtml(data, source),
     });
     if (error) {
@@ -345,13 +352,13 @@ export async function sendHandbookEmail(
     }
     await Promise.allSettled([
       sendMonitorPing("Handbook download", !error),
-      appendLeadRow({ source: "website", form: `handbook (${source})`, status: error ? "failed" : "sent", name: data.name, email: data.email, phone: data.phone, detail: userMailId, clickId: data.clickId }),
+      appendLeadRow({ source: "website", form: `handbook (${source})`, status: error ? "failed" : "sent", name: data.name, email: data.email, phone: data.phone, detail: userMailId, clickId: data.clickId, hasMast: data.hasMast }),
     ]);
   } catch (error) {
     console.error("Exception notifying Matt of handbook lead:", error);
     await Promise.allSettled([
       sendMonitorPing("Handbook download", false),
-      appendLeadRow({ source: "website", form: `handbook (${source})`, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId }),
+      appendLeadRow({ source: "website", form: `handbook (${source})`, status: "failed", name: data.name, email: data.email, phone: data.phone, detail: "exception", clickId: data.clickId, hasMast: data.hasMast }),
     ]);
   }
 
