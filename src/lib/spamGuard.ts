@@ -95,15 +95,51 @@ export function looksRandom(name: string): boolean {
   return hasGibberish(name);
 }
 
-/** Gmail dot-trick addresses ("ng.u.y.enn.a.t.han.51.4@gmail.com"): four or more dots before the @. */
+/**
+ * Gmail dot-trick addresses ("ng.u.y.enn.a.t.han.51.4@gmail.com"): six or more dots before the @.
+ * Every sample seen has eight. Four or five dots occur in real addresses ("a.b.c.d.e@example.com").
+ */
 export function isDotTrickEmail(email: string): boolean {
   const local = email.split("@")[0] ?? "";
-  return (local.match(/\./g) ?? []).length >= 4;
+  return (local.match(/\./g) ?? []).length >= 6;
 }
 
 /** A message with no letters at all ("9272704595"). */
 export function isLetterless(text: string): boolean {
   return text.trim().length > 0 && !/\p{L}/u.test(text);
+}
+
+// A link to a known map service, at the start of a "word", so that
+// "https://maps.app.goo.gl.evil.com/x" and "https://evil.com/maps.app.goo.gl/x" do not qualify.
+const MAP_LINK =
+  /(?<![^\s(<"'])(?:https?:\/\/)?(?:www\.)?(?:maps\.app\.goo\.gl|goo\.gl\/maps|maps\.google\.(?:com|co\.uk)|google\.(?:com|co\.uk)\/maps|maps\.apple\.com|what3words\.com|w3w\.co)(?:[/?#]\S*)/gi;
+
+/** Rural sites are often shared as a map link, whose random-looking ID must not read as gibberish. */
+export function withoutMapLinks(text: string): string {
+  return text.replace(MAP_LINK, " ");
+}
+
+/** "52.8557, -3.0543": decimal degrees inside the UK. */
+function isUkLatLong(text: string): boolean {
+  const m = text.match(/^\+?(\d{2}\.\d{2,})°?\s*[,/ ]\s*([-+]?\d{1,2}\.\d{2,})°?$/);
+  if (!m) return false;
+  const lat = Number(m[1]), long = Number(m[2]);
+  return lat >= 49 && lat <= 61 && long >= -9 && long <= 2;
+}
+
+/**
+ * "332145 / 330215": six-figure easting and northing. Both groups must be six digits, so a
+ * phone number ("01691 791543") or a bot's digit string ("9642060523") does not qualify.
+ */
+function isGridPair(text: string): boolean {
+  const m = text.match(/^(\d{6})\s*[,/ ]\s*(\d{6})$/);
+  return m !== null && Number(m[1]) <= 700_000 && Number(m[2]) <= 700_000;
+}
+
+/** A site given as coordinates. Grid references with letters ("SJ 321 451") are not letterless. */
+export function isLocationReference(text: string): boolean {
+  const t = text.trim();
+  return isUkLatLong(t) || isGridPair(t);
 }
 
 export function linkCount(text: string): number {
@@ -149,13 +185,13 @@ export function screenSubmission(
   if (looksRandom(f.name)) reasons.push("name:random");
   if (/https?:\/\/|www\./i.test(f.name)) reasons.push("name:url");
   if (isDotTrickEmail(f.email)) reasons.push("email:dots");
-  if (f.message !== undefined && isLetterless(f.message)) reasons.push("message:no-letters");
-  if (f.message && hasGibberish(f.message)) reasons.push("message:gibberish");
+  if (f.message !== undefined && isLetterless(f.message) && !isLocationReference(f.message)) reasons.push("message:no-letters");
+  if (f.message && hasGibberish(withoutMapLinks(f.message))) reasons.push("message:gibberish");
   // 10 Oct 2026 sample: address "9642060523", current rent "BZTpfGuaRDXASRxjjfnTdJcx"
-  if (f.address && isLetterless(f.address)) reasons.push("address:no-letters");
-  if (f.address && hasGibberish(f.address)) reasons.push("address:gibberish");
+  if (f.address && isLetterless(f.address) && !isLocationReference(f.address)) reasons.push("address:no-letters");
+  if (f.address && hasGibberish(withoutMapLinks(f.address))) reasons.push("address:gibberish");
   if (f.currentRent && hasGibberish(f.currentRent)) reasons.push("rent:gibberish");
-  if (linkCount(`${f.name} ${f.message ?? ""}`) >= 3) reasons.push("message:links");
+  if (linkCount(`${f.name} ${withoutMapLinks(f.message ?? "")}`) >= 3) reasons.push("message:links");
 
   return reasons.length
     ? { action: "refuse", reason: reasons.join(","), message: REFUSE_MESSAGE }
