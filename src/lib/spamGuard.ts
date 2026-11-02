@@ -198,6 +198,20 @@ export function screenSubmission(
     : { action: "send" };
 }
 
+const REFUSED_FIELD_MAX = 300;
+
+/**
+ * Lead log detail for a refused row: the reason codes, then the address and message, so a wrong
+ * refusal can be followed up with what the person typed. Lead log only: never console logs.
+ */
+export function refusedDetail(reason: string, fields: { address?: string; message?: string }): string {
+  const part = (label: string, value?: string) => {
+    const text = value?.replace(/\s+/g, " ").trim();
+    return text ? `${label}: ${text.slice(0, REFUSED_FIELD_MAX)}` : "";
+  };
+  return [reason, part("address", fields.address), part("message", fields.message)].filter(Boolean).join("; ");
+}
+
 /** One log line per blocked submission, reason codes only. */
 export function logBlocked(form: string, s: Exclude<Screen, { action: "send" }>): void {
   console.warn(`[spam-guard] ${s.action} ${form}: ${s.reason}`);

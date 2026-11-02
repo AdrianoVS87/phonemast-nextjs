@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 import { appendLeadRow } from "@/lib/leadLog";
 import { mastEmailRow, mastSubjectPrefix } from "@/lib/hasMast";
-import { logBlocked, screenSubmission } from "@/lib/spamGuard";
+import { logBlocked, refusedDetail, screenSubmission } from "@/lib/spamGuard";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -54,7 +54,7 @@ export async function sendContactEmail(
     logBlocked("contact form", screen);
     if (screen.action === "drop") return { success: true };
     // Refused with a message: logged with the person's details so a wrong refusal can be called back.
-    await appendLeadRow({ source: "website", form: "contact", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId, hasMast: data.hasMast });
+    await appendLeadRow({ source: "website", form: "contact", status: "refused", name: data.name, email: data.email, phone: data.phone, detail: refusedDetail(screen.reason, data), clickId: data.clickId, hasMast: data.hasMast });
     return { success: false, error: screen.message };
   }
 

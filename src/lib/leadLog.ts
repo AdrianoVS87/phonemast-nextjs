@@ -5,7 +5,7 @@ import { mastDetail } from "@/lib/hasMast";
 /**
  * Lead log: one row per enquiry in a Google Sheet, so enquiries can be counted per channel and
  * followed up, independently of the office inbox. Refused (suspected spam) submissions are
- * logged too, with their reason, so a wrongly refused person can be found and called back.
+ * logged too, with their reason, address and message, so a wrongly refused person can be found.
  *
  * Best effort: never throws, never delays the reply by more than a few seconds. Disabled unless
  * LEAD_SHEET_ID and GOOGLE_SA_KEY (service-account JSON, raw or base64) are set.
@@ -17,7 +17,7 @@ export interface LeadRow {
   name?: string;
   email?: string;
   phone?: string;
-  detail?: string; // refusal reason codes, Resend ID, lead ID
+  detail?: string; // refusal reason codes with address and message, Resend ID, lead ID
   hasMast?: string; // website forms only: recorded at the start of the detail column
   clickId?: string; // "gclid=..." / "gbraid=..." / "wbraid=..." when the visitor came from a Google ad
 }

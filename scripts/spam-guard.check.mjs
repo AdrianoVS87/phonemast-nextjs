@@ -1,5 +1,5 @@
 // Behavioural check for src/lib/spamGuard.ts. Run: node --experimental-strip-types scripts/spam-guard.check.mjs
-import { checkToken, isDotTrickEmail, isLocationReference, issueToken, screenSubmission, withoutMapLinks } from "../src/lib/spamGuard.ts";
+import { checkToken, isDotTrickEmail, isLocationReference, issueToken, refusedDetail, screenSubmission, withoutMapLinks } from "../src/lib/spamGuard.ts";
 
 let failures = 0;
 const expect = (label, got, want) => {
@@ -115,6 +115,11 @@ expect("helper: map link removed", withoutMapLinks("see https://maps.app.goo.gl/
 expect("helper: other link kept", withoutMapLinks("https://evil.com/XyZ"), "https://evil.com/XyZ");
 expect("helper: bot digits are no location", isLocationReference("9642060523"), false);
 expect("helper: four dots are fine", isDotTrickEmail("a.b.c.d.e@example.com"), false);
+
+// detail column of a refused row
+expect("refused detail, both fields", refusedDetail("address:no-letters", { address: " 12  Farm\nLane ", message: "Hello" }), "address:no-letters; address: 12 Farm Lane; message: Hello");
+expect("refused detail, no fields", refusedDetail("name:random", {}), "name:random");
+expect("refused detail is capped", refusedDetail("r", { message: "x".repeat(900) }).length, "r; message: ".length + 300);
 
 // handbook form has no message field
 expect("handbook (no message)", screenSubmission({ name: "Mary Evans", email: "mary@evans.net", token }, later), { action: "send" });

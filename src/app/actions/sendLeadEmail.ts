@@ -4,7 +4,7 @@ import { Resend } from "resend";
 import { displayName, sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 import { appendLeadRow } from "@/lib/leadLog";
 import { mastEmailRow, mastSubjectPrefix } from "@/lib/hasMast";
-import { logBlocked, screenSubmission } from "@/lib/spamGuard";
+import { logBlocked, refusedDetail, screenSubmission } from "@/lib/spamGuard";
 
 const resend = new Resend(process.env.RESEND_API_KEY);
 
@@ -73,7 +73,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
   if (screen.action !== "send") {
     logBlocked(data.formType, screen);
     if (screen.action === "drop") return { success: true };
-    await appendLeadRow({ source: "website", form: data.formType, status: "refused", name: data.name, email: data.email, phone: data.phone, detail: screen.reason, clickId: data.clickId, hasMast: data.hasMast });
+    await appendLeadRow({ source: "website", form: data.formType, status: "refused", name: data.name, email: data.email, phone: data.phone, detail: refusedDetail(screen.reason, data), clickId: data.clickId, hasMast: data.hasMast });
     return { success: false, error: screen.message };
   }
 
