@@ -6,6 +6,9 @@ import { fireConversion } from "@/lib/gtagConversion";
 import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
 import MastQuestion from "@/components/MastQuestion";
+import { submitSafely } from "@/lib/submitSafely";
+import { useFormMessageFocus } from "@/lib/useFormMessageFocus";
+import FormError from "@/components/FormError";
 
 const OPERATORS = [
   "Vodafone",
@@ -38,6 +41,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
   const [errorMsg, setErrorMsg] = useState("");
   const formRef = useRef<HTMLFormElement>(null);
   const getToken = useFormToken();
+  const messageRef = useFormMessageFocus(status);
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -61,11 +65,10 @@ export default function LeadForm({ formType }: LeadFormProps) {
       message: get("message"),
       formType,
       _trap: get("_trap"),
-      _token: await getToken(),
       clickId: getClickId(),
     };
 
-    const result = await sendLeadEmail(data);
+    const result = await submitSafely(async () => sendLeadEmail({ ...data, _token: await getToken() }));
 
     if (result.success) {
       if (data.hasMast !== "no") fireConversion(formType);
@@ -73,7 +76,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
       formRef.current?.reset();
     } else {
       setStatus("error");
-      setErrorMsg(result.error ?? "Something went wrong.");
+      setErrorMsg(result.error ?? "");
     }
   }
 
@@ -101,7 +104,11 @@ export default function LeadForm({ formType }: LeadFormProps) {
   if (status === "success") {
     return (
       <div
+        ref={messageRef}
+        role="status"
+        tabIndex={-1}
         style={{
+          outline: "none",
           backgroundColor: "#f0faf0",
           border: "2px solid #a4ca62",
           borderRadius: "1rem",
@@ -288,21 +295,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
         </div>
 
         {/* Error */}
-        {status === "error" && (
-          <div
-            role="alert"
-            style={{
-              backgroundColor: "#fef2f2",
-              border: "1px solid #fca5a5",
-              borderRadius: "0.5rem",
-              padding: "1rem",
-              color: "#991b1b",
-              fontSize: "1rem",
-            }}
-          >
-            {errorMsg}
-          </div>
-        )}
+        {status === "error" && <FormError message={errorMsg} ref={messageRef} />}
 
         {/* Submit */}
         <button

@@ -6,6 +6,9 @@ import { fireConversion } from "@/lib/gtagConversion";
 import { getClickId } from "@/lib/clickId";
 import { useFormToken } from "@/lib/useFormToken";
 import MastQuestion from "@/components/MastQuestion";
+import { submitSafely } from "@/lib/submitSafely";
+import { useFormMessageFocus } from "@/lib/useFormMessageFocus";
+import FormError from "@/components/FormError";
 
 type Status = "idle" | "sending" | "success" | "error";
 
@@ -23,6 +26,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
   const titleId = useId();
   const descId = useId();
   const getToken = useFormToken();
+  const messageRef = useFormMessageFocus(status);
 
   // Close on Escape
   useEffect(() => {
@@ -64,17 +68,16 @@ export default function HandbookPopup({ onClose, source }: Props) {
         (form.elements.namedItem(name) as HTMLInputElement)?.value ?? "";
 
       const hasMast = get("hasMast");
-      const result = await sendHandbookEmail(
-        {
-          hasMast,
-          name: get("name"),
-          email: get("email"),
-          phone: get("phone"),
-          _trap: get("_trap"),
-          _token: await getToken(),
-          clickId: getClickId(),
-        },
-        source,
+      const fields = {
+        hasMast,
+        name: get("name"),
+        email: get("email"),
+        phone: get("phone"),
+        _trap: get("_trap"),
+        clickId: getClickId(),
+      };
+      const result = await submitSafely(async () =>
+        sendHandbookEmail({ ...fields, _token: await getToken() }, source),
       );
 
       if (result.success) {
@@ -83,7 +86,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
         formRef.current?.reset();
       } else {
         setStatus("error");
-        setErrorMsg(result.error ?? "Something went wrong.");
+        setErrorMsg(result.error ?? "");
       }
     },
     [source, getToken],
@@ -150,13 +153,14 @@ export default function HandbookPopup({ onClose, source }: Props) {
         </button>
 
         {status === "success" ? (
-          <SuccessPanel titleId={titleId} descId={descId} onClose={onClose} />
+          <SuccessPanel titleId={titleId} descId={descId} onClose={onClose} messageRef={messageRef} />
         ) : (
           <FormPanel
             titleId={titleId}
             descId={descId}
             status={status}
             errorMsg={errorMsg}
+            messageRef={messageRef}
             formRef={formRef}
             onSubmit={handleSubmit}
             onDismiss={onClose}
@@ -174,6 +178,7 @@ function FormPanel({
   descId,
   status,
   errorMsg,
+  messageRef,
   formRef,
   onSubmit,
   onDismiss,
@@ -182,6 +187,7 @@ function FormPanel({
   descId: string;
   status: Status;
   errorMsg: string;
+  messageRef: React.RefObject<HTMLDivElement | null>;
   formRef: React.RefObject<HTMLFormElement | null>;
   onSubmit: (e: React.FormEvent<HTMLFormElement>) => void;
   onDismiss: () => void;
@@ -247,21 +253,7 @@ function FormPanel({
           <Field label="Email Address" name="email" required type="email" autoComplete="email" placeholder="you@example.com" />
           <Field label="Phone Number (optional)" name="phone" type="tel" autoComplete="tel" placeholder="e.g. 01691 791543" />
 
-          {status === "error" && (
-            <div
-              role="alert"
-              style={{
-                backgroundColor: "#fef2f2",
-                border: "1px solid #fca5a5",
-                borderRadius: "0.5rem",
-                padding: "0.875rem 1rem",
-                color: "#991b1b",
-                fontSize: "0.9375rem",
-              }}
-            >
-              {errorMsg}
-            </div>
-          )}
+          {status === "error" && <FormError message={errorMsg} ref={messageRef} />}
 
           <button
             type="submit"
@@ -312,13 +304,15 @@ function SuccessPanel({
   titleId,
   descId,
   onClose,
+  messageRef,
 }: {
   titleId: string;
   descId: string;
   onClose: () => void;
+  messageRef: React.RefObject<HTMLDivElement | null>;
 }) {
   return (
-    <div style={{ padding: "2.5rem 1.75rem", textAlign: "center" }}>
+    <div ref={messageRef} role="status" tabIndex={-1} style={{ padding: "2.5rem 1.75rem", textAlign: "center", outline: "none" }}>
       <div style={{ fontSize: "3rem", marginBottom: "0.75rem" }} aria-hidden="true">📥</div>
       <h2
         id={titleId}
