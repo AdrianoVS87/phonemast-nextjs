@@ -208,7 +208,7 @@ export default function HandbookPage() {
               <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
                 Our free handbook covers everything you need to know as a UK phone mast landlord — from understanding your lease to knowing your rights under the Electronic Communications Code.
               </p>
-              <p style={{ fontSize: "1.0625rem", color: "#4b5563", lineHeight: 1.7, marginBottom: "2.5rem" }}>
+              <p style={{ fontSize: "1.125rem", color: "#4b5563", lineHeight: 1.7, marginBottom: "2.5rem" }}>
                 For focused online guidance, start with our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a> pages.
               </p>
 
@@ -234,7 +234,7 @@ export default function HandbookPage() {
                       style={{
                         fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                         fontWeight: 700,
-                        fontSize: "1.0625rem",
+                        fontSize: "1.125rem",
                         color: "#1a1a2e",
                         marginBottom: "0.5rem",
                         lineHeight: 1.35,
@@ -242,7 +242,7 @@ export default function HandbookPage() {
                     >
                       {topic.title}
                     </h3>
-                    <p style={{ fontSize: "0.9375rem", color: "#4b5563", lineHeight: 1.6, margin: 0 }}>
+                    <p style={{ fontSize: "1.125rem", color: "#4b5563", lineHeight: 1.6, margin: 0 }}>
                       {topic.description}
                     </p>
                   </div>
@@ -263,10 +263,10 @@ export default function HandbookPage() {
               >
                 <span style={{ fontSize: "1.5rem", flexShrink: 0 }}>⭐</span>
                 <div>
-                  <p style={{ fontWeight: 700, color: "#1a1a2e", marginBottom: "0.375rem", fontSize: "1.0625rem" }}>
+                  <p style={{ fontWeight: 700, color: "#1a1a2e", marginBottom: "0.375rem", fontSize: "1.125rem" }}>
                     Written by specialist telecom surveyors
                   </p>
-                  <p style={{ color: "#374151", fontSize: "1rem", margin: 0, lineHeight: 1.65 }}>
+                  <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
                     This handbook is based on over 30 years of experience and 10,000+ deals completed on behalf of UK landlords. It&apos;s the same knowledge we share with our paying clients — free, because we believe in informed landlords.
                   </p>
                 </div>
@@ -294,7 +294,7 @@ export default function HandbookPage() {
                 >
                   Get Your Free Copy
                 </h2>
-                <p style={{ color: "#6b7280", fontSize: "0.9375rem", marginBottom: "1.5rem", lineHeight: 1.55 }}>
+                <p style={{ color: "#6b7280", fontSize: "1.125rem", marginBottom: "1.5rem", lineHeight: 1.55 }}>
                   Fill in your details and we&apos;ll email your handbook straight away.
                 </p>
                 <HandbookForm />

@@ -209,6 +209,7 @@ function FormPanel({
           style={{
             fontFamily: "var(--font-jakarta), system-ui, sans-serif",
             fontWeight: 800,
+            color: "#ffffff",
             fontSize: "1.5rem",
             lineHeight: 1.25,
             margin: "0 0 0.5rem",

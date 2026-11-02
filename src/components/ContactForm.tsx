@@ -215,7 +215,7 @@ export default function ContactForm() {
           }}
         >
           Or call us now:{" "}
-          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
+          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
             01691 791543
           </a>
         </p>

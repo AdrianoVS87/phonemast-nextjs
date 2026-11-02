@@ -170,7 +170,7 @@ export default function Page() {
               "A Paragraph 20 notice under the Code, where the operator seeks new Code rights, for example on a site it does not yet have a Code agreement for",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#1B4F72", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>{i + 1}</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#1B4F72", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>{i + 1}</span>
                 {item}
               </li>
             ))}
@@ -207,7 +207,7 @@ export default function Page() {
               "Reinstatement: full removal and restoration under Paragraph 40 when the operator leaves",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
             ))}
@@ -257,7 +257,7 @@ export default function Page() {
               "Improved legal clarity around operator rights and responsibilities",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
             ))}

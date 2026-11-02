@@ -90,6 +90,7 @@ export default function CTASection({
               display: "flex",
               alignItems: "center",
               gap: "0.5rem",
+              minHeight: "44px",
               textDecoration: "none",
             }}
           >
@@ -103,6 +104,7 @@ export default function CTASection({
               display: "flex",
               alignItems: "center",
               gap: "0.5rem",
+              minHeight: "44px",
               textDecoration: "none",
             }}
           >
@@ -118,6 +120,7 @@ export default function CTASection({
               display: "flex",
               alignItems: "center",
               gap: "0.5rem",
+              minHeight: "44px",
               textDecoration: "none",
             }}
           >

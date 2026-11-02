@@ -320,7 +320,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
 
         <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0 }}>
           Or call us:{" "}
-          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
+          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
             01691 791543
           </a>{" "}
           ·{" "}
@@ -328,7 +328,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
             href="https://wa.me/447843352654"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#1B4F72", fontWeight: 600 }}
+            style={{ color: "#1B4F72", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}
           >
             WhatsApp
           </a>
