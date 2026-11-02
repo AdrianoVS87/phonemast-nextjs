@@ -57,6 +57,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     { url: withSlash(`${BASE_URL}/electronic-communications-code`), lastModified: dated("/electronic-communications-code"), changeFrequency: "monthly", priority: 0.9 },
     { url: withSlash(`${BASE_URL}/section-26-notice`), lastModified: dated("/section-26-notice"), changeFrequency: "monthly", priority: 0.9 },
     // /free-lease-check and /free-rent-estimate are intentionally noindex (form pages), so they stay out of the sitemap.
+    // /operator-letter stays out too, and noindex, until the firm approves its wording.
   ];
 
   const serviceEntries: MetadataRoute.Sitemap = servicePages.map((path) => ({

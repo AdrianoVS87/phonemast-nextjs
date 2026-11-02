@@ -10,7 +10,7 @@ const SCROLL_THRESHOLD = 0.45; // 45% of page height
 const SHOW_DELAY_MS = 600;     // small delay to feel intentional, not jumpy
 const MIN_DWELL_MS = 8_000;    // never fire in the first 8s of a visit
 
-const EXCLUDED_PREFIXES = ["/handbook", "/studio", "/contact", "/free-lease-check", "/free-rent-estimate"];
+const EXCLUDED_PREFIXES = ["/handbook", "/studio", "/contact", "/free-lease-check", "/free-rent-estimate", "/operator-letter"];
 
 function isExcluded(pathname: string | null): boolean {
   if (!pathname) return false;
