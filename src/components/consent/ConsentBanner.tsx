@@ -1,6 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
+import Link from "next/link";
 
 /**
  * Phone Mast Advice — Cookie Consent Banner (Google EU UCP compliant).
@@ -10,7 +11,9 @@ import { useCallback, useEffect, useRef, useState } from "react";
  *  - Mentions "cookies and mobile ad identifiers"
  *  - Mentions "personalised and non-personalised advertising"
  *  - Direct link to https://business.safety.google/privacy/ (Issue 1.2)
- *  - 3 buttons with equivalent visual weight: Reject / Manage / Accept
+ *  - Reject and Accept share one style and size; Manage is the quieter third
+ *  - Phones get a compact wording of the same disclosures, so the banner stays
+ *    near 20% of the screen and is not the LCP element (styles: globals.css)
  *
  * Consent Mode v2 integration:
  *  - Default state `denied` is set in <ConsentDefault /> (head, beforeInteractive)
@@ -162,7 +165,7 @@ export default function ConsentBanner() {
     <>
       {/* Backdrop */}
       <div
-        className="consent-ui"
+        className="consent-ui consent-backdrop"
         aria-hidden="true"
         style={{
           position: "fixed",
@@ -175,9 +178,9 @@ export default function ConsentBanner() {
 
       {/* Banner */}
       <div
-        className="consent-ui"
+        className="consent-ui consent-banner"
         role="dialog"
-        aria-modal="true"
+        aria-modal="false"
         aria-labelledby="consent-title"
         aria-describedby="consent-desc"
         data-testid="consent-banner"
@@ -195,6 +198,7 @@ export default function ConsentBanner() {
         }}
       >
         <div
+          className="consent-layout"
           style={{
             maxWidth: "1100px",
             margin: "0 auto",
@@ -206,6 +210,7 @@ export default function ConsentBanner() {
           <div>
             <h2
               id="consent-title"
+              className="consent-title"
               style={{
                 fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                 fontSize: "1.0625rem",
@@ -218,6 +223,7 @@ export default function ConsentBanner() {
             </h2>
             <p
               id="consent-desc"
+              className="consent-desc"
               style={{
                 fontSize: "1rem",
                 lineHeight: 1.6,
@@ -225,28 +231,58 @@ export default function ConsentBanner() {
                 margin: 0,
               }}
             >
-              We use cookies and similar technologies (including{" "}
-              <strong>mobile ad identifiers</strong>) on this website. Some are
-              essential, while others are used for{" "}
-              <strong>ads personalisation</strong>, analytics, and to understand
-              how you use our site. By clicking &ldquo;Accept all&rdquo;, you
-              consent to the use of cookies for{" "}
-              <strong>personalised and non-personalised advertising</strong>.{" "}
-              See{" "}
-              <a
-                href="https://business.safety.google/privacy/"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{ color: "#1B4F72", fontWeight: 600, textDecoration: "underline" }}
-                data-testid="consent-google-link"
-              >
-                Google's Business Data Responsibility Site
-              </a>{" "}
-              for how Google uses your data.
+              <span className="consent-text-full">
+                We use cookies and similar technologies (including{" "}
+                <strong>mobile ad identifiers</strong>) on this website. Some are
+                essential, while others are used for{" "}
+                <strong>ads personalisation</strong>, analytics, and to understand
+                how you use our site. By clicking &ldquo;Accept all&rdquo;, you
+                consent to the use of cookies for{" "}
+                <strong>personalised and non-personalised advertising</strong>.{" "}
+                See our{" "}
+                <Link href="/cookie-policy/" style={linkStyle} data-testid="consent-policy-link">
+                  Cookie Policy
+                </Link>{" "}
+                and{" "}
+                <a
+                  href="https://business.safety.google/privacy/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={linkStyle}
+                  data-testid="consent-google-link"
+                >
+                  Google&apos;s Business Data Responsibility Site
+                </a>{" "}
+                for how Google uses your data.
+              </span>
+              {/* Two short blocks, so neither becomes the page's LCP element. */}
+              <span className="consent-text-compact">
+                <span>
+                  We use cookies and mobile ad identifiers for analytics and ads
+                  personalisation,
+                </span>
+                <span>
+                  plus personalised and non-personalised advertising.{" "}
+                  <Link href="/cookie-policy/" style={linkStyle}>
+                    Cookie Policy
+                  </Link>
+                  {" · "}
+                  <a
+                    href="https://business.safety.google/privacy/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Google's Business Data Responsibility Site"
+                    style={linkStyle}
+                  >
+                    Google
+                  </a>
+                </span>
+              </span>
             </p>
           </div>
 
           <div
+            className="consent-actions"
             style={{
               display: "flex",
               flexWrap: "wrap",
@@ -260,27 +296,32 @@ export default function ConsentBanner() {
               onClick={rejectNonEssential}
               data-testid="consent-reject"
               aria-label="Reject non-essential cookies"
-              style={buttonStyle("ghost")}
+              className="consent-btn"
+              style={buttonStyle("primary")}
             >
-              Reject non-essential
-            </button>
-            <button
-              type="button"
-              onClick={() => setShowManage(true)}
-              data-testid="consent-manage"
-              aria-label="Manage cookie preferences"
-              style={buttonStyle("ghost")}
-            >
-              Manage preferences
+              <span className="consent-label-full">Reject non-essential</span>
+              <span className="consent-label-compact">Reject all</span>
             </button>
             <button
               type="button"
               onClick={acceptAll}
               data-testid="consent-accept"
               aria-label="Accept all cookies"
+              className="consent-btn"
               style={buttonStyle("primary")}
             >
               Accept all
+            </button>
+            <button
+              type="button"
+              onClick={() => setShowManage(true)}
+              data-testid="consent-manage"
+              aria-label="Manage cookie preferences"
+              className="consent-btn"
+              style={buttonStyle("ghost")}
+            >
+              <span className="consent-label-full">Manage preferences</span>
+              <span className="consent-label-compact">Manage</span>
             </button>
           </div>
         </div>
@@ -398,6 +439,8 @@ function ToggleRow({
     </label>
   );
 }
+
+const linkStyle: React.CSSProperties = { color: "#1B4F72", fontWeight: 600, textDecoration: "underline" };
 
 function buttonStyle(variant: "primary" | "ghost"): React.CSSProperties {
   const base: React.CSSProperties = {
