@@ -19,9 +19,10 @@ assert.equal(claimFormConversion({ kind: "contact", hasMast: "yes" }, store), fa
 assert.equal(claimFormConversion({ kind: "contact", id: "", hasMast: "yes" }, store), false);
 assert.equal(claimFormConversion({ kind: "contact", id: "a", hasMast: "yes" }, store), true);
 
-// "No" never fires, and an unanswered form (tab open across a deploy) still does
+// The mast answer never blocks a conversion: genuine prospects without a mast can be billable
 store = session();
-assert.equal(claimFormConversion({ kind: "handbook", id: "a", hasMast: "no" }, store), false);
+assert.equal(claimFormConversion({ kind: "handbook", id: "a", hasMast: "no" }, store), true);
+store = session();
 assert.equal(claimFormConversion({ kind: "handbook", id: "a", hasMast: "" }, store), true);
 
 // Blocked storage never stops a conversion; Ads dedupes on transaction_id

@@ -8,7 +8,7 @@ import { claimFormConversion, type SessionStore } from "./conversionDedupe";
  *  - ADS_CONVERSION_ID env var is empty
  *  - the supplied label is empty
  *  - the rules in conversionDedupe.ts say no: no server id (silent spam drop),
- *    a "no" to the mast question, or this form kind already counted this session
+ *    or this form kind already counted this session
  *
  * gtag is defined by <ConsentDefault /> for every visitor, so this also runs when
  * advertising was denied. Consent Mode then decides what is sent: a full conversion
