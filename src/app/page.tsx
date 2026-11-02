@@ -233,10 +233,10 @@ export default async function HomePage() {
       <Hero
         headline="Phone Mast Lease & Rent Advice for UK Landlords"
         subheadline="Independent specialist telecom surveyors acting only for UK landlords. Get expert phone mast advice on leases, rent, renewals, reviews, and operator negotiations."
-        ctaText="Free Lease Check"
-        ctaHref="/free-lease-check/"
-        secondaryCtaText="Free Rent Estimate"
-        secondaryCtaHref="/free-rent-estimate/"
+        ctaText="Already have a mast? Check your rent"
+        ctaHref="/free-rent-estimate/"
+        secondaryCtaText="Free Lease Check"
+        secondaryCtaHref="/free-lease-check/"
       />
 
       <section style={{ backgroundColor: "#f9f8f5", padding: "1.25rem 1.5rem", borderBottom: "1px solid #e5e7eb" }}>

@@ -442,3 +442,23 @@ html[data-consent="set"] .consent-ui {
     padding: 1.25rem;
   }
 }
+
+/* Paid landing page heroes: tighter on phones so the CTA sits above the consent banner. */
+.landing-hero {
+  padding: 4rem 1.5rem;
+}
+
+.mast-cta {
+  text-align: center;
+  text-wrap: balance;
+}
+
+@media (max-width: 639px) {
+  .landing-hero {
+    padding: 1.5rem 0;
+  }
+
+  .mast-cta {
+    width: 100%;
+  }
+}

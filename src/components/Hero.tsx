@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ExistingMastNote from "@/components/ExistingMastNote";
 
 interface HeroProps {
   headline?: string;
@@ -88,6 +89,8 @@ export default function Hero({
           {headline}
         </h1>
 
+        <ExistingMastNote tone="dark" />
+
         {/* Sub-headline */}
         <p
           className="hero-subheadline"
@@ -141,7 +144,7 @@ export default function Hero({
         >
           <Link
             href={ctaHref}
-            className="btn-primary hero-cta-primary"
+            className="btn-primary hero-cta-primary mast-cta"
             style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
           >
             {ctaText}
@@ -218,7 +221,7 @@ export default function Hero({
             margin-bottom: 0.625rem !important;
           }
           .hero-subheadline {
-            font-size: 1rem !important;
+            font-size: 1.125rem !important;
             line-height: 1.55 !important;
             margin-bottom: 0.875rem !important;
           }

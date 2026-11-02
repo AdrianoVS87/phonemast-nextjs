@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
+import ExistingMastNote from "@/components/ExistingMastNote";
 import FAQAccordion from "@/components/FAQAccordion";
 
 const rentReviewFaqs = [
@@ -67,17 +68,18 @@ export default function RentReviewsPage() {
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Rent Reviews" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section className="landing-hero" style={{ backgroundColor: "#1B4F72" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#ffffff", marginBottom: "1rem", lineHeight: 1.2 }}>
             Phone Mast Rent Reviews
           </h1>
+          <ExistingMastNote tone="dark" />
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
-            Independent rent review specialists acting exclusively for UK landlords. This page is about our rent review service; for the main background guide, see our <a href="/phone-mast-rent/" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast rent advice page</a>.
+            Independent rent review specialists acting exclusively for UK landlords.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <Link href="/free-rent-estimate/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
-              Free Rent Estimate
+            <Link href="/free-rent-estimate/" className="btn-primary mast-cta" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+              Already have a mast? Check your rent
             </Link>
             <a href="tel:01691791543" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", color: "#ffffff", border: "2px solid rgba(255,255,255,0.6)", borderRadius: "10px", fontWeight: 600, fontSize: "1.0625rem", textDecoration: "none", minHeight: "44px" }}>
               📞 01691 791543

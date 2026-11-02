@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
+import ExistingMastNote from "@/components/ExistingMastNote";
 
 export const metadata: Metadata = {
   title: { absolute: "Phone Mast Lease Renewal Advice | Phone Mast Advice" },
@@ -105,17 +106,18 @@ export default function Page() {
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section className="landing-hero" style={{ backgroundColor: "#1B4F72" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#ffffff", marginBottom: "1rem", lineHeight: 1.2 }}>
             Phone Mast Lease Renewals
           </h1>
+          <ExistingMastNote tone="dark" />
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
-            Independent specialists helping UK landlords navigate lease renewals with every major mobile phone operator. This page is about our lease renewal service; for the broader legal background, see our <a href="/phone-mast-lease/" style={{ color: "#ffffff", textDecoration: "underline", fontWeight: 700 }}>phone mast lease advice page</a>.
+            Independent specialists helping UK landlords navigate lease renewals with every major mobile phone operator.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <Link href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
-              Free Lease Check
+            <Link href="/free-lease-check/" className="btn-primary mast-cta" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+              Already have a mast? Check your lease
             </Link>
             <a href="tel:01691791543" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", color: "#ffffff", border: "2px solid rgba(255,255,255,0.6)", borderRadius: "10px", fontWeight: 600, fontSize: "1.0625rem", textDecoration: "none", minHeight: "44px" }}>
               📞 01691 791543

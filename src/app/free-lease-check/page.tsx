@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import LeadForm from "@/components/LeadForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
+import ExistingMastNote from "@/components/ExistingMastNote";
 
 export const metadata: Metadata = {
   title: "Free Phone Mast Lease Check | Independent UK Specialists",
@@ -50,6 +51,7 @@ export default function FreeLeaseCheckPage() {
               >
                 Free Phone Mast Lease Check
               </h1>
+              <ExistingMastNote tone="light" />
             </div>
 
             <div className="lg:col-start-2 lg:row-start-1 lg:row-span-2">

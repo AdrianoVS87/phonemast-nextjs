@@ -2,6 +2,7 @@ import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
+import ExistingMastNote from "@/components/ExistingMastNote";
 import FAQAccordion from "@/components/FAQAccordion";
 
 export const metadata: Metadata = {
@@ -81,7 +82,7 @@ export default function Page() {
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Mast Sales" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section className="landing-hero" style={{ backgroundColor: "#1B4F72" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -95,12 +96,13 @@ export default function Page() {
           >
             Sell Your Phone Mast Lease: Mast Sales Advice for UK Landlords
           </h1>
+          <ExistingMastNote tone="dark" />
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
-            A phone mast lease sale turns years of future rent into a lump sum today. We act only for landowners, so our job is to find out what your lease is really worth, bring in competing buyers, and make sure the paperwork does not cost you your land.
+            We act only for landowners, so our job is to find out what your lease is really worth, bring in competing buyers, and make sure the paperwork does not cost you your land.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
-              Free Lease Check
+            <a href="/free-lease-check/" className="btn-primary mast-cta" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+              Already have a mast? Check your lease
             </a>
             <a
               href="tel:01691791543"
