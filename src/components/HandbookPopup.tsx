@@ -81,7 +81,7 @@ export default function HandbookPopup({ onClose, source }: Props) {
       );
 
       if (result.success) {
-        if (hasMast !== "no") fireConversion("handbook");
+        fireConversion("handbook", { id: result.id, hasMast });
         setStatus("success");
         formRef.current?.reset();
       } else {

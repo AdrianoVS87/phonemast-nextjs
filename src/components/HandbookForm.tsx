@@ -40,7 +40,7 @@ export default function HandbookForm() {
     );
 
     if (result.success) {
-      if (data.hasMast !== "no") fireConversion("handbook");
+      fireConversion("handbook", { id: result.id, hasMast: data.hasMast });
       setStatus("success");
       formRef.current?.reset();
     } else {
