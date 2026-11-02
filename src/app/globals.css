@@ -427,3 +427,18 @@ html[data-consent="set"] .consent-ui {
     padding: 0.25rem !important;
   }
 }
+
+/* Rent estimate and lease check pages: bring the form up on phones and tablets. */
+.form-page-card {
+  padding: 2rem;
+}
+
+@media (max-width: 1023px) {
+  .form-page-section {
+    padding-top: 1rem;
+  }
+
+  .form-page-card {
+    padding: 1.25rem;
+  }
+}
