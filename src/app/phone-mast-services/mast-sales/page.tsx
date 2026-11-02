@@ -101,7 +101,7 @@ export default function Page() {
             We act only for landowners, so our job is to find out what your lease is really worth, bring in competing buyers, and make sure the paperwork does not cost you your land.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <a href="/free-lease-check/" className="btn-primary mast-cta" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <a href="/free-lease-check/" className="btn-primary mast-cta" style={{ fontSize: "1.125rem", padding: "1rem 2rem" }}>
               Already have a mast? Check your lease
             </a>
             <a
@@ -115,7 +115,7 @@ export default function Page() {
                 border: "2px solid rgba(255,255,255,0.6)",
                 borderRadius: "10px",
                 fontWeight: 600,
-                fontSize: "1.0625rem",
+                fontSize: "1.125rem",
                 textDecoration: "none",
                 minHeight: "44px",
               }}
@@ -130,7 +130,7 @@ export default function Page() {
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
-            <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our mast sales service page. For the valuation background that drives every sale price, read our{" "}
               <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guide; for the terms buyers will ask you to sign, see our{" "}
               <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
@@ -157,7 +157,7 @@ export default function Page() {
               "The operator, whether the site is shared by more than one network, and the type of site: rooftop, greenfield, or an unusual structure",
               "Any redevelopment potential in the land, which a buyer will want to restrict and you will want to protect",
             ].map((item, i) => (
-              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
+              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
                 <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
@@ -175,7 +175,7 @@ export default function Page() {
               "Your rent is exposed to a Code-based reduction at renewal and you want certainty",
               "The sale fits wider estate, succession, or tax planning (take tax advice on the capital versus income treatment)",
             ].map((item, i) => (
-              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
+              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
                 <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
@@ -193,7 +193,7 @@ export default function Page() {
               "Renewal risk: be clear who carries the risk if the operator renews at a lower Code rent or leaves the site altogether",
               "Costs: check who pays legal fees, any VAT or stamp duty land tax position, and what happens if the deal does not complete",
             ].map((item, i) => (
-              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
+              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
                 <span style={{ flexShrink: 0, color: "#e53e3e", fontWeight: 700, marginTop: "0.05rem" }}>✗</span>
                 {item}
               </li>
@@ -229,13 +229,13 @@ export default function Page() {
               { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
-                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
+                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1.125rem" }}>{item.label}</p>
+                <p style={{ color: "#6b7280", margin: 0, fontSize: "1.125rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}
           </div>
 
-          <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "1.125rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 3 September 2026. It is general guidance for landowners and does not constitute legal, tax, or valuation advice for a specific site. Please contact us for advice on your circumstances.
           </p>
         </div>

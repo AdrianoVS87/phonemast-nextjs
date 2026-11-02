@@ -59,14 +59,14 @@ export default function CTASection({
           <Link
             href={ctaHref}
             className="btn-primary"
-            style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
+            style={{ fontSize: "1.125rem", padding: "1rem 2rem" }}
           >
             {ctaText}
           </Link>
           <Link
             href="/contact/"
             className="btn-secondary"
-            style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
+            style={{ fontSize: "1.125rem", padding: "1rem 2rem" }}
           >
             Contact Us
           </Link>

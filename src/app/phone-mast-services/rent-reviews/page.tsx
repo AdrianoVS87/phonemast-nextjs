@@ -78,10 +78,10 @@ export default function RentReviewsPage() {
             Independent rent review specialists acting exclusively for UK landlords.
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
-            <Link href="/free-rent-estimate/" className="btn-primary mast-cta" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
+            <Link href="/free-rent-estimate/" className="btn-primary mast-cta" style={{ fontSize: "1.125rem", padding: "1rem 2rem" }}>
               Already have a mast? Check your rent
             </Link>
-            <a href="tel:01691791543" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", color: "#ffffff", border: "2px solid rgba(255,255,255,0.6)", borderRadius: "10px", fontWeight: 600, fontSize: "1.0625rem", textDecoration: "none", minHeight: "44px" }}>
+            <a href="tel:01691791543" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", color: "#ffffff", border: "2px solid rgba(255,255,255,0.6)", borderRadius: "10px", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none", minHeight: "44px" }}>
               📞 01691 791543
             </a>
           </div>
@@ -96,10 +96,10 @@ export default function RentReviewsPage() {
           </p>
 
           <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
-            <p style={{ fontSize: "0.95rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
+            <p style={{ fontSize: "1.125rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
               Service page, backed by the main valuation guide
             </p>
-            <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
+            <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This page is for landlords who want practical negotiation support now. For the broader valuation and legal background, use our <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast rent advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
             </p>
           </div>
@@ -175,7 +175,7 @@ export default function RentReviewsPage() {
               "Support for single sites and large portfolios",
               "Maximises income while protecting your rights and property value",
             ].map((item, i) => (
-              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
+              <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
                 <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
@@ -214,7 +214,7 @@ export default function RentReviewsPage() {
                   textDecoration: "none",
                   fontWeight: 600,
                   color: "#1B4F72",
-                  fontSize: "1rem",
+                  fontSize: "1.125rem",
                   minHeight: "44px",
                 }}
               >
@@ -252,8 +252,8 @@ export default function RentReviewsPage() {
                   textDecoration: "none",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
+                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1.125rem" }}>{item.label}</p>
+                <p style={{ color: "#6b7280", margin: 0, fontSize: "1.125rem", lineHeight: 1.4 }}>{item.desc}</p>
               </Link>
             ))}
           </div>
@@ -266,7 +266,7 @@ export default function RentReviewsPage() {
               <Link
                 key={post.href}
                 href={post.href}
-                style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", color: "#1B4F72", fontWeight: 600, fontSize: "1rem", textDecoration: "none", lineHeight: 1.5 }}
+                style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", color: "#1B4F72", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none", lineHeight: 1.5 }}
               >
                 <span aria-hidden="true" style={{ color: "#a4ca62", fontWeight: 700, flexShrink: 0, marginTop: "0.125rem" }}>→</span>
                 {post.title}
@@ -274,7 +274,7 @@ export default function RentReviewsPage() {
             ))}
           </div>
           <div style={{ marginTop: "1.5rem" }}>
-            <Link href="/blog/" style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}>
+            <Link href="/blog/" style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none" }}>
               View all articles →
             </Link>
           </div>

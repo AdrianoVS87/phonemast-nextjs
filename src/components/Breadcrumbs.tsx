@@ -46,7 +46,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
               listStyle: "none",
               margin: 0,
               padding: 0,
-              fontSize: "0.9375rem",
+              fontSize: "1.125rem",
             }}
           >
             <li>

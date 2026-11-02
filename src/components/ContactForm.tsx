@@ -50,7 +50,7 @@ export default function ContactForm() {
     padding: "0.875rem 1rem",
     border: "1px solid #d1d5db",
     borderRadius: "0.5rem",
-    fontSize: "1.0625rem",
+    fontSize: "1.125rem",
     color: "#1a1a2e",
     backgroundColor: "#ffffff",
     outline: "none",
@@ -61,7 +61,7 @@ export default function ContactForm() {
   const labelStyle: React.CSSProperties = {
     display: "block",
     fontWeight: 600,
-    fontSize: "1rem",
+    fontSize: "1.125rem",
     color: "#1a1a2e",
     marginBottom: "0.5rem",
   };
@@ -93,7 +93,7 @@ export default function ContactForm() {
         >
           Message Sent!
         </h3>
-        <p style={{ color: "#374151", fontSize: "1.0625rem", margin: 0 }}>
+        <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0 }}>
           Thank you for getting in touch. We&apos;ll come back to you within one
           working day. For urgent enquiries, call us on{" "}
           <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
@@ -197,7 +197,7 @@ export default function ContactForm() {
           style={{
             width: "100%",
             justifyContent: "center",
-            fontSize: "1.0625rem",
+            fontSize: "1.125rem",
             padding: "1rem",
             opacity: status === "sending" ? 0.7 : 1,
             cursor: status === "sending" ? "not-allowed" : "pointer",
@@ -210,7 +210,7 @@ export default function ContactForm() {
           style={{
             textAlign: "center",
             color: "#6b7280",
-            fontSize: "0.875rem",
+            fontSize: "1.125rem",
             margin: 0,
           }}
         >

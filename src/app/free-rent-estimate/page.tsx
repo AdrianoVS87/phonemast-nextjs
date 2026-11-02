@@ -86,7 +86,7 @@ export default function FreeRentEstimatePage() {
                 <div key={item.text} style={{ display: "flex", gap: "0.875rem", alignItems: "flex-start", marginBottom: "1rem" }}>
                   <span style={{ fontSize: "1.25rem", flexShrink: 0 }}>{item.icon}</span>
                   <p
-                    style={{ fontSize: "1.0625rem", color: "#374151", margin: 0, lineHeight: 1.55 }}
+                    style={{ fontSize: "1.125rem", color: "#374151", margin: 0, lineHeight: 1.55 }}
                     dangerouslySetInnerHTML={{ __html: item.text }}
                   />
                 </div>
@@ -101,10 +101,10 @@ export default function FreeRentEstimatePage() {
                   borderRadius: "1rem",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "#1a1a2e", marginBottom: "0.5rem", fontSize: "1.0625rem" }}>
+                <p style={{ fontWeight: 700, color: "#1a1a2e", marginBottom: "0.5rem", fontSize: "1.125rem" }}>
                   Most landlords we contact are being underpaid.
                 </p>
-                <p style={{ color: "#374151", fontSize: "1rem", margin: 0, lineHeight: 1.65 }}>
+                <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
                   Operators routinely offer below-market rents. Our clients typically see increases of 30–200% after a successful rent review.
                 </p>
               </div>

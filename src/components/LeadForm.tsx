@@ -85,7 +85,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
     padding: "0.875rem 1rem",
     border: "1px solid #d1d5db",
     borderRadius: "0.5rem",
-    fontSize: "1.0625rem",
+    fontSize: "1.125rem",
     color: "#1a1a2e",
     backgroundColor: "#ffffff",
     outline: "none",
@@ -96,7 +96,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
   const labelStyle: React.CSSProperties = {
     display: "block",
     fontWeight: 600,
-    fontSize: "1rem",
+    fontSize: "1.125rem",
     color: "#1a1a2e",
     marginBottom: "0.5rem",
   };
@@ -128,7 +128,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
         >
           Request Received!
         </h3>
-        <p style={{ color: "#374151", fontSize: "1.0625rem", margin: 0, lineHeight: 1.65 }}>
+        <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
           Thank you for getting in touch. One of our specialist surveyors will review your details and come back to you within one working day. For urgent enquiries, call{" "}
           <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
             01691 791543
@@ -305,7 +305,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
           style={{
             width: "100%",
             justifyContent: "center",
-            fontSize: "1.0625rem",
+            fontSize: "1.125rem",
             padding: "1rem",
             opacity: status === "sending" ? 0.7 : 1,
             cursor: status === "sending" ? "not-allowed" : "pointer",
@@ -318,7 +318,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
               : "Submit for Free Estimate"}
         </button>
 
-        <p style={{ textAlign: "center", color: "#6b7280", fontSize: "0.875rem", margin: 0 }}>
+        <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0 }}>
           Or call us:{" "}
           <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
             01691 791543
