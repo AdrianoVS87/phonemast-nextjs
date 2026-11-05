@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import Link from "next/link";
 import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
+import BenefitsStrip from "@/components/BenefitsStrip";
+import GuideCards from "@/components/GuideCards";
 import ServiceCard, { type ServiceCardProps } from "@/components/ServiceCard";
 import TestimonialCard from "@/components/TestimonialCard";
 import TrustSignals from "@/components/TrustSignals";
@@ -239,24 +242,14 @@ export default async function HomePage() {
         secondaryCtaHref="/free-rent-estimate/"
       />
 
-      <section style={{ backgroundColor: "#f9f8f5", padding: "1.25rem 1.5rem", borderBottom: "1px solid #e5e7eb" }}>
-        <div className="container-max" style={{ display: "flex", flexWrap: "wrap", gap: "0.875rem 1.25rem", alignItems: "center" }}>
-          <p style={{ margin: 0, fontSize: "0.95rem", color: "#374151", fontWeight: 600 }}>Start with the right guide:</p>
-          {[
-            { href: "/phone-mast-lease/", label: "Phone Mast Lease Advice" },
-            { href: "/phone-mast-rent/", label: "Phone Mast Rent Advice" },
-            { href: "/phone-mast-services/lease-renewals/", label: "Lease Renewal Advice" },
-            { href: "/phone-mast-services/rent-reviews/", label: "Rent Review Advice" },
-          ].map((item) => (
-            <a key={item.href} href={item.href} style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline", textUnderlineOffset: "2px", fontSize: "0.95rem" }}>
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </section>
+      {/* Benefits strip (design package, 5 Nov 2026) */}
+      <BenefitsStrip />
 
       {/* Stats bar */}
       <StatsBar />
+
+      {/* Start with the right guide: same four links as before, now as cards */}
+      <GuideCards />
 
       {/* Why Choose Us */}
       <section className="section-padding" style={{ backgroundColor: "#ffffff" }}>
@@ -273,8 +266,8 @@ export default async function HomePage() {
               <span
                 style={{
                   display: "inline-block",
-                  backgroundColor: "rgba(164,202,98,0.15)",
-                  color: "#1B4F72",
+                  backgroundColor: "rgba(182,244,20,0.15)",
+                  color: "#042b4d",
                   fontWeight: 700,
                   fontSize: "0.875rem",
                   textTransform: "uppercase",
@@ -282,7 +275,7 @@ export default async function HomePage() {
                   padding: "0.375rem 1rem",
                   borderRadius: "50px",
                   marginBottom: "1.25rem",
-                  border: "1px solid rgba(164,202,98,0.4)",
+                  border: "1px solid rgba(182,244,20,0.4)",
                 }}
               >
                 Representing Landlords
@@ -339,15 +332,15 @@ export default async function HomePage() {
               >
                 Mobile Phone Mast leases and telecom agreements are complex and governed by both commercial law and the Electronic Communications Code (ECC) – the legal framework that affects rent, negotiation rights, and landlord protections. Without specialist advice, landlords commonly face under-market rent offers, unfavourable access &amp; maintenance clauses, loss of redevelopment rights, confusing legal obligations under the ECC, and poor outcomes from operator-led negotiations.
               </p>
-              <a href="/about-us/" className="btn-primary">
+              <Link href="/about-us/" className="btn-primary">
                 About Our Firm
-              </a>
+              </Link>
             </div>
 
             {/* How we help */}
             <div
               style={{
-                backgroundColor: "#f9f8f5",
+                backgroundColor: "#f3f7fb",
                 borderRadius: "1rem",
                 padding: "2rem",
                 border: "1px solid #e5e7eb",
@@ -358,7 +351,7 @@ export default async function HomePage() {
                   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                   fontWeight: 700,
                   fontSize: "1.25rem",
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   marginBottom: "1.5rem",
                 }}
               >
@@ -411,7 +404,7 @@ export default async function HomePage() {
 
       {/* 2026 Changes Banner — UNMISSABLE */}
       <section
-        style={{ backgroundColor: "#0d2f47", padding: "4rem 1.5rem" }}
+        style={{ backgroundColor: "#082f54", padding: "4rem 1.5rem" }}
         aria-labelledby="banner-2026-heading"
       >
         <div className="container-max">
@@ -419,8 +412,8 @@ export default async function HomePage() {
             <span
               style={{
                 display: "inline-block",
-                backgroundColor: "#a4ca62",
-                color: "#0d2f47",
+                backgroundColor: "#b6f414",
+                color: "#082f54",
                 fontWeight: 800,
                 fontSize: "0.875rem",
                 textTransform: "uppercase",
@@ -454,7 +447,7 @@ export default async function HomePage() {
                 margin: "0 auto",
               }}
             >
-              The PSTI Act 2022 changes to phone mast rents and lease renewals are now in force. If you haven't reviewed your position, act now to protect your interests.
+              The PSTI Act 2022 changes to phone mast rents and lease renewals are now in force. If you haven&apos;t reviewed your position, act now to protect your interests.
             </p>
           </div>
 
@@ -498,15 +491,15 @@ Phone Mast Rent Advice
               >
                 Understand how phone mast rent is valued, what changed in 2026, and when to escalate into a formal rent review or valuation dispute.
               </p>
-              <a
+              <Link
                 href="/phone-mast-rent/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "0.5rem",
                   padding: "0.875rem 1.75rem",
-                  backgroundColor: "#a4ca62",
-                  color: "#0d2f47",
+                  backgroundColor: "#b6f414",
+                  color: "#082f54",
                   borderRadius: "10px",
                   fontWeight: 700,
                   fontSize: "1rem",
@@ -515,7 +508,7 @@ Phone Mast Rent Advice
                 }}
               >
 Read the Rent Guide →
-              </a>
+              </Link>
             </div>
 
             {/* Lease card */}
@@ -549,15 +542,15 @@ Phone Mast Lease Advice
               >
                 Understand the key clauses in a phone mast lease, operator rights under the ECC, and when a renewal or legal review is needed.
               </p>
-              <a
+              <Link
                 href="/phone-mast-lease/"
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
                   gap: "0.5rem",
                   padding: "0.875rem 1.75rem",
-                  backgroundColor: "#a4ca62",
-                  color: "#0d2f47",
+                  backgroundColor: "#b6f414",
+                  color: "#082f54",
                   borderRadius: "10px",
                   fontWeight: 700,
                   fontSize: "1rem",
@@ -566,7 +559,7 @@ Phone Mast Lease Advice
                 }}
               >
 Read the Lease Guide →
-              </a>
+              </Link>
             </div>
           </div>
         </div>
@@ -575,7 +568,7 @@ Read the Lease Guide →
       {/* Services Grid */}
       <section
         className="section-padding"
-        style={{ backgroundColor: "#f9f8f5" }}
+        style={{ backgroundColor: "#f3f7fb" }}
         aria-labelledby="services-heading"
       >
         <div className="container-max">
@@ -619,22 +612,22 @@ Read the Lease Guide →
           </div>
 
           <div style={{ textAlign: "center", marginTop: "2.5rem" }}>
-            <a href="/phone-mast-services/" className="btn-primary">
+            <Link href="/phone-mast-services/" className="btn-primary">
               View All Services
-            </a>
+            </Link>
           </div>
         </div>
       </section>
 
       {/* Case study / landmark case */}
-      <section className="section-padding" style={{ backgroundColor: "#1B4F72" }}>
+      <section className="section-padding" style={{ backgroundColor: "#042b4d" }}>
         <div className="container-max">
           <div style={{ maxWidth: "800px", margin: "0 auto", textAlign: "center" }}>
             <span
               style={{
                 display: "inline-block",
-                backgroundColor: "rgba(164,202,98,0.2)",
-                color: "#a4ca62",
+                backgroundColor: "rgba(182,244,20,0.2)",
+                color: "#b6f414",
                 fontWeight: 700,
                 fontSize: "0.875rem",
                 textTransform: "uppercase",
@@ -642,7 +635,7 @@ Read the Lease Guide →
                 padding: "0.375rem 1rem",
                 borderRadius: "50px",
                 marginBottom: "1.5rem",
-                border: "1px solid rgba(164,202,98,0.3)",
+                border: "1px solid rgba(182,244,20,0.3)",
               }}
             >
               Landmark Case
@@ -698,7 +691,7 @@ Read the Lease Guide →
                 recommend his services to any landlords who have got Phone Mast
                 sites.&rdquo;
               </p>
-              <footer style={{ color: "#a4ca62", fontWeight: 700, fontSize: "0.9375rem" }}>
+              <footer style={{ color: "#b6f414", fontWeight: 700, fontSize: "0.9375rem" }}>
                 — Compton Beauchamp Estates Ltd, Oxfordshire
               </footer>
             </blockquote>
@@ -764,7 +757,7 @@ Read the Lease Guide →
       {/* FAQ */}
       <section
         className="section-padding"
-        style={{ backgroundColor: "#f9f8f5" }}
+        style={{ backgroundColor: "#f3f7fb" }}
         aria-labelledby="faq-heading"
       >
         <div className="container-max">
@@ -800,9 +793,9 @@ Read the Lease Guide →
                 Answers to the questions we hear most from UK landlords about
                 phone mast leases.
               </p>
-              <a href="/faq/" className="btn-primary">
+              <Link href="/faq/" className="btn-primary">
                 View All FAQs
-              </a>
+              </Link>
             </div>
             <FAQAccordion items={faqs} showJsonLd={true} />
           </div>

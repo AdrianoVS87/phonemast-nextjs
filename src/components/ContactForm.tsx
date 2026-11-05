@@ -75,7 +75,7 @@ export default function ContactForm() {
         style={{
           outline: "none",
           backgroundColor: "#f0faf0",
-          border: "2px solid #a4ca62",
+          border: "2px solid #b6f414",
           borderRadius: "1rem",
           padding: "2.5rem",
           textAlign: "center",
@@ -96,7 +96,7 @@ export default function ContactForm() {
         <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0 }}>
           Thank you for getting in touch. We&apos;ll come back to you within one
           working day. For urgent enquiries, call us on{" "}
-          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
+          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
             01691 791543
           </a>
           .
@@ -215,7 +215,7 @@ export default function ContactForm() {
           }}
         >
           Or call us now:{" "}
-          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
+          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
             01691 791543
           </a>
         </p>

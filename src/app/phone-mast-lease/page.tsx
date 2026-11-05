@@ -30,13 +30,13 @@ const H3: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
   fontWeight: 700,
   fontSize: "1.25rem",
-  color: "#1B4F72",
+  color: "#042b4d",
   marginBottom: "0.875rem",
 };
 const P: React.CSSProperties = { fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" };
-const LINK: React.CSSProperties = { color: "#1B4F72", fontWeight: 700, textDecoration: "underline" };
+const LINK: React.CSSProperties = { color: "#042b4d", fontWeight: 700, textDecoration: "underline" };
 const CARD: React.CSSProperties = {
-  backgroundColor: "#f9f8f5",
+  backgroundColor: "#f3f7fb",
   borderRadius: "1rem",
   padding: "1.75rem 2rem",
   marginBottom: "1.5rem",
@@ -126,10 +126,10 @@ export default function PhoneMastLeasePage() {
     url: "https://www.phonemastadvice.co.uk/phone-mast-lease/",
   };
 
-  const numbered = (items: { heading: string; detail: string }[], colour = "#1B4F72") => (
+  const numbered = (items: { heading: string; detail: string }[], colour = "#042b4d") => (
     <div style={{ display: "flex", flexDirection: "column", gap: "0.875rem", marginBottom: "2rem" }}>
       {items.map((item, i) => (
-        <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", backgroundColor: "#f9f8f5", borderRadius: "0.75rem", padding: "1.25rem 1.5rem" }}>
+        <div key={i} style={{ display: "flex", gap: "1rem", alignItems: "flex-start", backgroundColor: "#f3f7fb", borderRadius: "0.75rem", padding: "1.25rem 1.5rem" }}>
           <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: colour, display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.125rem" }}>
             {i + 1}
           </span>
@@ -151,7 +151,7 @@ export default function PhoneMastLeasePage() {
       <Breadcrumbs items={[{ label: "Phone Mast Lease" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "860px" }}>
           <h1
             style={{
@@ -185,7 +185,7 @@ export default function PhoneMastLeasePage() {
 
           {/* In short */}
           <div style={{ backgroundColor: "#f0f7ff", border: "1px solid #cfe3f5", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
-            <p style={{ fontSize: "0.95rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>In short</p>
+            <p style={{ fontSize: "0.95rem", color: "#042b4d", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>In short</p>
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               A phone mast lease is a commercial lease with one big difference: the operator holds statutory rights under the Electronic Communications Code that override many of the clauses. The lease does not end when the term expires, the operator can usually upgrade and share without consent, restrictions on assignment are void, and the Tribunal can impose terms. Since 7 April 2026 even legacy leases renewing under the Landlord and Tenant Act 1954 are valued on the Code basis. The money side is covered in our <a href="/phone-mast-rent/" style={LINK}>phone mast rent</a> guide; the practical next step is a <a href="/free-lease-check/" style={LINK}>free lease check</a>.
             </p>
@@ -234,7 +234,7 @@ export default function PhoneMastLeasePage() {
           <p style={P}>
             The Code grants Ofcom-registered operators statutory rights to install, maintain, upgrade and share telecommunications apparatus on private land. What makes it significant for landowners is that it gives operators the power to apply to the Tribunal (in England and Wales, the First-tier Tribunal (Property Chamber) or the Upper Tribunal (Lands Chamber)) to have an agreement imposed on an unwilling site provider. Under <strong>Paragraph 21</strong>, the Tribunal will impose an agreement if the prejudice to the site provider is capable of being adequately compensated in money and the public benefit of the installation outweighs that prejudice. In practice, operators almost always satisfy this test.
           </p>
-          <div style={{ backgroundColor: "#f0f7ff", borderLeft: "4px solid #1B4F72", borderRadius: "0 0.75rem 0.75rem 0", padding: "1.5rem 1.75rem", marginBottom: "2rem" }}>
+          <div style={{ backgroundColor: "#f0f7ff", borderLeft: "4px solid #042b4d", borderRadius: "0 0.75rem 0.75rem 0", padding: "1.5rem 1.75rem", marginBottom: "2rem" }}>
             <h3 style={{ ...H3, fontSize: "1.125rem" }}>The redevelopment defence: Paragraph 21(5)</h3>
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               The principal defence available to landowners is the redevelopment ground: if you can demonstrate a firm, settled and unconditional intention to redevelop your land, and a reasonable prospect of carrying it out, the Tribunal may refuse the operator&rsquo;s application. This test was confirmed in <em>EE Ltd v Sir James Chichester</em> [2019] UKUT 164 (LC) and applied more recently in <em>CTIL v Firoka (Kings Cross) Ltd</em> (2025), where a hotel owner defeated a rooftop installation application on genuine redevelopment grounds.
@@ -313,15 +313,15 @@ export default function PhoneMastLeasePage() {
               { citation: "Vodafone Ltd v Potting Shed Bar and Gardens Ltd [2023] EWCA Civ 825", summary: "Operators who acquire Code rights through assignment retain full renewal rights under the Code, which matters where the original operator has been replaced through corporate restructuring." },
               { citation: "Cornerstone v Compton Beauchamp Estates [2022] UKSC 18", summary: "Operators with existing agreements protected under the Landlord and Tenant Act 1954 must renew under that Act, not under the Code. One of the most important protections for landowners with pre-2017 leases until the PSTI Act changes took effect on 7 April 2026. The Phone Mast Advice Company instigated and advised on this case." },
             ].map((item, i) => (
-              <div key={i} style={{ backgroundColor: "#f9f8f5", borderRadius: "0.75rem", padding: "1.5rem 1.75rem", borderLeft: "4px solid #a4ca62" }}>
-                <p style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1rem", color: "#1B4F72", marginBottom: "0.625rem" }}><em>{item.citation}</em></p>
+              <div key={i} style={{ backgroundColor: "#f3f7fb", borderRadius: "0.75rem", padding: "1.5rem 1.75rem", borderLeft: "4px solid #b6f414" }}>
+                <p style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1rem", color: "#042b4d", marginBottom: "0.625rem" }}><em>{item.citation}</em></p>
                 <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>{item.summary}</p>
               </div>
             ))}
           </div>
 
           {/* 7 April 2026 */}
-          <div style={{ backgroundColor: "#1B4F72", borderRadius: "1rem", padding: "2rem 2.25rem", marginBottom: "2rem", color: "#ffffff" }}>
+          <div style={{ backgroundColor: "#042b4d", borderRadius: "1rem", padding: "2rem 2.25rem", marginBottom: "2rem", color: "#ffffff" }}>
             <h2 style={{ ...H2, color: "#ffffff", fontWeight: 800, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)" }}>What changed on 7 April 2026?</h2>
             <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.7, marginBottom: "1rem" }}>
               On <strong>7 April 2026</strong>, Sections 61 to 64 of the PSTI Act 2022 came into force, inserting a new <strong>Section 34A into the Landlord and Tenant Act 1954</strong>. For the first time, qualifying telecoms tenancies that renew under the 1954 Act are subject to the Code&rsquo;s no-network assumption when rent is assessed on renewal. This removed the financial advantage that landowners with pre-2017 leases previously enjoyed under <em>Compton Beauchamp</em>.
@@ -334,7 +334,7 @@ export default function PhoneMastLeasePage() {
                 "Since November 2023, an operator must consider alternative dispute resolution, where reasonably practicable, before applying to impose Code rights, and both sides must do so before applying for new terms under Paragraph 33",
               ].map((point, i) => (
                 <li key={i} style={{ display: "flex", gap: "0.75rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "rgba(255,255,255,0.88)", lineHeight: 1.6, alignItems: "flex-start" }}>
-                  <span style={{ color: "#a4ca62", flexShrink: 0, fontSize: "1.25rem", lineHeight: 1.3 }}>→</span>
+                  <span style={{ color: "#3d8a17", flexShrink: 0, fontSize: "1.25rem", lineHeight: 1.3 }}>→</span>
                   {point}
                 </li>
               ))}
@@ -361,7 +361,7 @@ export default function PhoneMastLeasePage() {
           <h2 style={H2}>Phone mast lease: frequently asked questions</h2>
           <div style={{ display: "flex", flexDirection: "column", gap: "1rem", marginBottom: "2.5rem" }}>
             {leaseFaqs.map((f, i) => (
-              <div key={i} style={{ backgroundColor: "#f9f8f5", borderRadius: "0.75rem", padding: "1.5rem 1.75rem", border: "1px solid #e5e7eb" }}>
+              <div key={i} style={{ backgroundColor: "#f3f7fb", borderRadius: "0.75rem", padding: "1.5rem 1.75rem", border: "1px solid #e5e7eb" }}>
                 <h3 style={{ ...H3, fontSize: "1.125rem", marginBottom: "0.625rem" }}>{f.q}</h3>
                 <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>{f.a}</p>
               </div>
@@ -370,7 +370,7 @@ export default function PhoneMastLeasePage() {
 
           {/* Author */}
           <div style={{ backgroundColor: "#f0f7ff", border: "1px solid #cfe3f5", borderRadius: "1rem", padding: "1.5rem 1.75rem", marginBottom: "2rem" }}>
-            <p style={{ fontSize: "0.95rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>About the author</p>
+            <p style={{ fontSize: "0.95rem", color: "#042b4d", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>About the author</p>
             <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               <a href="/team/matt-restall/" style={LINK}>Matt Restall</a> founded The Phone Mast Advice Company and has advised UK landlords on phone mast leases, rents and renewals for over 30 years. He instigated and advised on <em>Compton Beauchamp Estates v CTIL</em> [2022] UKSC 18. This guide is kept to what the legislation, the Tribunal decisions and the firm&rsquo;s own deal evidence support. Last reviewed {REVIEWED}.
             </p>
@@ -382,7 +382,7 @@ export default function PhoneMastLeasePage() {
             <p style={{ ...P, marginBottom: "1.5rem" }}>No obligation, no cost for the initial review. We act exclusively for landowners.</p>
             <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
               <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "0.875rem 1.75rem" }}>Free Lease Check →</a>
-              <a href="tel:01691791543" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.875rem 1.75rem", backgroundColor: "transparent", color: "#1B4F72", borderRadius: "10px", fontWeight: 600, fontSize: "1.0625rem", textDecoration: "none", border: "2px solid #1B4F72", minHeight: "44px" }}>📞 01691 791543</a>
+              <a href="tel:01691791543" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "0.875rem 1.75rem", backgroundColor: "transparent", color: "#042b4d", borderRadius: "10px", fontWeight: 600, fontSize: "1.0625rem", textDecoration: "none", border: "2px solid #042b4d", minHeight: "44px" }}>📞 01691 791543</a>
             </div>
           </div>
 

@@ -66,7 +66,7 @@ export default function ContactPage() {
       <Breadcrumbs items={[{ label: "Contact Us" }]} />
 
       {/* Navy hero banner */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -124,7 +124,7 @@ export default function ContactPage() {
                     alignItems: "center",
                     gap: "1rem",
                     padding: "1.25rem 1.5rem",
-                    backgroundColor: "#1B4F72",
+                    backgroundColor: "#042b4d",
                     borderRadius: "0.75rem",
                     marginBottom: "1rem",
                     textDecoration: "none",
@@ -162,7 +162,7 @@ export default function ContactPage() {
                         href={item.href}
                         target={item.href.startsWith("https") ? "_blank" : undefined}
                         rel={item.href.startsWith("https") ? "noopener noreferrer" : undefined}
-                        style={{ fontSize: "1.125rem", color: "#1B4F72", fontWeight: 600, textDecoration: "none" }}
+                        style={{ fontSize: "1.125rem", color: "#042b4d", fontWeight: 600, textDecoration: "none" }}
                       >
                         {item.value}
                       </a>
@@ -199,7 +199,7 @@ export default function ContactPage() {
                         padding: "1.25rem",
                         backgroundColor: "#ffffff",
                         border: "1px solid #e5e7eb",
-                        borderLeft: "4px solid #a4ca62",
+                        borderLeft: "4px solid #b6f414",
                         borderRadius: "0.5rem",
                         boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
                       }}
@@ -221,7 +221,7 @@ export default function ContactPage() {
                           alignItems: "center",
                           gap: "0.25rem",
                           fontSize: "1.125rem",
-                          color: "#1B4F72",
+                          color: "#042b4d",
                           fontWeight: 600,
                           textDecoration: "none",
                         }}

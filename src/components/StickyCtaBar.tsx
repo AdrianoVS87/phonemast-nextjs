@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { PhoneIcon } from "@/components/icons";
 
 export default function StickyCtaBar() {
   const [visible, setVisible] = useState(false);
@@ -43,7 +44,7 @@ export default function StickyCtaBar() {
           left: 0,
           right: 0,
           zIndex: 990,
-          backgroundColor: "#1B4F72",
+          backgroundColor: "#042b4d",
           padding: "0 1rem",
           minHeight: "56px",
           display: "flex",
@@ -72,7 +73,7 @@ export default function StickyCtaBar() {
             padding: "0 0.5rem",
           }}
         >
-          📞 <span>01691 791543</span>
+          <PhoneIcon size={18} color="#b6f414" /> <span>01691 791543</span>
         </a>
 
         {/* Free Rent Estimate CTA */}
@@ -83,7 +84,7 @@ export default function StickyCtaBar() {
             display: "inline-flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "#a4ca62",
+            backgroundColor: "#b6f414",
             color: "#1a1a2e",
             fontWeight: 700,
             fontSize: "0.9375rem",
@@ -152,7 +153,7 @@ export default function StickyCtaBar() {
             display: "flex",
             alignItems: "center",
             gap: "0.5rem",
-            backgroundColor: "#1B4F72",
+            backgroundColor: "#042b4d",
             color: "#ffffff",
             fontWeight: 600,
             fontSize: "0.9375rem",
@@ -163,7 +164,7 @@ export default function StickyCtaBar() {
             whiteSpace: "nowrap",
           }}
         >
-          📞 01691 791543
+          <PhoneIcon size={16} color="#b6f414" /> 01691 791543
         </a>
         <Link
           href="/free-rent-estimate/"
@@ -172,7 +173,7 @@ export default function StickyCtaBar() {
             display: "flex",
             alignItems: "center",
             justifyContent: "center",
-            backgroundColor: "#a4ca62",
+            backgroundColor: "#b6f414",
             color: "#1a1a2e",
             fontWeight: 700,
             fontSize: "0.9375rem",

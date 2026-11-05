@@ -1,4 +1,6 @@
 import Link from "next/link";
+import Image from "next/image";
+import { PhoneIcon, CalendarIcon, WhatsAppIcon, ArrowRightIcon, CheckIcon } from "@/components/icons";
 
 interface HeroProps {
   headline?: string;
@@ -7,8 +9,15 @@ interface HeroProps {
   ctaHref?: string;
   secondaryCtaText?: string;
   secondaryCtaHref?: string;
+  /** Trailing words of the headline rendered in the lime accent (must match the end of `headline`). */
+  highlight?: string;
 }
 
+/**
+ * Homepage hero, redesigned 5 Nov 2026 from the "Phone Mast Advice Homepage Developer Package".
+ * Same H1, copy, links and phone number as before; new layout, palette and mast artwork
+ * (/images/hero-mast.png, AI-generated for this site, transparent fade on the left).
+ */
 export default function Hero({
   headline = "Phone Mast Lease & Rent Advice for UK Landlords",
   subheadline = "Independent specialist telecom surveyors acting only for UK landlords. Get expert help with phone mast leases, phone mast rent, renewals, reviews, and operator negotiations.",
@@ -16,223 +25,121 @@ export default function Hero({
   ctaHref = "/free-lease-check/",
   secondaryCtaText = "Free Rent Estimate",
   secondaryCtaHref = "/free-rent-estimate/",
+  highlight = "UK Landlords",
 }: HeroProps) {
+  const cut = highlight && headline.endsWith(highlight) ? headline.length - highlight.length : -1;
+
   return (
-    <section
-      className="hero-section"
-      style={{
-        backgroundColor: "#1B4F72",
-        position: "relative",
-        overflow: "hidden",
-      }}
-    >
-      {/* Background pattern overlay */}
-      <div
-        aria-hidden="true"
-        style={{
-          position: "absolute",
-          inset: 0,
-          backgroundImage:
-            "radial-gradient(circle at 70% 50%, rgba(164,202,98,0.08) 0%, transparent 60%)",
-          pointerEvents: "none",
-        }}
-      />
+    <section className="hero-section hero-root" aria-labelledby="hero-title">
+      <div className="hero-glow" aria-hidden="true" />
+      <div className="hero-art" aria-hidden="true">
+        <Image
+          src="/images/hero-mast.png"
+          alt=""
+          fill
+          priority
+          sizes="(max-width: 700px) 70vw, (max-width: 1080px) 46vw, 48vw"
+          style={{ objectFit: "cover", objectPosition: "right center" }}
+        />
+        <div className="hero-art-fade" />
+      </div>
+      <div className="hero-hills" aria-hidden="true" />
 
-      <div
-        className="container-max hero-container"
-        style={{
-          position: "relative",
-          paddingTop: "5rem",
-          paddingBottom: "5rem",
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          textAlign: "center",
-        }}
-      >
-        {/* Trust badge */}
-        <div
-          className="hero-trust-badge"
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.5rem",
-            backgroundColor: "rgba(164,202,98,0.15)",
-            border: "1px solid rgba(164,202,98,0.3)",
-            borderRadius: "50px",
-            padding: "0.375rem 1rem",
-            marginBottom: "1.5rem",
-            fontSize: "0.9375rem",
-            color: "#a4ca62",
-            fontWeight: 600,
-          }}
-        >
-          ✓ Representing Landlords, Never Operators
-        </div>
+      <div className="container-max hero-container hero-inner">
+        <div className="hero-content">
+          <div className="hero-trust-badge hero-eyebrow">
+            <CheckIcon size={20} color="#b6f414" />
+            Representing Landlords, Never Operators
+          </div>
 
-        {/* Headline */}
-        <h1
-          className="hero-headline"
-          // fetchPriority hints Chromium that this is the LCP candidate
-          {...{ fetchpriority: "high" } as Record<string, string>}
-          style={{
-            color: "#ffffff",
-            fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(2rem, 5vw, 3.25rem)",
-            lineHeight: 1.2,
-            maxWidth: "720px",
-            marginBottom: "1.5rem",
-          }}
-        >
-          {headline}
-        </h1>
-
-        {/* Sub-headline */}
-        <p
-          className="hero-subheadline"
-          style={{
-            color: "rgba(255,255,255,0.92)",
-            fontSize: "1.1875rem",
-            lineHeight: 1.7,
-            maxWidth: "600px",
-            marginBottom: "2.5rem",
-          }}
-        >
-          {subheadline}
-        </p>
-
-        {/* Mobile-only tap-to-call button (Fix 2) — hidden on desktop */}
-        <a
-          href="tel:01691791543"
-          className="hero-mobile-call"
-          aria-label="Call us on 01691 791543"
-          style={{
-            display: "none", /* shown via CSS on mobile */
-            width: "100%",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "0.625rem",
-            backgroundColor: "#1B4F72",
-            border: "2px solid rgba(255,255,255,0.5)",
-            color: "#ffffff",
-            fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-            fontWeight: 700,
-            fontSize: "1.125rem",
-            borderRadius: "0.625rem",
-            textDecoration: "none",
-            minHeight: "56px",
-            marginBottom: "0.75rem",
-          }}
-        >
-          📞 Call 01691 791543
-        </a>
-
-        {/* CTA buttons */}
-        <div
-          className="hero-cta-group"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            gap: "1rem",
-            marginBottom: "2.5rem",
-            justifyContent: "center",
-          }}
-        >
-          <Link
-            href={ctaHref}
-            className="btn-primary hero-cta-primary"
-            style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
+          <h1
+            id="hero-title"
+            className="hero-headline"
+            // fetchPriority hints Chromium that this is the LCP candidate
+            {...({ fetchpriority: "high" } as Record<string, string>)}
           >
-            {ctaText}
-          </Link>
-          <Link
-            href={secondaryCtaHref}
-            className="btn-secondary hero-cta-secondary"
-            style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}
-          >
-            {secondaryCtaText}
-          </Link>
-        </div>
+            {cut > 0 ? (
+              <>
+                {headline.slice(0, cut)}
+                <span>{highlight}</span>
+              </>
+            ) : (
+              headline
+            )}
+          </h1>
 
-        {/* Phone call strip — hidden on mobile (replaced by tap-to-call button above + sticky bar) */}
-        <div
-          className="hero-phone-strip"
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "1.5rem",
-          }}
-        >
-          <a
-            href="tel:01691791543"
-            style={{
-              color: "#ffffff",
-              fontSize: "1.25rem",
-              fontWeight: 700,
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              textDecoration: "none",
-            }}
-          >
-            📞 01691 791543
-          </a>
-          <span style={{ color: "rgba(255,255,255,0.82)", fontSize: "1rem" }}>
-            Mon–Fri 9am–5:30pm
-          </span>
-          <a
-            href="https://wa.me/447843352654"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "rgba(255,255,255,0.9)",
-              fontSize: "1rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.375rem",
-            }}
-          >
-            💬 WhatsApp
-          </a>
+          <p className="hero-subheadline">{subheadline}</p>
+
+          <div className="hero-cta-group">
+            <Link href={ctaHref} className="btn-primary hero-cta-primary">
+              {ctaText}
+              <ArrowRightIcon size={21} />
+            </Link>
+            <Link href={secondaryCtaHref} className="btn-secondary hero-cta-secondary">
+              {secondaryCtaText}
+              <ArrowRightIcon size={21} />
+            </Link>
+          </div>
+
+          <div className="hero-contact hero-phone-strip">
+            <a href="tel:01691791543" aria-label="Call us on 01691 791543">
+              <PhoneIcon size={22} color="#b6f414" />
+              <strong>01691 791543</strong>
+            </a>
+            <span className="hero-sep" aria-hidden="true" />
+            <span className="hero-contact-item">
+              <CalendarIcon size={22} color="#b6f414" />
+              Mon–Fri 9am–5:30pm
+            </span>
+            <span className="hero-sep" aria-hidden="true" />
+            <a href="https://wa.me/447843352654" target="_blank" rel="noopener noreferrer">
+              <WhatsAppIcon size={22} color="#b6f414" />
+              WhatsApp
+            </a>
+          </div>
         </div>
       </div>
 
       <style>{`
-        /* Mobile hero: tighten layout so both CTAs are above the fold on 375px/360px viewports */
-        @media (max-width: 639px) {
-          .hero-container {
-            padding-top: 1.25rem !important;
-            padding-bottom: 1.25rem !important;
-          }
-          .hero-trust-badge {
-            font-size: 0.8125rem !important;
-            padding: 0.25rem 0.75rem !important;
-            margin-bottom: 0.625rem !important;
-          }
-          .hero-headline {
-            font-size: 1.625rem !important;
-            line-height: 1.15 !important;
-            margin-bottom: 0.625rem !important;
-          }
-          .hero-subheadline {
-            font-size: 1rem !important;
-            line-height: 1.55 !important;
-            margin-bottom: 0.875rem !important;
-          }
-          .hero-mobile-call {
-            display: flex !important;
-          }
-          .hero-cta-group {
-            margin-bottom: 0.875rem !important;
-            gap: 0.625rem !important;
-          }
-          /* Hide the phone strip on mobile — tap-to-call button above + sticky bar covers it */
-          .hero-phone-strip {
-            display: none !important;
-          }
+        .hero-root{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(100deg,#063f74 2%,#07518f 49%,#197ac0 100%);color:#fff}
+        .hero-glow{position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse 650px 500px at 33% 50%,rgba(17,126,205,.42),transparent 75%),linear-gradient(125deg,rgba(3,30,60,.35),transparent 72%)}
+        .hero-art{position:absolute;z-index:-2;top:0;right:0;bottom:0;width:48%}
+        .hero-art-fade{position:absolute;inset:0;background:linear-gradient(90deg,#07518f 0%,rgba(7,81,143,0) 30%)}
+        .hero-root::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(4,50,92,.13),transparent 68%);pointer-events:none}
+        .hero-hills{position:absolute;z-index:-1;bottom:0;left:0;width:65%;height:28px;background:linear-gradient(180deg,transparent 0,rgba(22,82,46,.18) 45%,rgba(15,70,48,.42) 100%);clip-path:polygon(0 42%,5% 52%,12% 39%,17% 53%,23% 25%,32% 45%,42% 27%,50% 47%,64% 18%,80% 43%,100% 9%,100% 100%,0 100%)}
+        .hero-inner{position:relative;min-height:610px;display:flex;align-items:center;padding-top:3rem;padding-bottom:3rem}
+        .hero-content{max-width:760px}
+        .hero-eyebrow{display:inline-flex;gap:.5rem;align-items:center;padding:.6rem 1.05rem;border:2px solid #b6f414;border-radius:100px;font-size:1rem;font-weight:700;color:#fff;background:rgba(5,43,77,.2)}
+        .hero-headline{font-family:var(--font-jakarta),system-ui,sans-serif;font-size:clamp(2.5rem,4.5vw,4rem);line-height:1.08;letter-spacing:-.03em;font-weight:800;margin:1.5rem 0 1.25rem;color:#fff;max-width:850px;text-wrap:balance}
+        .hero-headline span{color:#b6f414}
+        .hero-subheadline{font-size:clamp(1.125rem,1.6vw,1.375rem);line-height:1.5;max-width:720px;margin:0 0 2rem;color:#f0f8ff;text-wrap:pretty}
+        .hero-cta-group{display:flex;gap:1rem;flex-wrap:wrap;align-items:stretch}
+        .hero-cta-group .btn-primary,.hero-cta-group .btn-secondary{min-width:240px;padding:1.125rem 1.65rem;font-size:1.1875rem;gap:1rem}
+        .hero-cta-group .btn-secondary{background:rgba(4,47,86,.18)}
+        .hero-cta-group .btn-secondary:hover{background:rgba(255,255,255,.12);color:#fff}
+        .hero-contact{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;margin-top:1.9rem;font-size:1.0625rem;line-height:1.4}
+        .hero-contact a,.hero-contact .hero-contact-item{display:inline-flex;align-items:center;gap:.55rem;color:#fff;text-decoration:none;min-height:44px}
+        .hero-contact a:hover{text-decoration:underline;color:#fff}
+        .hero-contact strong{font-size:1.125rem}
+        .hero-sep{height:25px;width:1px;background:rgba(255,255,255,.62)}
+        @media (max-width:1080px){
+          .hero-inner{min-height:575px}
+          .hero-art{width:46%;opacity:.75}
+          .hero-root::after{background:linear-gradient(90deg,#044677 0%,rgba(5,70,118,.93) 43%,rgba(6,68,114,.22) 78%)}
+        }
+        @media (max-width:700px){
+          .hero-inner{min-height:0;padding-top:1.5rem;padding-bottom:1.75rem}
+          .hero-art{width:70%;opacity:.32}
+          .hero-root::after{background:linear-gradient(90deg,rgba(3,47,86,.88),rgba(5,64,108,.62))}
+          .hero-hills{display:none}
+          .hero-eyebrow{font-size:.875rem;padding:.45rem .75rem}
+          .hero-headline{font-size:clamp(1.9rem,8.6vw,2.6rem);margin:1rem 0 .75rem;letter-spacing:-.02em}
+          .hero-subheadline{font-size:1.0625rem;line-height:1.5;margin-bottom:1.25rem}
+          .hero-cta-group{flex-direction:column;align-items:stretch;gap:.75rem}
+          .hero-cta-group .btn-primary,.hero-cta-group .btn-secondary{min-width:0;width:100%;font-size:1.0625rem;padding:1rem}
+          .hero-contact{gap:.5rem 1rem;margin-top:1.25rem;font-size:1rem}
+          .hero-contact strong{font-size:1.0625rem}
+          .hero-sep{display:none}
         }
       `}</style>
     </section>

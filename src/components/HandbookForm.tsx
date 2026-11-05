@@ -79,7 +79,7 @@ export default function HandbookForm() {
         style={{
           outline: "none",
           backgroundColor: "#f0faf0",
-          border: "2px solid #a4ca62",
+          border: "2px solid #b6f414",
           borderRadius: "1rem",
           padding: "2.5rem",
           textAlign: "center",
@@ -99,7 +99,7 @@ export default function HandbookForm() {
         </h3>
         <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
           The link to download your handbook has been sent to your email. If you don&apos;t see it within a few minutes, please check your spam or promotions folder, or call us on{" "}
-          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
+          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
             01691 791543
           </a>
           .

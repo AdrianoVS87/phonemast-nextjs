@@ -77,7 +77,7 @@ Nothing in this disclaimer excludes or limits our liability for death or persona
                   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                   fontWeight: 700,
                   fontSize: "1.25rem",
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -98,7 +98,7 @@ Nothing in this disclaimer excludes or limits our liability for death or persona
 
           <div
             style={{
-              backgroundColor: "#f9f8f5",
+              backgroundColor: "#f3f7fb",
               borderRadius: "0.75rem",
               padding: "1.5rem",
               marginTop: "2rem",
@@ -106,10 +106,10 @@ Nothing in this disclaimer excludes or limits our liability for death or persona
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               <strong>Contact us:</strong> The Phone Mast Advice Company Ltd, 167-169 Great Portland Street, 5th Floor, London, W1W 5PF. Email:{" "}
-              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#1B4F72", fontWeight: 600 }}>
+              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#042b4d", fontWeight: 600 }}>
                 info@phonemastadvice.co.uk
               </a>. Telephone:{" "}
-              <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
+              <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
                 01691 791543
               </a>. Company Reg: 13115582.
             </p>

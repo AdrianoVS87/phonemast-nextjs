@@ -2,11 +2,12 @@
 
 @theme inline {
   /* Brand colours */
-  --color-navy: #1B4F72;
-  --color-navy-dark: #153d59;
-  --color-green: #a4ca62;
-  --color-green-dark: #8fb854;
-  --color-off-white: #f9f8f5;
+  --color-navy: #042b4d;
+  --color-navy-dark: #04223c;
+  --color-blue: #0669af;
+  --color-green: #b6f414;
+  --color-green-dark: #c6ff2c;
+  --color-off-white: #f3f7fb;
   --color-site-text: #1a1a2e;
   --color-border: #e5e7eb;
   --color-white: #ffffff;
@@ -87,19 +88,20 @@ h4 { font-size: 1.25rem; }
 }
 
 a {
-  color: #1B4F72;
+  color: #042b4d;
   text-decoration: none;
   transition: color 0.2s ease;
 }
 
 a:hover {
-  color: #a4ca62;
+  color: #0669af;
 }
 
 /* Focus styles for accessibility */
 :focus-visible {
-  outline: 3px solid #a4ca62;
+  outline: 3px solid #b6f414;
   outline-offset: 2px;
+  box-shadow: 0 0 0 2px #042b4d;
 }
 
 /* Utility classes for design system */
@@ -128,13 +130,13 @@ a:hover {
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  background-color: #a4ca62;
-  color: #1a1a2e;
+  background-color: #b6f414;
+  color: #09243e;
   font-family: var(--font-jakarta), system-ui, sans-serif;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 1rem;
   padding: 0.875rem 1.75rem;
-  border-radius: 0.625rem;
+  border-radius: 9px;
   border: none;
   cursor: pointer;
   min-height: 44px;
@@ -145,14 +147,14 @@ a:hover {
 }
 
 .btn-primary:hover {
-  background-color: #8fb854;
-  color: #1a1a2e;
+  background-color: #c6ff2c;
+  color: #09243e;
   transform: translateY(-2px) translateZ(0);
   box-shadow: 0 6px 20px rgba(164, 202, 98, 0.5);
 }
 
 .btn-primary:focus-visible {
-  outline: 3px solid #1B4F72;
+  outline: 3px solid #042b4d;
   outline-offset: 2px;
 }
 
@@ -169,6 +171,7 @@ a:hover {
   padding: 0.875rem 1.75rem;
   border-radius: 0.625rem;
   border: 2px solid #ffffff;
+  border-radius: 9px;
   cursor: pointer;
   transition: background-color 0.2s ease, color 0.2s ease;
   min-height: 44px;
@@ -177,7 +180,7 @@ a:hover {
 
 .btn-secondary:hover {
   background-color: #ffffff;
-  color: #1B4F72;
+  color: #042b4d;
 }
 
 /* Hero CTAs — full width on mobile */
@@ -193,7 +196,7 @@ a:hover {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: #a4ca62;
+  background-color: #b6f414;
   color: #1a1a2e;
   font-family: var(--font-jakarta), system-ui, sans-serif;
   font-weight: 700;
@@ -209,7 +212,7 @@ a:hover {
 }
 
 .btn-pill:hover {
-  background-color: #8fb854;
+  background-color: #c6ff2c;
   color: #1a1a2e;
   transform: translateY(-1px);
 }
@@ -304,7 +307,7 @@ a:hover {
 }
 
 .blog-content blockquote {
-  border-left: 4px solid #a4ca62;
+  border-left: 4px solid #b6f414;
   padding-left: 1.5rem;
   margin: 2rem 0;
   font-style: italic;
@@ -331,13 +334,13 @@ a:hover {
 }
 
 .blog-content a {
-  color: #1B4F72;
+  color: #042b4d;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
 
 .blog-content a:hover {
-  color: #a4ca62;
+  color: #0669af;
 }
 
 /* Smooth scroll for anchor links within blog posts */
@@ -349,7 +352,7 @@ a:hover {
 .blog-content h2:hover::after,
 .blog-content h3:hover::after {
   content: " #";
-  color: #a4ca62;
+  color: #3d8a17;
   font-weight: 400;
   font-size: 0.75em;
 }
@@ -441,4 +444,19 @@ html[data-consent="set"] .consent-ui {
   .form-page-card {
     padding: 1.25rem;
   }
+}
+
+/* Redesign Nov 2026 (design package of 5 Nov 2026): tighter display headings and the shared section kicker */
+h1, h2 {
+  letter-spacing: -0.02em;
+}
+
+.section-kicker {
+  display: block;
+  font-size: 0.875rem;
+  letter-spacing: 0.16em;
+  font-weight: 800;
+  color: #3d8a17;
+  text-transform: uppercase;
+  margin: 0 0 0.75rem;
 }

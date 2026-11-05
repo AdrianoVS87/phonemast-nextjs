@@ -66,11 +66,11 @@ export async function sendContactEmail(
       subject: `${mastSubjectPrefix(data.hasMast)}New enquiry from ${data.name} — phonemastadvice.co.uk`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background: #1B4F72; padding: 24px; border-radius: 8px 8px 0 0;">
+          <div style="background: #042b4d; padding: 24px; border-radius: 8px 8px 0 0;">
             <h1 style="color: #ffffff; margin: 0; font-size: 20px;">New Website Enquiry</h1>
             <p style="color: rgba(255,255,255,0.8); margin: 4px 0 0; font-size: 14px;">phonemastadvice.co.uk contact form</p>
           </div>
-          <div style="background: #f9f8f5; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
+          <div style="background: #f3f7fb; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
             <table style="width: 100%; border-collapse: collapse;">
               ${mastEmailRow(data.hasMast)}
               <tr>
@@ -79,7 +79,7 @@ export async function sendContactEmail(
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Email</td>
-                <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #1B4F72;">${escapeHtml(data.email)}</a></td>
+                <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #042b4d;">${escapeHtml(data.email)}</a></td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Phone</td>

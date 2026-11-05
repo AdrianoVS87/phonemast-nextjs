@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useState, useEffect, useRef } from "react";
 import { usePathname } from "next/navigation";
+import { PhoneIcon } from "@/components/icons";
 
 const serviceLinks = [
   { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/" },
@@ -105,8 +106,8 @@ export default function Header() {
     <header
       className="sticky top-0 z-50 w-full"
       style={{
-        backgroundColor: "#1B4F72",
-        boxShadow: scrolled ? "0 2px 16px rgba(27,79,114,0.18)" : "none",
+        background: "linear-gradient(102deg, #052c50, #042649)",
+        boxShadow: scrolled ? "0 5px 25px rgba(0,0,0,0.18)" : "none",
         transform: "translateZ(0)", /* Force GPU layer — prevents box-shadow repaint during scroll */
       }}
     >
@@ -138,14 +139,14 @@ export default function Header() {
               <button
                 onClick={() => { setServicesOpen(!servicesOpen); setOperatorsOpen(false); }}
                 onMouseEnter={() => setServicesOpen(true)}
-                className="font-medium transition-colors duration-150 flex items-center gap-1"
+                className="font-semibold transition-colors duration-150 flex items-center gap-1"
                 style={{
-                  color: isServicesActive ? "#a4ca62" : "#ffffff",
+                  color: isServicesActive ? "#b6f414" : "#ffffff",
                   fontSize: "1rem",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  borderBottom: isServicesActive ? "2px solid #a4ca62" : "2px solid transparent",
+                  borderBottom: isServicesActive ? "2px solid #b6f414" : "2px solid transparent",
                   paddingBottom: "2px",
                 }}
               >
@@ -178,13 +179,13 @@ export default function Header() {
                   {/* Column 1: Services */}
                   <div>
                     <Link href="/phone-mast-services/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
+                      style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#042b4d", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
                       Our Services
                     </Link>
                     {serviceLinks.map((link) => (
                       <Link key={link.href} href={link.href} onClick={() => setServicesOpen(false)}
                         style={{ display: "block", padding: "0.375rem 0", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s" }}
-                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#1B4F72"; }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#042b4d"; }}
                         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#1a1a2e"; }}>
                         {link.label}
                       </Link>
@@ -194,13 +195,13 @@ export default function Header() {
                   {/* Column 2: Operators */}
                   <div style={{ borderLeft: "1px solid #f0f0f0", paddingLeft: "1.25rem" }}>
                     <Link href="/phone-mast-services/lease-renewals/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
+                      style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#042b4d", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
                       By Operator
                     </Link>
                     {operatorLinks.map((op) => (
                       <Link key={op.href} href={op.href} onClick={() => setServicesOpen(false)}
                         style={{ display: "block", padding: "0.375rem 0", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s" }}
-                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#1B4F72"; }}
+                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#042b4d"; }}
                         onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#1a1a2e"; }}>
                         {op.label}
                       </Link>
@@ -209,27 +210,27 @@ export default function Header() {
 
                   {/* Column 3: 2026 + CTA */}
                   <div style={{ borderLeft: "1px solid #f0f0f0", paddingLeft: "1.25rem" }}>
-                    <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#1B4F72", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem" }}>
+                    <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#042b4d", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem" }}>
                       2026 Updates
                     </span>
                     <Link href="/phone-mast-rent/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "0.5rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f9f8f5", borderRadius: "8px", borderLeft: "3px solid #a4ca62", transition: "background 0.15s" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f0efe8"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}>
+                      style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "0.5rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f3f7fb", borderRadius: "8px", borderLeft: "3px solid #b6f414", transition: "background 0.15s" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#e6eef7"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f3f7fb"; }}>
                       <span style={{ fontWeight: 600 }}>Phone Mast Rent</span>
                       <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>PSTI Act changes 7 April</span>
                     </Link>
                     <Link href="/phone-mast-lease/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "1rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f9f8f5", borderRadius: "8px", borderLeft: "3px solid #a4ca62", transition: "background 0.15s" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f0efe8"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}>
+                      style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "1rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f3f7fb", borderRadius: "8px", borderLeft: "3px solid #b6f414", transition: "background 0.15s" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#e6eef7"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f3f7fb"; }}>
                       <span style={{ fontWeight: 600 }}>Phone Mast Lease</span>
                       <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>Code renewals explained</span>
                     </Link>
                     <Link href="/free-rent-estimate/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", padding: "0.625rem 1rem", backgroundColor: "#a4ca62", color: "#1a1a2e", fontSize: "0.875rem", fontWeight: 600, textDecoration: "none", borderRadius: "8px", textAlign: "center" as const, transition: "background 0.15s" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#8fb854"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#a4ca62"; }}>
+                      style={{ display: "block", padding: "0.625rem 1rem", backgroundColor: "#b6f414", color: "#1a1a2e", fontSize: "0.875rem", fontWeight: 600, textDecoration: "none", borderRadius: "8px", textAlign: "center" as const, transition: "background 0.15s" }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#c6ff2c"; }}
+                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#b6f414"; }}>
                       Free Rent Estimate →
                     </Link>
                   </div>
@@ -242,14 +243,14 @@ export default function Header() {
               <button
                 onClick={() => { setAboutOpen(!aboutOpen); setServicesOpen(false); }}
                 onMouseEnter={() => setAboutOpen(true)}
-                className="font-medium transition-colors duration-150 flex items-center gap-1"
+                className="font-semibold transition-colors duration-150 flex items-center gap-1"
                 style={{
-                  color: isAboutActive ? "#a4ca62" : "#ffffff",
+                  color: isAboutActive ? "#b6f414" : "#ffffff",
                   fontSize: "1rem",
                   background: "none",
                   border: "none",
                   cursor: "pointer",
-                  borderBottom: isAboutActive ? "2px solid #a4ca62" : "2px solid transparent",
+                  borderBottom: isAboutActive ? "2px solid #b6f414" : "2px solid transparent",
                   paddingBottom: "2px",
                 }}
               >
@@ -279,7 +280,7 @@ export default function Header() {
                   {aboutLinks.map((link) => (
                     <Link key={link.href} href={link.href} onClick={() => setAboutOpen(false)}
                       style={{ display: "block", padding: "0.5rem 0.75rem", color: "#1a1a2e", fontSize: "0.9375rem", textDecoration: "none", borderRadius: "8px", transition: "background 0.15s" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f9f8f5"; }}
+                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f3f7fb"; }}
                       onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}>
                       {link.label}
                     </Link>
@@ -295,21 +296,21 @@ export default function Header() {
                 <Link
                   key={link.href}
                   href={link.href}
-                  className="font-medium transition-colors duration-150"
+                  className="font-semibold transition-colors duration-150"
                   style={{
-                    color: active ? "#a4ca62" : "#ffffff",
+                    color: active ? "#b6f414" : "#ffffff",
                     fontSize: "1rem",
                     textDecoration: "none",
-                    borderBottom: active ? "2px solid #a4ca62" : "2px solid transparent",
+                    borderBottom: active ? "2px solid #b6f414" : "2px solid transparent",
                     paddingBottom: "2px",
                   }}
                   onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#a4ca62";
-                    (e.currentTarget as HTMLElement).style.borderBottomColor = "#a4ca62";
+                    (e.currentTarget as HTMLElement).style.color = "#b6f414";
+                    (e.currentTarget as HTMLElement).style.borderBottomColor = "#b6f414";
                   }}
                   onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = active ? "#a4ca62" : "#ffffff";
-                    (e.currentTarget as HTMLElement).style.borderBottomColor = active ? "#a4ca62" : "transparent";
+                    (e.currentTarget as HTMLElement).style.color = active ? "#b6f414" : "#ffffff";
+                    (e.currentTarget as HTMLElement).style.borderBottomColor = active ? "#b6f414" : "transparent";
                   }}
                 >
                   {link.label}
@@ -318,8 +319,9 @@ export default function Header() {
             })}
 
             {/* Phone number */}
-            <a href="tel:01691791543" className="font-semibold" style={{ color: "#ffffff", fontSize: "1rem" }}>
-              📞 01691 791543
+            <a href="tel:01691791543" className="font-semibold" style={{ color: "#ffffff", fontSize: "1rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
+              <PhoneIcon size={18} color="#b6f414" />
+              01691 791543
             </a>
 
             {/* CTA pill */}
@@ -364,12 +366,12 @@ export default function Header() {
               <button
                 onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
                 style={{
-                  color: isServicesActive ? "#a4ca62" : "#ffffff",
+                  color: isServicesActive ? "#b6f414" : "#ffffff",
                   fontSize: "1.0625rem", padding: "0.75rem 0.75rem",
                   display: "flex", justifyContent: "space-between", alignItems: "center",
                   background: "none", border: "none", cursor: "pointer", width: "100%",
                   fontWeight: isServicesActive ? 700 : 500,
-                  borderLeft: isServicesActive ? "3px solid #a4ca62" : "3px solid transparent",
+                  borderLeft: isServicesActive ? "3px solid #b6f414" : "3px solid transparent",
                 }}
               >
                 Services
@@ -378,7 +380,7 @@ export default function Header() {
               {mobileServicesOpen && (
                 <div style={{ paddingLeft: "1.5rem" }}>
                   <Link href="/phone-mast-services/" onClick={() => setMobileOpen(false)}
-                    style={{ display: "block", padding: "0.5rem 0", color: "#a4ca62", fontSize: "0.9375rem", fontWeight: 600 }}>
+                    style={{ display: "block", padding: "0.5rem 0", color: "#b6f414", fontSize: "0.9375rem", fontWeight: 600 }}>
                     All Services
                   </Link>
                   {serviceLinks.map((link) => (
@@ -390,7 +392,7 @@ export default function Header() {
                       {link.label === "Lease Renewals" && (
                         <>
                           <button onClick={() => setMobileOperatorsOpen(!mobileOperatorsOpen)}
-                            style={{ color: "#a4ca62", fontSize: "0.8125rem", background: "none", border: "none", cursor: "pointer", paddingLeft: "0.75rem", paddingTop: "0.25rem", paddingBottom: "0.25rem" }}>
+                            style={{ color: "#b6f414", fontSize: "0.8125rem", background: "none", border: "none", cursor: "pointer", paddingLeft: "0.75rem", paddingTop: "0.25rem", paddingBottom: "0.25rem" }}>
                             {mobileOperatorsOpen ? "▲ Operators" : "▼ Operators"}
                           </button>
                           {mobileOperatorsOpen && (
@@ -422,12 +424,12 @@ export default function Header() {
               <button
                 onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
                 style={{
-                  color: isAboutActive ? "#a4ca62" : "#ffffff",
+                  color: isAboutActive ? "#b6f414" : "#ffffff",
                   fontSize: "1.0625rem", padding: "0.75rem 0.75rem",
                   display: "flex", justifyContent: "space-between", alignItems: "center",
                   background: "none", border: "none", cursor: "pointer", width: "100%",
                   fontWeight: isAboutActive ? 700 : 500,
-                  borderLeft: isAboutActive ? "3px solid #a4ca62" : "3px solid transparent",
+                  borderLeft: isAboutActive ? "3px solid #b6f414" : "3px solid transparent",
                 }}
               >
                 About
@@ -449,9 +451,9 @@ export default function Header() {
                 return (
                   <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
                     style={{
-                      color: active ? "#a4ca62" : "#ffffff", fontSize: "1.0625rem",
+                      color: active ? "#b6f414" : "#ffffff", fontSize: "1.0625rem",
                       padding: "0.75rem 0.75rem", display: "block", fontWeight: active ? 700 : 500,
-                      borderLeft: active ? "3px solid #a4ca62" : "3px solid transparent",
+                      borderLeft: active ? "3px solid #b6f414" : "3px solid transparent",
                     }}>
                     {link.label}
                   </Link>

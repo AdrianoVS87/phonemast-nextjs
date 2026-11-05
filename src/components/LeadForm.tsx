@@ -110,7 +110,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
         style={{
           outline: "none",
           backgroundColor: "#f0faf0",
-          border: "2px solid #a4ca62",
+          border: "2px solid #b6f414",
           borderRadius: "1rem",
           padding: "2.5rem",
           textAlign: "center",
@@ -130,7 +130,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
         </h3>
         <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
           Thank you for getting in touch. One of our specialist surveyors will review your details and come back to you within one working day. For urgent enquiries, call{" "}
-          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
+          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
             01691 791543
           </a>
           .
@@ -320,7 +320,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
 
         <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0 }}>
           Or call us:{" "}
-          <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
+          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
             01691 791543
           </a>{" "}
           ·{" "}
@@ -328,7 +328,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
             href="https://wa.me/447843352654"
             target="_blank"
             rel="noopener noreferrer"
-            style={{ color: "#1B4F72", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}
+            style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}
           >
             WhatsApp
           </a>

@@ -196,7 +196,7 @@ function FormPanel({
     <div>
       <div
         style={{
-          backgroundColor: "#1B4F72",
+          backgroundColor: "#042b4d",
           padding: "2rem 1.75rem 1.75rem",
           borderRadius: "1rem 1rem 0 0",
           textAlign: "center",

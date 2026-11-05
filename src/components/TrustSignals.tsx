@@ -2,7 +2,7 @@ export default function TrustSignals() {
   return (
     <section
       style={{
-        backgroundColor: "#1B4F72",
+        backgroundColor: "#042b4d",
         padding: "3rem 1.5rem",
       }}
       aria-label="Trust signals and credentials"
@@ -60,7 +60,7 @@ export default function TrustSignals() {
             <span
               style={{
                 display: "inline-block",
-                backgroundColor: "#a4ca62",
+                backgroundColor: "#b6f414",
                 color: "#1a1a2e",
                 fontWeight: 700,
                 fontSize: "0.8125rem",
@@ -212,7 +212,7 @@ export default function TrustSignals() {
               aria-label="Five stars"
             >
               {[1, 2, 3, 4, 5].map((i) => (
-                <span key={i} style={{ color: "#a4ca62", fontSize: "1.375rem" }} aria-hidden="true">
+                <span key={i} style={{ color: "#b6f414", fontSize: "1.375rem" }} aria-hidden="true">
                   ★
                 </span>
               ))}

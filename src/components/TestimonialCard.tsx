@@ -90,7 +90,7 @@ export default function TestimonialCard({
             width: "2.5rem",
             height: "2.5rem",
             borderRadius: "50%",
-            backgroundColor: "#1B4F72",
+            backgroundColor: "#042b4d",
             color: "#ffffff",
             display: "flex",
             alignItems: "center",

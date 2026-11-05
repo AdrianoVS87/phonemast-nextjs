@@ -26,7 +26,7 @@ const h2: React.CSSProperties = {
   marginTop: "2.25rem",
 };
 const p: React.CSSProperties = { fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" };
-const link: React.CSSProperties = { color: "#1B4F72", fontWeight: 700, textDecoration: "underline" };
+const link: React.CSSProperties = { color: "#042b4d", fontWeight: 700, textDecoration: "underline" };
 
 const services = [
   {
@@ -111,7 +111,7 @@ export default function Page() {
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Other Services" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -157,7 +157,7 @@ export default function Page() {
       {/* Main content */}
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>
-          <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
+          <div style={{ backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               For the two core services, see <a href="/phone-mast-services/lease-renewals/" style={link}>lease renewals</a> and{" "}
               <a href="/phone-mast-services/rent-reviews/" style={link}>rent reviews</a>. For the legal background, read our{" "}
@@ -190,8 +190,8 @@ export default function Page() {
               { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery/", desc: "Claim back power costs" },
               { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
-              <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
-                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
+              <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
+                <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
                 <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}

@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { PhoneIcon, MailIcon, WhatsAppIcon, ArrowUpRightIcon } from "@/components/icons";
 
 interface CTASectionProps {
   headline?: string;
@@ -7,6 +8,9 @@ interface CTASectionProps {
   ctaHref?: string;
 }
 
+/**
+ * Closing call-to-action band (design package, 5 Nov 2026). Same props and links as before.
+ */
 export default function CTASection({
   headline = "Ready to Get Expert Phone Mast Advice?",
   subheadline = "Contact us today for a free, no-obligation consultation. We only act for landlords — never for mobile phone operators.",
@@ -14,120 +18,61 @@ export default function CTASection({
   ctaHref = "/free-rent-estimate/",
 }: CTASectionProps) {
   return (
-    <section
-      style={{ backgroundColor: "#1B4F72" }}
-      className="section-padding"
-      aria-labelledby="cta-headline"
-    >
-      <div className="container-max" style={{ textAlign: "center" }}>
-        <h2
-          id="cta-headline"
-          style={{
-            color: "#ffffff",
-            fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-            fontWeight: 800,
-            fontSize: "clamp(1.75rem, 3.5vw, 2.5rem)",
-            marginBottom: "1.25rem",
-            lineHeight: 1.2,
-          }}
-        >
-          {headline}
-        </h2>
-
-        <p
-          style={{
-            color: "rgba(255,255,255,0.88)",
-            fontSize: "1.125rem",
-            lineHeight: 1.7,
-            maxWidth: "560px",
-            margin: "0 auto 2.5rem",
-          }}
-        >
-          {subheadline}
-        </p>
-
-        {/* Primary CTA */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "1rem",
-            marginBottom: "2.5rem",
-          }}
-        >
-          <Link
-            href={ctaHref}
-            className="btn-primary"
-            style={{ fontSize: "1.125rem", padding: "1rem 2rem" }}
-          >
-            {ctaText}
-          </Link>
-          <Link
-            href="/contact/"
-            className="btn-secondary"
-            style={{ fontSize: "1.125rem", padding: "1rem 2rem" }}
-          >
-            Contact Us
-          </Link>
+    <section className="final-cta" aria-labelledby="cta-headline">
+      <div className="container-max">
+        <div className="cta-layout">
+          <div>
+            <p className="section-kicker cta-kicker">Independent advice</p>
+            <h2 id="cta-headline" className="cta-heading">
+              {headline}
+            </h2>
+            <p className="cta-sub">{subheadline}</p>
+          </div>
+          <div className="cta-actions">
+            <Link href={ctaHref} className="btn-primary cta-btn">
+              {ctaText}
+              <ArrowUpRightIcon size={20} />
+            </Link>
+            <Link href="/contact/" className="cta-contact-link">
+              or contact us online
+            </Link>
+          </div>
         </div>
 
-        {/* Contact options */}
-        <div
-          style={{
-            display: "flex",
-            flexWrap: "wrap",
-            justifyContent: "center",
-            gap: "2rem",
-          }}
-        >
-          <a
-            href="tel:01691791543"
-            style={{
-              color: "rgba(255,255,255,0.9)",
-              fontSize: "1.125rem",
-              fontWeight: 600,
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              minHeight: "44px",
-              textDecoration: "none",
-            }}
-          >
-            📞 01691 791543
+        <div className="cta-contact">
+          <a href="tel:01691791543">
+            <PhoneIcon size={20} color="#b6f414" />
+            01691 791543
           </a>
-          <a
-            href="mailto:info@phonemastadvice.co.uk"
-            style={{
-              color: "rgba(255,255,255,0.9)",
-              fontSize: "1.125rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              minHeight: "44px",
-              textDecoration: "none",
-            }}
-          >
-            ✉️ info@phonemastadvice.co.uk
+          <a href="mailto:info@phonemastadvice.co.uk">
+            <MailIcon size={20} color="#b6f414" />
+            info@phonemastadvice.co.uk
           </a>
-          <a
-            href="https://wa.me/447843352654"
-            target="_blank"
-            rel="noopener noreferrer"
-            style={{
-              color: "rgba(255,255,255,0.9)",
-              fontSize: "1.125rem",
-              display: "flex",
-              alignItems: "center",
-              gap: "0.5rem",
-              minHeight: "44px",
-              textDecoration: "none",
-            }}
-          >
-            💬 WhatsApp: 447843352654
+          <a href="https://wa.me/447843352654" target="_blank" rel="noopener noreferrer">
+            <WhatsAppIcon size={20} color="#b6f414" />
+            WhatsApp
           </a>
         </div>
       </div>
+      <style>{`
+        .final-cta{background:#082f54;color:#fff;padding:3.5rem 0 3rem}
+        .cta-layout{display:flex;align-items:center;justify-content:space-between;gap:2.2rem}
+        .cta-kicker{color:#b6f414}
+        .cta-heading{font-family:var(--font-jakarta),system-ui,sans-serif;font-size:clamp(1.875rem,3vw,2.625rem);letter-spacing:-.03em;line-height:1.15;max-width:700px;margin:0 0 .5rem;color:#fff;text-wrap:balance}
+        .cta-sub{margin:0;color:#b9cede;font-size:1.125rem;line-height:1.6;max-width:640px}
+        .cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;flex-shrink:0}
+        .cta-btn{font-size:1.0625rem;padding:1.0625rem 1.5rem;gap:.85rem}
+        .cta-contact-link{color:#d7e5f2;font-size:1rem;text-decoration:underline;text-underline-offset:3px}
+        .cta-contact-link:hover{color:#fff}
+        .cta-contact{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.14)}
+        .cta-contact a{display:inline-flex;align-items:center;gap:.55rem;color:#fff;font-size:1.0625rem;font-weight:600;text-decoration:none;min-height:44px}
+        .cta-contact a:hover{color:#fff;text-decoration:underline}
+        @media (max-width:860px){
+          .cta-layout{align-items:flex-start;flex-direction:column;gap:1.5rem}
+          .cta-actions{width:100%}
+          .cta-btn{width:100%}
+        }
+      `}</style>
     </section>
   );
 }

@@ -29,12 +29,12 @@ const h3: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
   fontWeight: 700,
   fontSize: "1.25rem",
-  color: "#1B4F72",
+  color: "#042b4d",
   marginBottom: "0.75rem",
   marginTop: "1.5rem",
 };
 const p: React.CSSProperties = { fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" };
-const link: React.CSSProperties = { color: "#1B4F72", fontWeight: 700, textDecoration: "underline" };
+const link: React.CSSProperties = { color: "#042b4d", fontWeight: 700, textDecoration: "underline" };
 
 const faqs = [
   {
@@ -81,7 +81,7 @@ export default function Page() {
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Removal & Redevelopment" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -127,7 +127,7 @@ export default function Page() {
       {/* Main content */}
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>
-          <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
+          <div style={{ backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our removal and redevelopment service page. For the legal framework behind every clause and notice mentioned here, read our{" "}
               <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
@@ -151,7 +151,7 @@ export default function Page() {
               "The public benefit test in Paragraph 21 is no longer met",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#1B4F72", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>{i + 1}</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#042b4d", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" }}>{i + 1}</span>
                 {item}
               </li>
             ))}
@@ -209,8 +209,8 @@ export default function Page() {
               { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Selling the income instead" },
               { label: "Contact Our Team", href: "/contact/", desc: "Speak to a specialist today" },
             ].map((item) => (
-              <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
-                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
+              <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
+                <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
                 <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}

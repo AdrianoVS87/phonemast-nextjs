@@ -32,16 +32,16 @@ const h3: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
   fontWeight: 700,
   fontSize: "1.25rem",
-  color: "#1B4F72",
+  color: "#042b4d",
   marginBottom: "0.75rem",
   marginTop: "1.5rem",
 };
 const p: React.CSSProperties = { fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" };
-const link: React.CSSProperties = { color: "#1B4F72", fontWeight: 700, textDecoration: "underline" };
+const link: React.CSSProperties = { color: "#042b4d", fontWeight: 700, textDecoration: "underline" };
 const li: React.CSSProperties = { display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" };
-const tick: React.CSSProperties = { flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.2rem" };
-const box: React.CSSProperties = { backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.5rem 1.75rem", marginBottom: "2rem" };
-const th: React.CSSProperties = { textAlign: "left", padding: "0.75rem 1rem", borderBottom: "2px solid #1B4F72", fontSize: "1rem", color: "#1a1a2e", fontFamily: "var(--font-jakarta), system-ui, sans-serif" };
+const tick: React.CSSProperties = { flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#b6f414", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.2rem" };
+const box: React.CSSProperties = { backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.5rem 1.75rem", marginBottom: "2rem" };
+const th: React.CSSProperties = { textAlign: "left", padding: "0.75rem 1rem", borderBottom: "2px solid #042b4d", fontSize: "1rem", color: "#1a1a2e", fontFamily: "var(--font-jakarta), system-ui, sans-serif" };
 const td: React.CSSProperties = { padding: "0.75rem 1rem", borderBottom: "1px solid #e5e7eb", fontSize: "1.0625rem", color: "#374151", verticalAlign: "top", lineHeight: 1.55 };
 
 function Ticks({ items }: { items: React.ReactNode[] }) {
@@ -117,7 +117,7 @@ export default function Page() {
       <Breadcrumbs items={[{ label: "Electronic Communications Code" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -313,7 +313,7 @@ export default function Page() {
           <ul style={{ paddingLeft: "1.25rem", margin: "0 0 1.5rem" }}>
             {sources.map((s) => (
               <li key={s.href} style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, marginBottom: "0.5rem" }}>
-                <a href={s.href} style={{ color: "#1B4F72", textDecoration: "underline" }} target="_blank" rel="noopener noreferrer">
+                <a href={s.href} style={{ color: "#042b4d", textDecoration: "underline" }} target="_blank" rel="noopener noreferrer">
                   {s.label}
                 </a>
               </li>

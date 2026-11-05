@@ -191,7 +191,7 @@ export default function ConsentBanner() {
           bottom: 0,
           zIndex: 9999,
           backgroundColor: "#ffffff",
-          borderTop: "3px solid #1B4F72",
+          borderTop: "3px solid #042b4d",
           boxShadow: "0 -8px 30px rgba(0,0,0,0.18)",
           padding: "1.25rem 1rem",
           fontFamily: "var(--font-inter), system-ui, sans-serif",
@@ -440,7 +440,7 @@ function ToggleRow({
   );
 }
 
-const linkStyle: React.CSSProperties = { color: "#1B4F72", fontWeight: 600, textDecoration: "underline" };
+const linkStyle: React.CSSProperties = { color: "#042b4d", fontWeight: 600, textDecoration: "underline" };
 
 function buttonStyle(variant: "primary" | "ghost"): React.CSSProperties {
   const base: React.CSSProperties = {
@@ -451,19 +451,19 @@ function buttonStyle(variant: "primary" | "ghost"): React.CSSProperties {
     minHeight: "44px",
     borderRadius: "8px",
     cursor: "pointer",
-    border: "1.5px solid #1B4F72",
+    border: "1.5px solid #042b4d",
     transition: "all 0.18s ease",
   };
   if (variant === "primary") {
     return {
       ...base,
-      backgroundColor: "#1B4F72",
+      backgroundColor: "#042b4d",
       color: "#ffffff",
     };
   }
   return {
     ...base,
     backgroundColor: "transparent",
-    color: "#1B4F72",
+    color: "#042b4d",
   };
 }

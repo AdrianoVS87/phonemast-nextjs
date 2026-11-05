@@ -74,7 +74,7 @@ phonemastadvice.co.uk`;
       text,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a2e;">
-          <div style="background: #1B4F72; padding: 24px; border-radius: 8px 8px 0 0;">
+          <div style="background: #042b4d; padding: 24px; border-radius: 8px 8px 0 0;">
             <h1 style="color: #ffffff; margin: 0; font-size: 20px;">We have received your enquiry</h1>
           </div>
           <div style="background: #ffffff; padding: 24px; border: 1px solid #e5e7eb; border-top: none; border-radius: 0 0 8px 8px;">
@@ -84,7 +84,7 @@ phonemastadvice.co.uk`;
             </p>
             <p style="font-size: 16px; line-height: 1.65; margin: 0 0 16px;">
               One of our team will come back to you within one working day. If your matter is urgent, for example you have received a notice with a deadline, please call us on
-              <a href="tel:01691791543" style="color: #1B4F72; font-weight: 600;">01691 791543</a>.
+              <a href="tel:01691791543" style="color: #042b4d; font-weight: 600;">01691 791543</a>.
             </p>
             <p style="font-size: 16px; line-height: 1.65; margin: 0 0 16px;">
               In the meantime, please do not sign or agree anything with the operator before taking specialist advice.

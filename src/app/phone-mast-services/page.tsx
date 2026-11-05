@@ -25,7 +25,7 @@ export default function ServicesPage() {
   return (
     <>
       <Breadcrumbs items={[{ label: "Services" }]} />
-      <section className="section-padding" style={{ backgroundColor: "#f9f8f5" }}>
+      <section className="section-padding" style={{ backgroundColor: "#f3f7fb" }}>
         <div className="container-max">
           <div style={{ textAlign: "center", marginBottom: "3rem" }}>
             <h1 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#1a1a2e", marginBottom: "1rem" }}>
