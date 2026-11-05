@@ -37,7 +37,7 @@ export default function AboutPage() {
       <Breadcrumbs items={[{ label: "About Us" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -66,7 +66,7 @@ export default function AboutPage() {
       {/* Stats bar */}
       <section
         style={{
-          backgroundColor: "#a4ca62",
+          backgroundColor: "#b6f414",
           padding: "1.5rem",
         }}
       >
@@ -134,7 +134,7 @@ export default function AboutPage() {
             We are dedicated to all our clients, regardless of how many mobile Phone Mast sites they have. We aim to develop and maintain a friendly working relationship and ensure our clients feel well looked after and informed at every stage of the negotiations.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            If you are researching your options, start with our core <Link href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</Link> and <Link href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</Link> guides before moving into a specific service page.
+            If you are researching your options, start with our core <Link href="/phone-mast-lease/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</Link> and <Link href="/phone-mast-rent/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</Link> guides before moving into a specific service page.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             Our goal is to obtain the most favourable lease terms for the client, as well as the highest rent achievable for their mobile phone masts, ensuring the landlord is happy. At the same time, we aim to maintain a good landlord and tenant relationship.
@@ -151,7 +151,7 @@ export default function AboutPage() {
       {/* Landmark case */}
       <section
         style={{
-          backgroundColor: "#1B4F72",
+          backgroundColor: "#042b4d",
           padding: "3rem 1.5rem",
         }}
       >
@@ -190,7 +190,7 @@ export default function AboutPage() {
           </p>
           <blockquote
             style={{
-              borderLeft: "4px solid #a4ca62",
+              borderLeft: "4px solid #b6f414",
               paddingLeft: "1.5rem",
               margin: "0 0 1.5rem 0",
               fontStyle: "italic",
@@ -206,7 +206,7 @@ export default function AboutPage() {
                 marginTop: "0.75rem",
                 fontStyle: "normal",
                 fontWeight: 600,
-                color: "#a4ca62",
+                color: "#b6f414",
                 fontSize: "0.9375rem",
               }}
             >
@@ -302,7 +302,7 @@ export default function AboutPage() {
                     width: "2.5rem",
                     height: "2.5rem",
                     borderRadius: "50%",
-                    backgroundColor: "#1B4F72",
+                    backgroundColor: "#042b4d",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -376,7 +376,7 @@ export default function AboutPage() {
       </section>
 
       {/* Offices */}
-      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "1000px" }}>
           <h2
             style={{
@@ -421,7 +421,7 @@ export default function AboutPage() {
                     fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                     fontWeight: 700,
                     fontSize: "1.125rem",
-                    color: "#1B4F72",
+                    color: "#042b4d",
                     marginBottom: "0.75rem",
                   }}
                 >

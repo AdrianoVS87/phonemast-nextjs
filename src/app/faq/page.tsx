@@ -136,7 +136,7 @@ export default function FAQPage() {
       <Breadcrumbs items={[{ label: "FAQ" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -175,10 +175,10 @@ export default function FAQPage() {
                   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                   fontWeight: 700,
                   fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)",
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   marginBottom: "1.25rem",
                   paddingBottom: "0.75rem",
-                  borderBottom: "3px solid #a4ca62",
+                  borderBottom: "3px solid #b6f414",
                 }}
               >
                 {category.category}

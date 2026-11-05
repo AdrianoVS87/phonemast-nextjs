@@ -59,7 +59,7 @@ export default async function BlogIndexPage() {
           {posts.length === 0 ? (
             <div
               style={{
-                backgroundColor: "#f9f8f5",
+                backgroundColor: "#f3f7fb",
                 border: "1px solid #e5e7eb",
                 borderRadius: "1rem",
                 padding: "3rem",
@@ -68,7 +68,7 @@ export default async function BlogIndexPage() {
             >
               <p style={{ fontSize: "1.125rem", color: "#6b7280", marginBottom: "1.5rem" }}>
                 Blog posts are being migrated. Please{" "}
-                <Link href="/contact/" style={{ color: "#1B4F72", fontWeight: 600 }}>
+                <Link href="/contact/" style={{ color: "#042b4d", fontWeight: 600 }}>
                   contact us
                 </Link>{" "}
                 with any questions.

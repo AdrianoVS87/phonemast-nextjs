@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
+import { PhoneIcon, MailIcon, WhatsAppIcon } from "@/components/icons";
 
 const services = [
   { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/" },
@@ -51,7 +52,7 @@ const offices = [
 
 export default function Footer() {
   return (
-    <footer style={{ backgroundColor: "#1B4F72", color: "#ffffff" }}>
+    <footer style={{ backgroundColor: "#04223c", color: "#ffffff" }}>
       <div
         className="container-max"
         style={{ paddingTop: "4rem", paddingBottom: "4rem" }}
@@ -95,7 +96,7 @@ export default function Footer() {
                 marginBottom: "1.25rem",
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
-                color: "#a4ca62",
+                color: "#b6f414",
               }}
             >
               Services
@@ -123,7 +124,7 @@ export default function Footer() {
                 marginBottom: "1.25rem",
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
-                color: "#a4ca62",
+                color: "#b6f414",
               }}
             >
               Landlord Guides
@@ -151,7 +152,7 @@ export default function Footer() {
                 marginBottom: "1.25rem",
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
-                color: "#a4ca62",
+                color: "#b6f414",
               }}
             >
               Company
@@ -184,7 +185,7 @@ export default function Footer() {
                 marginBottom: "1.25rem",
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
-                color: "#a4ca62",
+                color: "#b6f414",
               }}
             >
               Offices
@@ -221,7 +222,7 @@ export default function Footer() {
                 marginBottom: "1.25rem",
                 textTransform: "uppercase",
                 letterSpacing: "0.06em",
-                color: "#a4ca62",
+                color: "#b6f414",
               }}
             >
               Contact
@@ -238,15 +239,15 @@ export default function Footer() {
                     gap: "0.5rem",
                   }}
                 >
-                  📞 01691 791543
+                  <PhoneIcon size={16} color="#b6f414" /> 01691 791543
                 </a>
               </li>
               <li style={{ marginBottom: "0.875rem" }}>
                 <a
                   href="mailto:info@phonemastadvice.co.uk"
-                  style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem" }}
+                  style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
                 >
-                  ✉️ info@phonemastadvice.co.uk
+                  <MailIcon size={16} color="#b6f414" /> info@phonemastadvice.co.uk
                 </a>
               </li>
               <li style={{ marginBottom: "0.875rem" }}>
@@ -254,9 +255,9 @@ export default function Footer() {
                   href="https://wa.me/447843352654"
                   target="_blank"
                   rel="noopener noreferrer"
-                  style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem" }}
+                  style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
                 >
-                  💬 WhatsApp Us
+                  <WhatsAppIcon size={16} color="#b6f414" /> WhatsApp Us
                 </a>
               </li>
               <li style={{ marginTop: "1.5rem" }}>

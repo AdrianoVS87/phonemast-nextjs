@@ -105,7 +105,7 @@ export default function Page() {
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#ffffff", marginBottom: "1rem", lineHeight: 1.2 }}>
             Phone Mast Lease Renewals
@@ -134,12 +134,12 @@ export default function Page() {
             If your current lease has expired or your operator has approached you with Heads of Terms, we can help you negotiate rent, protect your rights, and secure fair lease terms – even under the Electronic Communications Code.
           </p>
 
-          <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
-            <p style={{ fontSize: "1.125rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
+          <div style={{ backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
+            <p style={{ fontSize: "1.125rem", color: "#042b4d", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
               Service page, not the broad explainer
             </p>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              This page is designed for landlords who already need hands-on renewal support. If you need the broader legal background first, use our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast lease advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
+              This page is designed for landlords who already need hands-on renewal support. If you need the broader legal background first, use our <a href="/phone-mast-lease/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>main phone mast lease advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -147,7 +147,7 @@ export default function Page() {
             What Is a Phone Mast Lease Renewal?
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            A lease renewal happens when your existing Phone Mast agreement comes to an end and the telecom operator wants to put a new lease in place. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve Heads of Terms for a new agreement, but these terms often offer lower rent than market value, use operator-friendly clauses, and reduce landlord protections. Professional advice ensures you don&apos;t accept terms that leave money or rights on the table. If you first need the broader legal context, read our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
+            A lease renewal happens when your existing Phone Mast agreement comes to an end and the telecom operator wants to put a new lease in place. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve Heads of Terms for a new agreement, but these terms often offer lower rent than market value, use operator-friendly clauses, and reduce landlord protections. Professional advice ensures you don&apos;t accept terms that leave money or rights on the table. If you first need the broader legal context, read our <a href="/phone-mast-lease/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
@@ -170,13 +170,13 @@ export default function Page() {
               "A Paragraph 20 notice under the Code, where the operator seeks new Code rights, for example on a site it does not yet have a Code agreement for",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#1B4F72", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>{i + 1}</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#042b4d", display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>{i + 1}</span>
                 {item}
               </li>
             ))}
           </ul>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Each notice carries statutory deadlines, and missing one weakens your position. Acknowledge any letter promptly, in writing, and take advice before responding on the substance. Once a formal notice has been served you will usually need a solicitor as well as a surveyor; our guide to <a href="/phone-mast-solicitors/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast solicitors</a> explains who does what.
+            Each notice carries statutory deadlines, and missing one weakens your position. Acknowledge any letter promptly, in writing, and take advice before responding on the substance. Once a formal notice has been served you will usually need a solicitor as well as a surveyor; our guide to <a href="/phone-mast-solicitors/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast solicitors</a> explains who does what.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
@@ -190,7 +190,7 @@ export default function Page() {
             What Changed on 7 April 2026
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Sections 61 to 64 of the PSTI Act 2022 came into force, inserting Section 34A into the Landlord and Tenant Act 1954. Qualifying telecoms leases that renew under the 1954 Act are now valued on the Code&rsquo;s no-network basis, ending the open-market advantage that <em>Cornerstone v Compton Beauchamp</em> [2022] UKSC 18 had preserved for pre-2017 leases. Rent already received is not repayable, interim rent is split at 7 April 2026, and since 30 July 2026 new renewal proceedings for these leases go to the First-tier Tribunal and the Upper Tribunal instead of the courts. Our <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent guide</a> explains the valuation consequences in full.
+            Sections 61 to 64 of the PSTI Act 2022 came into force, inserting Section 34A into the Landlord and Tenant Act 1954. Qualifying telecoms leases that renew under the 1954 Act are now valued on the Code&rsquo;s no-network basis, ending the open-market advantage that <em>Cornerstone v Compton Beauchamp</em> [2022] UKSC 18 had preserved for pre-2017 leases. Rent already received is not repayable, interim rent is split at 7 April 2026, and since 30 July 2026 new renewal proceedings for these leases go to the First-tier Tribunal and the Upper Tribunal instead of the courts. Our <a href="/phone-mast-rent/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast rent guide</a> explains the valuation consequences in full.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
@@ -207,7 +207,7 @@ export default function Page() {
               "Reinstatement: full removal and restoration under Paragraph 40 when the operator leaves",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#b6f414", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
             ))}
@@ -217,28 +217,28 @@ export default function Page() {
             How Our Lease Renewal Service Works
           </h2>
 
-          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#042b4d", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
             1. Initial Lease Review
           </h3>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             We assess your current contract, any Heads of Terms offered, and key rights and obligations. This ensures we start negotiations from a strong, informed position.
           </p>
 
-          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#042b4d", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
             2. Market &amp; Legal Advice
           </h3>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             You receive clear guidance on rent benchmarks, explanation of legal frameworks like the ECC, and strategy on what terms to accept, challenge, or change.
           </p>
 
-          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#042b4d", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
             3. Negotiation with the Operator
           </h3>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             We handle all communications with operator agents, rent proposals, and clause revisions. Our goal: terms that protect your interests, not just conclude a deal.
           </p>
 
-          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#042b4d", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
             4. Completion with Your Solicitor
           </h3>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
@@ -257,7 +257,7 @@ export default function Page() {
               "Improved legal clarity around operator rights and responsibilities",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#b6f414", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
             ))}
@@ -268,49 +268,49 @@ export default function Page() {
           </h2>
 
           <div style={{ marginBottom: "2rem" }}>
-            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#042b4d", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
               What is a phone mast lease renewal?
             </h3>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
               A phone mast lease renewal happens when your existing agreement with the telecom operator expires and they want to enter into a new contract. Under the UK&apos;s Electronic Communications Code (ECC), operators can serve &quot;Heads of Terms&quot; for a new agreement, but these often offer lower rent than market value and include operator-friendly clauses that reduce landlord protections.
             </p>
 
-            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#042b4d", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
               When should I start my lease renewal process?
             </h3>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
               Ideally, 12-18 months before your lease expiry. This gives time for proper valuation, negotiation, and if necessary, tribunal proceedings. Starting early typically results in better outcomes than reacting to operator approaches.
             </p>
 
-            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#042b4d", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
               How does the Electronic Communications Code affect my renewal?
             </h3>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
-              The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. The 2017 Code introduced the &quot;no-network assumption&quot; for rent, and since 7 April 2026 the PSTI Act has extended that assumption to qualifying renewals under the Landlord and Tenant Act 1954. The Code also gives operators statutory rights to upgrade and share equipment. Understanding these rules is crucial for effective negotiation. <a href="https://www.legislation.gov.uk/ukpga/2017/30/notes/division/6" target="_blank" rel="noopener noreferrer" style={{ color: "#1B4F72", textDecoration: "underline" }}>Read the ECC legislation on legislation.gov.uk</a>.
+              The ECC (particularly the 2017 revision) governs how operators can access land for telecommunications. The 2017 Code introduced the &quot;no-network assumption&quot; for rent, and since 7 April 2026 the PSTI Act has extended that assumption to qualifying renewals under the Landlord and Tenant Act 1954. The Code also gives operators statutory rights to upgrade and share equipment. Understanding these rules is crucial for effective negotiation. <a href="https://www.legislation.gov.uk/ukpga/2017/30/notes/division/6" target="_blank" rel="noopener noreferrer" style={{ color: "#042b4d", textDecoration: "underline" }}>Read the ECC legislation on legislation.gov.uk</a>.
             </p>
 
-            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#042b4d", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
               What about renewals with specific operators like Vodafone, EE, or CTIL?
             </h3>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
               Each operator has different agents, tactics, and lease structures. Vodafone and EE renewals often involve their appointed surveyors who work to minimise rent offers. CTIL (Cornerstone) renewals follow specific Code protocols. Our team has direct experience negotiating with all major operators and their agents.
             </p>
 
-            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#042b4d", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
               Can I challenge a poor renewal offer?
             </h3>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
               Yes. If you believe the operator&apos;s offer is below market value or the terms are unfavourable, you can refuse the offer and negotiate further. If agreement cannot be reached, the matter can be referred to the Tribunal (in England and Wales, the First-tier Tribunal (Property Chamber) or the Upper Tribunal (Lands Chamber)), after considering alternative dispute resolution where the Code requires it. Professional representation significantly improves outcomes in these proceedings.
             </p>
 
-            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#042b4d", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
               Who pays my professional fees on a phone mast lease renewal?
             </h3>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
               Usually the operator. Paragraph 84 of the Electronic Communications Code allows reasonable legal and valuation expenses to be recovered from the operator, and operators normally provide a written fee undertaking, typically capped, while the renewal proceeds on a negotiated basis. That cover can fall away if the landlord refuses to engage, which is one reason to respond to a renewal letter promptly.
             </p>
 
-            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#1B4F72", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
+            <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.125rem", color: "#042b4d", marginBottom: "0.5rem", marginTop: "1.5rem" }}>
               What changed for phone mast lease renewals on 7 April 2026?
             </h3>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1rem" }}>
@@ -321,7 +321,7 @@ export default function Page() {
       </section>
 
       {/* Operator-specific pages */}
-      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "0.75rem" }}>
             Operator-Specific Lease Renewal Advice
@@ -344,12 +344,12 @@ export default function Page() {
                   padding: "0.875rem 1.125rem",
                   textDecoration: "none",
                   fontWeight: 600,
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   fontSize: "1.125rem",
                   minHeight: "44px",
                 }}
               >
-                <span aria-hidden="true" style={{ color: "#a4ca62", fontSize: "1.125rem" }}>→</span>
+                <span aria-hidden="true" style={{ color: "#3d8a17", fontSize: "1.125rem" }}>→</span>
                 {op.name}
               </Link>
             ))}
@@ -368,15 +368,15 @@ export default function Page() {
               <Link
                 key={post.href}
                 href={post.href}
-                style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", color: "#1B4F72", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none", lineHeight: 1.5 }}
+                style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", color: "#042b4d", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none", lineHeight: 1.5 }}
               >
-                <span aria-hidden="true" style={{ color: "#a4ca62", fontWeight: 700, flexShrink: 0, marginTop: "0.125rem" }}>→</span>
+                <span aria-hidden="true" style={{ color: "#3d8a17", fontWeight: 700, flexShrink: 0, marginTop: "0.125rem" }}>→</span>
                 {post.title}
               </Link>
             ))}
           </div>
           <div style={{ marginTop: "1.5rem" }}>
-            <Link href="/blog/" style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none" }}>
+            <Link href="/blog/" style={{ color: "#042b4d", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none" }}>
               View all articles →
             </Link>
           </div>

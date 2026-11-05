@@ -81,7 +81,7 @@ export default async function BlogPostPage({ params }: Props) {
       const id = slugify(trimmed);
       // Only link if there's a matching heading ID in the content
       if (contentHtml.includes(`id="${id}"`)) {
-        return `${open}<a href="#${id}" style="color:#1B4F72;text-decoration:none">${text}</a>${close}`;
+        return `${open}<a href="#${id}" style="color:#042b4d;text-decoration:none">${text}</a>${close}`;
       }
       return _match;
     }
@@ -103,7 +103,7 @@ export default async function BlogPostPage({ params }: Props) {
   ];
   for (const [pattern, href] of serviceLinks) {
     contentHtml = contentHtml.replace(pattern, (match) =>
-      `<a href="${href}" style="color:#1B4F72;text-decoration:underline;text-underline-offset:2px">${match}</a>`
+      `<a href="${href}" style="color:#042b4d;text-decoration:underline;text-underline-offset:2px">${match}</a>`
     );
   }
 
@@ -217,7 +217,7 @@ export default async function BlogPostPage({ params }: Props) {
                   width: "2.5rem",
                   height: "2.5rem",
                   borderRadius: "50%",
-                  backgroundColor: "#1B4F72",
+                  backgroundColor: "#042b4d",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
@@ -255,7 +255,7 @@ export default async function BlogPostPage({ params }: Props) {
             <aside
               aria-label="Full guide to Section 26 notices for phone mast landlords"
               style={{
-                backgroundColor: "#f9f8f5",
+                backgroundColor: "#f3f7fb",
                 border: "1px solid #e5e7eb",
                 borderRadius: "1rem",
                 padding: "1.5rem 1.75rem",
@@ -288,7 +288,7 @@ export default async function BlogPostPage({ params }: Props) {
             <aside
               aria-label="Advice for landowners with a phone mast"
               style={{
-                backgroundColor: "#f9f8f5",
+                backgroundColor: "#f3f7fb",
                 border: "1px solid #e5e7eb",
                 borderRadius: "1rem",
                 padding: "1.5rem 1.75rem",
@@ -319,8 +319,8 @@ export default async function BlogPostPage({ params }: Props) {
                     display: "inline-flex",
                     alignItems: "center",
                     padding: "0.875rem 1.5rem",
-                    color: "#1B4F72",
-                    border: "2px solid #1B4F72",
+                    color: "#042b4d",
+                    border: "2px solid #042b4d",
                     borderRadius: "10px",
                     fontWeight: 600,
                     fontSize: "1.0625rem",
@@ -350,7 +350,7 @@ export default async function BlogPostPage({ params }: Props) {
             style={{
               marginTop: "4rem",
               padding: "2rem",
-              backgroundColor: "#f9f8f5",
+              backgroundColor: "#f3f7fb",
               borderRadius: "1rem",
               border: "1px solid #e5e7eb",
               display: "flex",
@@ -363,7 +363,7 @@ export default async function BlogPostPage({ params }: Props) {
                 width: "4rem",
                 height: "4rem",
                 borderRadius: "50%",
-                backgroundColor: "#1B4F72",
+                backgroundColor: "#042b4d",
                 display: "flex",
                 alignItems: "center",
                 justifyContent: "center",
@@ -406,7 +406,7 @@ export default async function BlogPostPage({ params }: Props) {
                 display: "inline-flex",
                 alignItems: "center",
                 gap: "0.5rem",
-                color: "#1B4F72",
+                color: "#042b4d",
                 fontWeight: 600,
                 fontSize: "1rem",
                 textDecoration: "none",
@@ -419,7 +419,7 @@ export default async function BlogPostPage({ params }: Props) {
       </article>
 
       {/* Related Services */}
-      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}>
         <div style={{ maxWidth: "800px", margin: "0 auto" }}>
           <h2
             style={{
@@ -462,7 +462,7 @@ export default async function BlogPostPage({ params }: Props) {
                   transition: "border-color 0.2s",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>
+                <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>
                   {item.label}
                 </p>
                 <p style={{ color: "#6b7280", margin: 0, fontSize: "0.9rem", lineHeight: 1.4 }}>
@@ -498,14 +498,14 @@ export default async function BlogPostPage({ params }: Props) {
                     display: "flex",
                     flexDirection: "column",
                     gap: "0.25rem",
-                    backgroundColor: "#f9f8f5",
+                    backgroundColor: "#f3f7fb",
                     border: "1px solid #e5e7eb",
                     borderRadius: "10px",
                     padding: "1rem 1.25rem",
                     textDecoration: "none",
                   }}
                 >
-                  <span style={{ fontWeight: 700, color: "#1B4F72", fontSize: "1.0625rem" }}>
+                  <span style={{ fontWeight: 700, color: "#042b4d", fontSize: "1.0625rem" }}>
                     {rp.title}
                   </span>
                   <span style={{ color: "#6b7280", fontSize: "0.9375rem" }}>
@@ -517,7 +517,7 @@ export default async function BlogPostPage({ params }: Props) {
             <div style={{ marginTop: "1.5rem" }}>
               <Link
                 href="/blog/"
-                style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}
+                style={{ color: "#042b4d", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}
               >
                 View all articles →
               </Link>

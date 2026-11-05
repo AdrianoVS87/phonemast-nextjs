@@ -9,7 +9,7 @@ interface BreadcrumbsProps {
   items: BreadcrumbItem[];
 }
 
-const linkStyle = { color: "#1B4F72", display: "inline-flex", alignItems: "center", minHeight: "44px" };
+const linkStyle = { color: "#042b4d", display: "inline-flex", alignItems: "center", minHeight: "44px" };
 
 export default function Breadcrumbs({ items }: BreadcrumbsProps) {
   const allItems = [{ label: "Home", href: "/" }, ...items];
@@ -34,7 +34,7 @@ export default function Breadcrumbs({ items }: BreadcrumbsProps) {
       <nav
         aria-label="Breadcrumb"
         style={{
-          backgroundColor: "#f9f8f5",
+          backgroundColor: "#f3f7fb",
           borderBottom: "1px solid #e5e7eb",
           padding: "0.25rem 0",
         }}

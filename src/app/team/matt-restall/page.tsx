@@ -52,7 +52,7 @@ export default function MattRestallPage() {
     color: "#1a1a2e",
     marginBottom: "1.25rem",
   };
-  const link: React.CSSProperties = { color: "#1B4F72", fontWeight: 700, textDecoration: "underline" };
+  const link: React.CSSProperties = { color: "#042b4d", fontWeight: 700, textDecoration: "underline" };
 
   return (
     <>
@@ -60,7 +60,7 @@ export default function MattRestallPage() {
 
       <Breadcrumbs items={[{ label: "Our Team", href: "/team/" }, { label: "Matt Restall" }]} />
 
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "860px", display: "flex", flexWrap: "wrap", gap: "2rem", alignItems: "center" }}>
           <Image
             src="/images/team/Matt-Restall.jpg"

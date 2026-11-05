@@ -23,9 +23,11 @@ Target: UK landlords aged 55-70.
 - `vercel --prod` — deploy to production
 
 ## Design System
-- Primary: #1B4F72 (navy blue)
-- Accent: #a4ca62 (green — CTAs, buttons)
-- Background: #f9f8f5 (warm off-white sections), #ffffff (content)
+- Primary: #042b4d (deep navy; header, footer #04223c, dark bands #082f54) and #0669af (brand blue, links/hover)
+- Hero: tonal blue gradient #063f74 → #07518f → #197ac0 (the only gradient allowed; from the 5 Nov 2026 design package)
+- Accent: #b6f414 (lime — CTAs, buttons, icons on navy; hover #c6ff2c; text on lime #09243e). Never lime text on white: use #3d8a17
+- Background: #f3f7fb (cool off-white sections), stats band #eff5fa→#e8f0f8, #ffffff (content)
+- Rollback of the Nov 2026 redesign: git tag pre-redesign-2026-11-05; see backup_2026-09-15/RESTORE.md
 - Text: #1a1a2e (near-black)
 - Headings: Plus Jakarta Sans, 700-800 weight, 32-48px desktop
 - Body: Inter, 400 weight, 18px minimum (55+ audience, non-negotiable)

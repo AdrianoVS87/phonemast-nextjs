@@ -863,7 +863,7 @@ export default async function OperatorPage({
       {/* Hero */}
       <section
         style={{
-          backgroundColor: "#1B4F72",
+          backgroundColor: "#042b4d",
           padding: "4rem 1.5rem",
         }}
       >
@@ -944,7 +944,7 @@ export default async function OperatorPage({
               marginBottom: "1rem",
             }}
           >
-            If your {data.name} mast lease is approaching its renewal date, see our specialist guide on <a href="/phone-mast-services/lease-renewals/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewals</a> for independent UK advice for landowners.
+            If your {data.name} mast lease is approaching its renewal date, see our specialist guide on <a href="/phone-mast-services/lease-renewals/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast lease renewals</a> for independent UK advice for landowners.
           </p>
           <p
             style={{
@@ -954,14 +954,14 @@ export default async function OperatorPage({
               marginBottom: 0,
             }}
           >
-            For the broader legal background, operator rights, and 2026 changes, start with our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
+            For the broader legal background, operator rights, and 2026 changes, start with our <a href="/phone-mast-lease/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice guide</a>.
           </p>
         </div>
       </section>
 
       {/* Key facts */}
       <section
-        style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}
+        style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}
       >
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h2
@@ -995,7 +995,7 @@ export default async function OperatorPage({
                     width: "1.5rem",
                     height: "1.5rem",
                     borderRadius: "50%",
-                    backgroundColor: "#a4ca62",
+                    backgroundColor: "#b6f414",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -1048,7 +1048,7 @@ export default async function OperatorPage({
                 <span
                   style={{
                     flexShrink: 0,
-                    color: "#a4ca62",
+                    color: "#b6f414",
                     fontSize: "1.25rem",
                     fontWeight: 700,
                     marginTop: "0.05rem",
@@ -1064,7 +1064,7 @@ export default async function OperatorPage({
       </section>
 
       {/* Why choose us */}
-      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h2
             style={{
@@ -1166,14 +1166,14 @@ export default async function OperatorPage({
                 href={item.href}
                 style={{
                   display: "block",
-                  backgroundColor: "#f9f8f5",
+                  backgroundColor: "#f3f7fb",
                   border: "1px solid #e5e7eb",
                   borderRadius: "10px",
                   padding: "1rem 1.25rem",
                   textDecoration: "none",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1rem" }}>
+                <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>
                   {item.label}
                 </p>
                 <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>
@@ -1207,7 +1207,7 @@ export default async function OperatorPage({
                 style={{
                   display: "inline-flex",
                   alignItems: "center",
-                  backgroundColor: "#1B4F72",
+                  backgroundColor: "#042b4d",
                   color: "#ffffff",
                   fontWeight: 600,
                   fontSize: "0.9375rem",
@@ -1245,7 +1245,7 @@ export default async function OperatorPage({
                 key={item.href}
                 href={item.href}
                 style={{
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   fontWeight: 600,
                   fontSize: "1rem",
                   textDecoration: "none",
@@ -1254,7 +1254,7 @@ export default async function OperatorPage({
                   gap: "0.5rem",
                 }}
               >
-                <span aria-hidden="true" style={{ color: "#a4ca62", fontWeight: 700 }}>→</span>
+                <span aria-hidden="true" style={{ color: "#3d8a17", fontWeight: 700 }}>→</span>
                 {item.title}
               </Link>
             ))}

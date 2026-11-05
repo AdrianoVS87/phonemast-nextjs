@@ -29,14 +29,14 @@ const h3: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
   fontWeight: 700,
   fontSize: "1.25rem",
-  color: "#1B4F72",
+  color: "#042b4d",
   marginBottom: "0.75rem",
   marginTop: "1.5rem",
 };
 const p: React.CSSProperties = { fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" };
-const link: React.CSSProperties = { color: "#1B4F72", fontWeight: 700, textDecoration: "underline" };
+const link: React.CSSProperties = { color: "#042b4d", fontWeight: 700, textDecoration: "underline" };
 const li: React.CSSProperties = { display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.0625rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" };
-const tick: React.CSSProperties = { flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" };
+const tick: React.CSSProperties = { flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#b6f414", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "0.75rem", fontWeight: 700, marginTop: "0.15rem" };
 
 const faqs = [
   {
@@ -96,7 +96,7 @@ export default function Page() {
       <Breadcrumbs items={[{ label: "Phone Mast Solicitors" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -142,7 +142,7 @@ export default function Page() {
       {/* Main content */}
       <section className="section-padding">
         <div className="container-max" style={{ maxWidth: "800px" }}>
-          <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
+          <div style={{ backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This page explains who does what. For the legal background, read our{" "}
               <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide; if an operator wants to renew, see{" "}

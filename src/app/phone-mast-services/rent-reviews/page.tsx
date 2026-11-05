@@ -67,7 +67,7 @@ export default function RentReviewsPage() {
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Rent Reviews" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#ffffff", marginBottom: "1rem", lineHeight: 1.2 }}>
             Phone Mast Rent Reviews
@@ -93,12 +93,12 @@ export default function RentReviewsPage() {
             Ensure your Phone Mast rent reflects the current market and the value of your land. If your telecom lease includes a rent review clause, you could be entitled to significantly more rent, sometimes including backdated payments. We help UK landowners secure fair rent, enforce missed reviews, and protect your rights under the Electronic Communications Code (ECC).
           </p>
 
-          <div style={{ backgroundColor: "#f9f8f5", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
-            <p style={{ fontSize: "1.125rem", color: "#1B4F72", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
+          <div style={{ backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
+            <p style={{ fontSize: "1.125rem", color: "#042b4d", fontWeight: 800, textTransform: "uppercase", letterSpacing: "0.04em", margin: "0 0 0.5rem" }}>
               Service page, backed by the main valuation guide
             </p>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              This page is for landlords who want practical negotiation support now. For the broader valuation and legal background, use our <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>main phone mast rent advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
+              This page is for landlords who want practical negotiation support now. For the broader valuation and legal background, use our <a href="/phone-mast-rent/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>main phone mast rent advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
             </p>
           </div>
 
@@ -106,7 +106,7 @@ export default function RentReviewsPage() {
             What Is a Phone Mast Rent Review?
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            A Phone Mast rent review is a formal reassessment of the rent you receive under your telecom lease. Typically triggered every 3–5 years (or as specified in your lease), the review ensures your rent reflects current market rates, accounts for technological or operator changes, and maximises income for the duration of the lease. Operators sometimes propose reduced rents or try to avoid paying increases — expert advice ensures your rent reflects your land&apos;s true value. If you first need the broader legal and valuation background, read our <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice guide</a>.
+            A Phone Mast rent review is a formal reassessment of the rent you receive under your telecom lease. Typically triggered every 3–5 years (or as specified in your lease), the review ensures your rent reflects current market rates, accounts for technological or operator changes, and maximises income for the duration of the lease. Operators sometimes propose reduced rents or try to avoid paying increases — expert advice ensures your rent reflects your land&apos;s true value. If you first need the broader legal and valuation background, read our <a href="/phone-mast-rent/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice guide</a>.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
@@ -120,7 +120,7 @@ export default function RentReviewsPage() {
             Can My Phone Mast Rent Go Down at a Review?
           </h2>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Not under an index-linked clause, and not under most legacy open market clauses while the lease runs. The reduction operators talk about usually arrives at <em>renewal</em>, not at review: since 7 April 2026, qualifying 1954 Act leases are valued on the no-network basis when they renew, and Code agreements have been valued that way since December 2017. Knowing which event you are facing, a review or a renewal, changes the advice completely. See our <a href="/phone-mast-services/lease-renewals/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>lease renewal service</a> for the renewal side.
+            Not under an index-linked clause, and not under most legacy open market clauses while the lease runs. The reduction operators talk about usually arrives at <em>renewal</em>, not at review: since 7 April 2026, qualifying 1954 Act leases are valued on the no-network basis when they renew, and Code agreements have been valued that way since December 2017. Knowing which event you are facing, a review or a renewal, changes the advice completely. See our <a href="/phone-mast-services/lease-renewals/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>lease renewal service</a> for the renewal side.
           </p>
 
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "1rem", marginTop: "2rem" }}>
@@ -141,21 +141,21 @@ export default function RentReviewsPage() {
             How Our Rent Review Service Works
           </h2>
 
-          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#042b4d", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
             1. Lease Assessment
           </h3>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             We review your current lease to determine rent review clauses, expired or upcoming review dates, and opportunities for backdated rent increases.
           </p>
 
-          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#042b4d", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
             2. Market Benchmarking
           </h3>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
             We compare your site with similar telecom agreements across the UK to establish fair market rent. This ensures you get accurate, defensible rent proposals.
           </p>
 
-          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#1B4F72", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
+          <h3 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "1.25rem", color: "#042b4d", marginBottom: "0.75rem", marginTop: "1.5rem" }}>
             3. Negotiation with Operators
           </h3>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
@@ -174,7 +174,7 @@ export default function RentReviewsPage() {
               "Maximises income while protecting your rights and property value",
             ].map((item, i) => (
               <li key={i} style={{ display: "flex", gap: "0.875rem", marginBottom: "0.875rem", fontSize: "1.125rem", color: "#374151", lineHeight: 1.6, alignItems: "flex-start" }}>
-                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#a4ca62", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
+                <span style={{ flexShrink: 0, width: "1.5rem", height: "1.5rem", borderRadius: "50%", backgroundColor: "#b6f414", display: "flex", alignItems: "center", justifyContent: "center", color: "#1a1a2e", fontSize: "1.125rem", fontWeight: 700, marginTop: "0.15rem" }}>✓</span>
                 {item}
               </li>
             ))}
@@ -188,7 +188,7 @@ export default function RentReviewsPage() {
       </section>
 
       {/* Operator pages */}
-      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h2 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 700, fontSize: "clamp(1.375rem, 2.5vw, 1.75rem)", color: "#1a1a2e", marginBottom: "0.75rem" }}>
             Operator-Specific Rent Review Advice
@@ -211,12 +211,12 @@ export default function RentReviewsPage() {
                   padding: "0.875rem 1.125rem",
                   textDecoration: "none",
                   fontWeight: 600,
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   fontSize: "1.125rem",
                   minHeight: "44px",
                 }}
               >
-                <span aria-hidden="true" style={{ color: "#a4ca62", fontSize: "1.125rem" }}>→</span>
+                <span aria-hidden="true" style={{ color: "#3d8a17", fontSize: "1.125rem" }}>→</span>
                 {op.name}
               </Link>
             ))}
@@ -243,14 +243,14 @@ export default function RentReviewsPage() {
                 href={item.href}
                 style={{
                   display: "block",
-                  backgroundColor: "#f9f8f5",
+                  backgroundColor: "#f3f7fb",
                   border: "1px solid #e5e7eb",
                   borderRadius: "10px",
                   padding: "1rem 1.25rem",
                   textDecoration: "none",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "#1B4F72", margin: "0 0 0.25rem", fontSize: "1.125rem" }}>{item.label}</p>
+                <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1.125rem" }}>{item.label}</p>
                 <p style={{ color: "#6b7280", margin: 0, fontSize: "1.125rem", lineHeight: 1.4 }}>{item.desc}</p>
               </Link>
             ))}
@@ -264,15 +264,15 @@ export default function RentReviewsPage() {
               <Link
                 key={post.href}
                 href={post.href}
-                style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", color: "#1B4F72", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none", lineHeight: 1.5 }}
+                style={{ display: "flex", alignItems: "flex-start", gap: "0.625rem", color: "#042b4d", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none", lineHeight: 1.5 }}
               >
-                <span aria-hidden="true" style={{ color: "#a4ca62", fontWeight: 700, flexShrink: 0, marginTop: "0.125rem" }}>→</span>
+                <span aria-hidden="true" style={{ color: "#3d8a17", fontWeight: 700, flexShrink: 0, marginTop: "0.125rem" }}>→</span>
                 {post.title}
               </Link>
             ))}
           </div>
           <div style={{ marginTop: "1.5rem" }}>
-            <Link href="/blog/" style={{ color: "#1B4F72", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none" }}>
+            <Link href="/blog/" style={{ color: "#042b4d", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none" }}>
               View all articles →
             </Link>
           </div>

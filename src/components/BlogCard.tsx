@@ -25,7 +25,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
       }}
       onMouseEnter={(e) => {
         (e.currentTarget as HTMLElement).style.transform = "translateY(-2px)";
-        (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(27,79,114,0.12)";
+        (e.currentTarget as HTMLElement).style.boxShadow = "0 8px 24px rgba(4,43,77,0.12)";
       }}
       onMouseLeave={(e) => {
         (e.currentTarget as HTMLElement).style.transform = "translateY(0)";
@@ -101,7 +101,7 @@ export default function BlogCard({ post }: { post: BlogPost }) {
         <Link
           href={`/blog/${post.slug}/`}
           style={{
-            color: "#1B4F72",
+            color: "#042b4d",
             fontWeight: 600,
             fontSize: "0.9375rem",
             display: "inline-flex",

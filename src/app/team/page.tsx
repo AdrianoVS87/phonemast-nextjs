@@ -93,7 +93,7 @@ export default function TeamPage() {
       <Breadcrumbs items={[{ label: "Our Team" }]} />
 
       {/* Hero */}
-      <section style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h1
             style={{
@@ -164,7 +164,7 @@ export default function TeamPage() {
                         width: "120px",
                         height: "120px",
                         borderRadius: "50%",
-                        backgroundColor: "#1B4F72",
+                        backgroundColor: "#042b4d",
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
@@ -183,7 +183,7 @@ export default function TeamPage() {
                         fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                         fontWeight: 700,
                         fontSize: "1.375rem",
-                        color: "#1B4F72",
+                        color: "#042b4d",
                         marginBottom: "0.25rem",
                       }}
                     >
@@ -192,7 +192,7 @@ export default function TeamPage() {
                     <p
                       style={{
                         fontWeight: 600,
-                        color: "#a4ca62",
+                        color: "#b6f414",
                         fontSize: "1rem",
                         marginBottom: member.credentials ? "0.25rem" : "0",
                         textTransform: "uppercase",
@@ -229,7 +229,7 @@ export default function TeamPage() {
 
                 {member.name === "Matt Restall" && (
                   <p style={{ margin: "0 0 1rem" }}>
-                    <a href="/team/matt-restall/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>Read more about Matt</a>
+                    <a href="/team/matt-restall/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>Read more about Matt</a>
                   </p>
                 )}
                 {member.linkedin && (
@@ -241,7 +241,7 @@ export default function TeamPage() {
                       display: "inline-flex",
                       alignItems: "center",
                       gap: "0.5rem",
-                      color: "#1B4F72",
+                      color: "#042b4d",
                       fontWeight: 600,
                       fontSize: "0.9375rem",
                       textDecoration: "none",
@@ -258,7 +258,7 @@ export default function TeamPage() {
       </section>
 
       {/* Why our team */}
-      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           <h2
             style={{

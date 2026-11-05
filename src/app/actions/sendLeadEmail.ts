@@ -96,11 +96,11 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
       subject: `${mastSubjectPrefix(data.hasMast)}${formTitle} from ${data.name} — phonemastadvice.co.uk`,
       html: `
         <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-          <div style="background: #1B4F72; padding: 24px; border-radius: 8px 8px 0 0;">
+          <div style="background: #042b4d; padding: 24px; border-radius: 8px 8px 0 0;">
             <h1 style="color: #ffffff; margin: 0; font-size: 20px;">${formTitle}</h1>
             <p style="color: rgba(255,255,255,0.8); margin: 4px 0 0; font-size: 14px;">phonemastadvice.co.uk</p>
           </div>
-          <div style="background: #f9f8f5; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
+          <div style="background: #f3f7fb; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
             <table style="width: 100%; border-collapse: collapse;">
               ${mastEmailRow(data.hasMast)}
               <tr>
@@ -109,7 +109,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Email</td>
-                <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #1B4F72;">${escapeHtml(data.email)}</a></td>
+                <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #042b4d;">${escapeHtml(data.email)}</a></td>
               </tr>
               <tr>
                 <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Phone</td>
@@ -183,11 +183,11 @@ const HANDBOOK_VERSION = "Version 2 — May 2026";
 function handbookNotificationHtml(data: HandbookFormData, source: string): string {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto;">
-      <div style="background: #1B4F72; padding: 24px; border-radius: 8px 8px 0 0;">
+      <div style="background: #042b4d; padding: 24px; border-radius: 8px 8px 0 0;">
         <h1 style="color: #ffffff; margin: 0; font-size: 20px;">Phone Mast Handbook Download — New Lead</h1>
         <p style="color: rgba(255,255,255,0.8); margin: 4px 0 0; font-size: 14px;">${escapeHtml(source)}</p>
       </div>
-      <div style="background: #f9f8f5; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
+      <div style="background: #f3f7fb; padding: 24px; border-radius: 0 0 8px 8px; border: 1px solid #e5e7eb;">
         <table style="width: 100%; border-collapse: collapse;">
               ${mastEmailRow(data.hasMast)}
           <tr>
@@ -196,7 +196,7 @@ function handbookNotificationHtml(data: HandbookFormData, source: string): strin
           </tr>
           <tr>
             <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Email</td>
-            <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #1B4F72;">${escapeHtml(data.email)}</a></td>
+            <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #042b4d;">${escapeHtml(data.email)}</a></td>
           </tr>
           <tr>
             <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Phone</td>
@@ -217,7 +217,7 @@ function handbookNotificationHtml(data: HandbookFormData, source: string): strin
 function handbookDeliveryHtml(name: string): string {
   return `
     <div style="font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; color: #1a1a2e;">
-      <div style="background: #1B4F72; padding: 32px 24px; border-radius: 8px 8px 0 0; text-align: center;">
+      <div style="background: #042b4d; padding: 32px 24px; border-radius: 8px 8px 0 0; text-align: center;">
         <h1 style="color: #ffffff; margin: 0 0 6px; font-size: 22px;">Your Phone Mast Handbook is Ready</h1>
         <p style="color: rgba(255,255,255,0.85); margin: 0; font-size: 14px;">${escapeHtml(HANDBOOK_VERSION)}</p>
       </div>
@@ -228,13 +228,13 @@ function handbookDeliveryHtml(name: string): string {
         </p>
         <p style="text-align: center; margin: 28px 0;">
           <a href="${HANDBOOK_DOWNLOAD_URL}"
-             style="display: inline-block; background: #a4ca62; color: #1a1a2e; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px;">
+             style="display: inline-block; background: #b6f414; color: #1a1a2e; padding: 14px 28px; border-radius: 8px; text-decoration: none; font-weight: 700; font-size: 16px;">
             Download Your Handbook (PDF)
           </a>
         </p>
         <p style="font-size: 14px; line-height: 1.6; color: #4b5563; margin: 0 0 16px;">
           If the button doesn't work, copy and paste this link into your browser:<br/>
-          <a href="${HANDBOOK_DOWNLOAD_URL}" style="color: #1B4F72; word-break: break-all;">${HANDBOOK_DOWNLOAD_URL}</a>
+          <a href="${HANDBOOK_DOWNLOAD_URL}" style="color: #042b4d; word-break: break-all;">${HANDBOOK_DOWNLOAD_URL}</a>
         </p>
         <hr style="border: none; border-top: 1px solid #e5e7eb; margin: 24px 0;" />
         <p style="font-size: 15px; line-height: 1.65; margin: 0 0 12px;">
@@ -249,7 +249,7 @@ function handbookDeliveryHtml(name: string): string {
         </ul>
         <p style="font-size: 15px; line-height: 1.65; margin: 16px 0 0;">
           If you have any questions about your phone mast lease, rent, or renewal, our specialist surveying team would be glad to help. Just reply to this email or call us on
-          <a href="tel:01691791543" style="color: #1B4F72; font-weight: 600;">01691 791543</a>.
+          <a href="tel:01691791543" style="color: #042b4d; font-weight: 600;">01691 791543</a>.
         </p>
         <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0;">
           Kind regards,<br/>

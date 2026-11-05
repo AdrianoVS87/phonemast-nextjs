@@ -91,17 +91,17 @@ export default function FreeLeaseCheckPage() {
                 style={{
                   marginTop: "2rem",
                   padding: "1.5rem",
-                  backgroundColor: "rgba(27,79,114,0.05)",
-                  border: "1px solid rgba(27,79,114,0.15)",
+                  backgroundColor: "rgba(4,43,77,0.05)",
+                  border: "1px solid rgba(4,43,77,0.15)",
                   borderRadius: "1rem",
                 }}
               >
-                <p style={{ fontWeight: 700, color: "#1B4F72", marginBottom: "0.375rem", fontSize: "1.125rem" }}>
+                <p style={{ fontWeight: 700, color: "#042b4d", marginBottom: "0.375rem", fontSize: "1.125rem" }}>
                   📞 Prefer to speak to someone?
                 </p>
                 <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0 }}>
                   Call{" "}
-                  <a href="tel:01691791543" style={{ color: "#1B4F72", fontWeight: 600 }}>
+                  <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
                     01691 791543
                   </a>{" "}
                   or{" "}
@@ -109,7 +109,7 @@ export default function FreeLeaseCheckPage() {
                     href="https://wa.me/447843352654"
                     target="_blank"
                     rel="noopener noreferrer"
-                    style={{ color: "#1B4F72", fontWeight: 600 }}
+                    style={{ color: "#042b4d", fontWeight: 600 }}
                   >
                     WhatsApp us
                   </a>

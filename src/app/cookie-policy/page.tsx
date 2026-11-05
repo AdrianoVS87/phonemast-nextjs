@@ -14,7 +14,7 @@ function renderWithLinks(text: string) {
         href={p}
         target="_blank"
         rel="noopener noreferrer"
-        style={{ color: "#1B4F72", fontWeight: 600, textDecoration: "underline" }}
+        style={{ color: "#042b4d", fontWeight: 600, textDecoration: "underline" }}
       >
         {p}
       </a>
@@ -56,7 +56,7 @@ export default function CookiePolicyPage() {
 
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "2rem" }}>
             This Cookie Policy explains how The Phone Mast Advice Company Ltd (&ldquo;we&rdquo;, &ldquo;us&rdquo;, &ldquo;our&rdquo;) uses cookies and similar tracking technologies on our website. It should be read alongside our{" "}
-            <a href="/privacy-policy/" style={{ color: "#1B4F72", fontWeight: 600 }}>
+            <a href="/privacy-policy/" style={{ color: "#042b4d", fontWeight: 600 }}>
               Privacy Policy
             </a>
             .
@@ -141,7 +141,7 @@ Learn more about how Google collects and uses your data at Google's Business Dat
                   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                   fontWeight: 700,
                   fontSize: "1.25rem",
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   marginBottom: "0.75rem",
                 }}
               >
@@ -173,7 +173,7 @@ Learn more about how Google collects and uses your data at Google's Business Dat
             <p style={{ fontSize: "1rem", color: "#1a1a2e", lineHeight: 1.6, margin: 0 }}>
               <strong>Change your mind?</strong> You can{" "}
               <ManageCookiesLink
-                style={{ color: "#1B4F72", fontWeight: 600, textDecoration: "underline" }}
+                style={{ color: "#042b4d", fontWeight: 600, textDecoration: "underline" }}
               />{" "}
               at any time to review or update your consent choices.
             </p>
@@ -181,7 +181,7 @@ Learn more about how Google collects and uses your data at Google's Business Dat
 
           <div
             style={{
-              backgroundColor: "#f9f8f5",
+              backgroundColor: "#f3f7fb",
               borderRadius: "0.75rem",
               padding: "1.5rem",
               marginTop: "2rem",
@@ -189,7 +189,7 @@ Learn more about how Google collects and uses your data at Google's Business Dat
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               Questions about cookies or our data practices? Contact us at:{" "}
-              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#1B4F72", fontWeight: 600 }}>
+              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#042b4d", fontWeight: 600 }}>
                 info@phonemastadvice.co.uk
               </a>. The Phone Mast Advice Company Ltd, Company Reg: 13115582.
             </p>

@@ -159,7 +159,7 @@ export default function HandbookPage() {
 
       {/* Hero section */}
       <section
-        style={{ backgroundColor: "#1B4F72", padding: "4rem 1.5rem" }}
+        style={{ backgroundColor: "#042b4d", padding: "4rem 1.5rem" }}
       >
         <div className="container-max" style={{ maxWidth: "900px", textAlign: "center" }}>
           <div style={{ fontSize: "4rem", marginBottom: "1rem" }}>📖</div>
@@ -209,7 +209,7 @@ export default function HandbookPage() {
                 Our free handbook covers everything you need to know as a UK phone mast landlord — from understanding your lease to knowing your rights under the Electronic Communications Code.
               </p>
               <p style={{ fontSize: "1.125rem", color: "#4b5563", lineHeight: 1.7, marginBottom: "2.5rem" }}>
-                For focused online guidance, start with our <a href="/phone-mast-lease/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent/" style={{ color: "#1B4F72", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a> pages.
+                For focused online guidance, start with our <a href="/phone-mast-lease/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a> pages.
               </p>
 
               <div
@@ -224,7 +224,7 @@ export default function HandbookPage() {
                     key={topic.title}
                     style={{
                       padding: "1.5rem",
-                      backgroundColor: "#f9f8f5",
+                      backgroundColor: "#f3f7fb",
                       borderRadius: "0.875rem",
                       border: "1px solid #e5e7eb",
                     }}
@@ -253,8 +253,8 @@ export default function HandbookPage() {
                 style={{
                   marginTop: "2.5rem",
                   padding: "1.5rem",
-                  backgroundColor: "rgba(164,202,98,0.1)",
-                  border: "1px solid rgba(164,202,98,0.4)",
+                  backgroundColor: "rgba(182,244,20,0.1)",
+                  border: "1px solid rgba(182,244,20,0.4)",
                   borderRadius: "1rem",
                   display: "flex",
                   gap: "1rem",

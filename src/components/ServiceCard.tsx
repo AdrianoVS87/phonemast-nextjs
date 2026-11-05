@@ -15,7 +15,7 @@ export default function ServiceCard({ icon, title, description, href }: ServiceC
         style={{
           width: "3rem",
           height: "3rem",
-          backgroundColor: "rgba(27,79,114,0.08)",
+          backgroundColor: "rgba(4,43,77,0.08)",
           borderRadius: "0.75rem",
           display: "flex",
           alignItems: "center",
@@ -34,7 +34,7 @@ export default function ServiceCard({ icon, title, description, href }: ServiceC
           fontFamily: "var(--font-jakarta), system-ui, sans-serif",
           fontWeight: 700,
           fontSize: "1.1875rem",
-          color: "#1B4F72",
+          color: "#042b4d",
           marginBottom: "0.75rem",
           lineHeight: 1.3,
         }}
@@ -59,7 +59,7 @@ export default function ServiceCard({ icon, title, description, href }: ServiceC
       <Link
         href={href}
         style={{
-          color: "#1B4F72",
+          color: "#042b4d",
           fontWeight: 600,
           fontSize: "0.9375rem",
           display: "inline-flex",

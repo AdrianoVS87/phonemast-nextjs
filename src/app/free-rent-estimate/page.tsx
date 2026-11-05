@@ -94,8 +94,8 @@ export default function FreeRentEstimatePage() {
                 style={{
                   marginTop: "2rem",
                   padding: "1.5rem",
-                  backgroundColor: "rgba(164,202,98,0.1)",
-                  border: "1px solid rgba(164,202,98,0.4)",
+                  backgroundColor: "rgba(182,244,20,0.1)",
+                  border: "1px solid rgba(182,244,20,0.4)",
                   borderRadius: "1rem",
                 }}
               >

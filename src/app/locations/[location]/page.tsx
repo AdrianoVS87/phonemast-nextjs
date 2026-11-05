@@ -216,7 +216,7 @@ export default async function LocationPage({
       {/* Hero */}
       <section
         style={{
-          backgroundColor: "#1B4F72",
+          backgroundColor: "#042b4d",
           padding: "4rem 1.5rem",
         }}
       >
@@ -295,7 +295,7 @@ export default async function LocationPage({
                 fontFamily: "var(--font-jakarta), system-ui, sans-serif",
                 fontWeight: 700,
                 fontSize: "1.375rem",
-                color: "#1B4F72",
+                color: "#042b4d",
                 marginBottom: "1rem",
               }}
             >
@@ -322,7 +322,7 @@ export default async function LocationPage({
               <a
                 href="tel:01691791543"
                 style={{
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   fontWeight: 600,
                   fontSize: "1.0625rem",
                   textDecoration: "none",
@@ -337,7 +337,7 @@ export default async function LocationPage({
               <a
                 href="mailto:info@phonemastadvice.co.uk"
                 style={{
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   fontWeight: 600,
                   fontSize: "1.0625rem",
                   textDecoration: "none",
@@ -354,7 +354,7 @@ export default async function LocationPage({
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
-                  color: "#1B4F72",
+                  color: "#042b4d",
                   fontWeight: 600,
                   fontSize: "1.0625rem",
                   textDecoration: "none",
@@ -398,7 +398,7 @@ export default async function LocationPage({
               target="_blank"
               rel="noopener noreferrer"
               style={{
-                color: "#1B4F72",
+                color: "#042b4d",
                 fontWeight: 600,
                 textDecoration: "underline",
                 fontSize: "0.9375rem",
@@ -411,7 +411,7 @@ export default async function LocationPage({
       </section>
 
       {/* Intro */}
-      <section style={{ backgroundColor: "#f9f8f5", padding: "3rem 1.5rem" }}>
+      <section style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}>
         <div className="container-max" style={{ maxWidth: "800px" }}>
           {data.intro.map((paragraph, i) => (
             <p
@@ -472,7 +472,7 @@ export default async function LocationPage({
                     width: "1.5rem",
                     height: "1.5rem",
                     borderRadius: "50%",
-                    backgroundColor: "#a4ca62",
+                    backgroundColor: "#b6f414",
                     display: "flex",
                     alignItems: "center",
                     justifyContent: "center",
@@ -493,7 +493,7 @@ export default async function LocationPage({
 
       {/* Testimonial */}
       {data.testimonial && (
-        <section style={{ backgroundColor: "#1B4F72", padding: "3rem 1.5rem" }}>
+        <section style={{ backgroundColor: "#042b4d", padding: "3rem 1.5rem" }}>
           <div className="container-max" style={{ maxWidth: "700px", textAlign: "center" }}>
             <blockquote
               style={{
@@ -509,7 +509,7 @@ export default async function LocationPage({
             </blockquote>
             <cite
               style={{
-                color: "#a4ca62",
+                color: "#b6f414",
                 fontStyle: "normal",
                 fontWeight: 600,
                 fontSize: "1rem",
