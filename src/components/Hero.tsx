@@ -110,7 +110,7 @@ export default function Hero({
                 /* Wide and ultrawide screens (Adriano, 5 Nov 2026): the mast box is a FIXED 640px anchored to the page centre, like
            the 1200px content container, so the 552px artwork is never blown up past ~1.16x and the composition stays
            centred with plain gradient either side. The blend gradient is measured from the centre too. */
-        .hero-art-img{position:absolute;top:0;bottom:0;left:calc(50% + 125px);width:640px}
+        .hero-art-img{position:absolute;top:-40px;bottom:0;left:calc(50% + 125px);width:640px} /* raised 40px (Matt, 5 Nov): only the transparent headroom is clipped, the tip stays below the header */
         .hero-art-blend{position:absolute;inset:0;background:
           radial-gradient(ellipse 650px 500px at calc(50% - 260px) 50%,rgba(17,126,205,.38),transparent 75%),
           linear-gradient(180deg,rgba(5,44,80,.45) 0%,rgba(5,44,80,0) 38%),
