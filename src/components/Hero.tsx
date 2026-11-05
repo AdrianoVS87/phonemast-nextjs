@@ -39,7 +39,7 @@ export default function Hero({
             fill
             priority
             sizes="(max-width: 700px) 85vw, (max-width: 1080px) 52vw, 50vw"
-            style={{ objectFit: "cover", objectPosition: "50% 50%" }}
+            style={{ objectFit: "cover", objectPosition: "50% 0%" }} /* top-aligned: the mast tip is never cropped, only the landscape at the bottom */
           />
         </div>
         <div className="hero-art-blend" />
