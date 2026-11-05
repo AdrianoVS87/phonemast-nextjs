@@ -31,17 +31,18 @@ export default function Hero({
 
   return (
     <section className="hero-section hero-root" aria-labelledby="hero-title">
-      <div className="hero-glow" aria-hidden="true" />
       <div className="hero-art" aria-hidden="true">
-        <Image
-          src="/images/hero-mast.png"
-          alt=""
-          fill
-          priority
-          sizes="(max-width: 700px) 70vw, (max-width: 1080px) 46vw, 48vw"
-          style={{ objectFit: "cover", objectPosition: "right center" }}
-        />
-        <div className="hero-art-fade" />
+        <div className="hero-art-img">
+          <Image
+            src="/images/hero-mast.png"
+            alt=""
+            fill
+            priority
+            sizes="(max-width: 700px) 85vw, (max-width: 1080px) 52vw, 50vw"
+            style={{ objectFit: "cover", objectPosition: "50% 50%" }}
+          />
+        </div>
+        <div className="hero-art-blend" />
       </div>
       <div className="hero-hills" aria-hidden="true" />
 
@@ -102,10 +103,16 @@ export default function Hero({
 
       <style>{`
         .hero-root{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(100deg,#063f74 2%,#07518f 49%,#197ac0 100%);color:#fff}
-        .hero-glow{position:absolute;inset:0;z-index:-3;background:radial-gradient(ellipse 650px 500px at 33% 50%,rgba(17,126,205,.42),transparent 75%),linear-gradient(125deg,rgba(3,30,60,.35),transparent 72%)}
-        .hero-art{position:absolute;z-index:-2;top:0;right:0;bottom:0;width:48%}
-        .hero-art-fade{position:absolute;inset:0;background:linear-gradient(90deg,#07518f 0%,rgba(7,81,143,0) 30%)}
-        .hero-root::after{content:"";position:absolute;z-index:-1;inset:0;background:linear-gradient(90deg,rgba(4,50,92,.13),transparent 68%);pointer-events:none}
+        /* Art layer spans the whole hero: the mast sits in a right-anchored box pushed past the right edge, and ONE blend
+           layer on top carries the hero's own blues from fully opaque on the left to transparent over the mast, so there is
+           no container edge and no colour step between the artwork and the background (Matt's note, 5 Nov 2026). */
+        .hero-art{position:absolute;inset:0;z-index:-2;overflow:hidden}
+        .hero-art-img{position:absolute;top:0;bottom:0;right:-9%;width:50%}
+        .hero-art-blend{position:absolute;inset:0;background:
+          radial-gradient(ellipse 650px 500px at 30% 50%,rgba(17,126,205,.38),transparent 75%),
+          linear-gradient(180deg,rgba(5,44,80,.45) 0%,rgba(5,44,80,0) 38%),
+          linear-gradient(0deg,rgba(6,63,116,.4) 0%,rgba(6,63,116,0) 32%),
+          linear-gradient(90deg,#063f74 0%,#07518f 38%,rgba(7,81,143,.9) 48%,rgba(10,95,160,.55) 58%,rgba(14,110,180,.2) 68%,rgba(25,122,192,0) 80%)}
         .hero-hills{position:absolute;z-index:-1;bottom:0;left:0;width:65%;height:28px;background:linear-gradient(180deg,transparent 0,rgba(22,82,46,.18) 45%,rgba(15,70,48,.42) 100%);clip-path:polygon(0 42%,5% 52%,12% 39%,17% 53%,23% 25%,32% 45%,42% 27%,50% 47%,64% 18%,80% 43%,100% 9%,100% 100%,0 100%)}
         .hero-inner{position:relative;min-height:610px;display:flex;align-items:center;padding-top:3rem;padding-bottom:3rem}
         .hero-content{max-width:760px}
@@ -124,13 +131,15 @@ export default function Hero({
         .hero-sep{height:25px;width:1px;background:rgba(255,255,255,.62)}
         @media (max-width:1080px){
           .hero-inner{min-height:575px}
-          .hero-art{width:46%;opacity:.75}
-          .hero-root::after{background:linear-gradient(90deg,#044677 0%,rgba(5,70,118,.93) 43%,rgba(6,68,114,.22) 78%)}
+          .hero-art-img{right:-22%;width:62%;opacity:.55}
+          .hero-art-blend{background:
+            linear-gradient(180deg,rgba(5,44,80,.45) 0%,rgba(5,44,80,0) 38%),
+            linear-gradient(90deg,#044677 0%,#07518f 48%,rgba(7,81,143,.9) 60%,rgba(10,95,160,.6) 72%,rgba(25,122,192,.3) 100%)}
         }
         @media (max-width:700px){
           .hero-inner{min-height:0;padding-top:1.5rem;padding-bottom:1.75rem}
-          .hero-art{width:70%;opacity:.32}
-          .hero-root::after{background:linear-gradient(90deg,rgba(3,47,86,.88),rgba(5,64,108,.62))}
+          .hero-art-img{right:-28%;width:90%;opacity:.35}
+          .hero-art-blend{background:linear-gradient(90deg,rgba(3,47,86,.95) 0%,rgba(5,64,108,.75) 55%,rgba(6,68,114,.5) 100%)}
           .hero-hills{display:none}
           .hero-eyebrow{font-size:.875rem;padding:.45rem .75rem}
           .hero-headline{font-size:clamp(1.9rem,8.6vw,2.6rem);margin:1rem 0 .75rem;letter-spacing:-.02em}
