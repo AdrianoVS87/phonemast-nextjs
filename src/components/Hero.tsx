@@ -16,7 +16,7 @@ interface HeroProps {
 /**
  * Homepage hero, redesigned 5 Nov 2026 from the "Phone Mast Advice Homepage Developer Package".
  * Same H1, copy, links and phone number as before; new layout, palette and mast artwork
- * (/images/hero-mast.png, AI-generated for this site, transparent fade on the left).
+ * (/images/hero-mast-v2.png, AI-generated for this site; transparent fades on the left, top and right; renamed on each edit so image caches refresh).
  */
 export default function Hero({
   headline = "Phone Mast Lease & Rent Advice for UK Landlords",
@@ -34,7 +34,7 @@ export default function Hero({
       <div className="hero-art" aria-hidden="true">
         <div className="hero-art-img">
           <Image
-            src="/images/hero-mast.png"
+            src="/images/hero-mast-v2.png"
             alt=""
             fill
             priority
@@ -107,12 +107,15 @@ export default function Hero({
            layer on top carries the hero's own blues from fully opaque on the left to transparent over the mast, so there is
            no container edge and no colour step between the artwork and the background (Matt's note, 5 Nov 2026). */
         .hero-art{position:absolute;inset:0;z-index:-2;overflow:hidden}
-        .hero-art-img{position:absolute;top:0;bottom:0;right:-9%;width:50%}
+                /* Wide and ultrawide screens (Adriano, 5 Nov 2026): the mast box is a FIXED 640px anchored to the page centre, like
+           the 1200px content container, so the 552px artwork is never blown up past ~1.16x and the composition stays
+           centred with plain gradient either side. The blend gradient is measured from the centre too. */
+        .hero-art-img{position:absolute;top:0;bottom:0;left:calc(50% + 125px);width:640px}
         .hero-art-blend{position:absolute;inset:0;background:
-          radial-gradient(ellipse 650px 500px at 30% 50%,rgba(17,126,205,.38),transparent 75%),
+          radial-gradient(ellipse 650px 500px at calc(50% - 260px) 50%,rgba(17,126,205,.38),transparent 75%),
           linear-gradient(180deg,rgba(5,44,80,.45) 0%,rgba(5,44,80,0) 38%),
           linear-gradient(0deg,rgba(6,63,116,.4) 0%,rgba(6,63,116,0) 32%),
-          linear-gradient(90deg,#063f74 0%,#07518f 38%,rgba(7,81,143,.9) 48%,rgba(10,95,160,.55) 58%,rgba(14,110,180,.2) 68%,rgba(25,122,192,0) 80%)}
+          linear-gradient(90deg,#063f74 0,#07518f calc(50% - 60px),rgba(7,81,143,.9) calc(50% + 60px),rgba(10,95,160,.55) calc(50% + 190px),rgba(14,110,180,.2) calc(50% + 320px),rgba(25,122,192,0) calc(50% + 470px))}
         .hero-hills{position:absolute;z-index:-1;bottom:0;left:0;width:65%;height:28px;background:linear-gradient(180deg,transparent 0,rgba(22,82,46,.18) 45%,rgba(15,70,48,.42) 100%);clip-path:polygon(0 42%,5% 52%,12% 39%,17% 53%,23% 25%,32% 45%,42% 27%,50% 47%,64% 18%,80% 43%,100% 9%,100% 100%,0 100%)}
         .hero-inner{position:relative;min-height:610px;display:flex;align-items:center;padding-top:3rem;padding-bottom:3rem}
         .hero-content{max-width:760px}
@@ -129,16 +132,16 @@ export default function Hero({
         .hero-contact a:hover{text-decoration:underline;color:#fff}
         .hero-contact strong{font-size:1.125rem}
         .hero-sep{height:25px;width:1px;background:rgba(255,255,255,.62)}
-        @media (max-width:1080px){
+        @media (max-width:1199px){
           .hero-inner{min-height:575px}
-          .hero-art-img{right:-22%;width:62%;opacity:.55}
+          .hero-art-img{left:auto;right:-22%;width:62%;opacity:.55}
           .hero-art-blend{background:
             linear-gradient(180deg,rgba(5,44,80,.45) 0%,rgba(5,44,80,0) 38%),
             linear-gradient(90deg,#044677 0%,#07518f 48%,rgba(7,81,143,.9) 60%,rgba(10,95,160,.6) 72%,rgba(25,122,192,.3) 100%)}
         }
         @media (max-width:700px){
           .hero-inner{min-height:0;padding-top:1.5rem;padding-bottom:1.75rem}
-          .hero-art-img{right:-28%;width:90%;opacity:.35}
+          .hero-art-img{left:auto;right:-28%;width:90%;opacity:.35}
           .hero-art-blend{background:linear-gradient(90deg,rgba(3,47,86,.95) 0%,rgba(5,64,108,.75) 55%,rgba(6,68,114,.5) 100%)}
           .hero-hills{display:none}
           .hero-eyebrow{font-size:.875rem;padding:.45rem .75rem}
