@@ -14,8 +14,13 @@ export const FOUNDER_ID = `${absoluteUrl(COMPANY.founder.profilePath)}#person`;
 
 const ref = (id: string) => ({ "@id": id });
 
+/**
+ * No PostalAddress on the organisation: there are no offices that clients visit (Matt, 24 Nov 2026),
+ * and the registered office is a legal disclosure, not a place of business.
+ */
+const areaServed = () => COMPANY.areaServed.map((name) => ({ "@type": "Country", name }));
+
 export function organization(): JsonLdNode {
-  const office = COMPANY.registeredOffice;
   return {
     "@type": "ProfessionalService",
     "@id": ORGANIZATION_ID,
@@ -28,13 +33,6 @@ export function organization(): JsonLdNode {
     telephone: COMPANY.phone.international,
     email: COMPANY.email,
     identifier: { "@type": "PropertyValue", propertyID: "Companies House", value: COMPANY.registrationNumber },
-    address: {
-      "@type": "PostalAddress",
-      streetAddress: office.streetAddress,
-      addressLocality: office.locality,
-      postalCode: office.postalCode,
-      addressCountry: office.country,
-    },
     contactPoint: {
       "@type": "ContactPoint",
       contactType: "customer service",
@@ -43,7 +41,7 @@ export function organization(): JsonLdNode {
       areaServed: "GB",
       availableLanguage: "en-GB",
     },
-    areaServed: COMPANY.areaServed.map((name) => ({ "@type": "AdministrativeArea", name })),
+    areaServed: areaServed(),
     founder: ref(FOUNDER_ID),
     ...(COMPANY.sameAs.length ? { sameAs: [...COMPANY.sameAs] } : {}),
   };
@@ -78,7 +76,8 @@ export function breadcrumbList(crumbs: readonly Crumb[]): JsonLdNode {
   };
 }
 
-export function founderPerson(): JsonLdNode {
+/** `withCredentials` only where the qualifications are shown (Matt's profile). */
+export function founderPerson({ withCredentials = false }: { withCredentials?: boolean } = {}): JsonLdNode {
   const f = COMPANY.founder;
   return {
     "@type": "Person",
@@ -89,6 +88,69 @@ export function founderPerson(): JsonLdNode {
     image: `${SITE_URL}${f.image}`,
     sameAs: [f.linkedIn],
     worksFor: ref(ORGANIZATION_ID),
+    ...(withCredentials
+      ? {
+          hasCredential: f.qualifications.map((q) => ({
+            "@type": "EducationalOccupationalCredential",
+            name: q.name,
+            credentialCategory: q.category,
+          })),
+        }
+      : {}),
+  };
+}
+
+export interface TeamMemberInput {
+  readonly slug: string;
+  readonly name: string;
+  readonly jobTitle: string;
+  readonly image?: string;
+  readonly linkedIn?: string;
+}
+
+/** A team member shown on /team/. Matt has his own node (FOUNDER_ID). */
+export function teamMember(input: TeamMemberInput): JsonLdNode {
+  return {
+    "@type": "Person",
+    "@id": `${absoluteUrl("/team/")}#${input.slug}`,
+    name: input.name,
+    jobTitle: input.jobTitle,
+    ...(input.image ? { image: `${SITE_URL}${input.image}` } : {}),
+    ...(input.linkedIn ? { sameAs: [input.linkedIn] } : {}),
+    worksFor: ref(ORGANIZATION_ID),
+  };
+}
+
+export interface BookInput {
+  readonly path: string;
+  readonly name: string;
+  readonly description: string;
+  readonly edition: string;
+  readonly numberOfPages: number;
+  readonly datePublished: string;
+  readonly dateModified: string;
+  readonly image: string;
+}
+
+/** The free handbook. Download needs the form, so no DownloadAction pointing at the PDF. */
+export function book(input: BookInput): JsonLdNode {
+  const url = absoluteUrl(input.path);
+  return {
+    "@type": "Book",
+    "@id": `${url}#book`,
+    name: input.name,
+    description: input.description,
+    bookEdition: input.edition,
+    bookFormat: "https://schema.org/EBook",
+    inLanguage: "en-GB",
+    numberOfPages: input.numberOfPages,
+    datePublished: input.datePublished,
+    dateModified: input.dateModified,
+    url,
+    image: `${SITE_URL}${input.image}`,
+    isAccessibleForFree: true,
+    author: ref(ORGANIZATION_ID),
+    publisher: ref(ORGANIZATION_ID),
   };
 }
 
@@ -139,7 +201,7 @@ export function service(input: ServiceInput): JsonLdNode {
     description: input.description,
     url,
     provider: ref(ORGANIZATION_ID),
-    areaServed: COMPANY.areaServed.map((name) => ({ "@type": "AdministrativeArea", name })),
+    areaServed: areaServed(),
   };
 }
 

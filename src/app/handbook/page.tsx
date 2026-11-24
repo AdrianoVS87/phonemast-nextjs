@@ -1,57 +1,24 @@
-import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import HandbookForm from "@/components/HandbookForm";
+import StructuredData from "@/components/seo/StructuredData";
+import { book } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
 export const metadata = buildMetadata(ROUTES.handbook);
 
-const bookJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Book",
+const HANDBOOK = book({
+  path: ROUTES.handbook.path,
   name: "The Ultimate Phone Mast Landlord's Handbook",
-  alternateName: "Phone Mast Handbook for UK Landlords",
-  bookEdition: "Version 2 — May 2026",
-  bookFormat: "https://schema.org/EBook",
-  inLanguage: "en-GB",
+  description:
+    "A free 27-page guide for UK phone mast landlords, covering the Electronic Communications Code, the PSTI Act 2022, the Vache Farm decision and the 7 April 2026 changes to 1954 Act renewals.",
+  edition: "Version 2, May 2026",
   numberOfPages: 27,
   datePublished: "2024-06-14",
   dateModified: "2026-05-26",
-  url: "https://www.phonemastadvice.co.uk/handbook/",
-  image: "https://www.phonemastadvice.co.uk/images/og-handbook.jpg",
-  description:
-    "A free 27-page guide for UK phone mast landlords, covering the Electronic Communications Code, the PSTI Act 2022, the Vache Farm Upper Tribunal rent ruling (July 2024, £1,750 per annum tonal rent), and the 7 April 2026 changes to LTA 1954 renewals.",
-  isAccessibleForFree: true,
-  encodingFormat: "application/pdf",
-  fileFormat: "application/pdf",
-  author: {
-    "@type": "Organization",
-    name: "The Phone Mast Advice Company Ltd",
-    url: "https://www.phonemastadvice.co.uk",
-    telephone: COMPANY.phone.international,
-    email: `${COMPANY.email}`,
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "The Phone Mast Advice Company Ltd",
-    url: "https://www.phonemastadvice.co.uk",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://www.phonemastadvice.co.uk/images/logo.svg",
-    },
-  },
-  potentialAction: {
-    "@type": "DownloadAction",
-    target: "https://www.phonemastadvice.co.uk/handbook/phone-mast-handbook-v2-may-2026.pdf",
-  },
-  about: [
-    { "@type": "Thing", name: "Electronic Communications Code" },
-    { "@type": "Thing", name: "Phone mast lease" },
-    { "@type": "Thing", name: "Phone mast rent" },
-    { "@type": "Thing", name: "Product Security and Telecommunications Infrastructure Act 2022" },
-  ],
-};
+  image: "/images/og-handbook.jpg",
+});
 
 const handbookTopics = [
   {
@@ -89,10 +56,7 @@ const handbookTopics = [
 export default function HandbookPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }}
-      />
+      <StructuredData nodes={[HANDBOOK]} />
       <Breadcrumbs items={[{ label: "Handbook" }]} />
 
       {/* Hero section */}

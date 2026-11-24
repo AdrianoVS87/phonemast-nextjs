@@ -1,6 +1,8 @@
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import { COMPANY } from "@/content/company";
+import { COMPANY, STATEMENTS, confirmedClaim } from "@/content/company";
+import StructuredData from "@/components/seo/StructuredData";
+import { founderPerson, teamMember } from "@/seo/schema";
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
@@ -16,19 +18,21 @@ interface TeamMember {
   photo?: string;
 }
 
+const EXPERIENCE = confirmedClaim("experienceYears");
+
 const team: TeamMember[] = [
   {
     name: "Matt Restall",
     role: "Founder & Director",
     credentials: "Specialist Telecoms Surveyor",
     photo: "/images/team/Matt-Restall.jpg",
-    bio: "Matt Restall is the founder of The Phone Mast Advice Company Ltd. He advises landlords on telecoms property matters: leases, rent reviews, new lettings and lease sales. He instigated and advised on Cornerstone Telecommunications Infrastructure Ltd v Compton Beauchamp Estates Ltd [2022] UKSC 18, in which the Supreme Court confirmed that operators with existing agreements protected by the Landlord and Tenant Act 1954 must renew under that Act and cannot use the Electronic Communications Code to impose new agreements on different terms.",
+    bio: `${EXPERIENCE ? `${EXPERIENCE}. ` : ""}He is the founder of ${COMPANY.legalName} and advises landlords on telecoms property matters: leases, rent reviews, new lettings and lease sales. ${STATEMENTS.comptonBeauchamp}`,
     linkedin: "https://www.linkedin.com/in/matthew-restall-7a64669b/",
   },
   {
     name: "Andrew Chinn",
     role: "Head Surveyor",
-    credentials: "",
+    credentials: COMPANY.ricsMember.designation,
     photo: "/images/team/Andrew-Chinn.jpg",
     bio: "Andrew Chinn is Head Surveyor at The Phone Mast Advice Company Ltd. His primary focus is providing professional advice to site providers and landlords, helping them to optimise the financial returns from telecommunications equipment on their premises. Andrew brings a diverse background in surveying across the North West of England, having consulted widely and run his own practice for over a decade before joining the firm.",
     linkedin: "https://www.linkedin.com/in/andrew-chinn-9836a828/",
@@ -60,26 +64,18 @@ const team: TeamMember[] = [
 ];
 
 export default function TeamPage() {
-  const teamSchema = {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    name: "The Phone Mast Advice Company Ltd",
-    url: "https://www.phonemastadvice.co.uk",
-    member: team.map((member) => ({
-      "@type": "Person",
-      name: member.name,
-      jobTitle: member.role,
-      description: member.bio.substring(0, 200),
-      ...(member.linkedin ? { sameAs: member.linkedin } : {}),
-    })),
-  };
+  const nodes = [
+    founderPerson(),
+    ...team
+      .filter((m) => m.name !== COMPANY.founder.name)
+      .map((m) =>
+        teamMember({ slug: m.name.toLowerCase().replace(/[^a-z]+/g, "-"), name: m.name, jobTitle: m.role, image: m.photo, linkedIn: m.linkedin }),
+      ),
+  ];
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(teamSchema) }}
-      />
+      <StructuredData nodes={nodes} />
 
       <Breadcrumbs items={[{ label: "Our Team" }]} />
 
