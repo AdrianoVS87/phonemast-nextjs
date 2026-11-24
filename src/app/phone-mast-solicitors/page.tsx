@@ -203,7 +203,7 @@ export default function Page() {
           <h2 style={h2}>Phone mast solicitors: frequently asked questions</h2>
           <FAQAccordion items={faqs} schemaPath="/phone-mast-solicitors/" />
 
-          <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "0.875rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 15 September 2026. It is general guidance and does not constitute legal advice. We are surveyors, not solicitors: for legal advice on your circumstances, consult a solicitor.
           </p>
         </div>

@@ -495,7 +495,7 @@ Read the Lease Guide →
             <p
               style={{
                 fontSize: "1.125rem",
-                color: "#6b7280",
+                color: "#4b5563",
                 maxWidth: "560px",
                 margin: "0 auto",
                 lineHeight: 1.65,
@@ -632,7 +632,7 @@ Read the Lease Guide →
             <p
               style={{
                 fontSize: "1.125rem",
-                color: "#6b7280",
+                color: "#4b5563",
                 maxWidth: "480px",
                 margin: "0 auto",
               }}
@@ -692,7 +692,7 @@ Read the Lease Guide →
               <p
                 style={{
                   fontSize: "1.125rem",
-                  color: "#6b7280",
+                  color: "#4b5563",
                   lineHeight: 1.65,
                   marginBottom: "2rem",
                 }}

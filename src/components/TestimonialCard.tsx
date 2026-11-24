@@ -103,7 +103,7 @@ export default function TestimonialCard({
           <p
             style={{
               fontSize: "0.875rem",
-              color: "#6b7280",
+              color: "#4b5563",
               margin: 0,
             }}
           >

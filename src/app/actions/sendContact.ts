@@ -75,15 +75,15 @@ export async function sendContactEmail(
             <table style="width: 100%; border-collapse: collapse;">
               ${mastEmailRow(data.hasMast)}
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; width: 100px; color: #6b7280; font-size: 14px;">Name</td>
+                <td style="padding: 8px 0; font-weight: bold; width: 100px; color: #4b5563; font-size: 14px;">Name</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.name)}</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Email</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Email</td>
                 <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #042b4d;">${escapeHtml(data.email)}</a></td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Phone</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Phone</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.phone || "Not provided")}</td>
               </tr>
             </table>

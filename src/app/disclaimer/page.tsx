@@ -23,7 +23,7 @@ export default function DisclaimerPage() {
           >
             Disclaimer
           </h1>
-          <p style={{ fontSize: "1rem", color: "#6b7280", marginBottom: "2rem" }}>
+          <p style={{ fontSize: "1rem", color: "#4b5563", marginBottom: "2rem" }}>
             Last updated: March 2025
           </p>
 

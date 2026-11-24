@@ -27,7 +27,7 @@ export default function ServicesPage() {
             <h1 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#1a1a2e", marginBottom: "1rem" }}>
               Phone Mast Services
             </h1>
-            <p style={{ fontSize: "1.125rem", color: "#6b7280", maxWidth: "560px", margin: "0 auto", lineHeight: 1.65 }}>
+            <p style={{ fontSize: "1.125rem", color: "#4b5563", maxWidth: "560px", margin: "0 auto", lineHeight: 1.65 }}>
               Comprehensive specialist support for every aspect of your telecom property — from new lettings to lease renewals and mast sales.
             </p>
           </div>

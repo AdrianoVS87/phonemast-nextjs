@@ -68,7 +68,7 @@ export async function POST(req: Request) {
   const rows = columns
     .map(
       (c) => `<tr>
-        <td style="padding: 8px 0; font-weight: bold; width: 160px; color: #6b7280; font-size: 14px;">${escapeHtml(c.column_name || c.column_id || "Field")}</td>
+        <td style="padding: 8px 0; font-weight: bold; width: 160px; color: #4b5563; font-size: 14px;">${escapeHtml(c.column_name || c.column_id || "Field")}</td>
         <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(c.string_value ?? "")}</td>
       </tr>`,
     )

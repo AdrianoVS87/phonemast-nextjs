@@ -210,7 +210,7 @@ export default function ContactForm() {
         <p
           style={{
             textAlign: "center",
-            color: "#6b7280",
+            color: "#4b5563",
             fontSize: "1.125rem",
             margin: 0,
           }}

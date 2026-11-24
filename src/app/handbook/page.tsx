@@ -232,7 +232,7 @@ export default function HandbookPage() {
                 >
                   Get Your Free Copy
                 </h2>
-                <p style={{ color: "#6b7280", fontSize: "1.125rem", marginBottom: "1.5rem", lineHeight: 1.55 }}>
+                <p style={{ color: "#4b5563", fontSize: "1.125rem", marginBottom: "1.5rem", lineHeight: 1.55 }}>
                   Fill in your details and we&apos;ll email your handbook straight away.
                 </p>
                 <HandbookForm />

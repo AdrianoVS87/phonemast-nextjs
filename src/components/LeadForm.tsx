@@ -319,7 +319,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
               : "Submit for Free Estimate"}
         </button>
 
-        <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0 }}>
+        <p style={{ textAlign: "center", color: "#4b5563", fontSize: "1.125rem", margin: 0 }}>
           Or call us:{" "}
           <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
             {COMPANY.phone.display}

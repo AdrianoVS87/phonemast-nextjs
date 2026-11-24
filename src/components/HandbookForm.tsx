@@ -185,7 +185,7 @@ export default function HandbookForm() {
           {status === "sending" ? "Sending…" : "📥 Download Free Handbook"}
         </button>
 
-        <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0 }}>
+        <p style={{ textAlign: "center", color: "#4b5563", fontSize: "1.125rem", margin: 0 }}>
           Your details will only be used to send you the handbook and relevant updates. We will never share your information.
         </p>
       </div>

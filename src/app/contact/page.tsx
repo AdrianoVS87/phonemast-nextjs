@@ -125,7 +125,7 @@ export default function ContactPage() {
                   >
                     <span style={{ fontSize: "1.5rem", flexShrink: 0, marginTop: "0.125rem" }}>{item.icon}</span>
                     <div>
-                      <p style={{ fontWeight: 700, fontSize: "1.125rem", color: "#6b7280", margin: "0 0 0.25rem", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                      <p style={{ fontWeight: 700, fontSize: "1.125rem", color: "#4b5563", margin: "0 0 0.25rem", textTransform: "uppercase", letterSpacing: "0.04em" }}>
                         {item.label}
                       </p>
                       <a

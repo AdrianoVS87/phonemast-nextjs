@@ -211,12 +211,12 @@ export default function Page() {
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1.125rem" }}>{item.label}</p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "1.125rem", lineHeight: 1.4 }}>{item.desc}</p>
+                <p style={{ color: "#4b5563", margin: 0, fontSize: "1.125rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}
           </div>
 
-          <p style={{ fontSize: "1.125rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "1.125rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 3 September 2026. It is general guidance for landowners and does not constitute legal, tax, or valuation advice for a specific site. Please contact us for advice on your circumstances.
           </p>
         </div>

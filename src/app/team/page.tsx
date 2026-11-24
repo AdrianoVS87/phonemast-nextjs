@@ -196,7 +196,7 @@ export default function TeamPage() {
                       <p
                         style={{
                           fontSize: "0.9375rem",
-                          color: "#6b7280",
+                          color: "#4b5563",
                           fontWeight: 600,
                           margin: 0,
                         }}

@@ -304,7 +304,7 @@ export default function Page() {
             ))}
           </ul>
 
-          <p style={{ fontSize: "1rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "1rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 15 September 2026. It is general guidance for landowners in England and Wales and does not constitute legal advice. We are surveyors, not solicitors: for legal advice on your circumstances, consult a solicitor.
           </p>
         </div>
