@@ -365,20 +365,6 @@ a:hover {
 .dropdown-scroll::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius: 4px; }
 .dropdown-scroll::-webkit-scrollbar-thumb:hover { background: rgba(0,0,0,0.25); }
 
-/* Stats counter animation - preserves SEO value in DOM */
-@keyframes stats-countup {
-  0% { transform: scale(1); opacity: 1; }
-  50% { transform: scale(1.05); opacity: 0.8; }
-  100% { transform: scale(1); opacity: 1; }
-}
-
-.stats-counter {
-  display: inline-block;
-}
-
-.stats-animate {
-  animation: stats-countup 1.8s ease-in-out;
-}
 
 /* Cookie banner is server-rendered; hide it before first paint for visitors who already chose. */
 html[data-consent="set"] .consent-ui {
@@ -458,7 +444,7 @@ h1, h2 {
   font-size: 0.875rem;
   letter-spacing: 0.16em;
   font-weight: 800;
-  color: #3d8a17;
+  color: #2f6b12; /* #3d8a17 is about 4:1 on white, below AA for 14px text */
   text-transform: uppercase;
   margin: 0 0 0.75rem;
 }
@@ -623,3 +609,137 @@ h1, h2 {
 .mobile-panel .nav-panel-heading { margin-top: 1rem; }
 .mobile-panel li a { display: flex; align-items: center; min-height: 44px; color: #1a1a2e; font-size: 1.125rem; border-bottom: 1px solid #f0f0f0; }
 .mobile-cta { margin-top: 1.25rem; width: 100%; justify-content: center; }
+
+/* ── Closing CTA band (moved from CTASection so no <style> is injected mid-body) ── */
+.final-cta{background:#082f54;color:#fff;padding:3.5rem 0 3rem}
+.cta-layout{display:flex;align-items:center;justify-content:space-between;gap:2.2rem}
+.cta-kicker{color:#b6f414}
+.cta-heading{font-family:var(--font-jakarta),system-ui,sans-serif;font-size:clamp(1.875rem,3vw,2.625rem);letter-spacing:-.03em;line-height:1.15;max-width:700px;margin:0 0 .5rem;color:#fff;text-wrap:balance}
+.cta-sub{margin:0;color:#b9cede;font-size:1.125rem;line-height:1.6;max-width:640px}
+.cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;flex-shrink:0}
+.cta-btn{font-size:1.0625rem;padding:1.0625rem 1.5rem;gap:.85rem}
+.cta-contact-link{color:#d7e5f2;font-size:1rem;text-decoration:underline;text-underline-offset:3px}
+.cta-contact-link:hover{color:#fff}
+.cta-contact{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.14)}
+.cta-contact a{display:inline-flex;align-items:center;gap:.55rem;color:#fff;font-size:1.0625rem;font-weight:600;text-decoration:none;min-height:44px}
+.cta-contact a:hover{color:#fff;text-decoration:underline}
+@media (max-width:860px){
+.cta-layout{align-items:flex-start;flex-direction:column;gap:1.5rem}
+.cta-actions{width:100%}
+.cta-btn{width:100%}
+}
+
+/* ── BenefitsStrip (moved from the component so no <style> is injected mid-body) ── */
+.benefits-strip{background:#fff;border-bottom:1px solid #e5edf5}
+.benefits-grid{display:grid;grid-template-columns:repeat(4,1fr);padding-top:1.5rem;padding-bottom:1.5rem}
+.benefit{display:flex;gap:.875rem;align-items:center;padding:.375rem 1.4rem;border-right:1px solid #c8d3df;min-width:0}
+.benefit:first-child{padding-left:0}
+.benefit:last-child{border-right:0;padding-right:0}
+.benefit svg{flex-shrink:0;width:44px;height:44px;stroke:#6fbf0d;stroke-width:2.1;fill:none;stroke-linejoin:round;stroke-linecap:round}
+.benefit div{display:flex;flex-direction:column;gap:.2rem}
+.benefit strong{font-family:var(--font-jakarta),system-ui,sans-serif;font-size:1.125rem;letter-spacing:-.01em;color:#092543;line-height:1.2}
+.benefit span{font-size:1rem;color:#50647b;line-height:1.3}
+@media (max-width:1080px){
+.benefits-grid{grid-template-columns:repeat(2,1fr);row-gap:1.25rem}
+.benefit:nth-child(2){border-right:0;padding-right:0}
+.benefit:nth-child(3){padding-left:0}
+}
+@media (max-width:700px){
+.benefits-grid{gap:1.25rem .75rem;padding-top:1.5rem;padding-bottom:1.5rem}
+.benefit,.benefit:nth-child(3){padding:0;border:0;align-items:flex-start;gap:.5rem}
+.benefit svg{width:32px;height:32px}
+.benefit strong{font-size:1rem}
+.benefit span{font-size:.9375rem}
+}
+
+/* ── GuideCards (moved from the component so no <style> is injected mid-body) ── */
+.guides-section{padding:4.5rem 0 5rem;background:#fff}
+.guides-heading{font-family:var(--font-jakarta),system-ui,sans-serif;font-size:clamp(1.875rem,3vw,2.625rem);letter-spacing:-.03em;line-height:1.15;max-width:700px;margin:0;color:#092543;text-wrap:balance}
+.guide-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1.125rem;margin-top:2.2rem}
+.guide-card{min-height:235px;background:#fff;border:1px solid #e2eaf1;border-radius:15px;box-shadow:0 8px 30px rgba(9,46,84,.06);padding:1.7rem 1.45rem 1.4rem;display:flex;align-items:flex-start;flex-direction:column;gap:.6rem;text-decoration:none;color:#092543;transition:transform .2s,border-color .2s,box-shadow .2s;position:relative}
+.guide-card:hover{transform:translateY(-4px);border-color:#8dd42e;box-shadow:0 18px 50px rgba(4,35,68,.13);color:#092543}
+.guide-card:focus-visible{outline:3px solid #0669af;outline-offset:3px}
+.guide-index{font-size:.875rem;letter-spacing:.08em;color:#2f6b12;font-weight:800;margin-bottom:.6rem}
+.guide-card strong{font-family:var(--font-jakarta),system-ui,sans-serif;font-size:1.1875rem;line-height:1.25;color:#092543}
+.guide-text{font-size:1.0625rem;color:#5b7087;line-height:1.45}
+.guide-arrow{position:absolute;bottom:1.25rem;right:1.4rem;color:#3b7e0a;display:inline-flex}
+@media (max-width:1080px){.guide-grid{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:700px){
+.guides-section{padding:3.25rem 0 4rem}
+.guides-heading{font-size:1.875rem}
+.guide-grid{grid-template-columns:1fr;gap:.8rem;margin-top:1.5rem}
+.guide-card{min-height:0;padding:1.4rem 1.25rem 1.25rem}
+.guide-arrow{bottom:1.1rem;right:1.1rem}
+}
+@media (prefers-reduced-motion:reduce){.guide-card{transition:none}.guide-card:hover{transform:none}}
+
+/* ── Hero (moved from the component so no <style> is injected mid-body) ── */
+.hero-root{position:relative;isolation:isolate;overflow:hidden;background:linear-gradient(100deg,#063f74 2%,#07518f 49%,#197ac0 100%);color:#fff}
+/* Art layer spans the whole hero: the mast sits in a right-anchored box pushed past the right edge, and ONE blend
+layer on top carries the hero's own blues from fully opaque on the left to transparent over the mast, so there is
+no container edge and no colour step between the artwork and the background (Matt's note, 5 Nov 2026). */
+.hero-art{position:absolute;inset:0;z-index:-2;overflow:hidden}
+/* Wide and ultrawide screens (Adriano, 5 Nov 2026): the mast box is a FIXED 640px anchored to the page centre, like
+the 1200px content container, so the 552px artwork is never blown up past ~1.16x and the composition stays
+centred with plain gradient either side. The blend gradient is measured from the centre too. */
+.hero-art-img{position:absolute;top:-40px;bottom:0;left:calc(50% + 125px);width:640px} /* raised 40px (Matt, 5 Nov): only the transparent headroom is clipped, the tip stays below the header */
+.hero-art-blend{position:absolute;inset:0;background:
+radial-gradient(ellipse 650px 500px at calc(50% - 260px) 50%,rgba(17,126,205,.38),transparent 75%),
+linear-gradient(180deg,rgba(5,44,80,.45) 0%,rgba(5,44,80,0) 38%),
+linear-gradient(0deg,rgba(6,63,116,.4) 0%,rgba(6,63,116,0) 32%),
+linear-gradient(90deg,#063f74 0,#07518f calc(50% - 60px),rgba(7,81,143,.9) calc(50% + 60px),rgba(10,95,160,.55) calc(50% + 190px),rgba(14,110,180,.2) calc(50% + 320px),rgba(25,122,192,0) calc(50% + 470px))}
+.hero-hills{position:absolute;z-index:-1;bottom:0;left:0;width:65%;height:28px;background:linear-gradient(180deg,transparent 0,rgba(22,82,46,.18) 45%,rgba(15,70,48,.42) 100%);clip-path:polygon(0 42%,5% 52%,12% 39%,17% 53%,23% 25%,32% 45%,42% 27%,50% 47%,64% 18%,80% 43%,100% 9%,100% 100%,0 100%)}
+.hero-inner{position:relative;min-height:610px;display:flex;align-items:center;padding-top:3rem;padding-bottom:3rem}
+.hero-content{max-width:760px}
+.hero-eyebrow{display:inline-flex;gap:.5rem;align-items:center;padding:.6rem 1.05rem;border:2px solid #b6f414;border-radius:100px;font-size:1rem;font-weight:700;color:#fff;background:rgba(5,43,77,.2)}
+.hero-headline{font-family:var(--font-jakarta),system-ui,sans-serif;font-size:clamp(2.5rem,4.5vw,4rem);line-height:1.08;letter-spacing:-.03em;font-weight:800;margin:1.5rem 0 1.25rem;color:#fff;max-width:850px;text-wrap:balance}
+.hero-headline span{color:#b6f414}
+.hero-subheadline{font-size:clamp(1.125rem,1.6vw,1.375rem);line-height:1.5;max-width:720px;margin:0 0 2rem;color:#f0f8ff;text-wrap:pretty}
+.hero-cta-group{display:flex;gap:1rem;flex-wrap:wrap;align-items:stretch}
+.hero-cta-group .btn-primary,.hero-cta-group .btn-secondary{min-width:240px;padding:1.125rem 1.65rem;font-size:1.1875rem;gap:1rem}
+.hero-cta-group .btn-secondary{background:rgba(4,47,86,.18)}
+.hero-cta-group .btn-secondary:hover{background:rgba(255,255,255,.12);color:#fff}
+.hero-contact{display:flex;gap:1.1rem;align-items:center;flex-wrap:wrap;margin-top:1.9rem;font-size:1.0625rem;line-height:1.4}
+.hero-contact a,.hero-contact .hero-contact-item{display:inline-flex;align-items:center;gap:.55rem;color:#fff;text-decoration:none;min-height:44px}
+.hero-contact a:hover{text-decoration:underline;color:#fff}
+.hero-contact strong{font-size:1.125rem}
+.hero-sep{height:25px;width:1px;background:rgba(255,255,255,.62)}
+@media (max-width:1199px){
+.hero-inner{min-height:575px}
+.hero-art-img{left:auto;right:-22%;width:62%;opacity:.55}
+.hero-art-blend{background:
+linear-gradient(180deg,rgba(5,44,80,.45) 0%,rgba(5,44,80,0) 38%),
+linear-gradient(90deg,#044677 0%,#07518f 48%,rgba(7,81,143,.9) 60%,rgba(10,95,160,.6) 72%,rgba(25,122,192,.3) 100%)}
+}
+@media (max-width:700px){
+.hero-inner{min-height:0;padding-top:1.5rem;padding-bottom:1.75rem}
+.hero-art-img{left:auto;right:-28%;width:90%;opacity:.35}
+.hero-art-blend{background:linear-gradient(90deg,rgba(3,47,86,.95) 0%,rgba(5,64,108,.75) 55%,rgba(6,68,114,.5) 100%)}
+.hero-hills{display:none}
+.hero-eyebrow{font-size:.875rem;padding:.45rem .75rem}
+.hero-headline{font-size:clamp(1.9rem,8.6vw,2.6rem);margin:1rem 0 .75rem;letter-spacing:-.02em}
+.hero-subheadline{font-size:1.0625rem;line-height:1.5;margin-bottom:1.25rem}
+.hero-cta-group{flex-direction:column;align-items:stretch;gap:.75rem}
+.hero-cta-group .btn-primary,.hero-cta-group .btn-secondary{min-width:0;width:100%;font-size:1.0625rem;padding:1rem}
+.hero-contact{gap:.5rem 1rem;margin-top:1.25rem;font-size:1rem}
+.hero-contact strong{font-size:1.0625rem}
+.hero-sep{display:none}
+}
+
+/* ── Footer ────────────────────────────────────────────────────────────── */
+.site-footer { background: #04223c; color: #ffffff; }
+.site-footer-main { display: grid; gap: 2.5rem 2rem; grid-template-columns: repeat(auto-fit, minmax(13rem, 1fr)); padding-top: 4rem; padding-bottom: 3rem; }
+.site-footer-brand p { color: #d7e5f2; font-size: 1.125rem; line-height: 1.6; margin: 1rem 0 0; max-width: 20rem; }
+.site-footer-brand img { height: 2.5rem; width: auto; }
+.site-footer h2 { color: #b6f414; font-size: 1rem; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 1rem; }
+.site-footer-col h2 + ul + h2 { margin-top: 1.75rem; }
+.site-footer ul { list-style: none; margin: 0; padding: 0; }
+.site-footer li { margin: 0 0 0.25rem; }
+.site-footer li a { display: inline-flex; align-items: center; gap: 0.5rem; min-height: 44px; color: #ffffff; text-decoration: none; font-size: 1.0625rem; }
+.site-footer li a:hover { color: #b6f414; text-decoration: underline; }
+.site-footer-addresses li { color: #d7e5f2; font-size: 1.0625rem; line-height: 1.5; margin-bottom: 0.75rem; }
+.site-footer-addresses strong { color: #ffffff; }
+.site-footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.15); background: rgba(0, 0, 0, 0.15); padding: 1.25rem 0; }
+.site-footer-bottom .container-max { display: flex; flex-wrap: wrap; justify-content: space-between; align-items: center; gap: 0.75rem 2rem; }
+.site-footer-bottom p { margin: 0; color: #d7e5f2; font-size: 1rem; }
+.site-footer-cookies { color: #ffffff; text-decoration: underline; font-size: 1rem; min-height: 44px; }

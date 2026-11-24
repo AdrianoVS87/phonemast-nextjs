@@ -271,7 +271,6 @@ export default function ConsentBanner() {
               ref={firstBtnRef}
               onClick={rejectNonEssential}
               data-testid="consent-reject"
-              aria-label="Reject non-essential cookies"
               className="consent-btn"
               style={buttonStyle("primary")}
             >
@@ -282,7 +281,6 @@ export default function ConsentBanner() {
               type="button"
               onClick={acceptAll}
               data-testid="consent-accept"
-              aria-label="Accept all cookies"
               className="consent-btn"
               style={buttonStyle("primary")}
             >
@@ -292,7 +290,6 @@ export default function ConsentBanner() {
               type="button"
               onClick={() => setShowManage(true)}
               data-testid="consent-manage"
-              aria-label="Manage cookie preferences"
               className="consent-btn"
               style={buttonStyle("ghost")}
             >

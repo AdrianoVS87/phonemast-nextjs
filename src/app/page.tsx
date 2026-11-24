@@ -85,12 +85,12 @@ const services: ServiceCardProps[] = [
 /**
  * Build the secondary attribution line shown beneath a testimonial author.
  * Combines role + location with an em-dash when both are present, otherwise
- * shows whichever is set. Falls back to "Verified client" so the card never
+ * shows whichever is set. Falls back to "Client" so the card never
  * looks empty when an authored entry omits both fields.
  */
 function attributionLine(t: Testimonial): string {
   const parts = [t.role, t.location].filter(Boolean) as string[];
-  return parts.length > 0 ? parts.join(" — ") : "Verified client";
+  return parts.length > 0 ? parts.join(" — ") : "Client";
 }
 
 

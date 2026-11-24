@@ -23,6 +23,7 @@ export default function TestimonialCard({
       {/* Stars — large and prominent */}
       <div
         style={{ display: "flex", gap: "0.2rem", marginBottom: "0.625rem" }}
+        role="img"
         aria-label={`Rated ${rating} out of 5 stars`}
       >
         {Array.from({ length: 5 }).map((_, i) => (
@@ -37,27 +38,6 @@ export default function TestimonialCard({
             ★
           </span>
         ))}
-      </div>
-
-      {/* Verified Client badge */}
-      <div style={{ marginBottom: "1rem" }}>
-        <span
-          style={{
-            display: "inline-flex",
-            alignItems: "center",
-            gap: "0.3rem",
-            backgroundColor: "#f0fdf4",
-            border: "1px solid #86efac",
-            color: "#166534",
-            fontSize: "0.8125rem",
-            fontWeight: 600,
-            padding: "0.2rem 0.65rem",
-            borderRadius: "50px",
-          }}
-          aria-label="Verified client"
-        >
-          <span aria-hidden="true">✓</span> Verified Client
-        </span>
       </div>
 
       {/* Quote */}

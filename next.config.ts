@@ -6,8 +6,8 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
 
-  // The CSS is small (Tailwind plus globals.css): inline it so no stylesheet blocks the first paint.
-  experimental: { inlineCss: true },
+  // experimental.inlineCss was measured and rejected: it inlines the stylesheet in <head> AND twice more
+  // in the RSC payload (about 108 KB per page), which cost more than the one cached stylesheet request.
 
   // Image optimisation
   images: {
