@@ -9,21 +9,10 @@ import Footer from "@/components/Footer";
 import ConsentBanner from "@/components/consent/ConsentBanner";
 import ClickIdCapture from "@/components/analytics/ClickIdCapture";
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  variable: "--font-jakarta",
-  display: "swap",
-  preload: true,
-});
-
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
+// Two variable fonts, Latin only, self-hosted by next/font with size-adjusted fallbacks (no layout
+// shift on swap). Variable files carry every weight the design uses (400 to 800) in one request each.
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 /** Defaults for pages without their own metadata (404s). Every route sets its own through buildMetadata. */
 export const metadata: Metadata = {

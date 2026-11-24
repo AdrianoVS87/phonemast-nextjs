@@ -6,6 +6,9 @@ const nextConfig: NextConfig = {
   trailingSlash: true,
   skipTrailingSlashRedirect: true,
 
+  // The CSS is small (Tailwind plus globals.css): inline it so no stylesheet blocks the first paint.
+  experimental: { inlineCss: true },
+
   // Image optimisation
   images: {
     formats: ["image/avif", "image/webp"],
