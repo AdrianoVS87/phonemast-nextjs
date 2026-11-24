@@ -1,7 +1,8 @@
 # SEO remediation: one URL per intent, answer-first guides, verified facts, consent-gated tags
 
-Branch `seo/remediation` from `main` (`a1b17a5`). Not deployed. **Do not merge before Matt signs off
-the legal wording in `docs/seo/content-changes-for-review.md`.**
+Branch `seo/remediation` from `main` (`a1b17a5`). Draft: not merged, not deployed to production.
+Matt approved the legal wording as written and answered the open questions on 24 November 2026 (recorded
+in `docs/seo/content-changes-for-review.md` and `docs/seo/needs-owner-confirmation.md`).
 
 ## What changed and why
 
@@ -32,19 +33,25 @@ the legal wording in `docs/seo/content-changes-for-review.md`.**
 
 ### Sitewide ballast (Phase 3)
 
-- Removed the sticky call bar, the floating WhatsApp button and the scroll or exit-intent handbook popup.
+- Removed the sticky call bar, the floating WhatsApp button and the scroll or exit-intent handbook popup
+  (Matt: leave it off).
 - The header is server-rendered with one CTA.
-- Service pages name Matt and show a review date.
-- Blog cards show author and date.
-- Location pages are kept, with their anonymous testimonials removed.
+- Service pages name Matt and show a review date. Blog cards show author and date.
 
 ### Trust (Phase 4)
 
-- Every fact (phone, email, addresses, company number) comes from `src/content/company.ts`, and a test fails
-  on copies anywhere else.
-- Unconfirmed claims (30+ years, since 1999, 10,000+ deals, RICS, 5/5 rating, three offices, superlatives)
-  are hidden behind flags until the owner confirms them.
-- One fee sentence and one service-area sentence are used everywhere.
+- Every fact (phone, email, registration, claims) comes from `src/content/company.ts`, and a test fails on
+  copies anywhere else, including office addresses.
+- Claims Matt confirmed are shown: over 30 years (his career), 10,000+ deals, Andrew Chinn MRICS, 5/5 on
+  Google from 12 reviews (text with a link, no review markup), "Verified client" on testimonials, and his
+  qualifications on his profile.
+- Claims he did not confirm stay off: "since 1999", "first firm in the UK", "most significant ruling".
+  The Compton Beauchamp case is described in his chosen wording, with the citation linked.
+- One fee sentence (his wording) and one service-area sentence (the whole UK) are used everywhere.
+- No offices: the office addresses and the London, Bristol and Oswestry pages are gone, and their URLs 308
+  to `/contact/`. The only address left is the registered office, as the legal disclosure line. The
+  privacy policy had named the London address as the registered office; it now matches Companies House.
+- The Google Ads click ID is stored only after advertising consent (PECR).
 
 ### Technical SEO (Phase 5)
 
@@ -52,49 +59,45 @@ the legal wording in `docs/seo/content-changes-for-review.md`.**
   without a trailing slash, is one 308. WordPress internals answer 410.
 - Metadata comes from one builder: absolute titles of 60 characters or fewer, descriptions of 155 or fewer,
   a www canonical with a trailing slash, and `og:url` equal to the canonical.
-- One JSON-LD graph per page from pure builders: Organization, WebSite, BreadcrumbList, Article, Person,
-  ProfilePage, Service, and FAQPage only where FAQs are visible.
-- The sitemap lists only canonical, indexable pages, with hand-set review dates instead of a stale generated
-  file.
+- One JSON-LD graph per page from pure builders on every page, including lease renewals, FAQ, handbook and
+  team: Organization (no PostalAddress), WebSite, BreadcrumbList, Article, Person, ProfilePage, Service,
+  Book, and FAQPage only where FAQs are visible.
+- The sitemap lists only canonical, indexable pages, with hand-set review dates.
 - The `.htaccess` for the legacy domain is generated from the same table (see `offsite-checklist.md`).
 
 ### Performance (Phase 6)
 
 - Google tags load only after consent.
-- The header, footer, FAQ and blog cards are server components.
-- Two variable fonts instead of five static files.
-- No inline style blocks mid-body.
-- Unused dependencies removed.
-- Lighthouse CI configs for mobile and desktop.
-
-Numbers are in `docs/seo/performance.md`.
+- The header, footer, FAQ and blog cards are server components; cards and the hero use classes instead of
+  inline styles; two variable fonts, only the body font preloaded; the hero image has `fetchPriority="high"`.
+- Unused dependencies removed. Lighthouse CI configs for mobile and desktop.
 
 ## How it was verified
 
-- `pnpm test`: 30 unit tests (redirects, routes and intent uniqueness, title and description rules, guide
-  freeze, company facts scan).
-- `pnpm check:site` against a production build: 82 sitemap URLs, 81 internal links and 134 redirect rules.
+- `pnpm test`: 32 unit tests (redirects, routes and intent uniqueness, title and description rules, guide
+  freeze, company facts scan including addresses, Matt's Compton wording against the case record).
+- `pnpm check:site` against a production build: 79 sitemap URLs, 81 internal links and 138 redirect rules.
   All pass: 200s, one H1, heading order, unique titles and descriptions, self canonicals, `og:url`, one
   BreadcrumbList, no links to redirects.
 - `pnpm lint`, `tsc --noEmit` and `pnpm build`: clean.
 - schema.org validator: 0 errors and 0 warnings on the rent guide, homepage, a service page, a blog post and
-  Matt's profile.
-- Lighthouse 12.6.1: 5 runs per template per form factor on the live site (before). The branch's own five-run
-  measurement was stopped by low memory after 7 runs, so the after-numbers are single runs and the
-  Performance target is **not yet demonstrated** (`docs/seo/performance.md`). Accessibility, Best Practices
-  and SEO measured 100 on every template that was run.
-
-## Needs Matt's sign-off before merging
-
-- `docs/seo/content-changes-for-review.md`: every rewritten legal sentence, with corrections quoted from the
-  judgments.
-- `docs/seo/needs-owner-confirmation.md`: claims and facts kept off the site until confirmed, including the
-  fee wording, the service area and the WhatsApp number.
+  Matt's profile (before the last structured-data changes; the new pages use the same builders).
+- Lighthouse 12.6.1 locally, PSI presets (`docs/seo/performance.md`):
+  - Desktop Performance 100 on all 10 templates.
+  - Accessibility, Best Practices and SEO 100 everywhere.
+  - Mobile Performance 90–96 (live site, same machine: 72–91).
 
 ## Not done here
 
-- `phonemastcompany.co.uk` is on separate Apache hosting. The rules are in `docs/seo/offsite-checklist.md`.
-- legislation.gov.uk links are in the data but stay hidden until a person opens them, because the site
-  refuses automated checks.
-- PageSpeed Insights can only test a public URL, so the PSI acceptance runs need a Vercel preview of this
-  branch (`docs/seo/performance.md`).
+- **PageSpeed Insights acceptance (mobile 100) is not shown.** The PSI API needs a key, and the Vercel
+  preview is behind Vercel Authentication. Choose one: give a PSI API key, create a Protection Bypass for
+  Automation secret, or turn off preview protection, then run PSI on the preview. If mobile is still below
+  100, the remaining cost is the React and Next.js runtime (see `performance.md`).
+- legislation.gov.uk links in `LEGISLATION` stay hidden until a person opens them (the site refuses
+  automated checks).
+- Off-site: `phonemastcompany.co.uk` `.htaccess`, the Google Business Profile address, old directory
+  listings and Search Console steps are in `docs/seo/offsite-checklist.md`.
+- Still open with Matt: Andrew's RICS number, Matt's career history, Mark Dernes's wording, operator figures,
+  unverified legal items (`needs-owner-confirmation.md`).
+
+https://claude.ai/code/session_017RAqMEsVtzthTV3aov9v13
