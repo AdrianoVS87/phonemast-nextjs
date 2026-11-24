@@ -86,3 +86,13 @@ Target: UK landlords aged 55-70.
 - Email: info@phonemastadvice.co.uk
 - Offices: London (W1W 5PF), Bristol (BS9 3BY), Oswestry (SY11 4AD)
 - Founder: Matt Restall
+
+## LOCKED CONTENT (SEO, 24 Nov 2026)
+- The title, H1, slug and opening answer of `/phone-mast-rent/` and `/phone-mast-lease/` are frozen in
+  `src/content/guides.ts` and `src/seo/routes.ts`, and checked by `tests/guide-freeze.test.ts`.
+- Do not rewrite them, automatically or otherwise, without Matt's written sign-off recorded in
+  `docs/seo/content-changes-for-review.md`.
+- "Last reviewed" dates (`lastReviewed` in `src/seo/routes.ts`) change only when a person changes the
+  substance of a page. Never set them at build time.
+- Company facts, phone numbers and marketing claims live only in `src/content/company.ts`; case names,
+  citations and rent figures only in `src/content/legal.ts`.
