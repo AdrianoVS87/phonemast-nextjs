@@ -3,12 +3,10 @@ import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import StructuredData from "@/components/seo/StructuredData";
 import { article } from "@/seo/schema";
-import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-const URL = "https://www.phonemastadvice.co.uk/electronic-communications-code/";
 
 export const metadata = buildMetadata(ROUTES.code);
 

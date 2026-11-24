@@ -1,6 +1,5 @@
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import type { Metadata } from "next";
 import LeadForm from "@/components/LeadForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";

@@ -1,7 +1,6 @@
 import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import type { Metadata } from "next";
 import HandbookForm from "@/components/HandbookForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";

@@ -180,7 +180,7 @@ export default function PhoneMastRentPage() {
               </li>
               <li>
                 <span className="case-name"><CaseRef id="dalePark" full /></span>
-                A renewal under Part 5 of the Code: {nearHousing} a year for a rural site near homes, plus the landlord&rsquo;s reasonable professional fees.
+                A renewal under Part 5 of the Code: {nearHousing}{" "}a year for a rural site near homes, plus the landlord&rsquo;s reasonable professional fees.
               </li>
               <li>
                 <span className="case-name"><CaseRef id="londonQuadrant" full /></span>

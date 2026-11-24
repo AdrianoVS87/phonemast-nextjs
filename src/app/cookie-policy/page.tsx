@@ -1,7 +1,6 @@
 import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
 import { Fragment } from "react";

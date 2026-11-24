@@ -4,7 +4,6 @@ import { ROUTES } from "@/seo/routes";
 import ReviewedBy from "@/components/guide/ReviewedBy";
 import StructuredData from "@/components/seo/StructuredData";
 import { service } from "@/seo/schema";
-import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";

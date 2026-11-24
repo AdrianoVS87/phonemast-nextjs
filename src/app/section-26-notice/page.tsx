@@ -3,12 +3,10 @@ import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import StructuredData from "@/components/seo/StructuredData";
 import { article } from "@/seo/schema";
-import type { Metadata } from "next";
+import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
-
-const URL = "https://www.phonemastadvice.co.uk/section-26-notice/";
 
 export const metadata = buildMetadata(ROUTES.section26);
 
@@ -188,7 +186,7 @@ export default function Page() {
             Strictly, it is a <strong>tenant&rsquo;s request for a new tenancy</strong> under Section 26 of the Landlord and Tenant Act 1954. A tenant can use it where its lease was granted for a term of years certain of more than one year and is protected by Part 2 of the Act. It must be served in the prescribed form and set out the tenant&rsquo;s proposals for the property, the rent and the other terms. It cannot be served if the landlord has already given a Section 25 notice or a notice to quit.
           </p>
           <p style={p}>
-            On a phone mast site, the tenant is the operator or the tower company that holds the lease, so the request lands with you as the landowner. It is often preceded or accompanied by a renewal letter and draft heads of terms. Our article on <a href="/blog/phone-mast-renewal-letter/" style={link}>phone mast renewal letters</a> explains that first stage.
+            On a phone mast site, the tenant is the operator or the tower company that holds the lease, so the request lands with you as the landowner. It is often preceded or accompanied by a renewal letter and draft heads of terms. Our article on <Link href="/blog/phone-mast-renewal-letter/" style={link}>phone mast renewal letters</Link> explains that first stage.
           </p>
 
           <h2 style={h2}>Why do phone mast operators serve Section 26 notices?</h2>

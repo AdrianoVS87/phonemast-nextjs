@@ -17,7 +17,6 @@ const BASE = (process.argv[2] ?? "http://localhost:3100").replace(/\/$/, "");
 const failures = [];
 const fail = (where, what) => failures.push(`${where}: ${what}`);
 const decode = (s) => s.replace(/&amp;/g, "&").replace(/&quot;/g, '"').replace(/&#x27;|&#39;/g, "'").replace(/&lt;/g, "<").replace(/&gt;/g, ">");
-const text = (html) => decode(html.replace(/<[^>]+>/g, "")).replace(/\s+/g, " ").trim();
 const local = (url) => url.replace(SITE_URL, BASE);
 
 async function get(url, redirect = "manual") {

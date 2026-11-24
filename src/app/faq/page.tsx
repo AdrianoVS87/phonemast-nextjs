@@ -1,7 +1,6 @@
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import { STATEMENTS } from "@/content/company";
-import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";

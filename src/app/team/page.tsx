@@ -1,7 +1,6 @@
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import { COMPANY } from "@/content/company";
-import type { Metadata } from "next";
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
