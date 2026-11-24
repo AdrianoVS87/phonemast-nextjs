@@ -1,7 +1,7 @@
 /**
  * Four-benefit strip under the hero (design package, 5 Nov 2026).
  * Icons are original line drawings from the package; the claims repeat what the site already says
- * (landlord-only, rent reviews, lease terms, UK-wide).
+ * (landlord-only, rent reviews, lease terms, and the service area in STATEMENTS.serviceArea).
  */
 const items = [
   {
@@ -32,8 +32,8 @@ const items = [
     icon: <path d="M11 4h19l8 8v32H11Z M30 4v9h8M17 21h15M17 28h15M17 35h11" />,
   },
   {
-    title: "UK Wide Service",
-    text: "Nationwide landlord support",
+    title: "England and Wales",
+    text: "Landlords and site owners",
     icon: (
       <>
         <path d="M24 44s15-17 15-27a15 15 0 1 0-30 0c0 10 15 27 15 27Z" />

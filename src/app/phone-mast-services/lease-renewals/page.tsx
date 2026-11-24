@@ -34,7 +34,7 @@ const serviceSchema = {
   "@type": "Service",
   "name": "Phone Mast Lease Renewals",
   "alternateName": ["Code Lease Renewal", "Phone Mast Lease Renewal Advice"],
-  "description": "Independent expert negotiation of phone mast lease renewals under the Electronic Communications Code. UK-wide service for landowners with leases from Vodafone, EE, O2, Three, CTIL (Cornerstone), Cellnex, On Tower (formerly Arqiva) and other telecom operators.",
+  "description": "Independent expert negotiation of phone mast lease renewals under the Electronic Communications Code. For landowners in England and Wales with leases from Vodafone, EE, O2, Three, CTIL (Cornerstone), Cellnex, On Tower (formerly Arqiva) and other telecom operators.",
   "url": "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals/",
   "serviceType": "Telecommunications Lease Renewal Advisory",
   "areaServed": { "@type": "Country", "name": "United Kingdom" },

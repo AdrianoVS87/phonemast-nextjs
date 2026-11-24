@@ -1,6 +1,7 @@
 import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
 import StructuredData from "@/components/seo/StructuredData";
 import { article } from "@/seo/schema";
 import Link from "next/link";
@@ -136,6 +137,9 @@ export default function Page() {
           </h1>
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
             A Section 26 notice is the operator formally asking for a new lease of your phone mast site under the Landlord and Tenant Act 1954. It starts a strict timetable, and since 2026 the rent and the forum for these renewals have both changed. This guide explains what to do, step by step.
+          </p>
+          <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.88)", marginBottom: "2rem" }}>
+            <ReviewedBy route={ROUTES.section26} />
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>

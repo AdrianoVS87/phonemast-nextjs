@@ -51,7 +51,7 @@ export default function FreeRentEstimatePage() {
               </p>
 
               {[
-                { icon: "📊", text: "Based on comparable deals across the UK" },
+                { icon: "📊", text: "Based on comparable agreed deals" },
                 { icon: "🎯", text: "Checked against published Tribunal decisions" },
                 { icon: "💰", text: "Find out if you&apos;re being underpaid" },
                 { icon: "🔒", text: "100% independent — we never act for operators" },

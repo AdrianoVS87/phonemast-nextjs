@@ -1,6 +1,7 @@
 import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
 import StructuredData from "@/components/seo/StructuredData";
 import { article } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -113,6 +114,9 @@ export default function Page() {
           </h1>
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
             The Electronic Communications Code is the law that decides what a mobile operator can do on your land, what it has to pay you, and how an agreement for a phone mast ends or renews. This guide explains each part in plain English for landowners, with the paragraph of the Code that applies.
+          </p>
+          <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.88)", marginBottom: "2rem" }}>
+            <ReviewedBy route={ROUTES.code} />
           </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
