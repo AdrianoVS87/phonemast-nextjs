@@ -23,6 +23,35 @@ VERCEL_AUTOMATION_BYPASS_SECRET="$(cat ~/.phonemast/vercel-bypass)" pnpm lhci:mo
 Vercel adds `X-Robots-Tag: noindex` to previews, so the crawlable audit is skipped on `*.vercel.app` hosts
 only. PSI itself still needs a public URL (or production after the merge).
 
+## Mobile on the real Vercel preview (24 Nov 2026)
+
+Lighthouse 12.6.1, PSI mobile preset, run from this machine against the preview of `e06ecc5`
+(https://phonemast-deploy-4az5aa3gp-adrianovsinfo-3365s-projects.vercel.app) over the real network, with the
+Vercel bypass header. 3 runs per template, medians. SEO is 100 on every run once the two preview-only
+audits are skipped: `is-crawlable` (Vercel adds `noindex` to previews) and `robots-txt` (Lighthouse fetches
+robots.txt without the bypass header and gets the Vercel login page; with the header it returns the site's
+robots.txt, 200).
+
+| Template | Perf (range) | A11y | BP | FCP | LCP | TBT | Speed Index |
+|---|---|---|---|---|---|---|---|
+| Homepage | **90** (89–91) | 100 | 100 | 1.45 s | 3.29 s | 141 ms | 1.88 s |
+| Rent guide | **90** (89–97) | 100 | 100 | 1.35 s | 3.33 s | 68 ms | 2.62 s |
+| Lease guide | **92** (90–93) | 100 | 100 | 1.36 s | 3.18 s | 100 ms | 2.01 s |
+| Service (rent reviews) | **94** (91–98) | 100 | 100 | 1.21 s | 2.96 s | 111 ms | 1.90 s |
+| Operators hub | **93** (92–94) | 100 | 100 | 1.20 s | 3.08 s | 97 ms | 1.73 s |
+| Blog index | **98** (97–100) | 100 | 100 | 1.35 s | 2.43 s | 60 ms | 1.60 s |
+| Blog post | **97** (97–97) | 100 | 100 | 1.36 s | 2.43 s | 52 ms | 1.58 s |
+| Contact | **91** (90–98) | 100 | 100 | 1.09 s | 3.15 s | 84 ms | 3.92 s |
+| Free rent estimate | **92** (91–99) | 100 | 100 | 1.08 s | 3.09 s | 67 ms | 3.90 s |
+| Matt's profile | **95** (91–98) | 100 | 100 | 1.17 s | 2.94 s | 57 ms | 1.51 s |
+
+**What this shows.** The real deployment scores the same as the local build (90–98 against 90–96). The
+expectation in the section below, that LCP would fall to FCP over a real network, did **not** hold from
+this connection: LCP is still about 3 s. So the mobile 100 target is not met on the preview either, and the
+remaining cost is the React and Next.js runtime that Matt chose not to change. The desktop preview run
+was not done (stopped on request); the local desktop runs are 100 on every template. PSI itself, from
+Google's servers, is still the final word and needs a public URL or production.
+
 ## Method
 
 Lighthouse 12.6.1 (inside `@lhci/cli` 0.15.1), headless Chrome, the PSI mobile and desktop presets
@@ -102,9 +131,9 @@ paint. The simulation then counts all of it as work the LCP waited for. Two chec
 - With real throttling instead of simulation (`--throttling-method=devtools`), the rent guide's LCP equals
   its FCP (2.2 s and 2.2 s).
 
-Over a real network, as PSI loads a deployed page, the scripts usually arrive after the first paint, so
-PSI's LCP for these pages may be much closer to their FCP. That is why the PSI run on a reachable
-preview is the deciding measurement.
+Over a real network the scripts might have arrived after the first paint, bringing LCP down to FCP. The
+preview run above shows they did not from this connection (LCP still about 3 s), so this stays a hypothesis
+for PSI's own servers only.
 
 If PSI still shows mobile below 100, what is left is the React and Next.js runtime itself. Matt chose
 (24 Nov 2026) to trim the pages but not to change the architecture. Removing hydration from the guides

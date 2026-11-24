@@ -99,14 +99,14 @@ in `docs/seo/content-changes-for-review.md` and `docs/seo/needs-owner-confirmati
   - Desktop Performance 100 on all 10 templates.
   - Accessibility, Best Practices and SEO 100 everywhere.
   - Mobile Performance 90–96 (live site, same machine: 72–91).
+  - On the real Vercel preview (bypass header): mobile 90–98 median, Accessibility and Best Practices 100,
+    SEO 100 once the two preview-only audits are skipped.
 
 ## Not done here
 
-- **PageSpeed Insights acceptance (mobile 100) is not shown.** The Vercel preview is behind Vercel
-  Authentication. Adriano chose a Protection Bypass for Automation secret: once it exists,
-  `LHCI_BASE_URL=<preview> VERCEL_AUTOMATION_BYPASS_SECRET=... pnpm lhci:mobile` measures the real deployment
-  (the secret is read from the environment, never committed). If mobile is still below 100, the remaining
-  cost is the React and Next.js runtime (see `performance.md`).
+- **Mobile 100 is not met.** Measured on the real preview with the Vercel bypass secret: 90–98 median,
+  LCP about 3 s on every template. What is left is the React and Next.js runtime, which Matt chose not to
+  change (`performance.md`). PSI from Google's servers still needs a public URL or production.
 - legislation.gov.uk links in `LEGISLATION` stay hidden until a person opens them (the site refuses
   automated checks).
 - Off-site: `phonemastcompany.co.uk` `.htaccess`, old directory listings and Search Console steps are in
