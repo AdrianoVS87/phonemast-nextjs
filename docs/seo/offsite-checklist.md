@@ -135,9 +135,10 @@ The audit found profiles describing the firm as "UK's No.1". Nothing in the repo
 
 | Old detail | Where it appears | Replace with |
 |---|---|---|
-| 20–22 Wenlock Road (a London virtual-office address) | Directories and old citations | The addresses in `COMPANY.offices` and the registered office (5 High Street, Westbury on Trym, Bristol, BS9 3BY) |
+| 20–22 Wenlock Road (a London virtual-office address) | Directories and old citations | No address (Matt, 24 Nov 2026: no offices that clients visit). Where a listing requires one, use the registered office as the legal address, not as an office. |
+| London (Great Portland Street), Bristol and Oswestry office addresses | The old site, directories, citations | Remove them from every listing you control. The site no longer shows them, and `/locations/*` 308s to `/contact/`. |
 | 0203 883 0605 | Directories. It was also in two live blog posts (`communications-code-2022`, `forced-lease-renewals`): fixed on this branch in `src/lib/local-posts.ts`. The CMS copies in Sanity still contain it, but the site shows the repo version. | 01691 791543 |
-| "Over 15 years' experience" | Same two posts, fixed on this branch. Sanity copies unchanged. | Nothing, until A1 in `needs-owner-confirmation.md` is answered |
+| "Over 15 years' experience" | Same two posts, fixed on this branch. Sanity copies unchanged. | "Matt Restall has advised landlords on phone masts for over 30 years" (Matt, 24 Nov 2026) |
 
 **How to find the rest:** search Google for `"0203 883 0605"`, `"02038830605"` and `"Wenlock Road" "phone mast"`.
 Edit each listing you control. For directories you don't control, use their "suggest an edit" form.
@@ -152,11 +153,25 @@ consistency that Google uses for local results. Decide which entity the number b
 - **If it is The Phone Mast Company Ltd (06941156):** the two businesses should not share the number on
   directory listings.
 
-## 6. Google Search Console (after this branch is deployed)
+## 6. Google Business Profile
+
+The profile Matt gave (https://maps.app.goo.gl/3YtwqUoH7pkJ6MEu8, "The Phone Mast Advice Company", 5/5 from
+12 reviews) opens a place pinned on Great Portland Street, London. Matt has confirmed there is no office
+where clients meet the team.
+
+1. In the profile, set the business as a **service-area business**: remove or hide the address and add the
+   United Kingdom as the service area. Google's guidelines do not allow a visible address that customers
+   cannot visit.
+2. Make the name, phone (01691 791543) and website match the site exactly.
+3. Keep asking clients for reviews there; the site links to the profile and quotes the count, and the count
+   in `src/content/company.ts` (`googleReviews`) should be updated when it changes.
+
+## 7. Google Search Console (after this branch is deployed)
 
 1. Submit `https://www.phonemastadvice.co.uk/sitemap.xml` again. It now lists only canonical, indexable pages,
    with true dates.
 2. Inspect `/phone-mast-rent/`, `/phone-mast-lease/` and `/phone-mast-operators/`, and request indexing.
-3. Expect the nine operator URLs and three merged posts to move to "Page with redirect". That is intended.
+3. Expect the nine operator URLs, three merged posts and three location pages to move to "Page with redirect".
+   That is intended.
 4. Run the Rich Results Test on one guide and one service page to confirm Article, BreadcrumbList and Service
    are valid.

@@ -36,9 +36,6 @@ varied anchors and keeps its own, narrower intent.
 | `/blog/` | phone mast news | index | yes | Phone Mast News and Case Notes \| Phone Mast Advice |
 | `/free-rent-estimate/` | phone mast rent estimate | form | yes | Free Phone Mast Rent Estimate \| Phone Mast Advice |
 | `/free-lease-check/` | phone mast lease check | form | yes | Free Phone Mast Lease Check \| Phone Mast Advice |
-| `/locations/london/` | phone mast advice london | location | yes | Phone Mast Advice in London \| Phone Mast Advice |
-| `/locations/bristol/` | phone mast advice bristol | location | yes | Phone Mast Advice in Bristol \| Phone Mast Advice |
-| `/locations/oswestry/` | phone mast advice oswestry | location | yes | Phone Mast Advice in Oswestry \| Phone Mast Advice |
 | `/privacy-policy/` | phone mast advice privacy policy | policy | no | Privacy Policy \| Phone Mast Advice |
 | `/cookie-policy/` | phone mast advice cookie policy | policy | no | Cookie Policy \| Phone Mast Advice |
 | `/disclaimer/` | phone mast advice disclaimer | policy | no | Disclaimer \| Phone Mast Advice |
