@@ -88,8 +88,8 @@ export const COMPANY = {
   },
   /**
    * Rating and count as shown on the Google Maps listing on 24 Nov 2026 (4.8 from 12 reviews; Matt had
-   * said 5/5). Shown as text with a link, never as Review or AggregateRating markup. Update both numbers
-   * when the listing changes.
+   * said 5/5). Matt asked for the rating alone, without the count, next to the Google G; the count stays
+   * here for the record. Never Review or AggregateRating markup. Update when the listing changes.
    */
   googleReviews: { rating: 4.8, count: 12, url: "https://maps.app.goo.gl/3YtwqUoH7pkJ6MEu8" },
   /** Confirmed by Matt, 24 Nov 2026. */
@@ -166,10 +166,10 @@ export const CLAIMS = {
     evidence: "Matt, 24 Nov 2026: Andrew Chinn is MRICS. No membership number was given, so the RICS register is not linked.",
   },
   googleRating: {
-    text: `Rated ${COMPANY.googleReviews.rating} out of 5 on Google from ${COMPANY.googleReviews.count} reviews`,
+    text: `Rated ${COMPANY.googleReviews.rating} out of 5 on Google`,
     confirmed: true,
-    evidence: "Matt, 24 Nov 2026: profile link and review count supplied. The rating was read from the listing the same day (4.8, not 5).",
-    stat: { value: `${COMPANY.googleReviews.rating}/5`, label: `on Google, from ${COMPANY.googleReviews.count} reviews` },
+    evidence: "Matt, 24 Nov 2026: profile link supplied; rating read from the listing the same day (4.8, not 5). Later the same day he asked to show the rating without the review count, with the Google G.",
+    stat: { value: `${COMPANY.googleReviews.rating}/5`, label: "on Google" },
     href: COMPANY.googleReviews.url,
   },
   threeOffices: {
