@@ -1,7 +1,7 @@
 import GoogleG from "@/components/GoogleG";
 import { confirmedClaimRecord, type ClaimId } from "@/content/company";
 
-const STAT_CLAIMS: readonly ClaimId[] = ["experienceYears", "dealsCompleted", "googleRating"];
+const STAT_CLAIMS: readonly ClaimId[] = ["combinedExperience", "dealsCompleted", "googleRating"];
 
 /**
  * Headline figures, each from a claim Matt confirmed (src/content/company.ts). The bar renders only
@@ -11,6 +11,7 @@ const STAT_CLAIMS: readonly ClaimId[] = ["experienceYears", "dealsCompleted", "g
 export default function StatsBar() {
   const stats = STAT_CLAIMS.map(confirmedClaimRecord).filter((c) => c?.stat);
   if (stats.length < STAT_CLAIMS.length) return null;
+  const STAT_LEAD = stats[0];
   return (
     <section className="stats-bar" aria-label="Key figures">
       <div className="container-max">
@@ -23,6 +24,12 @@ export default function StatsBar() {
                     <GoogleG />
                     <strong>{c.stat.value}</strong> <span className="stats-rating-label">{c.stat.label}</span>
                   </a>
+                ) : c === STAT_LEAD ? (
+                  <span className="stats-tagline">
+                    <strong>{c.stat.value}</strong>
+                    <span aria-hidden="true"> | </span>
+                    <span>{c.stat.label}</span>
+                  </span>
                 ) : (
                   <>
                     <strong>{c.stat.value}</strong> {c.stat.label}
