@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import { createHash, timingSafeEqual } from "crypto";
 import { NextResponse } from "next/server";
 
@@ -67,7 +68,7 @@ export async function POST(req: Request) {
   const rows = columns
     .map(
       (c) => `<tr>
-        <td style="padding: 8px 0; font-weight: bold; width: 160px; color: #6b7280; font-size: 14px;">${escapeHtml(c.column_name || c.column_id || "Field")}</td>
+        <td style="padding: 8px 0; font-weight: bold; width: 160px; color: #4b5563; font-size: 14px;">${escapeHtml(c.column_name || c.column_id || "Field")}</td>
         <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(c.string_value ?? "")}</td>
       </tr>`,
     )
@@ -97,7 +98,7 @@ export async function POST(req: Request) {
             </p>
           </div>
           <p style="color: #9ca3af; font-size: 12px; margin-top: 16px; text-align: center;">
-            The Phone Mast Advice Company Ltd — Reg. 13115582
+            The Phone Mast Advice Company Ltd — Reg. ${COMPANY.registrationNumber}
           </p>
         </div>
       `,

@@ -1,21 +1,14 @@
-import JsonLd from "@/components/JsonLd";
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { service } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Wayleaves, Lift & Shift, Breaches & Site Audits",
-  description:
-    "Specialist phone mast services for UK landlords beyond renewals and rent reviews: wayleaves, lift and shift, site sharing and assignment, breaches, site audits, and Tribunal or ADR support.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services/" },
-  openGraph: {
-    title: "Other Phone Mast Services: Wayleaves, Lift & Shift, Breaches, Site Audits",
-    description:
-      "The specialist telecoms services landlords ask us for beyond the headline renewal and rent review work, explained one by one.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.otherServices);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -97,17 +90,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Service",
-          name: "Specialist Phone Mast Services",
-          description:
-            "Telecoms wayleaves, lift and shift, site sharing and assignment reviews, breach enforcement, site audits, interim rent, and Tribunal or ADR support for UK landlords with phone mast agreements.",
-          provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services/",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[service({ path: "/phone-mast-services/other-services/", name: "Specialist Phone Mast Services", serviceType: "Specialist Phone Mast Services", description: "Telecoms wayleaves, lift and shift, site sharing and assignment reviews, breach enforcement, site audits, interim rent, and Tribunal or ADR support for UK landlords with phone mast agreements." })]} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Other Services" }]} />
 
       {/* Hero */}
@@ -133,7 +116,7 @@ export default function Page() {
               Free Lease Check
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -148,7 +131,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -161,7 +144,7 @@ export default function Page() {
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               For the two core services, see <a href="/phone-mast-services/lease-renewals/" style={link}>lease renewals</a> and{" "}
               <a href="/phone-mast-services/rent-reviews/" style={link}>rent reviews</a>. For the legal background, read our{" "}
-              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> and <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guides. Looking for a <a href="/phone-mast-solicitors/" style={link}>phone mast solicitor</a>? See who you need, and when. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> and <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guides. Looking for a <a href="/phone-mast-solicitors/" style={link}>phone mast solicitor</a>? See who you need, and when. <ReviewedBy route={ROUTES.otherServices} />
             </p>
           </div>
 
@@ -178,7 +161,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/other-services/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
@@ -192,12 +175,12 @@ export default function Page() {
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
+                <p style={{ color: "#4b5563", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}
           </div>
 
-          <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "0.875rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 15 September 2026. It is general guidance for landlords and does not constitute legal advice. Please contact us for advice on your circumstances.
           </p>
         </div>

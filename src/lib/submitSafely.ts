@@ -1,8 +1,9 @@
+import { COMPANY } from "../content/company.ts";
 /**
  * Runs a form's server action so that a failed or stalled request always ends in a result the form
  * can show. Rural signal is the realistic trigger: without this the button stays on "Sending…".
  */
-export const OFFICE_PHONE = "01691 791543";
+export const OFFICE_PHONE = COMPANY.phone.display;
 
 export const SEND_FAILED_MESSAGE =
   `Sorry, we could not send your details. Your connection may have dropped. Please try again, or call us on ${OFFICE_PHONE}.`;

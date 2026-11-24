@@ -1,115 +1,24 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import HandbookForm from "@/components/HandbookForm";
+import StructuredData from "@/components/seo/StructuredData";
+import { book } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Free Phone Mast Handbook for UK Landlords (2026 Edition PDF)",
-  description:
-    "Download the free 2026 Phone Mast Landlord's Handbook (Version 2, May 2026). Written by specialist UK telecoms surveyors. Covers the Electronic Communications Code, the PSTI Act 2022, the Vache Farm £1,750 rent ruling, and the 7 April 2026 changes. Free PDF — emailed instantly.",
-  keywords: [
-    "phone mast handbook",
-    "phone mast landlord guide",
-    "phone mast lease handbook",
-    "phone mast rent handbook",
-    "Electronic Communications Code handbook",
-    "PSTI Act 2022 handbook",
-    "Vache Farm rent ruling",
-    "UK landlord telecoms guide",
-    "free phone mast PDF",
-    "phone mast lease advice UK",
-  ],
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/handbook/" },
-  openGraph: {
-    type: "article",
-    title: "Free Phone Mast Handbook for UK Landlords — 2026 Edition",
-    description:
-      "Free essential guide for UK phone mast landlords. Updated May 2026 for the PSTI Act 2022, Vache Farm ruling, and the 7 April 2026 changes. Download free PDF.",
-    url: "https://www.phonemastadvice.co.uk/handbook/",
-    siteName: "The Phone Mast Advice Company",
-    locale: "en_GB",
-    images: [
-      {
-        url: "https://www.phonemastadvice.co.uk/images/og-handbook.jpg",
-        width: 1200,
-        height: 630,
-        alt: "The Ultimate Phone Mast Landlord's Handbook — Version 2, May 2026",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Phone Mast Handbook for UK Landlords — 2026 Edition",
-    description:
-      "Updated for the PSTI Act 2022, Vache Farm ruling, and the 7 April 2026 changes. Download free.",
-    images: ["https://www.phonemastadvice.co.uk/images/og-handbook.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
+export const metadata = buildMetadata(ROUTES.handbook);
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Handbook", item: "https://www.phonemastadvice.co.uk/handbook/" },
-  ],
-};
-
-const bookJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Book",
+const HANDBOOK = book({
+  path: ROUTES.handbook.path,
   name: "The Ultimate Phone Mast Landlord's Handbook",
-  alternateName: "Phone Mast Handbook for UK Landlords",
-  bookEdition: "Version 2 — May 2026",
-  bookFormat: "https://schema.org/EBook",
-  inLanguage: "en-GB",
+  description:
+    "A free 27-page guide for UK phone mast landlords, covering the Electronic Communications Code, the PSTI Act 2022, the Vache Farm decision and the 7 April 2026 changes to 1954 Act renewals.",
+  edition: "Version 2, May 2026",
   numberOfPages: 27,
   datePublished: "2024-06-14",
   dateModified: "2026-05-26",
-  url: "https://www.phonemastadvice.co.uk/handbook/",
-  image: "https://www.phonemastadvice.co.uk/images/og-handbook.jpg",
-  description:
-    "A free 27-page guide for UK phone mast landlords, covering the Electronic Communications Code, the PSTI Act 2022, the Vache Farm Upper Tribunal rent ruling (July 2024, £1,750 per annum tonal rent), and the 7 April 2026 changes to LTA 1954 renewals.",
-  isAccessibleForFree: true,
-  encodingFormat: "application/pdf",
-  fileFormat: "application/pdf",
-  author: {
-    "@type": "Organization",
-    name: "The Phone Mast Advice Company Ltd",
-    url: "https://www.phonemastadvice.co.uk",
-    telephone: "+44 1691 791543",
-    email: "info@phonemastadvice.co.uk",
-  },
-  publisher: {
-    "@type": "Organization",
-    name: "The Phone Mast Advice Company Ltd",
-    url: "https://www.phonemastadvice.co.uk",
-    logo: {
-      "@type": "ImageObject",
-      url: "https://www.phonemastadvice.co.uk/images/logo.svg",
-    },
-  },
-  potentialAction: {
-    "@type": "DownloadAction",
-    target: "https://www.phonemastadvice.co.uk/handbook/phone-mast-handbook-v2-may-2026.pdf",
-  },
-  about: [
-    { "@type": "Thing", name: "Electronic Communications Code" },
-    { "@type": "Thing", name: "Phone mast lease" },
-    { "@type": "Thing", name: "Phone mast rent" },
-    { "@type": "Thing", name: "Product Security and Telecommunications Infrastructure Act 2022" },
-  ],
-};
+  image: "/images/og-handbook.jpg",
+});
 
 const handbookTopics = [
   {
@@ -147,14 +56,7 @@ const handbookTopics = [
 export default function HandbookPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }}
-      />
+      <StructuredData nodes={[HANDBOOK]} />
       <Breadcrumbs items={[{ label: "Handbook" }]} />
 
       {/* Hero section */}
@@ -184,7 +86,7 @@ export default function HandbookPage() {
               margin: "0 auto",
             }}
           >
-            Everything UK landlords need to know about phone mast leases, rents, and their rights — written by our specialist surveying team with 30+ years of experience.
+            Everything UK landlords need to know about phone mast leases, rents, and their rights, written by our specialist surveying team.
           </p>
         </div>
       </section>
@@ -267,7 +169,7 @@ export default function HandbookPage() {
                     Written by specialist telecom surveyors
                   </p>
                   <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
-                    This handbook is based on over 30 years of experience and 10,000+ deals completed on behalf of UK landlords. It&apos;s the same knowledge we share with our paying clients — free, because we believe in informed landlords.
+                    This handbook is written by our specialist surveyors. It&apos;s the same knowledge we share with our paying clients — free, because we believe in informed landlords.
                   </p>
                 </div>
               </div>
@@ -294,7 +196,7 @@ export default function HandbookPage() {
                 >
                   Get Your Free Copy
                 </h2>
-                <p style={{ color: "#6b7280", fontSize: "1.125rem", marginBottom: "1.5rem", lineHeight: 1.55 }}>
+                <p style={{ color: "#4b5563", fontSize: "1.125rem", marginBottom: "1.5rem", lineHeight: 1.55 }}>
                   Fill in your details and we&apos;ll email your handbook straight away.
                 </p>
                 <HandbookForm />

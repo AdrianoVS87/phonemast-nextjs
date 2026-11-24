@@ -1,21 +1,14 @@
-import JsonLd from "@/components/JsonLd";
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { service } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Sell Your Phone Mast Lease | Mast Sales",
-  description:
-    "Thinking of selling your phone mast lease? Independent advice for UK landlords on what a mast lease sale is worth, how buyers value it, and how to sell safely.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/mast-sales/" },
-  openGraph: {
-    title: "Sell Your Phone Mast Lease: Mast Sales Advice for UK Landlords",
-    description:
-      "What a phone mast lease sale is worth, who buys them, the risks in the paperwork, and how we get landowners the best price and terms.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.mastSales);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -67,17 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Service",
-          name: "Phone Mast Lease Sales Advice",
-          description:
-            "Independent advice for UK landowners selling a phone mast lease or the right to receive mast rent: valuation, marketing to specialist buyers, and negotiation of price and terms.",
-          provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/mast-sales/",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[service({ path: "/phone-mast-services/mast-sales/", name: "Phone Mast Lease Sales Advice", serviceType: "Phone Mast Lease Sales Advice", description: "Independent advice for UK landowners selling a phone mast lease or the right to receive mast rent: valuation, marketing to specialist buyers, and negotiation of price and terms." })]} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Mast Sales" }]} />
 
       {/* Hero */}
@@ -103,7 +86,7 @@ export default function Page() {
               Free Lease Check
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -118,7 +101,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -131,7 +114,7 @@ export default function Page() {
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our mast sales service page. For the valuation background that drives every sale price, read our{" "}
               <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guide; for the terms buyers will ask you to sign, see our{" "}
-              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. <ReviewedBy route={ROUTES.mastSales} />
             </p>
           </div>
 
@@ -214,7 +197,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Mast sales: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/mast-sales/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
@@ -228,12 +211,12 @@ export default function Page() {
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1.125rem" }}>{item.label}</p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "1.125rem", lineHeight: 1.4 }}>{item.desc}</p>
+                <p style={{ color: "#4b5563", margin: 0, fontSize: "1.125rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}
           </div>
 
-          <p style={{ fontSize: "1.125rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "1.125rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 3 September 2026. It is general guidance for landowners and does not constitute legal, tax, or valuation advice for a specific site. Please contact us for advice on your circumstances.
           </p>
         </div>

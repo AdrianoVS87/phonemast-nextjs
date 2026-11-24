@@ -1,471 +1,134 @@
-"use client";
-
 import Link from "next/link";
 import Image from "next/image";
-import { useState, useEffect, useRef } from "react";
-import { usePathname } from "next/navigation";
+import { COMPANY } from "@/content/company";
+import { OPERATORS } from "@/content/operators";
 import { PhoneIcon } from "@/components/icons";
 
-const serviceLinks = [
-  { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/" },
-  { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/" },
-  { label: "New Lettings", href: "/phone-mast-services/new-lettings/" },
-  { label: "Mast Sales", href: "/phone-mast-services/mast-sales/" },
-  { label: "Removal & Redevelopment", href: "/phone-mast-services/removal-and-redevelopment/" },
-  { label: "Electricity Costs Recovery", href: "/phone-mast-services/electricity-costs-recovery/" },
-  { label: "Lease Retrievals", href: "/phone-mast-services/lease-retrievals/" },
-  { label: "Other Services", href: "/phone-mast-services/other-services/" },
+const SERVICES = [
+  { label: "Rent reviews", href: "/phone-mast-services/rent-reviews/" },
+  { label: "Lease renewals", href: "/phone-mast-services/lease-renewals/" },
+  { label: "New lettings", href: "/phone-mast-services/new-lettings/" },
+  { label: "Mast sales", href: "/phone-mast-services/mast-sales/" },
+  { label: "Removal and redevelopment", href: "/phone-mast-services/removal-and-redevelopment/" },
+  { label: "Electricity costs recovery", href: "/phone-mast-services/electricity-costs-recovery/" },
+  { label: "Lease retrievals", href: "/phone-mast-services/lease-retrievals/" },
+  { label: "Other services", href: "/phone-mast-services/other-services/" },
 ];
 
-const operatorLinks = [
-  { label: "Vodafone", href: "/vodafone-phone-mast-lease/" },
-  { label: "O2", href: "/o2-phone-mast-lease/" },
-  { label: "EE", href: "/ee-phone-mast-lease/" },
-  { label: "Three", href: "/three-phone-mast-lease/" },
-  { label: "CTIL / Cornerstone", href: "/ctil-cornerstone-phone-mast-lease/" },
-  { label: "Cellnex", href: "/cellnex-phone-mast-lease/" },
-  { label: "On Tower (formerly Arqiva)", href: "/on-tower-arqiva-phone-mast-lease/" },
-  { label: "Airwave", href: "/airwave-phone-mast-lease/" },
-  { label: "WIG", href: "/wireless-infrastructure-group-phone-mast-lease/" },
+const GUIDES = [
+  { label: "Phone mast rent", href: "/phone-mast-rent/" },
+  { label: "Phone mast leases explained", href: "/phone-mast-lease/" },
+  { label: "Phone mast operators", href: "/phone-mast-operators/" },
+  { label: "Section 26 notices", href: "/section-26-notice/" },
+  { label: "The Electronic Communications Code", href: "/electronic-communications-code/" },
 ];
 
-const aboutLinks = [
-  { label: "About Us", href: "/about-us/" },
-  { label: "Our Team", href: "/team/" },
+const ABOUT = [
+  { label: "About us", href: "/about-us/" },
+  { label: "Our team", href: "/team/" },
 ];
 
-const navLinks = [
+const LINKS = [
   { label: "FAQ", href: "/faq/" },
   { label: "Blog", href: "/blog/" },
   { label: "Contact", href: "/contact/" },
 ];
 
-export default function Header() {
-  const [mobileOpen, setMobileOpen] = useState(false);
-  const [servicesOpen, setServicesOpen] = useState(false);
-  const [operatorsOpen, setOperatorsOpen] = useState(false);
-  const [aboutOpen, setAboutOpen] = useState(false);
-  const [mobileServicesOpen, setMobileServicesOpen] = useState(false);
-  const [mobileOperatorsOpen, setMobileOperatorsOpen] = useState(false);
-  const [mobileAboutOpen, setMobileAboutOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
-  const pathname = usePathname();
-  const dropdownRef = useRef<HTMLDivElement>(null);
+type NavLink = { label: string; href: string };
 
-  useEffect(() => {
-    // Use IntersectionObserver instead of scroll listener.
-    // Scroll listeners force Chrome macOS to main-thread scrolling (slow).
-    // IO runs off the main thread — zero scroll performance impact.
-    const sentinel = document.createElement("div");
-    sentinel.style.position = "absolute";
-    sentinel.style.top = "8px";
-    sentinel.style.height = "1px";
-    sentinel.style.width = "1px";
-    sentinel.style.pointerEvents = "none";
-    document.body.prepend(sentinel);
-
-    const observer = new IntersectionObserver(
-      ([entry]) => setScrolled(!entry.isIntersecting),
-      { threshold: 0 }
-    );
-    observer.observe(sentinel);
-
-    return () => {
-      observer.disconnect();
-      sentinel.remove();
-    };
-  }, []);
-
-  useEffect(() => {
-    const handleClickOutside = (e: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(e.target as Node)) {
-        setServicesOpen(false);
-        setOperatorsOpen(false);
-        setAboutOpen(false);
-      }
-    };
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => document.removeEventListener("mousedown", handleClickOutside);
-  }, []);
-
-  const strip = (p: string) => (p.length > 1 ? p.replace(/\/+$/, "") : p);
-  const isActive = (href: string) => {
-    const current = strip(pathname ?? "");
-    const target = strip(href);
-    return current === target || current.startsWith(target + "/");
-  };
-
-  const isServicesActive =
-    pathname.startsWith("/phone-mast-services") ||
-    pathname.includes("-phone-mast-lease");
-
-  const isAboutActive =
-    isActive("/about-us/") || isActive("/team/");
-
+function LinkList({ links }: { links: readonly NavLink[] }) {
   return (
-    <header
-      className="sticky top-0 z-50 w-full"
-      style={{
-        background: "linear-gradient(102deg, #052c50, #042649)",
-        boxShadow: scrolled ? "0 5px 25px rgba(0,0,0,0.18)" : "none",
-        transform: "translateZ(0)", /* Force GPU layer — prevents box-shadow repaint during scroll */
-      }}
-    >
-      <div className="container-max">
-        <div
-          className="flex items-center justify-between"
-          style={{ paddingTop: "0.875rem", paddingBottom: "0.875rem" }}
-        >
-          {/* Logo */}
-          <Link href="/" aria-label="Phone Mast Advice — Home">
-            <Image
-              src="/images/logo-white.svg"
-              alt="Phone Mast Advice"
-              width={180}
-              height={48}
-              priority
-              className="h-10 w-auto"
-            />
-          </Link>
+    <ul>
+      {links.map((l) => (
+        <li key={l.href}>
+          <Link href={l.href}>{l.label}</Link>
+        </li>
+      ))}
+    </ul>
+  );
+}
 
-          {/* Desktop nav */}
-          <nav
-            className="hidden lg:flex items-center gap-5"
-            aria-label="Main navigation"
-            ref={dropdownRef}
-          >
-            {/* Services mega dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => { setServicesOpen(!servicesOpen); setOperatorsOpen(false); }}
-                onMouseEnter={() => setServicesOpen(true)}
-                className="font-semibold transition-colors duration-150 flex items-center gap-1"
-                style={{
-                  color: isServicesActive ? "#b6f414" : "#ffffff",
-                  fontSize: "1rem",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  borderBottom: isServicesActive ? "2px solid #b6f414" : "2px solid transparent",
-                  paddingBottom: "2px",
-                }}
-              >
-                Services
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style={{ marginTop: 1 }}>
-                  <path d="M3 5l3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-              </button>
+/**
+ * Site header, server-rendered with no JavaScript: dropdowns and the mobile menu are native
+ * <details> elements (click, tap and keyboard work by default), and CSS opens the desktop panels on
+ * hover. One phone link and one call to action, as the sitewide CTA budget allows.
+ */
+export default function Header() {
+  const operatorLinks = OPERATORS.map((o) => ({ label: o.name, href: `/phone-mast-operators/#${o.id}` }));
+  return (
+    <header className="site-header">
+      <div className="container-max site-header-inner">
+        <Link href="/" className="site-logo">
+          <Image src="/images/logo-white.svg" alt="Phone Mast Advice home" width={180} height={48} priority />
+        </Link>
 
-              {servicesOpen && (
-                <div
-                  onMouseLeave={() => { setServicesOpen(false); }}
-                  style={{
-                    position: "absolute",
-                    top: "100%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    marginTop: "0.5rem",
-                    backgroundColor: "#ffffff",
-                    borderRadius: "12px",
-                    boxShadow: "0 12px 48px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05)",
-                    width: "680px",
-                    zIndex: 100,
-                    padding: "1.5rem",
-                    display: "grid",
-                    gridTemplateColumns: "1fr 1fr 1fr",
-                    gap: "0.25rem",
-                  }}
-                >
-                  {/* Column 1: Services */}
-                  <div>
-                    <Link href="/phone-mast-services/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#042b4d", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
-                      Our Services
-                    </Link>
-                    {serviceLinks.map((link) => (
-                      <Link key={link.href} href={link.href} onClick={() => setServicesOpen(false)}
-                        style={{ display: "block", padding: "0.375rem 0", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s" }}
-                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#042b4d"; }}
-                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#1a1a2e"; }}>
-                        {link.label}
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* Column 2: Operators */}
-                  <div style={{ borderLeft: "1px solid #f0f0f0", paddingLeft: "1.25rem" }}>
-                    <Link href="/phone-mast-services/lease-renewals/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#042b4d", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem", textDecoration: "none" }}>
-                      By Operator
-                    </Link>
-                    {operatorLinks.map((op) => (
-                      <Link key={op.href} href={op.href} onClick={() => setServicesOpen(false)}
-                        style={{ display: "block", padding: "0.375rem 0", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", transition: "color 0.15s" }}
-                        onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.color = "#042b4d"; }}
-                        onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.color = "#1a1a2e"; }}>
-                        {op.label}
-                      </Link>
-                    ))}
-                  </div>
-
-                  {/* Column 3: 2026 + CTA */}
-                  <div style={{ borderLeft: "1px solid #f0f0f0", paddingLeft: "1.25rem" }}>
-                    <span style={{ display: "block", fontSize: "0.75rem", fontWeight: 700, color: "#042b4d", textTransform: "uppercase" as const, letterSpacing: "0.05em", marginBottom: "0.75rem" }}>
-                      2026 Updates
-                    </span>
-                    <Link href="/phone-mast-rent/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "0.5rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f3f7fb", borderRadius: "8px", borderLeft: "3px solid #b6f414", transition: "background 0.15s" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#e6eef7"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f3f7fb"; }}>
-                      <span style={{ fontWeight: 600 }}>Phone Mast Rent</span>
-                      <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>PSTI Act changes 7 April</span>
-                    </Link>
-                    <Link href="/phone-mast-lease/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", padding: "0.5rem 0.75rem", marginBottom: "1rem", color: "#1a1a2e", fontSize: "0.875rem", textDecoration: "none", backgroundColor: "#f3f7fb", borderRadius: "8px", borderLeft: "3px solid #b6f414", transition: "background 0.15s" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#e6eef7"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f3f7fb"; }}>
-                      <span style={{ fontWeight: 600 }}>Phone Mast Lease</span>
-                      <span style={{ display: "block", fontSize: "0.75rem", color: "#71717a", marginTop: "0.125rem" }}>Code renewals explained</span>
-                    </Link>
-                    <Link href="/free-rent-estimate/" onClick={() => setServicesOpen(false)}
-                      style={{ display: "block", padding: "0.625rem 1rem", backgroundColor: "#b6f414", color: "#1a1a2e", fontSize: "0.875rem", fontWeight: 600, textDecoration: "none", borderRadius: "8px", textAlign: "center" as const, transition: "background 0.15s" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#c6ff2c"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#b6f414"; }}>
-                      Free Rent Estimate →
-                    </Link>
-                  </div>
-                </div>
-              )}
+        <nav className="nav-desktop" aria-label="Main navigation">
+          <details className="nav-item">
+            <summary>Services</summary>
+            <div className="nav-panel nav-panel-wide">
+              <div>
+                <p className="nav-panel-heading">
+                  <Link href="/phone-mast-services/">Our services</Link>
+                </p>
+                <LinkList links={SERVICES} />
+              </div>
+              <div>
+                <p className="nav-panel-heading">
+                  <Link href="/phone-mast-operators/">By operator</Link>
+                </p>
+                <LinkList links={operatorLinks} />
+              </div>
+              <div>
+                <p className="nav-panel-heading">Guides</p>
+                <LinkList links={GUIDES} />
+              </div>
             </div>
-
-            {/* About dropdown */}
-            <div className="relative">
-              <button
-                onClick={() => { setAboutOpen(!aboutOpen); setServicesOpen(false); }}
-                onMouseEnter={() => setAboutOpen(true)}
-                className="font-semibold transition-colors duration-150 flex items-center gap-1"
-                style={{
-                  color: isAboutActive ? "#b6f414" : "#ffffff",
-                  fontSize: "1rem",
-                  background: "none",
-                  border: "none",
-                  cursor: "pointer",
-                  borderBottom: isAboutActive ? "2px solid #b6f414" : "2px solid transparent",
-                  paddingBottom: "2px",
-                }}
-              >
-                About
-                <svg width="12" height="12" viewBox="0 0 12 12" fill="currentColor" style={{ marginTop: 1 }}>
-                  <path d="M3 5l3 3 3-3" fill="none" stroke="currentColor" strokeWidth="1.5" />
-                </svg>
-              </button>
-
-              {aboutOpen && (
-                <div
-                  onMouseLeave={() => setAboutOpen(false)}
-                  style={{
-                    position: "absolute",
-                    top: "100%",
-                    left: "50%",
-                    transform: "translateX(-50%)",
-                    marginTop: "0.5rem",
-                    backgroundColor: "#ffffff",
-                    borderRadius: "12px",
-                    boxShadow: "0 12px 48px rgba(0,0,0,0.15), 0 0 0 1px rgba(0,0,0,0.05)",
-                    width: "200px",
-                    zIndex: 100,
-                    padding: "0.75rem",
-                  }}
-                >
-                  {aboutLinks.map((link) => (
-                    <Link key={link.href} href={link.href} onClick={() => setAboutOpen(false)}
-                      style={{ display: "block", padding: "0.5rem 0.75rem", color: "#1a1a2e", fontSize: "0.9375rem", textDecoration: "none", borderRadius: "8px", transition: "background 0.15s" }}
-                      onMouseEnter={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "#f3f7fb"; }}
-                      onMouseLeave={(e) => { (e.currentTarget as HTMLElement).style.backgroundColor = "transparent"; }}>
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
+          </details>
+          <details className="nav-item">
+            <summary>About</summary>
+            <div className="nav-panel">
+              <LinkList links={ABOUT} />
             </div>
-
-            {/* Other nav links */}
-            {navLinks.map((link) => {
-              const active = isActive(link.href);
-              return (
-                <Link
-                  key={link.href}
-                  href={link.href}
-                  className="font-semibold transition-colors duration-150"
-                  style={{
-                    color: active ? "#b6f414" : "#ffffff",
-                    fontSize: "1rem",
-                    textDecoration: "none",
-                    borderBottom: active ? "2px solid #b6f414" : "2px solid transparent",
-                    paddingBottom: "2px",
-                  }}
-                  onMouseEnter={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = "#b6f414";
-                    (e.currentTarget as HTMLElement).style.borderBottomColor = "#b6f414";
-                  }}
-                  onMouseLeave={(e) => {
-                    (e.currentTarget as HTMLElement).style.color = active ? "#b6f414" : "#ffffff";
-                    (e.currentTarget as HTMLElement).style.borderBottomColor = active ? "#b6f414" : "transparent";
-                  }}
-                >
-                  {link.label}
-                </Link>
-              );
-            })}
-
-            {/* Phone number */}
-            <a href="tel:01691791543" className="font-semibold" style={{ color: "#ffffff", fontSize: "1rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}>
-              <PhoneIcon size={18} color="#b6f414" />
-              01691 791543
-            </a>
-
-            {/* CTA pill */}
-            <Link href="/free-rent-estimate/" className="btn-pill">
-              Free Rent Estimate
+          </details>
+          {LINKS.map((l) => (
+            <Link key={l.href} href={l.href} className="nav-link">
+              {l.label}
             </Link>
-          </nav>
+          ))}
+          <a href={COMPANY.phone.href} className="nav-phone">
+            <PhoneIcon size={18} color="#b6f414" />
+            {COMPANY.phone.display}
+          </a>
+          <Link href="/free-rent-estimate/" className="btn-pill">
+            Free rent estimate
+          </Link>
+        </nav>
 
-          {/* Mobile: phone + burger */}
-          <div className="flex lg:hidden items-center gap-3">
-            <a href="tel:01691791543" style={{ color: "#ffffff", fontSize: "1rem", fontWeight: 600 }}>
-              01691 791543
-            </a>
-            <button
-              onClick={() => setMobileOpen(!mobileOpen)}
-              aria-label={mobileOpen ? "Close menu" : "Open menu"}
-              aria-expanded={mobileOpen}
-              style={{
-                background: "none", border: "none", cursor: "pointer",
-                padding: "0.75rem", minWidth: "48px", minHeight: "48px",
-                display: "flex", alignItems: "center", justifyContent: "center", color: "#ffffff",
-              }}
-            >
-              {mobileOpen ? (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="18" y1="6" x2="6" y2="18" /><line x1="6" y1="6" x2="18" y2="18" />
-                </svg>
-              ) : (
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <line x1="3" y1="6" x2="21" y2="6" /><line x1="3" y1="12" x2="21" y2="12" /><line x1="3" y1="18" x2="21" y2="18" />
-                </svg>
-              )}
-            </button>
-          </div>
-        </div>
-
-        {/* Mobile nav */}
-        {mobileOpen && (
-          <nav className="lg:hidden" style={{ borderTop: "1px solid rgba(255,255,255,0.15)", paddingBottom: "1rem" }}>
-            <div className="flex flex-col gap-1 pt-2">
-              {/* Mobile Services accordion */}
-              <button
-                onClick={() => setMobileServicesOpen(!mobileServicesOpen)}
-                style={{
-                  color: isServicesActive ? "#b6f414" : "#ffffff",
-                  fontSize: "1.0625rem", padding: "0.75rem 0.75rem",
-                  display: "flex", justifyContent: "space-between", alignItems: "center",
-                  background: "none", border: "none", cursor: "pointer", width: "100%",
-                  fontWeight: isServicesActive ? 700 : 500,
-                  borderLeft: isServicesActive ? "3px solid #b6f414" : "3px solid transparent",
-                }}
-              >
-                Services
-                <span style={{ fontSize: "0.75rem" }}>{mobileServicesOpen ? "▲" : "▼"}</span>
-              </button>
-              {mobileServicesOpen && (
-                <div style={{ paddingLeft: "1.5rem" }}>
-                  <Link href="/phone-mast-services/" onClick={() => setMobileOpen(false)}
-                    style={{ display: "block", padding: "0.5rem 0", color: "#b6f414", fontSize: "0.9375rem", fontWeight: 600 }}>
-                    All Services
-                  </Link>
-                  {serviceLinks.map((link) => (
-                    <div key={link.href}>
-                      <Link href={link.href} onClick={() => setMobileOpen(false)}
-                        style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
-                        {link.label}
-                      </Link>
-                      {link.label === "Lease Renewals" && (
-                        <>
-                          <button onClick={() => setMobileOperatorsOpen(!mobileOperatorsOpen)}
-                            style={{ color: "#b6f414", fontSize: "0.8125rem", background: "none", border: "none", cursor: "pointer", paddingLeft: "0.75rem", paddingTop: "0.25rem", paddingBottom: "0.25rem" }}>
-                            {mobileOperatorsOpen ? "▲ Operators" : "▼ Operators"}
-                          </button>
-                          {mobileOperatorsOpen && (
-                            <div style={{ paddingLeft: "1.5rem" }}>
-                              {operatorLinks.map((op) => (
-                                <Link key={op.href} href={op.href} onClick={() => setMobileOpen(false)}
-                                  style={{ display: "block", padding: "0.375rem 0", color: "rgba(255,255,255,0.85)", fontSize: "0.875rem" }}>
-                                  {op.label}
-                                </Link>
-                              ))}
-                            </div>
-                          )}
-                        </>
-                      )}
-                    </div>
-                  ))}
-                  <Link href="/phone-mast-rent/" onClick={() => setMobileOpen(false)}
-                    style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
-                    Phone Mast Rent
-                  </Link>
-                  <Link href="/phone-mast-lease/" onClick={() => setMobileOpen(false)}
-                    style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
-                    Phone Mast Lease
-                  </Link>
-                </div>
-              )}
-
-              {/* Mobile About accordion */}
-              <button
-                onClick={() => setMobileAboutOpen(!mobileAboutOpen)}
-                style={{
-                  color: isAboutActive ? "#b6f414" : "#ffffff",
-                  fontSize: "1.0625rem", padding: "0.75rem 0.75rem",
-                  display: "flex", justifyContent: "space-between", alignItems: "center",
-                  background: "none", border: "none", cursor: "pointer", width: "100%",
-                  fontWeight: isAboutActive ? 700 : 500,
-                  borderLeft: isAboutActive ? "3px solid #b6f414" : "3px solid transparent",
-                }}
-              >
-                About
-                <span style={{ fontSize: "0.75rem" }}>{mobileAboutOpen ? "▲" : "▼"}</span>
-              </button>
-              {mobileAboutOpen && (
-                <div style={{ paddingLeft: "1.5rem" }}>
-                  {aboutLinks.map((link) => (
-                    <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-                      style={{ display: "block", padding: "0.5rem 0", color: "#ffffff", fontSize: "0.9375rem" }}>
-                      {link.label}
-                    </Link>
-                  ))}
-                </div>
-              )}
-
-              {navLinks.map((link) => {
-                const active = isActive(link.href);
-                return (
-                  <Link key={link.href} href={link.href} onClick={() => setMobileOpen(false)}
-                    style={{
-                      color: active ? "#b6f414" : "#ffffff", fontSize: "1.0625rem",
-                      padding: "0.75rem 0.75rem", display: "block", fontWeight: active ? 700 : 500,
-                      borderLeft: active ? "3px solid #b6f414" : "3px solid transparent",
-                    }}>
-                    {link.label}
-                  </Link>
-                );
-              })}
-              <Link href="/free-rent-estimate/" onClick={() => setMobileOpen(false)}
-                className="btn-pill" style={{ marginTop: "0.75rem", marginLeft: "0.75rem", alignSelf: "flex-start" }}>
-                Free Rent Estimate
+        <div className="nav-mobile">
+          <a href={COMPANY.phone.href} className="nav-phone">
+            {COMPANY.phone.display}
+          </a>
+          <details className="mobile-menu">
+            <summary aria-label="Menu">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
+                <line x1="3" y1="6" x2="21" y2="6" />
+                <line x1="3" y1="12" x2="21" y2="12" />
+                <line x1="3" y1="18" x2="21" y2="18" />
+              </svg>
+            </summary>
+            <nav className="mobile-panel" aria-label="Mobile navigation">
+              <p className="nav-panel-heading">Services</p>
+              <LinkList links={[{ label: "All services", href: "/phone-mast-services/" }, ...SERVICES]} />
+              <p className="nav-panel-heading">Guides</p>
+              <LinkList links={GUIDES} />
+              <p className="nav-panel-heading">About</p>
+              <LinkList links={[...ABOUT, ...LINKS]} />
+              <Link href="/free-rent-estimate/" className="btn-primary mobile-cta">
+                Free rent estimate
               </Link>
-            </div>
-          </nav>
-        )}
+            </nav>
+          </details>
+        </div>
       </div>
     </header>
   );

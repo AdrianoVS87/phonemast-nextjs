@@ -23,7 +23,7 @@ export function mastDetail(value: string | undefined, detail: string | undefined
 export function mastEmailRow(value: string | undefined): string {
   const labels: Record<HasMast, string> = { yes: "Yes", no: "No", unknown: "Not answered" };
   return `<tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Existing mast</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Existing mast</td>
                 <td style="padding: 8px 0; color: #1a1a2e; font-weight: bold;">${labels[normaliseHasMast(value)]}</td>
               </tr>`;
 }

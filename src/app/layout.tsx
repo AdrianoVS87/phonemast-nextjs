@@ -1,110 +1,47 @@
+import { STATEMENTS } from "@/content/company";
+import { ROUTES } from "@/seo/routes";
+import { SITE_LOCALE, SITE_NAME, SITE_URL } from "@/seo/site";
 import type { Metadata } from "next";
-import Script from "next/script";
 import { Plus_Jakarta_Sans, Inter } from "next/font/google";
 import "./globals.css";
 import Header from "@/components/Header";
 import Footer from "@/components/Footer";
-import StickyCtaBar from "@/components/StickyCtaBar";
-import WhatsAppButton from "@/components/WhatsAppButton";
-import HandbookPopupGate from "@/components/HandbookPopupGate";
-import ConsentDefault from "@/components/analytics/ConsentDefault";
-import GoogleScripts from "@/components/analytics/GoogleScripts";
-import GoogleTagManager, { GoogleTagManagerNoscript } from "@/components/analytics/GoogleTagManager";
 import ConsentBanner from "@/components/consent/ConsentBanner";
 import ClickIdCapture from "@/components/analytics/ClickIdCapture";
 
-const jakarta = Plus_Jakarta_Sans({
-  subsets: ["latin"],
-  weight: ["700", "800"],
-  variable: "--font-jakarta",
-  display: "swap",
-  preload: true,
-});
+// Two variable fonts, Latin only, self-hosted by next/font with size-adjusted fallbacks (no layout
+// shift on swap). Variable files carry every weight the design uses (400 to 800) in one request each.
+// Headings only: not preloaded, so the 27 KB file does not compete with the stylesheet before first paint.
+// It still loads as soon as the first heading needs it, with a size-matched fallback until then (no layout shift).
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap", preload: false });
+const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
-const inter = Inter({
-  subsets: ["latin"],
-  weight: ["400", "500", "600"],
-  variable: "--font-inter",
-  display: "swap",
-  preload: true,
-});
-
+/** Defaults for pages without their own metadata (404s). Every route sets its own through buildMetadata. */
 export const metadata: Metadata = {
-  title: {
-    default: "Phone Mast Advice | Expert Lease & Rent Reviews | UK Specialists",
-    template: "%s | Phone Mast Advice",
-  },
-  description:
-    "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings. 30+ years experience. Call 01691 791543.",
-  metadataBase: new URL("https://www.phonemastadvice.co.uk"),
-  alternates: {
-    languages: {
-      "en-GB": "https://www.phonemastadvice.co.uk",
-    },
-  },
-  openGraph: {
-    type: "website",
-    locale: "en_GB",
-    // URL is set per-page in their own metadata export
-    siteName: "Phone Mast Advice",
-    images: [
-      {
-        url: "/images/og-handbook.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Phone Mast Advice — Expert UK Telecom Surveyors",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-  },
-  robots: {
-    index: true,
-    follow: true,
-  },
+  title: { default: ROUTES.home.title, template: "%s | Phone Mast Advice" },
+  description: `${STATEMENTS.independence} ${STATEMENTS.freeReview}`,
+  metadataBase: new URL(SITE_URL),
+  openGraph: { type: "website", locale: SITE_LOCALE, siteName: SITE_NAME },
+  twitter: { card: "summary_large_image" },
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html
-      lang="en-GB"
-      suppressHydrationWarning
-      className={`${jakarta.variable} ${inter.variable} antialiased`}
-    >
+    <html lang="en-GB" suppressHydrationWarning className={`${jakarta.variable} ${inter.variable} antialiased`}>
       <head>
-        {/* Preconnect to third-party origins used early in load. */}
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://www.googletagmanager.com" />
-        {/* MUST be first: sets Google Consent Mode v2 defaults to denied
-             before any Google script loads. See src/components/analytics/ConsentDefault.tsx */}
         {/* Before first paint: if a consent decision is stored, hide the server-rendered banner via CSS. */}
         <script
           dangerouslySetInnerHTML={{
             __html: `try{if(localStorage.getItem('cookie_consent_v1'))document.documentElement.setAttribute('data-consent','set')}catch(e){}`,
           }}
         />
-        <ConsentDefault />
-        {/* Google Tag / GA4 / Ads — only render when env vars populated. */}
-        <GoogleScripts />
-        {/* Google Tag Manager container — parallel to gtag, for agency-managed tags only.
-            Do NOT add GA4 / Ads conversion inside this container — already wired via GoogleScripts. */}
-        <GoogleTagManager />
       </head>
-      <body className="min-h-screen flex flex-col" style={{ fontFamily: "var(--font-inter), system-ui, sans-serif", fontSize: "1.125rem" }}>
-        <GoogleTagManagerNoscript />
+      <body className="min-h-screen flex flex-col">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />
-        <StickyCtaBar />
-        <WhatsAppButton />
+        {/* Google tags load from the banner only after consent (src/lib/googleTags.ts). */}
         <ConsentBanner />
-        <HandbookPopupGate />
         <ClickIdCapture />
       </body>
     </html>

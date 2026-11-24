@@ -1,5 +1,6 @@
 "use server";
 
+import { COMPANY } from "@/content/company";
 import { Resend } from "resend";
 import { displayName, sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 import { appendLeadRow } from "@/lib/leadLog";
@@ -83,7 +84,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
   const enquiryTypeRow =
     data.formType === "lease-check" && data.enquiryType
       ? `<tr>
-          <td style="padding: 8px 0; font-weight: bold; width: 140px; color: #6b7280; font-size: 14px;">Enquiry Type</td>
+          <td style="padding: 8px 0; font-weight: bold; width: 140px; color: #4b5563; font-size: 14px;">Enquiry Type</td>
           <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.enquiryType)}</td>
         </tr>`
       : "";
@@ -91,7 +92,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
   try {
     const { data: sent, error } = await resend.emails.send({
       from: "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>",
-      to: "info@phonemastadvice.co.uk",
+      to: `${COMPANY.email}`,
       replyTo: data.email,
       subject: `${mastSubjectPrefix(data.hasMast)}${formTitle} from ${data.name} — phonemastadvice.co.uk`,
       html: `
@@ -104,27 +105,27 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
             <table style="width: 100%; border-collapse: collapse;">
               ${mastEmailRow(data.hasMast)}
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; width: 140px; color: #6b7280; font-size: 14px;">Name</td>
+                <td style="padding: 8px 0; font-weight: bold; width: 140px; color: #4b5563; font-size: 14px;">Name</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.name)}</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Email</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Email</td>
                 <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #042b4d;">${escapeHtml(data.email)}</a></td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Phone</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Phone</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.phone || "Not provided")}</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Property Address</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Property Address</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.address || "Not provided")}</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Operator</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Operator</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.operator || "Not specified")}</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Current Rent</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Current Rent</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.currentRent || "Not provided")}</td>
               </tr>
               ${enquiryTypeRow}
@@ -138,7 +139,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
             }
           </div>
           <p style="color: #9ca3af; font-size: 12px; margin-top: 16px; text-align: center;">
-            The Phone Mast Advice Company Ltd — Reg. 13115582
+            The Phone Mast Advice Company Ltd — Reg. ${COMPANY.registrationNumber}
           </p>
         </div>
       `,
@@ -152,7 +153,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
       ]);
       return {
         success: false,
-        error: "Failed to send your request. Please call us on 01691 791543.",
+        error: `Failed to send your request. Please call us on ${COMPANY.phone.display}.`,
       };
     }
 
@@ -171,7 +172,7 @@ export async function sendLeadEmail(data: LeadFormData): Promise<FormResult> {
     ]);
     return {
       success: false,
-      error: "Failed to send your request. Please call us on 01691 791543.",
+      error: `Failed to send your request. Please call us on ${COMPANY.phone.display}.`,
     };
   }
 }
@@ -191,15 +192,15 @@ function handbookNotificationHtml(data: HandbookFormData, source: string): strin
         <table style="width: 100%; border-collapse: collapse;">
               ${mastEmailRow(data.hasMast)}
           <tr>
-            <td style="padding: 8px 0; font-weight: bold; width: 100px; color: #6b7280; font-size: 14px;">Name</td>
+            <td style="padding: 8px 0; font-weight: bold; width: 100px; color: #4b5563; font-size: 14px;">Name</td>
             <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.name)}</td>
           </tr>
           <tr>
-            <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Email</td>
+            <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Email</td>
             <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #042b4d;">${escapeHtml(data.email)}</a></td>
           </tr>
           <tr>
-            <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Phone</td>
+            <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Phone</td>
             <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.phone || "Not provided")}</td>
           </tr>
         </table>
@@ -208,7 +209,7 @@ function handbookNotificationHtml(data: HandbookFormData, source: string): strin
         </p>
       </div>
       <p style="color: #9ca3af; font-size: 12px; margin-top: 16px; text-align: center;">
-        The Phone Mast Advice Company Ltd — Reg. 13115582
+        The Phone Mast Advice Company Ltd — Reg. ${COMPANY.registrationNumber}
       </p>
     </div>
   `;
@@ -249,7 +250,7 @@ function handbookDeliveryHtml(name: string): string {
         </ul>
         <p style="font-size: 15px; line-height: 1.65; margin: 16px 0 0;">
           If you have any questions about your phone mast lease, rent, or renewal, our specialist surveying team would be glad to help. Just reply to this email or call us on
-          <a href="tel:01691791543" style="color: #042b4d; font-weight: 600;">01691 791543</a>.
+          <a href={COMPANY.phone.href} style="color: #042b4d; font-weight: 600;">${COMPANY.phone.display}</a>.
         </p>
         <p style="font-size: 15px; line-height: 1.65; margin: 12px 0 0;">
           Kind regards,<br/>
@@ -257,7 +258,7 @@ function handbookDeliveryHtml(name: string): string {
         </p>
       </div>
       <p style="color: #9ca3af; font-size: 12px; margin-top: 16px; text-align: center;">
-        The Phone Mast Advice Company Ltd — Company No. 13115582 — phonemastadvice.co.uk<br/>
+        The Phone Mast Advice Company Ltd — Company No. ${COMPANY.registrationNumber} — phonemastadvice.co.uk<br/>
         You received this email because you requested the handbook at phonemastadvice.co.uk.
       </p>
     </div>
@@ -274,7 +275,7 @@ ${HANDBOOK_DOWNLOAD_URL}
 
 This second edition is fully updated for the PSTI Act 2022, the July 2024 Vache Farm Upper Tribunal decision, and the 7 April 2026 changes to LTA 1954 renewals.
 
-If you have any questions about your phone mast lease, rent, or renewal, reply to this email or call us on 01691 791543.
+If you have any questions about your phone mast lease, rent, or renewal, reply to this email or call us on ${COMPANY.phone.display}.
 
 Kind regards,
 The Phone Mast Advice Company
@@ -315,7 +316,7 @@ export async function sendHandbookEmail(
     const { data: sent, error } = await resend.emails.send({
       from: FROM,
       to: data.email,
-      replyTo: "info@phonemastadvice.co.uk",
+      replyTo: `${COMPANY.email}`,
       subject: `Your Phone Mast Handbook — ${HANDBOOK_VERSION}`,
       html: handbookDeliveryHtml(displayName(data.name)),
       text: handbookDeliveryText(displayName(data.name)),
@@ -324,7 +325,7 @@ export async function sendHandbookEmail(
       console.error("Resend API error (handbook delivery to user):", JSON.stringify(error));
       return {
         success: false,
-        error: "We couldn't send the handbook to your email. Please check the address or call us on 01691 791543.",
+        error: `We couldn't send the handbook to your email. Please check the address or call us on ${COMPANY.phone.display}.`,
       };
     }
     userMailId = sent?.id;
@@ -333,7 +334,7 @@ export async function sendHandbookEmail(
     console.error("Exception delivering handbook to user:", error);
     return {
       success: false,
-      error: "Failed to send the handbook. Please call us on 01691 791543.",
+      error: `Failed to send the handbook. Please call us on ${COMPANY.phone.display}.`,
     };
   }
 
@@ -342,7 +343,7 @@ export async function sendHandbookEmail(
   try {
     const { error } = await resend.emails.send({
       from: FROM,
-      to: "info@phonemastadvice.co.uk",
+      to: `${COMPANY.email}`,
       replyTo: data.email,
       subject: `${mastSubjectPrefix(data.hasMast)}Handbook download — new lead: ${data.name}`,
       html: handbookNotificationHtml(data, source),

@@ -2,6 +2,7 @@
 
 import { useCallback, useEffect, useRef, useState } from "react";
 import Link from "next/link";
+import { applyConsent, type ConsentPrefs } from "@/lib/googleTags";
 
 /**
  * Phone Mast Advice — Cookie Consent Banner (Google EU UCP compliant).
@@ -16,8 +17,9 @@ import Link from "next/link";
  *    near 20% of the screen and is not the LCP element (styles: globals.css)
  *
  * Consent Mode v2 integration:
- *  - Default state `denied` is set in <ConsentDefault /> (head, beforeInteractive)
- *  - User decision fires gtag('consent','update', ...) + persists to localStorage
+ *  - No Google script loads until the visitor grants consent: applyConsent() in
+ *    src/lib/googleTags.ts sets Consent Mode and only then adds gtag.js and GTM
+ *  - The decision persists to localStorage and is re-applied, when the page is idle, on later visits
  *  - Manage preferences modal controls Analytics + Advertising granularly
  *
  * Re-open: footer "Manage cookies" button dispatches a `reopen-consent-banner`
@@ -27,44 +29,11 @@ import Link from "next/link";
 const STORAGE_KEY = "cookie_consent_v1";
 const REOPEN_EVENT = "reopen-consent-banner";
 
-interface ConsentPrefs {
-  analytics: boolean;
-  advertising: boolean;
-}
-
 interface StoredConsent {
   status: "accepted" | "rejected" | "custom";
   prefs: ConsentPrefs;
   timestamp: string;
   version: 1;
-}
-
-declare global {
-  interface Window {
-    gtag?: (...args: unknown[]) => void;
-    dataLayer?: unknown[];
-  }
-}
-
-function gtagUpdate(prefs: ConsentPrefs) {
-  if (typeof window === "undefined") return;
-  if (typeof window.gtag !== "function") {
-    // Fallback: push to dataLayer directly if gtag wasn't defined yet
-    window.dataLayer = window.dataLayer || [];
-    window.dataLayer.push(["consent", "update", {
-      ad_storage: prefs.advertising ? "granted" : "denied",
-      ad_user_data: prefs.advertising ? "granted" : "denied",
-      ad_personalization: prefs.advertising ? "granted" : "denied",
-      analytics_storage: prefs.analytics ? "granted" : "denied",
-    }]);
-    return;
-  }
-  window.gtag("consent", "update", {
-    ad_storage: prefs.advertising ? "granted" : "denied",
-    ad_user_data: prefs.advertising ? "granted" : "denied",
-    ad_personalization: prefs.advertising ? "granted" : "denied",
-    analytics_storage: prefs.analytics ? "granted" : "denied",
-  });
 }
 
 function persist(status: StoredConsent["status"], prefs: ConsentPrefs) {
@@ -103,8 +72,15 @@ export default function ConsentBanner() {
           setVisible(true);
           return;
         }
-        // Already decided — stay hidden
+        // Already decided: stay hidden, and re-apply the choice once the page is idle, so any
+        // granted tags load off the critical path.
         setVisible(false);
+        const stored = JSON.parse(raw) as Partial<StoredConsent>;
+        if (stored.prefs) {
+          const prefs = stored.prefs;
+          const idle = window.requestIdleCallback ?? ((cb: () => void) => window.setTimeout(cb, 2000));
+          idle(() => applyConsent(prefs));
+        }
       } catch {
         setVisible(true);
       }
@@ -137,7 +113,7 @@ export default function ConsentBanner() {
 
   const acceptAll = useCallback(() => {
     const prefs = { analytics: true, advertising: true };
-    gtagUpdate(prefs);
+    applyConsent(prefs);
     persist("accepted", prefs);
     setVisible(false);
     setShowManage(false);
@@ -145,7 +121,7 @@ export default function ConsentBanner() {
 
   const rejectNonEssential = useCallback(() => {
     const prefs = { analytics: false, advertising: false };
-    gtagUpdate(prefs);
+    applyConsent(prefs);
     persist("rejected", prefs);
     setVisible(false);
     setShowManage(false);
@@ -153,7 +129,7 @@ export default function ConsentBanner() {
 
   const savePreferences = useCallback(() => {
     const prefs = { analytics, advertising };
-    gtagUpdate(prefs);
+    applyConsent(prefs);
     persist("custom", prefs);
     setVisible(false);
     setShowManage(false);
@@ -295,7 +271,6 @@ export default function ConsentBanner() {
               ref={firstBtnRef}
               onClick={rejectNonEssential}
               data-testid="consent-reject"
-              aria-label="Reject non-essential cookies"
               className="consent-btn"
               style={buttonStyle("primary")}
             >
@@ -306,7 +281,6 @@ export default function ConsentBanner() {
               type="button"
               onClick={acceptAll}
               data-testid="consent-accept"
-              aria-label="Accept all cookies"
               className="consent-btn"
               style={buttonStyle("primary")}
             >
@@ -316,7 +290,6 @@ export default function ConsentBanner() {
               type="button"
               onClick={() => setShowManage(true)}
               data-testid="consent-manage"
-              aria-label="Manage cookie preferences"
               className="consent-btn"
               style={buttonStyle("ghost")}
             >

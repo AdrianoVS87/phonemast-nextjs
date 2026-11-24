@@ -1,80 +1,28 @@
 import Link from "next/link";
+import StructuredData from "@/components/seo/StructuredData";
+import { breadcrumbList } from "@/seo/schema";
 
 export interface BreadcrumbItem {
   label: string;
   href?: string;
 }
 
-interface BreadcrumbsProps {
-  items: BreadcrumbItem[];
-}
-
-const linkStyle = { color: "#042b4d", display: "inline-flex", alignItems: "center", minHeight: "44px" };
-
-export default function Breadcrumbs({ items }: BreadcrumbsProps) {
-  const allItems = [{ label: "Home", href: "/" }, ...items];
-  const jsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: allItems.map((item, index) => ({
-      "@type": "ListItem",
-      position: index + 1,
-      name: item.label,
-      // The current page is the last crumb and has no link: schema.org lets it omit `item`.
-      ...(item.href ? { item: `https://www.phonemastadvice.co.uk${item.href}` } : {}),
-    })),
-  };
-
+/** Visible breadcrumb trail plus its BreadcrumbList. The current page is the last item and has no link. */
+export default function Breadcrumbs({ items }: { items: BreadcrumbItem[] }) {
+  const crumbs = [{ name: "Home", path: "/" }, ...items.map((i) => ({ name: i.label, path: i.href }))];
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-      />
-      <nav
-        aria-label="Breadcrumb"
-        style={{
-          backgroundColor: "#f3f7fb",
-          borderBottom: "1px solid #e5e7eb",
-          padding: "0.25rem 0",
-        }}
-      >
+      <StructuredData nodes={[breadcrumbList(crumbs)]} />
+      <nav aria-label="Breadcrumb" className="breadcrumbs">
         <div className="container-max">
-          <ol
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              alignItems: "center",
-              gap: "0.25rem",
-              listStyle: "none",
-              margin: 0,
-              padding: 0,
-              fontSize: "1.125rem",
-            }}
-          >
+          <ol>
             <li>
-              <Link
-                href="/"
-                style={linkStyle}
-              >
-                Home
-              </Link>
+              <Link href="/">Home</Link>
             </li>
-            {items.map((item, index) => (
-              <li
-                key={index}
-                style={{ display: "flex", alignItems: "center", gap: "0.25rem" }}
-              >
-                <span style={{ color: "#9ca3af", margin: "0 0.25rem" }}>›</span>
-                {item.href ? (
-                  <Link href={item.href} style={linkStyle}>
-                    {item.label}
-                  </Link>
-                ) : (
-                  <span style={{ color: "#6b7280" }} aria-current="page">
-                    {item.label}
-                  </span>
-                )}
+            {items.map((item) => (
+              <li key={item.label}>
+                <span aria-hidden="true">›</span>
+                {item.href ? <Link href={item.href}>{item.label}</Link> : <span aria-current="page">{item.label}</span>}
               </li>
             ))}
           </ol>

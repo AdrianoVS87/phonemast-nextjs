@@ -1,11 +1,16 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import { notFound } from "next/navigation";
-import Breadcrumbs from "@/components/Breadcrumbs";
-import CTASection from "@/components/CTASection";
-import { getAllPostSlugs, getAllPosts, getPostBySlug, formatDate } from "@/lib/blog";
 import { remark } from "remark";
 import remarkHtml from "remark-html";
+import Breadcrumbs from "@/components/Breadcrumbs";
+import CTASection from "@/components/CTASection";
+import StructuredData from "@/components/seo/StructuredData";
+import { COMPANY, STATEMENTS } from "@/content/company";
+import { getAllPostSlugs, getAllPosts, getPostBySlug, formatDate } from "@/lib/blog";
+import { blogDescription, blogTitleTag } from "@/seo/blog-seo";
+import { buildMetadata } from "@/seo/metadata";
+import { FOUNDER_ID, article } from "@/seo/schema";
 
 interface Props {
   params: Promise<{ slug: string }>;
@@ -20,23 +25,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) return {};
-
-  const featuredImage = post.featuredImage || "/images/og-handbook.jpg";
-
-  return {
-    title: post.title,
-    description: post.excerpt.slice(0, 158),
-    alternates: { canonical: `https://www.phonemastadvice.co.uk/blog/${post.slug}` },
-    openGraph: {
-      title: post.title,
-      description: post.excerpt.slice(0, 158),
-      url: `https://www.phonemastadvice.co.uk/blog/${post.slug}`,
-      type: "article",
-      publishedTime: post.date,
-      authors: [post.author],
-      images: [{ url: featuredImage, width: 1200, height: 630, alt: post.featuredImageAlt || post.title }],
-    },
-  };
+  return buildMetadata({
+    title: blogTitleTag(post.slug, post.title),
+    description: blogDescription(post.slug, post.excerpt),
+    path: `/blog/${post.slug}/`,
+    type: "article",
+    publishedTime: post.date,
+    modifiedTime: post.updated ?? post.date,
+    image: post.featuredImage ? { url: post.featuredImage, width: 1200, height: 630, alt: post.featuredImageAlt || post.title } : undefined,
+  });
 }
 
 function slugify(text: string): string {
@@ -47,484 +44,184 @@ function slugify(text: string): string {
     .replace(/^-|-$/g, "");
 }
 
-async function markdownToHtml(markdown: string): Promise<string> {
-  const result = await remark().use(remarkHtml, { sanitize: false }).process(markdown);
-  let html = result.toString();
+/** First mention of each topic links to its page, so the guides and services gain varied, descriptive anchors. */
+const TOPIC_LINKS: readonly [RegExp, string][] = [
+  [/\bphone mast rents?\b/i, "/phone-mast-rent/"],
+  [/\bphone mast leases?\b/i, "/phone-mast-lease/"],
+  [/\brent reviews?\b/i, "/phone-mast-services/rent-reviews/"],
+  [/\blease renewals?\b/i, "/phone-mast-services/lease-renewals/"],
+  [/\bnew lettings?\b/i, "/phone-mast-services/new-lettings/"],
+  [/\bmast sales?\b/i, "/phone-mast-services/mast-sales/"],
+  [/\bremoval and redevelopment\b/i, "/phone-mast-services/removal-and-redevelopment/"],
+  [/\belectricity costs? recovery\b/i, "/phone-mast-services/electricity-costs-recovery/"],
+  [/\blease retrievals?\b/i, "/phone-mast-services/lease-retrievals/"],
+  [/\bupgrade requests?\b/i, "/phone-mast-services/other-services/"],
+];
 
-  // Add IDs to headings for anchor navigation
-  html = html.replace(/<(h[2-4])>(.*?)<\/\1>/gi, (_match, tag, content) => {
-    const id = slugify(content);
-    return `<${tag} id="${id}">${content}</${tag}>`;
+/** Link the first occurrence of `pattern` that sits in plain text, outside headings and existing links. */
+function linkFirst(html: string, pattern: RegExp, href: string): string {
+  if (html.includes(`href="${href}"`)) return html;
+  const parts = html.split(/(<a\b[^>]*>[\s\S]*?<\/a>|<h[1-6][^>]*>[\s\S]*?<\/h[1-6]>|<[^>]+>)/);
+  let done = false;
+  return parts
+    .map((part) => {
+      if (done || part.startsWith("<")) return part;
+      return part.replace(pattern, (match) => {
+        done = true;
+        return `<a href="${href}">${match}</a>`;
+      });
+    })
+    .join("");
+}
+
+async function renderContent(markdown: string): Promise<string> {
+  let html = (await remark().use(remarkHtml, { sanitize: false }).process(markdown)).toString();
+  // IDs on headings for in-page links
+  html = html.replace(/<(h[2-4])>(.*?)<\/\1>/gi, (_m, tag: string, content: string) => `<${tag} id="${slugify(content)}">${content}</${tag}>`);
+  // A list item that names a heading becomes a link to it (tables of contents)
+  html = html.replace(/<li>([^<]+)<\/li>/g, (match, text: string) => {
+    const id = slugify(text.trim().replace(/:$/, ""));
+    return html.includes(`id="${id}"`) ? `<li><a href="#${id}">${text}</a></li>` : match;
   });
-
+  // Internal links written without a trailing slash would cost a redirect
+  html = html.replace(/href="(\/[a-z0-9\-/]*[a-z0-9-])"/g, 'href="$1/"');
+  for (const [pattern, href] of TOPIC_LINKS) html = linkFirst(html, pattern, href);
   return html;
 }
+
+const RELATED_LINKS = [
+  { label: "Phone mast leases explained", href: "/phone-mast-lease/", desc: "What the lease gives the operator and what you control" },
+  { label: "Phone mast rent", href: "/phone-mast-rent/", desc: "Tribunal figures and what you can claim" },
+  { label: "Lease renewals", href: "/phone-mast-services/lease-renewals/", desc: "When the operator wants new terms" },
+  { label: "Rent reviews", href: "/phone-mast-services/rent-reviews/", desc: "Checking and negotiating your review" },
+  { label: "Phone mast operators", href: "/phone-mast-operators/", desc: "Which company holds your lease" },
+  { label: "Mast sales", href: "/phone-mast-services/mast-sales/", desc: "Selling the income from a site" },
+];
 
 export default async function BlogPostPage({ params }: Props) {
   const { slug } = await params;
   const post = await getPostBySlug(slug);
   if (!post) notFound();
 
-  // Get related posts (same category, excluding current)
-  const allPosts = await getAllPosts();
-  const relatedPosts = allPosts
-    .filter((p) => p.slug !== slug && p.category === post.category)
-    .slice(0, 3);
-
-  let contentHtml = await markdownToHtml(post.content);
-
-  // Make TOC items clickable — link list items that match heading text to their anchors
-  contentHtml = contentHtml.replace(
-    /(<li>)([^<]+)(<\/li>)/g,
-    (_match, open, text, close) => {
-      const trimmed = text.trim().replace(/:$/, "");
-      const id = slugify(trimmed);
-      // Only link if there's a matching heading ID in the content
-      if (contentHtml.includes(`id="${id}"`)) {
-        return `${open}<a href="#${id}" style="color:#042b4d;text-decoration:none">${text}</a>${close}`;
-      }
-      return _match;
-    }
-  );
-
-  // Auto-link key service terms to internal pages (first occurrence only)
-  const serviceLinks: [RegExp, string, string][] = [
-    [/(?<!<a[^>]*>)\bphone mast advice\b(?![^<]*<\/a>)/i, "/", "phone mast advice"],
-    [/(?<!<a[^>]*>)\bphone mast rent\b(?![^<]*<\/a>)/i, "/phone-mast-rent", "phone mast rent"],
-    [/(?<!<a[^>]*>)\bphone mast lease\b(?![^<]*<\/a>)/i, "/phone-mast-lease", "phone mast lease"],
-    [/(?<!<a[^>]*>)\brent reviews?\b(?![^<]*<\/a>)/i, "/phone-mast-services/rent-reviews", "rent review"],
-    [/(?<!<a[^>]*>)\blease renewals?\b(?![^<]*<\/a>)/i, "/phone-mast-services/lease-renewals", "lease renewal"],
-    [/(?<!<a[^>]*>)\bnew lettings?\b(?![^<]*<\/a>)/i, "/phone-mast-services/new-lettings", "new letting"],
-    [/(?<!<a[^>]*>)\bmast sales?\b(?![^<]*<\/a>)/i, "/phone-mast-services/mast-sales", "mast sale"],
-    [/(?<!<a[^>]*>)\bremoval and redevelopment\b(?![^<]*<\/a>)/i, "/phone-mast-services/removal-and-redevelopment", "removal and redevelopment"],
-    [/(?<!<a[^>]*>)\belectricity costs? recovery\b(?![^<]*<\/a>)/i, "/phone-mast-services/electricity-costs-recovery", "electricity costs recovery"],
-    [/(?<!<a[^>]*>)\blease retrievals?\b(?![^<]*<\/a>)/i, "/phone-mast-services/lease-retrievals", "lease retrieval"],
-    [/(?<!<a[^>]*>)\bupgrade requests?\b(?![^<]*<\/a>)/i, "/phone-mast-services/other-services", "upgrade request"],
-  ];
-  for (const [pattern, href] of serviceLinks) {
-    contentHtml = contentHtml.replace(pattern, (match) =>
-      `<a href="${href}" style="color:#042b4d;text-decoration:underline;text-underline-offset:2px">${match}</a>`
-    );
-  }
-
-  const articleImage = post.featuredImage
-    ? `https://www.phonemastadvice.co.uk${post.featuredImage}`
-    : "https://www.phonemastadvice.co.uk/images/og-handbook.jpg";
-
-  const articleJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "Article",
-    headline: post.title,
-    image: [articleImage],
-    datePublished: post.date,
-    dateModified: post.updated ?? post.date,
-    author: {
-      "@type": "Person",
-      name: post.author,
-      jobTitle: "Specialist Telecom Surveyor",
-      url: "https://www.phonemastadvice.co.uk/team/",
-    },
-    publisher: {
-      "@type": "Organization",
-      name: "The Phone Mast Advice Company Ltd",
-      url: "https://www.phonemastadvice.co.uk",
-    },
-    description: post.excerpt,
-    mainEntityOfPage: {
-      "@type": "WebPage",
-      "@id": `https://www.phonemastadvice.co.uk/blog/${post.slug}`,
-    },
-  };
-
-  const breadcrumbJsonLd = {
-    "@context": "https://schema.org",
-    "@type": "BreadcrumbList",
-    itemListElement: [
-      { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-      { "@type": "ListItem", position: 2, name: "Blog", item: "https://www.phonemastadvice.co.uk/blog/" },
-      { "@type": "ListItem", position: 3, name: post.title, item: `https://www.phonemastadvice.co.uk/blog/${post.slug}` },
-    ],
-  };
+  const relatedPosts = (await getAllPosts()).filter((p) => p.slug !== slug && p.category === post.category).slice(0, 3);
+  const contentHtml = await renderContent(post.content);
+  const byFounder = post.author === COMPANY.founder.name;
+  const path = `/blog/${post.slug}/`;
 
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleJsonLd) }}
-      />
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-
-      <Breadcrumbs
-        items={[
-          { label: "Blog", href: "/blog/" },
-          { label: post.title },
+      <StructuredData
+        nodes={[
+          article({
+            path,
+            headline: post.title,
+            description: blogDescription(post.slug, post.excerpt),
+            datePublished: post.date,
+            dateModified: post.updated ?? post.date,
+            authorId: byFounder ? FOUNDER_ID : undefined,
+            authorName: byFounder ? undefined : post.author,
+            image: post.featuredImage,
+          }),
         ]}
       />
+      <Breadcrumbs items={[{ label: "Blog", href: "/blog/" }, { label: post.title }]} />
 
-      <article style={{ padding: "4rem 1.5rem 6rem" }}>
-        <div style={{ maxWidth: "720px", margin: "0 auto" }}>
-          {/* Category */}
-          <div style={{ marginBottom: "1.25rem" }}>
-            <Link
-              href="/blog/"
-              style={{
-                display: "inline-block",
-                backgroundColor: "#eff6ff",
-                color: "#1d4ed8",
-                fontSize: "0.8125rem",
-                fontWeight: 600,
-                padding: "0.25rem 0.75rem",
-                borderRadius: "50px",
-                textDecoration: "none",
-              }}
-            >
-              {post.category}
-            </Link>
-          </div>
+      <article className="post">
+        <header className="post-header">
+          <Link href="/blog/" className="post-category">
+            {post.category}
+          </Link>
+          <h1>{post.title}</h1>
+          <p className="post-meta">
+            By{" "}
+            {byFounder ? <Link href={COMPANY.founder.profilePath}>{post.author}</Link> : post.author}
+            {" · "}
+            <time dateTime={post.date}>{formatDate(post.date)}</time>
+            {post.updated ? (
+              <>
+                {" · Updated "}
+                <time dateTime={post.updated}>{formatDate(post.updated)}</time>
+              </>
+            ) : null}
+          </p>
+        </header>
 
-          {/* Title */}
-          <h1
-            style={{
-              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-              fontWeight: 800,
-              fontSize: "clamp(1.75rem, 4vw, 2.75rem)",
-              color: "#1a1a2e",
-              lineHeight: 1.2,
-              marginBottom: "1.5rem",
-            }}
-          >
-            {post.title}
-          </h1>
+        {slug === "1954-act" ? (
+          <aside className="post-aside" aria-label="Guide to Section 26 notices">
+            <p className="post-aside-title">Received a Section 26 notice for a phone mast?</p>
+            <p>
+              Our <Link href="/section-26-notice/">Section 26 notice guide</Link> explains the deadlines, your options and what changed for
+              telecoms leases in 2026, step by step.
+            </p>
+          </aside>
+        ) : null}
+        {slug === "how-to-find-the-closest-phone-mast-to-you" ? (
+          <aside className="post-aside" aria-label="Advice for landowners with a phone mast">
+            <p className="post-aside-title">Is the mast on your land or building?</p>
+            <p>
+              If an operator pays you rent for a phone mast, the terms of that agreement matter far more than its coverage. Since 7 April
+              2026, many older agreements renew on lower Code valuations. See <Link href="/phone-mast-rent/">how mast rent is worked out</Link>.
+            </p>
+          </aside>
+        ) : null}
 
-          {/* Meta */}
-          <div
-            style={{
-              display: "flex",
-              flexWrap: "wrap",
-              gap: "1.5rem",
-              alignItems: "center",
-              paddingBottom: "2rem",
-              borderBottom: "1px solid #e5e7eb",
-              marginBottom: "2.5rem",
-            }}
-          >
-            <div style={{ display: "flex", alignItems: "center", gap: "0.75rem" }}>
-              <div
-                style={{
-                  width: "2.5rem",
-                  height: "2.5rem",
-                  borderRadius: "50%",
-                  backgroundColor: "#042b4d",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  color: "#ffffff",
-                  fontWeight: 700,
-                  fontSize: "1rem",
-                  flexShrink: 0,
-                }}
-                aria-hidden="true"
-              >
-                M
-              </div>
-              <div>
-                <p style={{ fontWeight: 700, fontSize: "0.9375rem", color: "#1a1a2e", margin: 0 }}>
-                  {post.author}
-                </p>
-                <p style={{ fontSize: "0.875rem", color: "#6b7280", margin: 0 }}>
-                  Specialist Telecom Surveyor
-                </p>
-              </div>
-            </div>
-            <span style={{ color: "#6b7280", fontSize: "0.9375rem" }}>
-              <time dateTime={post.date}>{formatDate(post.date)}</time>
-              {post.updated && (
-                <>
-                  {" · Updated "}
-                  <time dateTime={post.updated}>{formatDate(post.updated)}</time>
-                </>
-              )}
-            </span>
-          </div>
+        <div className="blog-content" dangerouslySetInnerHTML={{ __html: contentHtml }} />
 
-          {/* Section 26 posts: point readers to the full landlord guide for telecoms leases. */}
-          {slug === "1954-act" && (
-            <aside
-              aria-label="Full guide to Section 26 notices for phone mast landlords"
-              style={{
-                backgroundColor: "#f3f7fb",
-                border: "1px solid #e5e7eb",
-                borderRadius: "1rem",
-                padding: "1.5rem 1.75rem",
-                marginBottom: "2.5rem",
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "1.25rem",
-                  color: "#1a1a2e",
-                  margin: "0 0 0.5rem",
-                }}
-              >
-                Received a Section 26 notice for a phone mast?
+        <aside className="author-box" aria-label="About the author">
+          {byFounder ? (
+            <>
+              <p className="author-name">
+                <Link href={COMPANY.founder.profilePath}>{COMPANY.founder.name}</Link>
               </p>
-              <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: "0 0 1rem" }}>
-                Our updated guide explains the deadlines, your options and what changed for telecoms leases in 2026, step by step.
+              <p className="author-role">
+                {COMPANY.founder.jobTitle}, {COMPANY.legalName}
               </p>
-              <Link href="/section-26-notice/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "0.875rem 1.5rem" }}>
-                Read the Section 26 Notice Guide
-              </Link>
-            </aside>
+              <p>
+                {STATEMENTS.comptonBeauchamp} {STATEMENTS.independence}
+              </p>
+            </>
+          ) : (
+            <p className="author-name">{post.author}</p>
           )}
-
-          {/* Landowner call-out on the mast locator post: most of its readers check coverage,
-              but the ones who host a mast are the firm's clients. */}
-          {slug === "how-to-find-the-closest-phone-mast-to-you" && (
-            <aside
-              aria-label="Advice for landowners with a phone mast"
-              style={{
-                backgroundColor: "#f3f7fb",
-                border: "1px solid #e5e7eb",
-                borderRadius: "1rem",
-                padding: "1.5rem 1.75rem",
-                marginBottom: "2.5rem",
-              }}
-            >
-              <p
-                style={{
-                  fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "1.25rem",
-                  color: "#1a1a2e",
-                  margin: "0 0 0.5rem",
-                }}
-              >
-                Is the mast on your land or building?
-              </p>
-              <p style={{ fontSize: "1.0625rem", color: "#374151", lineHeight: 1.65, margin: "0 0 1rem" }}>
-                If an operator pays you rent for a phone mast, the terms of that agreement matter far more than its coverage. Since 7 April 2026, many older agreements renew on lower Code valuations. We act only for landowners and can tell you what your site should earn.
-              </p>
-              <div style={{ display: "flex", flexWrap: "wrap", gap: "0.75rem" }}>
-                <Link href="/free-rent-estimate/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "0.875rem 1.5rem" }}>
-                  Free Rent Estimate
-                </Link>
-                <Link
-                  href="/phone-mast-rent/"
-                  style={{
-                    display: "inline-flex",
-                    alignItems: "center",
-                    padding: "0.875rem 1.5rem",
-                    color: "#042b4d",
-                    border: "2px solid #042b4d",
-                    borderRadius: "10px",
-                    fontWeight: 600,
-                    fontSize: "1.0625rem",
-                    textDecoration: "none",
-                    minHeight: "44px",
-                  }}
-                >
-                  How mast rent is worked out
-                </Link>
-              </div>
-            </aside>
-          )}
-
-          {/* Content */}
-          <div
-            className="blog-content"
-            style={{
-              fontSize: "1.125rem",
-              lineHeight: 1.75,
-              color: "#374151",
-            }}
-            dangerouslySetInnerHTML={{ __html: contentHtml }}
-          />
-
-          {/* Author Bio */}
-          <div
-            style={{
-              marginTop: "4rem",
-              padding: "2rem",
-              backgroundColor: "#f3f7fb",
-              borderRadius: "1rem",
-              border: "1px solid #e5e7eb",
-              display: "flex",
-              gap: "1.5rem",
-              alignItems: "flex-start",
-            }}
-          >
-            <div
-              style={{
-                width: "4rem",
-                height: "4rem",
-                borderRadius: "50%",
-                backgroundColor: "#042b4d",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                color: "#ffffff",
-                fontWeight: 700,
-                fontSize: "1.375rem",
-                flexShrink: 0,
-              }}
-              aria-hidden="true"
-            >
-              MR
-            </div>
-            <div>
-              <p
-                style={{
-                  fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                  fontWeight: 700,
-                  fontSize: "1.0625rem",
-                  color: "#1a1a2e",
-                  margin: "0 0 0.375rem",
-                }}
-              >
-                Matt Restall
-              </p>
-              <p style={{ fontSize: "0.9375rem", color: "#6b7280", margin: "0 0 0.75rem" }}>
-                Founder &amp; Specialist Telecom Surveyor, The Phone Mast Advice Company Ltd
-              </p>
-              <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.65, margin: 0 }}>
-                Matt Restall has over 30 years&apos; experience advising UK landlords on phone mast leases and rent reviews. He instigated and advised on the landmark{" "}
-                <em>Compton Beauchamp Estates v CTIL</em> case and has completed over 10,000 deals on behalf of landowners across England and Wales. Matt represents landlords — never operators.
-              </p>
-            </div>
-          </div>
-
-          {/* Back to blog */}
-          <div style={{ marginTop: "3rem", paddingTop: "2rem", borderTop: "1px solid #e5e7eb" }}>
-            <Link
-              href="/blog/"
-              style={{
-                display: "inline-flex",
-                alignItems: "center",
-                gap: "0.5rem",
-                color: "#042b4d",
-                fontWeight: 600,
-                fontSize: "1rem",
-                textDecoration: "none",
-              }}
-            >
-              <span aria-hidden="true">←</span> Back to Blog
-            </Link>
-          </div>
-        </div>
+        </aside>
       </article>
 
-      {/* Related Services */}
-      <section style={{ backgroundColor: "#f3f7fb", padding: "3rem 1.5rem" }}>
-        <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-          <h2
-            style={{
-              fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-              fontWeight: 700,
-              fontSize: "clamp(1.25rem, 2.5vw, 1.625rem)",
-              color: "#1a1a2e",
-              marginBottom: "1.25rem",
-            }}
-          >
-            You May Also Need
-          </h2>
-          <div
-            style={{
-              display: "grid",
-              gap: "1rem",
-              gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))",
-            }}
-          >
-            {[
-              { label: "Phone Mast Lease", href: "/phone-mast-lease/", desc: "The 2026 guide to your lease" },
-              { label: "Phone Mast Rent", href: "/phone-mast-rent/", desc: "What operators pay in 2026" },
-              { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/", desc: "Expert lease renewal negotiation" },
-              { label: "Rent Reviews", href: "/phone-mast-services/rent-reviews/", desc: "Are you being underpaid?" },
-              { label: "Free Lease Check", href: "/free-lease-check/", desc: "Check your lease for free" },
-              { label: "Free Rent Estimate", href: "/free-rent-estimate/", desc: "Find out your true market rent" },
-              { label: "New Lettings", href: "/phone-mast-services/new-lettings/", desc: "Start on the right terms" },
-              { label: "Mast Sales", href: "/phone-mast-services/mast-sales/", desc: "Capitalise on your lease income" },
-            ].map((item) => (
-              <Link
-                key={item.href}
-                href={item.href}
-                style={{
-                  display: "block",
-                  backgroundColor: "#ffffff",
-                  border: "1px solid #e5e7eb",
-                  borderRadius: "10px",
-                  padding: "1rem 1.25rem",
-                  textDecoration: "none",
-                  transition: "border-color 0.2s",
-                }}
-              >
-                <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>
-                  {item.label}
-                </p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.9rem", lineHeight: 1.4 }}>
-                  {item.desc}
-                </p>
-              </Link>
+      <section className="post-related" aria-labelledby="related-heading">
+        <div className="post-related-inner">
+          <h2 id="related-heading">Related guides and services</h2>
+          <ul className="related-links">
+            {RELATED_LINKS.map((item) => (
+              <li key={item.href}>
+                <Link href={item.href}>
+                  <strong>{item.label}</strong>
+                  <span>{item.desc}</span>
+                </Link>
+              </li>
             ))}
-          </div>
+          </ul>
+          {relatedPosts.length > 0 ? (
+            <>
+              <h2>More on this topic</h2>
+              <ul className="related-links related-posts">
+                {relatedPosts.map((rp) => (
+                  <li key={rp.slug}>
+                    <Link href={`/blog/${rp.slug}/`}>
+                      <strong>{rp.title}</strong>
+                      <span>
+                        {COMPANY.founder.name === rp.author ? `${rp.author} · ` : ""}
+                        {formatDate(rp.date)}
+                      </span>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </>
+          ) : null}
+          <p>
+            <Link href="/blog/">All articles</Link>
+          </p>
         </div>
       </section>
-
-      {/* Related Articles */}
-      {relatedPosts.length > 0 && (
-        <section style={{ padding: "3rem 1.5rem" }}>
-          <div style={{ maxWidth: "800px", margin: "0 auto" }}>
-            <h2
-              style={{
-                fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                fontWeight: 700,
-                fontSize: "clamp(1.25rem, 2.5vw, 1.625rem)",
-                color: "#1a1a2e",
-                marginBottom: "1.25rem",
-              }}
-            >
-              Related Articles
-            </h2>
-            <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
-              {relatedPosts.map((rp) => (
-                <Link
-                  key={rp.slug}
-                  href={`/blog/${rp.slug}/`}
-                  style={{
-                    display: "flex",
-                    flexDirection: "column",
-                    gap: "0.25rem",
-                    backgroundColor: "#f3f7fb",
-                    border: "1px solid #e5e7eb",
-                    borderRadius: "10px",
-                    padding: "1rem 1.25rem",
-                    textDecoration: "none",
-                  }}
-                >
-                  <span style={{ fontWeight: 700, color: "#042b4d", fontSize: "1.0625rem" }}>
-                    {rp.title}
-                  </span>
-                  <span style={{ color: "#6b7280", fontSize: "0.9375rem" }}>
-                    {rp.excerpt.slice(0, 120)}...
-                  </span>
-                </Link>
-              ))}
-            </div>
-            <div style={{ marginTop: "1.5rem" }}>
-              <Link
-                href="/blog/"
-                style={{ color: "#042b4d", fontWeight: 600, fontSize: "1rem", textDecoration: "none" }}
-              >
-                View all articles →
-              </Link>
-            </div>
-          </div>
-        </section>
-      )}
 
       <CTASection />
     </>

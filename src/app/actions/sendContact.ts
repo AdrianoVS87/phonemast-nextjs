@@ -1,5 +1,6 @@
 "use server";
 
+import { COMPANY } from "@/content/company";
 import { Resend } from "resend";
 import { sendAcknowledgement, sendMonitorPing } from "@/lib/leadMail";
 import { appendLeadRow } from "@/lib/leadLog";
@@ -61,7 +62,7 @@ export async function sendContactEmail(
   try {
     const { data: sent, error } = await resend.emails.send({
       from: "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>",
-      to: "info@phonemastadvice.co.uk",
+      to: `${COMPANY.email}`,
       replyTo: data.email,
       subject: `${mastSubjectPrefix(data.hasMast)}New enquiry from ${data.name} — phonemastadvice.co.uk`,
       html: `
@@ -74,15 +75,15 @@ export async function sendContactEmail(
             <table style="width: 100%; border-collapse: collapse;">
               ${mastEmailRow(data.hasMast)}
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; width: 100px; color: #6b7280; font-size: 14px;">Name</td>
+                <td style="padding: 8px 0; font-weight: bold; width: 100px; color: #4b5563; font-size: 14px;">Name</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.name)}</td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Email</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Email</td>
                 <td style="padding: 8px 0;"><a href="mailto:${escapeHtml(data.email)}" style="color: #042b4d;">${escapeHtml(data.email)}</a></td>
               </tr>
               <tr>
-                <td style="padding: 8px 0; font-weight: bold; color: #6b7280; font-size: 14px;">Phone</td>
+                <td style="padding: 8px 0; font-weight: bold; color: #4b5563; font-size: 14px;">Phone</td>
                 <td style="padding: 8px 0; color: #1a1a2e;">${escapeHtml(data.phone || "Not provided")}</td>
               </tr>
             </table>
@@ -91,7 +92,7 @@ export async function sendContactEmail(
             <p style="color: #374151; white-space: pre-wrap; margin: 0; font-size: 15px; line-height: 1.6;">${escapeHtml(data.message)}</p>
           </div>
           <p style="color: #9ca3af; font-size: 12px; margin-top: 16px; text-align: center;">
-            The Phone Mast Advice Company Ltd — Reg. 13115582
+            The Phone Mast Advice Company Ltd — Reg. ${COMPANY.registrationNumber}
           </p>
         </div>
       `,
@@ -105,7 +106,7 @@ export async function sendContactEmail(
       ]);
       return {
         success: false,
-        error: "Failed to send your message. Please call us on 01691 791543.",
+        error: `Failed to send your message. Please call us on ${COMPANY.phone.display}.`,
       };
     }
 
@@ -124,7 +125,7 @@ export async function sendContactEmail(
     ]);
     return {
       success: false,
-      error: "Failed to send your message. Please call us on 01691 791543.",
+      error: `Failed to send your message. Please call us on ${COMPANY.phone.display}.`,
     };
   }
 }

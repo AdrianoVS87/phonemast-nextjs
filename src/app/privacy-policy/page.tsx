@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import { COMPANY, registrationLine } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Fragment } from "react";
 
@@ -27,13 +29,7 @@ function renderWithLinks(text: string) {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | The Phone Mast Advice Company Ltd",
-  description:
-    "Privacy policy for The Phone Mast Advice Company Ltd. How we collect, use, and protect your personal data in accordance with UK GDPR and the Data Protection Act 2018.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/privacy-policy/" },
-  robots: { index: false },
-};
+export const metadata = buildMetadata(ROUTES.privacy);
 
 export default function PrivacyPolicyPage() {
   return (
@@ -53,7 +49,7 @@ export default function PrivacyPolicyPage() {
           >
             Privacy Policy
           </h1>
-          <p style={{ fontSize: "1rem", color: "#6b7280", marginBottom: "2rem" }}>
+          <p style={{ fontSize: "1rem", color: "#4b5563", marginBottom: "2rem" }}>
             Last updated: March 2025
           </p>
 
@@ -64,7 +60,7 @@ export default function PrivacyPolicyPage() {
           {[
             {
               heading: "1. Who We Are",
-              content: `The Phone Mast Advice Company Ltd is a company registered in England and Wales (Company Registration: 13115582). Our registered office is at: 167-169 Great Portland Street, 5th Floor, London, W1W 5PF. We act as the data controller for personal data collected through this website and our services. If you have any questions about how we process your data, please contact us at info@phonemastadvice.co.uk.`,
+              content: `${COMPANY.legalName}. ${registrationLine()} We act as the data controller for personal data collected through this website and our services. If you have any questions about how we process your data, please contact us at ${COMPANY.email}.`,
             },
             {
               heading: "2. What Personal Data We Collect",
@@ -134,7 +130,7 @@ All third parties are required to keep your information confidential and to proc
 • Object to processing based on legitimate interests
 • Withdraw consent at any time (where processing is based on consent)
 
-To exercise any of these rights, please contact us at info@phonemastadvice.co.uk. We will respond within one month.`,
+To exercise any of these rights, please contact us at ${COMPANY.email}. We will respond within one month.`,
             },
             {
               heading: "9. International Transfers",
@@ -153,7 +149,7 @@ Wycliffe House, Water Lane, Wilmslow, Cheshire SK9 5AF
 Website: ico.org.uk
 Telephone: 0303 123 1113
 
-We would, however, appreciate the opportunity to resolve any concerns directly — please contact us first at info@phonemastadvice.co.uk.`,
+We would, however, appreciate the opportunity to resolve any concerns directly — please contact us first at ${COMPANY.email}.`,
             },
             {
               heading: "12. Changes to This Policy",
@@ -200,13 +196,13 @@ For more information about how Google collects and processes your data when you 
             }}
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              <strong>Contact us:</strong> The Phone Mast Advice Company Ltd, 167-169 Great Portland Street, 5th Floor, London, W1W 5PF. Email:{" "}
-              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#042b4d", fontWeight: 600 }}>
-                info@phonemastadvice.co.uk
+              <strong>Contact us:</strong> {COMPANY.legalName}. Email:{" "}
+              <a href={`mailto:${COMPANY.email}`} style={{ color: "#042b4d", fontWeight: 600 }}>
+                {COMPANY.email}
               </a>. Telephone:{" "}
-              <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
-                01691 791543
-              </a>. Company Reg: 13115582.
+              <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600 }}>
+                {COMPANY.phone.display}
+              </a>. Company Reg: {COMPANY.registrationNumber}.
             </p>
           </div>
         </div>

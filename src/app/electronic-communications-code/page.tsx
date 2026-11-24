@@ -1,24 +1,15 @@
-import JsonLd from "@/components/JsonLd";
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { article } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-const URL = "https://www.phonemastadvice.co.uk/electronic-communications-code/";
 
-export const metadata: Metadata = {
-  title: "Electronic Communications Code: A Guide for Landowners",
-  description:
-    "The Electronic Communications Code explained for UK landowners with a phone mast: code rights, imposed agreements, how rent is valued, ending or renewing an agreement, and which tribunal decides.",
-  alternates: { canonical: URL },
-  openGraph: {
-    title: "The Electronic Communications Code Explained for UK Landowners",
-    description:
-      "What the Code lets operators do on your land, how payment is assessed, and how Code agreements end, renew and are decided by the tribunal.",
-    type: "article",
-    url: URL,
-  },
-};
+export const metadata = buildMetadata(ROUTES.code);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -103,17 +94,7 @@ const sources: { label: string; href: string }[] = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Article",
-          headline: "The Electronic Communications Code Explained for UK Landowners",
-          url: URL,
-          datePublished: "2026-09-15",
-          dateModified: "2026-09-15",
-          description:
-            "What the Electronic Communications Code lets operators do on private land, how payment is assessed, and how Code agreements end, renew and are decided.",
-        }}
-      />
+      <StructuredData nodes={[article({ path: "/electronic-communications-code/", headline: "The Electronic Communications Code Explained for UK Landowners", description: "What the Electronic Communications Code lets operators do on private land, how payment is assessed, and how Code agreements end, renew and are decided.", datePublished: "2026-09-15", dateModified: ROUTES.code.lastReviewed ?? "2026-09-15" })]} />
       <Breadcrumbs items={[{ label: "Electronic Communications Code" }]} />
 
       {/* Hero */}
@@ -134,12 +115,15 @@ export default function Page() {
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
             The Electronic Communications Code is the law that decides what a mobile operator can do on your land, what it has to pay you, and how an agreement for a phone mast ends or renews. This guide explains each part in plain English for landowners, with the paragraph of the Code that applies.
           </p>
+          <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.88)", marginBottom: "2rem" }}>
+            <ReviewedBy route={ROUTES.code} />
+          </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Free Lease Check
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -154,7 +138,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -307,7 +291,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Electronic Communications Code: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/electronic-communications-code/" />
 
           <h2 style={h2}>Sources</h2>
           <ul style={{ paddingLeft: "1.25rem", margin: "0 0 1.5rem" }}>
@@ -320,7 +304,7 @@ export default function Page() {
             ))}
           </ul>
 
-          <p style={{ fontSize: "1rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "1rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 15 September 2026. It is general guidance for landowners in England and Wales and does not constitute legal advice. We are surveyors, not solicitors: for legal advice on your circumstances, consult a solicitor.
           </p>
         </div>

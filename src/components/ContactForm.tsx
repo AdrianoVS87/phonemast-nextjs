@@ -1,5 +1,6 @@
 "use client";
 
+import { COMPANY } from "@/content/company";
 import { useState, useRef } from "react";
 import { sendContactEmail } from "@/app/actions/sendContact";
 import { fireConversion } from "@/lib/gtagConversion";
@@ -96,8 +97,8 @@ export default function ContactForm() {
         <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0 }}>
           Thank you for getting in touch. We&apos;ll come back to you within one
           working day. For urgent enquiries, call us on{" "}
-          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
-            01691 791543
+          <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600 }}>
+            {COMPANY.phone.display}
           </a>
           .
         </p>
@@ -166,7 +167,7 @@ export default function ContactForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder="01691 791543"
+            placeholder="Your phone number"
             style={inputStyle}
           />
         </div>
@@ -209,14 +210,14 @@ export default function ContactForm() {
         <p
           style={{
             textAlign: "center",
-            color: "#6b7280",
+            color: "#4b5563",
             fontSize: "1.125rem",
             margin: 0,
           }}
         >
           Or call us now:{" "}
-          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
-            01691 791543
+          <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
+            {COMPANY.phone.display}
           </a>
         </p>
       </div>

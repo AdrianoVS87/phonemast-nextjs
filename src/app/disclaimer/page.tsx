@@ -1,13 +1,9 @@
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-export const metadata: Metadata = {
-  title: "Disclaimer | The Phone Mast Advice Company Ltd",
-  description:
-    "Website disclaimer and terms of use for The Phone Mast Advice Company Ltd. Information provided on this site is for general guidance only.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/disclaimer/" },
-  robots: { index: false },
-};
+export const metadata = buildMetadata(ROUTES.disclaimer);
 
 export default function DisclaimerPage() {
   return (
@@ -27,7 +23,7 @@ export default function DisclaimerPage() {
           >
             Disclaimer
           </h1>
-          <p style={{ fontSize: "1rem", color: "#6b7280", marginBottom: "2rem" }}>
+          <p style={{ fontSize: "1rem", color: "#4b5563", marginBottom: "2rem" }}>
             Last updated: March 2025
           </p>
 
@@ -105,13 +101,13 @@ Nothing in this disclaimer excludes or limits our liability for death or persona
             }}
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              <strong>Contact us:</strong> The Phone Mast Advice Company Ltd, 167-169 Great Portland Street, 5th Floor, London, W1W 5PF. Email:{" "}
-              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#042b4d", fontWeight: 600 }}>
-                info@phonemastadvice.co.uk
+              <strong>Contact us:</strong> {COMPANY.legalName}. Email:{" "}
+              <a href={`mailto:${COMPANY.email}`} style={{ color: "#042b4d", fontWeight: 600 }}>
+                {COMPANY.email}
               </a>. Telephone:{" "}
-              <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
-                01691 791543
-              </a>. Company Reg: 13115582.
+              <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600 }}>
+                {COMPANY.phone.display}
+              </a>. Company Reg: {COMPANY.registrationNumber}.
             </p>
           </div>
         </div>

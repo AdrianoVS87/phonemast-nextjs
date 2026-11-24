@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
@@ -9,30 +8,20 @@ import TestimonialCard from "@/components/TestimonialCard";
 import TrustSignals from "@/components/TrustSignals";
 import CTASection from "@/components/CTASection";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
-import JsonLd from "@/components/JsonLd";
+import StructuredData from "@/components/seo/StructuredData";
+import ComptonStatement from "@/components/guide/ComptonStatement";
+import { COMPTON_STATEMENT, STATEMENTS } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import { organization, website } from "@/seo/schema";
 import { sanityClient, testimonialsQuery, type Testimonial } from "@/lib/sanity";
+import { FALLBACK_TESTIMONIALS } from "@/content/testimonials";
 // AnimatedSection removed — Motion library's transform/opacity inline styles
 // created GPU compositor overhead in Chrome during scroll on macOS.
 
 export const revalidate = 60; // ISR — revalidate every 60 seconds
 
-export const metadata: Metadata = {
-  title: "Phone Mast Advice | Lease & Rent Advice for UK Landlords",
-  description:
-    "Independent phone mast advice for UK landlords. Expert help with phone mast lease advice, phone mast rent advice, renewals, rent reviews, and operator negotiations.",
-  alternates: {
-    canonical: "https://www.phonemastadvice.co.uk",
-  },
-  openGraph: {
-    title: "Phone Mast Advice | Lease & Rent Advice for UK Landlords",
-    description:
-      "Independent phone mast advice for UK landlords. Expert advice on phone mast leases, rents, renewals, and operator negotiations across the UK.",
-    url: "https://www.phonemastadvice.co.uk",
-    type: "website",
-    locale: "en_GB",
-    siteName: "Phone Mast Advice",
-  },
-};
+export const metadata = buildMetadata(ROUTES.home);
 
 const services: ServiceCardProps[] = [
   {
@@ -96,86 +85,40 @@ const services: ServiceCardProps[] = [
 /**
  * Build the secondary attribution line shown beneath a testimonial author.
  * Combines role + location with an em-dash when both are present, otherwise
- * shows whichever is set. Falls back to "Verified client" so the card never
+ * shows whichever is set. Falls back to "Client" so the card never
  * looks empty when an authored entry omits both fields.
  */
 function attributionLine(t: Testimonial): string {
   const parts = [t.role, t.location].filter(Boolean) as string[];
-  return parts.length > 0 ? parts.join(" — ") : "Verified client";
+  return parts.length > 0 ? parts.join(" — ") : "Client";
 }
 
-/**
- * Fallback shown only if Sanity returns zero featured testimonials —
- * keeps the homepage from going empty between schema deploy and seed
- * script run, and gives us a safety net if Sanity is briefly unavailable
- * at build time. Once Charleen / Raquel manage testimonials via /studio
- * this fallback path should never fire in production.
- */
-const FALLBACK_TESTIMONIALS: Testimonial[] = [
-  {
-    _id: "fallback-robert-kell",
-    name: "Mr. Robert Kell",
-    role: "Rent Review Client",
-    quote:
-      "I recently worked with The Phone Mast Advice Company who assisted with my rent review, and I could not be more pleased with the outcome. The process was handled swiftly and efficiently from start to finish. Their professionalism and expertise gave me complete confidence, and the fact that they operate on a no-win, no-fee basis made the experience even more reassuring. I would highly recommend their services to anyone seeking expert advice and results you can trust.",
-    rating: 5,
-    datePublished: "2026-05-12",
-  },
-  {
-    _id: "fallback-richard-salmon",
-    name: "Richard Salmon",
-    role: "Director",
-    location: "Compton Beauchamp Estates, Oxfordshire",
-    quote:
-      "Matt Restall has been managing the Compton Beauchamp Estates phone mast site portfolio since 2012. Matt was involved in instigating and advising on the famous court case Compton Beauchamp Estates v CTIL. We value the advice we have received from him over the last 12 years, and we would be happy to recommend his services to any landlords who have got Phone Mast sites.",
-    rating: 5,
-    datePublished: "2024-01-15",
-  },
-  {
-    _id: "fallback-hargreaves",
-    name: "John & Patricia Hargreaves",
-    location: "Yorkshire",
-    quote:
-      "Matt secured a rent review settlement that was nearly four times what the operator initially offered. We had no idea how much we were being underpaid. The whole process was handled professionally and the advice was always clear.",
-    rating: 5,
-    datePublished: "2024-06-01",
-  },
-  {
-    _id: "fallback-alderton",
-    name: "David & Susan Alderton",
-    location: "Shropshire",
-    quote:
-      "When Cornerstone came to us about renewing our lease at a drastically reduced rent, we turned to Phone Mast Advice. They fought our corner and secured terms we were genuinely happy with. Highly professional service.",
-    rating: 5,
-    datePublished: "2024-09-01",
-  },
-];
 
 const faqs: FAQItem[] = [
   {
     question: "What is the Electronic Communications Code and how does it affect my rent?",
     answer:
-      "The Electronic Communications Code (ECC), introduced by the Digital Economy Act 2017, governs how mobile operators can access land for telecoms equipment. It introduced a new 'no-scheme' valuation model which can significantly reduce the rent operators are required to pay. As specialist advisors, we help you understand and challenge low rent offers under the Code.",
+      "The Electronic Communications Code (ECC), introduced by the Digital Economy Act 2017, governs how mobile operators can access land for telecoms equipment. It values the site on the 'no-network assumption', which can significantly reduce the rent operators are required to pay. As specialist advisors, we help you understand and challenge low rent offers under the Code.",
   },
   {
     question: "My operator has offered to renew my lease at a much lower rent — is this normal?",
     answer:
-      "Unfortunately, yes. Since 2017, operators routinely use the Electronic Communications Code to push for dramatic rent reductions during renewals. However, there are strong grounds to challenge these offers — particularly for leases that pre-date the new Code. We have successfully resisted such reductions for many clients.",
+      "Unfortunately, yes. Since 2017, operators routinely use the Electronic Communications Code to push for dramatic rent reductions during renewals. However, there are strong grounds to challenge these offers — particularly for leases that pre-date the new Code.",
   },
   {
     question: "How much does Phone Mast Advice charge?",
     answer:
-      "Our fees are typically recovered from the improved rent or one-off payment we secure for you. We operate on a performance basis where possible — so you benefit from our expertise without up-front risk. Contact us for a free, no-obligation consultation.",
+      `${STATEMENTS.fees} ${STATEMENTS.freeReview}`,
   },
   {
     question: "Who are CTIL and Cornerstone — are they the same company?",
     answer:
-      "Yes. Cornerstone Telecommunications Infrastructure Limited (CTIL) is the legal entity; Cornerstone is the trading brand. They are the joint Vodafone/O2 network infrastructure company managing approximately 14,200 macro and 1,400 micro sites across the UK.",
+      "Yes. Cornerstone Telecommunications Infrastructure Limited (CTIL) is the legal entity; Cornerstone is the trading brand. It manages the mast infrastructure that Vodafone and O2 share.",
   },
   {
     question: "Can I remove a mast from my land if I want to redevelop?",
     answer:
-      "Potentially yes, but it is complex under the Electronic Communications Code. Operators have rights to apply to the Upper Tribunal (Lands Chamber) to contest removal. We can advise on your specific situation and how best to protect your redevelopment rights when structuring or renewing agreements.",
+      "Potentially yes, but it is complex under the Electronic Communications Code. Operators can ask the Tribunal to keep the mast in place. We can advise on your specific situation and how best to protect your redevelopment rights when structuring or renewing agreements.",
   },
 ];
 
@@ -193,49 +136,13 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* JSON-LD: WebSite */}
-      <JsonLd
-        data={{
-          type: "WebSite",
-          name: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk",
-          description: "Independent specialist telecom surveyors helping UK landlords with phone mast leases, rent reviews, and lease renewals.",
-        }}
-      />
-      {/* JSON-LD: LocalBusiness (3 offices) */}
-      <JsonLd
-        data={{
-          type: "LocalBusiness",
-          name: "The Phone Mast Advice Company Ltd",
-          telephone: "01691 791543",
-          email: "info@phonemastadvice.co.uk",
-          url: "https://www.phonemastadvice.co.uk",
-          offices: [
-            { streetAddress: "167-169 Great Portland Street, 5th Floor", addressLocality: "London", postalCode: "W1W 5PF" },
-            { streetAddress: "5 High Street, Westbury on Trym", addressLocality: "Bristol", postalCode: "BS9 3BY" },
-            { streetAddress: "Artillery Business Park", addressLocality: "Oswestry", postalCode: "SY11 4AD" },
-          ],
-        }}
-      />
-      {/* JSON-LD: ProfessionalService */}
-      <JsonLd
-        data={{
-          type: "ProfessionalService",
-          name: "The Phone Mast Advice Company Ltd",
-          url: "https://www.phonemastadvice.co.uk",
-          telephone: "01691 791543",
-          email: "info@phonemastadvice.co.uk",
-          description:
-            "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings across the UK.",
-          priceRange: "££",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[organization(), website()]} />
 
       {/* Hero */}
       <Hero
-        headline="Phone Mast Lease & Rent Advice for UK Landlords"
-        subheadline="Independent specialist telecom surveyors acting only for UK landlords. Get expert phone mast advice on leases, rent, renewals, reviews, and operator negotiations."
+        headline="Independent phone mast advice, only for landlords"
+        highlight="only for landlords"
+        subheadline="Specialist surveyors who act for landlords and site owners, never for operators. We handle rent reviews, renewals, new lettings and sales, starting with a free review of your agreement."
         ctaText="Free Lease Check"
         ctaHref="/free-lease-check/"
         secondaryCtaText="Free Rent Estimate"
@@ -588,7 +495,7 @@ Read the Lease Guide →
             <p
               style={{
                 fontSize: "1.125rem",
-                color: "#6b7280",
+                color: "#4b5563",
                 maxWidth: "560px",
                 margin: "0 auto",
                 lineHeight: 1.65,
@@ -650,7 +557,7 @@ Read the Lease Guide →
                 lineHeight: 1.25,
               }}
             >
-              Involved in the Most Significant Telecoms Case in UK History
+              {COMPTON_STATEMENT.heading}
             </h2>
             <p
               style={{
@@ -660,7 +567,7 @@ Read the Lease Guide →
                 marginBottom: "2rem",
               }}
             >
-                To date, we are the first firm in the UK to have successfully fought back against operators and new legislation and kept rents at the same high levels. We were involved in the landmark case that established operators cannot use the new Code to bypass existing Landlord and Tenant Act 1954 protections, preventing significantly reduced terms from being imposed on landowners (see CTIL v Compton Beauchamp Estates [2022] UKSC 18). This is the most famous case in telecoms case law history, since the introduction of the Telecommunications Act 1984.
+                <ComptonStatement />
             </p>
 
             {/* Client quote */}
@@ -725,12 +632,12 @@ Read the Lease Guide →
             <p
               style={{
                 fontSize: "1.125rem",
-                color: "#6b7280",
+                color: "#4b5563",
                 maxWidth: "480px",
                 margin: "0 auto",
               }}
             >
-              Landlords across the UK who trusted us to protect their interests.
+              Landlords who trusted us to protect their interests.
             </p>
           </div>
 
@@ -785,7 +692,7 @@ Read the Lease Guide →
               <p
                 style={{
                   fontSize: "1.125rem",
-                  color: "#6b7280",
+                  color: "#4b5563",
                   lineHeight: 1.65,
                   marginBottom: "2rem",
                 }}
@@ -797,7 +704,7 @@ Read the Lease Guide →
                 View All FAQs
               </Link>
             </div>
-            <FAQAccordion items={faqs} showJsonLd={true} />
+            <FAQAccordion items={faqs} schemaPath="/" />
           </div>
         </div>
       </section>

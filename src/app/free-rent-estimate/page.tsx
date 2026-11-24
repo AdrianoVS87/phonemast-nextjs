@@ -1,38 +1,14 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import LeadForm from "@/components/LeadForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Free Phone Mast Rent Estimate | Independent UK Specialists",
-  description:
-    "Get a free estimate of your phone mast rental value from independent UK specialists. We use our database of comparable UK deals. No obligation. Call 01691 791543.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/free-rent-estimate/" },
-  robots: { index: false, follow: true },
-  openGraph: {
-    title: "Free Phone Mast Rent Estimate",
-    description: "Find out what your phone mast should really be paying — free estimate from UK specialists.",
-    url: "https://www.phonemastadvice.co.uk/free-rent-estimate/",
-    images: [{ url: "/images/og-handbook.jpg", width: 1200, height: 630, alt: "Free Phone Mast Rent Estimate" }],
-  },
-};
-
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Free Rent Estimate", item: "https://www.phonemastadvice.co.uk/free-rent-estimate/" },
-  ],
-};
+export const metadata = buildMetadata(ROUTES.freeRentEstimate);
 
 export default function FreeRentEstimatePage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
       <Breadcrumbs items={[{ label: "Free Rent Estimate" }]} />
       <section className="section-padding form-page-section">
         <div className="container-max">
@@ -75,8 +51,8 @@ export default function FreeRentEstimatePage() {
               </p>
 
               {[
-                { icon: "📊", text: "Based on comparable deals across the UK" },
-                { icon: "🎯", text: "Accurate estimates from 30+ years of data" },
+                { icon: "📊", text: "Based on comparable agreed deals" },
+                { icon: "🎯", text: "Checked against published Tribunal decisions" },
                 { icon: "💰", text: "Find out if you&apos;re being underpaid" },
                 { icon: "🔒", text: "100% independent — we never act for operators" },
                 { icon: "⚡", text: "Response within one working day" },

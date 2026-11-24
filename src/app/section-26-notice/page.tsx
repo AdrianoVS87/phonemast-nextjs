@@ -1,24 +1,15 @@
-import JsonLd from "@/components/JsonLd";
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { article } from "@/seo/schema";
+import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-const URL = "https://www.phonemastadvice.co.uk/section-26-notice/";
-
-export const metadata: Metadata = {
-  title: "Section 26 Notice on a Phone Mast Lease: Landowner Guide",
-  description:
-    "Received a Section 26 notice from a phone mast operator? The two-month deadline, your grounds to oppose, interim rent, the 7 April 2026 rent change and the tribunal from 30 July 2026, explained for landowners.",
-  alternates: { canonical: URL },
-  openGraph: {
-    title: "Section 26 Notice on a Phone Mast Lease: What Landowners Must Do",
-    description:
-      "The Section 26 timetable for telecoms leases under the Landlord and Tenant Act 1954, and what changed for phone mast renewals in 2026.",
-    type: "article",
-    url: URL,
-  },
-};
+export const metadata = buildMetadata(ROUTES.section26);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -126,17 +117,7 @@ const sources: { label: string; href: string }[] = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Article",
-          headline: "Section 26 Notice on a Phone Mast Lease: What Landowners Must Do",
-          url: URL,
-          datePublished: "2026-09-15",
-          dateModified: "2026-09-15",
-          description:
-            "The Section 26 timetable for phone mast leases under the Landlord and Tenant Act 1954, grounds of opposition, interim rent, and the 2026 changes to rent and tribunal jurisdiction.",
-        }}
-      />
+      <StructuredData nodes={[article({ path: "/section-26-notice/", headline: "Section 26 Notice on a Phone Mast Lease: What Landowners Must Do", description: "The Section 26 timetable for phone mast leases under the Landlord and Tenant Act 1954, grounds of opposition, interim rent, and the 2026 changes to rent and tribunal jurisdiction.", datePublished: "2026-09-15", dateModified: ROUTES.section26.lastReviewed ?? "2026-09-15" })]} />
       <Breadcrumbs items={[{ label: "Section 26 Notice" }]} />
 
       {/* Hero */}
@@ -157,12 +138,15 @@ export default function Page() {
           <p style={{ fontSize: "1.25rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginBottom: "2rem" }}>
             A Section 26 notice is the operator formally asking for a new lease of your phone mast site under the Landlord and Tenant Act 1954. It starts a strict timetable, and since 2026 the rent and the forum for these renewals have both changed. This guide explains what to do, step by step.
           </p>
+          <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.88)", marginBottom: "2rem" }}>
+            <ReviewedBy route={ROUTES.section26} />
+          </p>
           <div style={{ display: "flex", flexWrap: "wrap", gap: "1rem" }}>
             <a href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.0625rem", padding: "1rem 2rem" }}>
               Send Us Your Notice
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -177,7 +161,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -206,7 +190,7 @@ export default function Page() {
             Strictly, it is a <strong>tenant&rsquo;s request for a new tenancy</strong> under Section 26 of the Landlord and Tenant Act 1954. A tenant can use it where its lease was granted for a term of years certain of more than one year and is protected by Part 2 of the Act. It must be served in the prescribed form and set out the tenant&rsquo;s proposals for the property, the rent and the other terms. It cannot be served if the landlord has already given a Section 25 notice or a notice to quit.
           </p>
           <p style={p}>
-            On a phone mast site, the tenant is the operator or the tower company that holds the lease, so the request lands with you as the landowner. It is often preceded or accompanied by a renewal letter and draft heads of terms. Our article on <a href="/blog/phone-mast-renewal-letter/" style={link}>phone mast renewal letters</a> explains that first stage.
+            On a phone mast site, the tenant is the operator or the tower company that holds the lease, so the request lands with you as the landowner. It is often preceded or accompanied by a renewal letter and draft heads of terms. Our article on <Link href="/blog/phone-mast-renewal-letter/" style={link}>phone mast renewal letters</Link> explains that first stage.
           </p>
 
           <h2 style={h2}>Why do phone mast operators serve Section 26 notices?</h2>
@@ -282,7 +266,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Section 26 notices: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/section-26-notice/" />
 
           <h2 style={h2}>Sources</h2>
           <ul style={{ paddingLeft: "1.25rem", margin: "0 0 1.5rem" }}>
@@ -295,7 +279,7 @@ export default function Page() {
             ))}
           </ul>
 
-          <p style={{ fontSize: "1rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "1rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 15 September 2026. It is general guidance for landowners in England and Wales and does not constitute legal advice. We are surveyors, not solicitors: for legal advice on your circumstances, consult a solicitor.
           </p>
         </div>

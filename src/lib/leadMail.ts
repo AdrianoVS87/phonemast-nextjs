@@ -1,3 +1,4 @@
+import { COMPANY } from "../content/company.ts";
 import { Resend } from "resend";
 
 // Created on first use: route handlers are evaluated at build time, when the key may be absent.
@@ -8,7 +9,7 @@ export function getResend(): Resend {
 }
 
 export const LEAD_FROM = "The Phone Mast Advice Company <enquiries@send.phonemastadvice.co.uk>";
-export const LEAD_INBOX = "info@phonemastadvice.co.uk";
+export const LEAD_INBOX = COMPANY.email;
 
 export function escapeHtml(str: string): string {
   return str
@@ -56,13 +57,13 @@ export async function sendAcknowledgement(name: string, email: string): Promise<
 
 Thank you for contacting The Phone Mast Advice Company. This is a short note to confirm that your enquiry has reached us.
 
-One of our team will come back to you within one working day. If your matter is urgent, for example you have received a notice with a deadline, please call us on 01691 791543.
+One of our team will come back to you within one working day. If your matter is urgent, for example you have received a notice with a deadline, please call us on ${COMPANY.phone.display}.
 
 In the meantime, please do not sign or agree anything with the operator before taking specialist advice.
 
 Kind regards,
 The Phone Mast Advice Company
-01691 791543
+${COMPANY.phone.display}
 phonemastadvice.co.uk`;
 
   try {
@@ -84,7 +85,7 @@ phonemastadvice.co.uk`;
             </p>
             <p style="font-size: 16px; line-height: 1.65; margin: 0 0 16px;">
               One of our team will come back to you within one working day. If your matter is urgent, for example you have received a notice with a deadline, please call us on
-              <a href="tel:01691791543" style="color: #042b4d; font-weight: 600;">01691 791543</a>.
+              <a href={COMPANY.phone.href} style="color: #042b4d; font-weight: 600;">${COMPANY.phone.display}</a>.
             </p>
             <p style="font-size: 16px; line-height: 1.65; margin: 0 0 16px;">
               In the meantime, please do not sign or agree anything with the operator before taking specialist advice.
@@ -95,7 +96,7 @@ phonemastadvice.co.uk`;
             </p>
           </div>
           <p style="color: #9ca3af; font-size: 12px; margin-top: 16px; text-align: center;">
-            The Phone Mast Advice Company Ltd, Company No. 13115582. You received this email because you sent us an enquiry.
+            The Phone Mast Advice Company Ltd, Company No. ${COMPANY.registrationNumber}. You received this email because you sent us an enquiry.
           </p>
         </div>
       `,

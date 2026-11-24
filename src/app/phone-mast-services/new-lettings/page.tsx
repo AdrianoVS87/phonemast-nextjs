@@ -1,21 +1,14 @@
-import JsonLd from "@/components/JsonLd";
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { service } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "New Phone Mast on Your Land | New Lettings",
-  description:
-    "Been approached by an operator to put a phone mast on your land? Independent advice for UK landowners on new lettings: rent, Code rights, terms to negotiate, and next steps.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/new-lettings/" },
-  openGraph: {
-    title: "New Phone Mast on Your Land: New Lettings Advice for UK Landowners",
-    description:
-      "What happens when an operator wants a new mast site, what you can negotiate, what rent to expect under the Code, and how we protect your land.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.newLettings);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -67,17 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Service",
-          name: "Phone Mast New Lettings Advice",
-          description:
-            "Independent advice for UK landowners approached by mobile operators for a new phone mast site: rent under the Electronic Communications Code, terms to negotiate, and Paragraph 20 notices.",
-          provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/new-lettings/",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[service({ path: "/phone-mast-services/new-lettings/", name: "Phone Mast New Lettings Advice", serviceType: "Phone Mast New Lettings Advice", description: "Independent advice for UK landowners approached by mobile operators for a new phone mast site: rent under the Electronic Communications Code, terms to negotiate, and Paragraph 20 notices." })]} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "New Lettings" }]} />
 
       {/* Hero */}
@@ -103,7 +86,7 @@ export default function Page() {
               Free Rent Estimate
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -118,7 +101,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -131,7 +114,7 @@ export default function Page() {
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our new lettings service page. For how rent is assessed under the Code, read our{" "}
               <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guide; for the clauses that matter in any agreement, see our{" "}
-              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. <ReviewedBy route={ROUTES.newLettings} />
             </p>
           </div>
 
@@ -193,7 +176,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>New lettings: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/new-lettings/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
@@ -207,12 +190,12 @@ export default function Page() {
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
+                <p style={{ color: "#4b5563", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}
           </div>
 
-          <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "0.875rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 3 September 2026. It is general guidance for landowners and does not constitute legal advice. Please contact us for advice on your circumstances.
           </p>
         </div>

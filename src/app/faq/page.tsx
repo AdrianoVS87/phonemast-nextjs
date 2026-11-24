@@ -1,20 +1,13 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import { STATEMENTS } from "@/content/company";
+import StructuredData from "@/components/seo/StructuredData";
+import { faqPage } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Phone Mast FAQ — Leases, Rent & Landlord Rights",
-  description:
-    "Phone mast advice FAQ with clear answers on phone mast leases, rent reviews, the Electronic Communications Code, and UK landlord rights from specialist surveyors.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/faq/" },
-  openGraph: {
-    title: "Phone Mast Advice FAQ — Leases, Rent & Landlord Rights",
-    description:
-      "Phone mast advice answers to common questions about leases, rent reviews, the ECC, and UK landlord rights from The Phone Mast Advice Company.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.faq);
 
 const faqCategories: Array<{ category: string; items: FAQItem[] }> = [
   {
@@ -88,7 +81,7 @@ const faqCategories: Array<{ category: string; items: FAQItem[] }> = [
       {
         question: "How do we charge? / What are our fees?",
         answer:
-          "Every site is unique, and our fees are tailored accordingly. Before we can provide an accurate breakdown of costs, we need to review the lease and any other relevant paperwork to understand the specifics of the case. Our Terms of Business are structured on a per-job basis, meaning each instruction has its own agreement that clearly outlines how our fees apply to that particular instruction. In most cases, we operate on a no-win, no-fee basis, ensuring that our clients only pay if we achieve a successful outcome. Additionally, our fees are designed to be incentivised, meaning that if we secure a higher rent or recover any backdated payments on behalf of our client, we receive a one-off payment or a small percentage of the amount gained. Since our fees are determined on a case-by-case basis, we can only provide precise details after reviewing all relevant documentation and having an initial consultation with the potential client.",
+          `Every site is unique, and our fees are tailored accordingly. Before we can provide an accurate breakdown of costs, we need to review the lease and any other relevant paperwork to understand the specifics of the case. Our Terms of Business are structured on a per-job basis, meaning each instruction has its own agreement that clearly outlines how our fees apply to that particular instruction. ${STATEMENTS.fees} For example, if we secure a higher rent or recover backdated payments for a client, we receive a one-off payment or a small percentage of the amount gained. Since our fees are determined on a case-by-case basis, we can only provide precise details after reviewing all relevant documentation and having an initial consultation with the potential client.`,
       },
       {
         question: "Are phone mast operators allowed to upgrade existing sites?",
@@ -109,29 +102,13 @@ const faqCategories: Array<{ category: string; items: FAQItem[] }> = [
   },
 ];
 
-// Flatten all items for JSON-LD
+// Every visible question, for the FAQPage node
 const allFaqs: FAQItem[] = faqCategories.flatMap((cat) => cat.items);
 
 export default function FAQPage() {
-  const faqSchema = {
-    "@context": "https://schema.org",
-    "@type": "FAQPage",
-    mainEntity: allFaqs.map((faq) => ({
-      "@type": "Question",
-      name: faq.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: faq.answer,
-      },
-    })),
-  };
-
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <StructuredData nodes={[faqPage(ROUTES.faq.path, allFaqs)]} />
 
       <Breadcrumbs items={[{ label: "FAQ" }]} />
 
@@ -183,7 +160,7 @@ export default function FAQPage() {
               >
                 {category.category}
               </h2>
-              <FAQAccordion items={category.items} showJsonLd={false} />
+              <FAQAccordion items={category.items} />
             </div>
           ))}
         </div>

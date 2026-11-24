@@ -1,5 +1,6 @@
 "use client";
 
+import { COMPANY } from "@/content/company";
 import { useState, useRef } from "react";
 import { sendHandbookEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
@@ -99,8 +100,8 @@ export default function HandbookForm() {
         </h3>
         <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
           The link to download your handbook has been sent to your email. If you don&apos;t see it within a few minutes, please check your spam or promotions folder, or call us on{" "}
-          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
-            01691 791543
+          <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600 }}>
+            {COMPANY.phone.display}
           </a>
           .
         </p>
@@ -161,7 +162,7 @@ export default function HandbookForm() {
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder="e.g. 01691 791543"
+            placeholder="Your phone number"
             style={inputStyle}
           />
         </div>
@@ -184,7 +185,7 @@ export default function HandbookForm() {
           {status === "sending" ? "Sending…" : "📥 Download Free Handbook"}
         </button>
 
-        <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0 }}>
+        <p style={{ textAlign: "center", color: "#4b5563", fontSize: "1.125rem", margin: 0 }}>
           Your details will only be used to send you the handbook and relevant updates. We will never share your information.
         </p>
       </div>

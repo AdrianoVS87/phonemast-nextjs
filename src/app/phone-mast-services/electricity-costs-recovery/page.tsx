@@ -1,21 +1,14 @@
-import JsonLd from "@/components/JsonLd";
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { service } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Phone Mast Electricity Costs Recovery",
-  description:
-    "Is a mobile operator using your electricity supply? Independent advice for UK landlords on recovering phone mast electricity costs, backdated charges, and fixing the arrangement for good.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery/" },
-  openGraph: {
-    title: "Phone Mast Electricity Costs Recovery for UK Landlords",
-    description:
-      "How to recover the electricity a phone mast draws from your supply, including backdated costs, and how to put the operator on a proper footing going forward.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.electricity);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -67,17 +60,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Service",
-          name: "Phone Mast Electricity Costs Recovery",
-          description:
-            "Recovery of electricity costs from mobile operators whose phone mast equipment draws power from a landlord's supply, including backdated claims and putting a proper metering arrangement in place.",
-          provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery/",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[service({ path: "/phone-mast-services/electricity-costs-recovery/", name: "Phone Mast Electricity Costs Recovery", serviceType: "Phone Mast Electricity Costs Recovery", description: "Recovery of electricity costs from mobile operators whose phone mast equipment draws power from a landlord's supply, including backdated claims and putting a proper metering arrangement in place." })]} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Electricity Costs Recovery" }]} />
 
       {/* Hero */}
@@ -103,7 +86,7 @@ export default function Page() {
               Free Lease Check
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -118,7 +101,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -130,7 +113,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our electricity costs recovery service page. Electricity is one of several sums you can recover on top of the rent; our{" "}
-              <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guide lists the others. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guide lists the others. <ReviewedBy route={ROUTES.electricity} />
             </p>
           </div>
 
@@ -178,7 +161,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Electricity costs: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/electricity-costs-recovery/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
@@ -192,12 +175,12 @@ export default function Page() {
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
+                <p style={{ color: "#4b5563", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}
           </div>
 
-          <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "0.875rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 3 September 2026. It is general guidance for landlords and does not constitute legal or tax advice. Please contact us for advice on your circumstances.
           </p>
         </div>

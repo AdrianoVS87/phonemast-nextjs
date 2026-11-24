@@ -1,14 +1,10 @@
-import type { Metadata } from "next";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import ServiceCard, { type ServiceCardProps } from "@/components/ServiceCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Phone Mast Services for UK Landlords",
-  description:
-    "Specialist phone mast services for UK landlords: rent reviews, lease renewals, new lettings, mast sales, removal and more. Independent advisors — never acting for operators.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/" },
-};
+export const metadata = buildMetadata(ROUTES.services);
 
 const services: ServiceCardProps[] = [
   { icon: "📋", title: "Rent Reviews", description: "Regularly benchmark and update your rental income using our extensive database of comparable UK deals.", href: "/phone-mast-services/rent-reviews/" },
@@ -31,12 +27,12 @@ export default function ServicesPage() {
             <h1 style={{ fontFamily: "var(--font-jakarta), system-ui, sans-serif", fontWeight: 800, fontSize: "clamp(1.75rem, 3vw, 2.5rem)", color: "#1a1a2e", marginBottom: "1rem" }}>
               Phone Mast Services
             </h1>
-            <p style={{ fontSize: "1.125rem", color: "#6b7280", maxWidth: "560px", margin: "0 auto", lineHeight: 1.65 }}>
+            <p style={{ fontSize: "1.125rem", color: "#4b5563", maxWidth: "560px", margin: "0 auto", lineHeight: 1.65 }}>
               Comprehensive specialist support for every aspect of your telecom property — from new lettings to lease renewals and mast sales.
             </p>
           </div>
           <div style={{ display: "grid", gap: "1.5rem", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}>
-            {services.map((s) => <ServiceCard key={s.href} {...s} />)}
+            {services.map((s) => <ServiceCard key={s.href} {...s} headingLevel={2} />)}
           </div>
         </div>
       </section>

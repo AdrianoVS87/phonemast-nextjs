@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import Link from "next/link";
 import { PhoneIcon, MailIcon, WhatsAppIcon, ArrowUpRightIcon } from "@/components/icons";
 
@@ -40,39 +41,20 @@ export default function CTASection({
         </div>
 
         <div className="cta-contact">
-          <a href="tel:01691791543">
+          <a href={COMPANY.phone.href}>
             <PhoneIcon size={20} color="#b6f414" />
-            01691 791543
+            {COMPANY.phone.display}
           </a>
-          <a href="mailto:info@phonemastadvice.co.uk">
+          <a href={`mailto:${COMPANY.email}`}>
             <MailIcon size={20} color="#b6f414" />
-            info@phonemastadvice.co.uk
+            {COMPANY.email}
           </a>
-          <a href="https://wa.me/447843352654" target="_blank" rel="noopener noreferrer">
+          <a href={COMPANY.whatsapp.href} target="_blank" rel="noopener noreferrer">
             <WhatsAppIcon size={20} color="#b6f414" />
             WhatsApp
           </a>
         </div>
       </div>
-      <style>{`
-        .final-cta{background:#082f54;color:#fff;padding:3.5rem 0 3rem}
-        .cta-layout{display:flex;align-items:center;justify-content:space-between;gap:2.2rem}
-        .cta-kicker{color:#b6f414}
-        .cta-heading{font-family:var(--font-jakarta),system-ui,sans-serif;font-size:clamp(1.875rem,3vw,2.625rem);letter-spacing:-.03em;line-height:1.15;max-width:700px;margin:0 0 .5rem;color:#fff;text-wrap:balance}
-        .cta-sub{margin:0;color:#b9cede;font-size:1.125rem;line-height:1.6;max-width:640px}
-        .cta-actions{display:flex;flex-direction:column;align-items:flex-start;gap:.75rem;flex-shrink:0}
-        .cta-btn{font-size:1.0625rem;padding:1.0625rem 1.5rem;gap:.85rem}
-        .cta-contact-link{color:#d7e5f2;font-size:1rem;text-decoration:underline;text-underline-offset:3px}
-        .cta-contact-link:hover{color:#fff}
-        .cta-contact{display:flex;flex-wrap:wrap;gap:1rem 2rem;margin-top:2.25rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.14)}
-        .cta-contact a{display:inline-flex;align-items:center;gap:.55rem;color:#fff;font-size:1.0625rem;font-weight:600;text-decoration:none;min-height:44px}
-        .cta-contact a:hover{color:#fff;text-decoration:underline}
-        @media (max-width:860px){
-          .cta-layout{align-items:flex-start;flex-direction:column;gap:1.5rem}
-          .cta-actions{width:100%}
-          .cta-btn{width:100%}
-        }
-      `}</style>
     </section>
   );
 }

@@ -1,4 +1,6 @@
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
 import { Fragment } from "react";
@@ -24,13 +26,7 @@ function renderWithLinks(text: string) {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Cookie Policy | The Phone Mast Advice Company Ltd",
-  description:
-    "Cookie policy for The Phone Mast Advice Company Ltd. Information on cookies used on our website and how to manage them.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/cookie-policy/" },
-  robots: { index: false },
-};
+export const metadata = buildMetadata(ROUTES.cookies);
 
 export default function CookiePolicyPage() {
   return (
@@ -50,7 +46,7 @@ export default function CookiePolicyPage() {
           >
             Cookie Policy
           </h1>
-          <p style={{ fontSize: "1rem", color: "#6b7280", marginBottom: "2rem" }}>
+          <p style={{ fontSize: "1rem", color: "#4b5563", marginBottom: "2rem" }}>
             Last updated: March 2025
           </p>
 
@@ -189,9 +185,9 @@ Learn more about how Google collects and uses your data at Google's Business Dat
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               Questions about cookies or our data practices? Contact us at:{" "}
-              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#042b4d", fontWeight: 600 }}>
-                info@phonemastadvice.co.uk
-              </a>. The Phone Mast Advice Company Ltd, Company Reg: 13115582.
+              <a href={`mailto:${COMPANY.email}`} style={{ color: "#042b4d", fontWeight: 600 }}>
+                {COMPANY.email}
+              </a>. The Phone Mast Advice Company Ltd, Company Reg: {COMPANY.registrationNumber}.
             </p>
           </div>
         </div>

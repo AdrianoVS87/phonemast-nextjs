@@ -1,68 +1,18 @@
-import type { Metadata } from "next";
+import { COMPANY, STATEMENTS } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import ContactForm from "@/components/ContactForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import JsonLd from "@/components/JsonLd";
+import StructuredData from "@/components/seo/StructuredData";
+import { organization } from "@/seo/schema";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description:
-    "Contact The Phone Mast Advice Company. Call 01691 791543, email info@phonemastadvice.co.uk or use our online form. Offices in London, Bristol and Oswestry.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/contact/" },
-  openGraph: {
-    title: "Contact Phone Mast Advice",
-    description: "Get in touch with our specialist phone mast surveyors — offices in London, Bristol and Oswestry.",
-    url: "https://www.phonemastadvice.co.uk/contact/",
-    images: [{ url: "/images/og-handbook.jpg", width: 1200, height: 630, alt: "Contact Phone Mast Advice" }],
-  },
-};
+export const metadata = buildMetadata(ROUTES.contact);
 
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Contact Us", item: "https://www.phonemastadvice.co.uk/contact/" },
-  ],
-};
-
-const offices = [
-  {
-    city: "London",
-    address: "167–169 Great Portland Street, 5th Floor",
-    postcode: "W1W 5PF",
-    mapQuery: "167+Great+Portland+Street+London+W1W+5PF",
-  },
-  {
-    city: "Bristol",
-    address: "5 High Street, Westbury on Trym",
-    postcode: "BS9 3BY",
-    mapQuery: "5+High+Street+Westbury+on+Trym+Bristol+BS9+3BY",
-  },
-  {
-    city: "Oswestry",
-    address: "Artillery Business Park",
-    postcode: "SY11 4AD",
-    mapQuery: "Artillery+Business+Park+Oswestry+SY11+4AD",
-  },
-];
 
 export default function ContactPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
-      <JsonLd
-        data={{
-          type: "ProfessionalService",
-          name: "The Phone Mast Advice Company Ltd",
-          url: "https://www.phonemastadvice.co.uk/contact/",
-          telephone: "01691 791543",
-          email: "info@phonemastadvice.co.uk",
-          description: "Independent specialist telecom surveyors acting only for UK landlords.",
-        }}
-      />
+      <StructuredData nodes={[organization()]} />
       <Breadcrumbs items={[{ label: "Contact Us" }]} />
 
       {/* Navy hero banner */}
@@ -118,7 +68,7 @@ export default function ContactPage() {
               <div style={{ marginBottom: "2rem" }}>
                 {/* Phone — prominent tap-to-call */}
                 <a
-                  href="tel:01691791543"
+                  href={COMPANY.phone.href}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -137,7 +87,7 @@ export default function ContactPage() {
                       Call Us Free
                     </p>
                     <p style={{ fontSize: "1.375rem", color: "#ffffff", fontWeight: 700, margin: 0, lineHeight: 1.2 }}>
-                      01691 791543
+                      {COMPANY.phone.display}
                     </p>
                     <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.8)", margin: "0.25rem 0 0" }}>
                       Mon–Fri 9am–5:30pm
@@ -146,8 +96,8 @@ export default function ContactPage() {
                 </a>
 
                 {[
-                  { icon: "✉️", label: "Email", value: "info@phonemastadvice.co.uk", href: "mailto:info@phonemastadvice.co.uk" },
-                  { icon: "💬", label: "WhatsApp", value: "Message us on WhatsApp", href: "https://wa.me/447843352654" },
+                  { icon: "✉️", label: "Email", value: `${COMPANY.email}`, href: `mailto:${COMPANY.email}` },
+                  { icon: "💬", label: "WhatsApp", value: "Message us on WhatsApp", href: COMPANY.whatsapp.href },
                 ].map((item) => (
                   <div
                     key={item.label}
@@ -155,7 +105,7 @@ export default function ContactPage() {
                   >
                     <span style={{ fontSize: "1.5rem", flexShrink: 0, marginTop: "0.125rem" }}>{item.icon}</span>
                     <div>
-                      <p style={{ fontWeight: 700, fontSize: "1.125rem", color: "#6b7280", margin: "0 0 0.25rem", textTransform: "uppercase", letterSpacing: "0.04em" }}>
+                      <p style={{ fontWeight: 700, fontSize: "1.125rem", color: "#4b5563", margin: "0 0 0.25rem", textTransform: "uppercase", letterSpacing: "0.04em" }}>
                         {item.label}
                       </p>
                       <a
@@ -171,66 +121,11 @@ export default function ContactPage() {
                 ))}
               </div>
 
-              {/* Office addresses — 3-col on desktop */}
               <div>
-                <h2
-                  style={{
-                    fontFamily: "var(--font-jakarta), system-ui, sans-serif",
-                    fontWeight: 700,
-                    fontSize: "clamp(1.25rem, 2vw, 1.5rem)",
-                    color: "#1a1a2e",
-                    marginBottom: "1.25rem",
-                  }}
-                >
-                  Our Offices
-                </h2>
-
-                <div
-                  style={{
-                    display: "grid",
-                    gridTemplateColumns: "repeat(auto-fit, minmax(160px, 1fr))",
-                    gap: "1rem",
-                  }}
-                >
-                  {offices.map((office) => (
-                    <div
-                      key={office.city}
-                      style={{
-                        padding: "1.25rem",
-                        backgroundColor: "#ffffff",
-                        border: "1px solid #e5e7eb",
-                        borderLeft: "4px solid #b6f414",
-                        borderRadius: "0.5rem",
-                        boxShadow: "0 1px 4px rgba(0,0,0,0.06)",
-                      }}
-                    >
-                      <p style={{ fontWeight: 700, fontSize: "1.125rem", color: "#1a1a2e", margin: "0 0 0.375rem" }}>
-                        {office.city}
-                      </p>
-                      <p style={{ fontSize: "1.125rem", color: "#4b5563", margin: "0 0 0.625rem", lineHeight: 1.5 }}>
-                        {office.address}
-                        <br />
-                        {office.postcode}
-                      </p>
-                      <a
-                        href={`https://www.google.com/maps/search/?api=1&query=${office.mapQuery}`}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        style={{
-                          display: "inline-flex",
-                          alignItems: "center",
-                          gap: "0.25rem",
-                          fontSize: "1.125rem",
-                          color: "#042b4d",
-                          fontWeight: 600,
-                          textDecoration: "none",
-                        }}
-                      >
-                        View on map <span aria-hidden="true">→</span>
-                      </a>
-                    </div>
-                  ))}
-                </div>
+                <h2 className="contact-area-heading">Where we work</h2>
+                <p className="contact-area-text">
+                  {STATEMENTS.serviceArea} {STATEMENTS.independence}
+                </p>
               </div>
             </div>
 

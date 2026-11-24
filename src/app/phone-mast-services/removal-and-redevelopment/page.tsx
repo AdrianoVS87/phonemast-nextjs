@@ -1,21 +1,15 @@
-import JsonLd from "@/components/JsonLd";
-import type { Metadata } from "next";
+import { COMPANY } from "@/content/company";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import { CaseRef } from "@/components/guide/Sources";
+import StructuredData from "@/components/seo/StructuredData";
+import { service } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Phone Mast Removal for Redevelopment",
-  description:
-    "Need a phone mast removed so you can redevelop? Independent advice for UK landowners on Paragraph 31 notices, the redevelopment ground, timescales, and getting the operator off your land.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment/" },
-  openGraph: {
-    title: "Phone Mast Removal & Redevelopment: Getting an Operator Off Your Land",
-    description:
-      "How to end a phone mast agreement for redevelopment under the Electronic Communications Code, what notices are required, how long it takes, and how we manage it.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.removal);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -50,7 +44,7 @@ const faqs = [
   {
     question: "What counts as redevelopment for a phone mast termination?",
     answer:
-      "The landowner must show a firm, settled, and unconditional intention to redevelop all or part of the land, or neighbouring land, and that the redevelopment could not reasonably be carried out unless the Code agreement ends. Planning permission, funding, and a realistic programme all strengthen the case. The test was confirmed in EE Ltd v Sir James Chichester [2019] UKUT 164 (LC) and applied again in CTIL v Firoka (Kings Cross) in 2025, where a hotel owner defeated a rooftop application on genuine redevelopment grounds.",
+      "The landowner must show a firm, settled, and unconditional intention to redevelop all or part of the land, or neighbouring land, and that the redevelopment could not reasonably be carried out unless the Code agreement ends. Planning permission, funding, and a realistic programme all strengthen the case. The test was confirmed in EE Ltd v Sir James Chichester [2019] UKUT 164 (LC) and applied by the First-tier Tribunal in CTIL v Firoka (Kings Cross) Ltd in November 2025, where a hotel owner defeated a rooftop application on genuine redevelopment grounds.",
   },
   {
     question: "Who pays to remove the mast and restore my land?",
@@ -67,17 +61,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Service",
-          name: "Phone Mast Removal and Redevelopment Advice",
-          description:
-            "Independent advice for UK landowners who need a phone mast removed for redevelopment: Paragraph 31 notices, the redevelopment ground, lift and shift, reinstatement, and Tribunal proceedings under the Electronic Communications Code.",
-          provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment/",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[service({ path: "/phone-mast-services/removal-and-redevelopment/", name: "Phone Mast Removal and Redevelopment Advice", serviceType: "Phone Mast Removal and Redevelopment Advice", description: "Independent advice for UK landowners who need a phone mast removed for redevelopment: Paragraph 31 notices, the redevelopment ground, lift and shift, reinstatement, and Tribunal proceedings under the Electronic Communications Code." })]} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Removal & Redevelopment" }]} />
 
       {/* Hero */}
@@ -103,7 +87,7 @@ export default function Page() {
               Free Lease Check
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -118,7 +102,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -130,7 +114,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our removal and redevelopment service page. For the legal framework behind every clause and notice mentioned here, read our{" "}
-              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. <ReviewedBy route={ROUTES.removal} />
             </p>
           </div>
 
@@ -165,7 +149,7 @@ export default function Page() {
 
           <h2 style={h2}>What do I need to prove for the redevelopment ground?</h2>
           <p style={p}>
-            The Tribunal looks for a firm, settled, and unconditional intention to redevelop, and a reasonable prospect of carrying it out. Evidence that carries weight includes planning permission or a credible application, funding, professional appointments, board or trustee resolutions, and a programme showing why the mast must go. The test was confirmed in <em>EE Ltd v Sir James Chichester</em> [2019] UKUT 164 (LC) and applied in <em>CTIL v Firoka (Kings Cross) Ltd</em> (2025), where a hotel owner succeeded against a rooftop application on genuine redevelopment grounds.
+            The Tribunal looks for a firm, settled, and unconditional intention to redevelop, and a reasonable prospect of carrying it out. Evidence that carries weight includes planning permission or a credible application, funding, professional appointments, board or trustee resolutions, and a programme showing why the mast must go. The test was confirmed in <em>EE Ltd v Sir James Chichester</em> [2019] UKUT 164 (LC) and applied by the First-tier Tribunal in <CaseRef id="firoka" /> (November 2025), where a hotel owner succeeded against a rooftop application on genuine redevelopment grounds.
           </p>
           <p style={p}>
             The same ground appears in Paragraph 21(5) as a defence when an operator applies for a new agreement, so landowners with building plans should raise it at the earliest opportunity.
@@ -197,7 +181,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Removal and redevelopment: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/removal-and-redevelopment/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>
@@ -211,12 +195,12 @@ export default function Page() {
             ].map((item) => (
               <a key={item.href} href={item.href} style={{ display: "block", backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "10px", padding: "1rem 1.25rem", textDecoration: "none" }}>
                 <p style={{ fontWeight: 700, color: "#042b4d", margin: "0 0 0.25rem", fontSize: "1rem" }}>{item.label}</p>
-                <p style={{ color: "#6b7280", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
+                <p style={{ color: "#4b5563", margin: 0, fontSize: "0.875rem", lineHeight: 1.4 }}>{item.desc}</p>
               </a>
             ))}
           </div>
 
-          <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
+          <p style={{ fontSize: "0.875rem", color: "#4b5563", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 15 September 2026. It is general guidance for landowners and does not constitute legal advice. Notices under the Code carry strict requirements; please contact us before serving one.
           </p>
         </div>
