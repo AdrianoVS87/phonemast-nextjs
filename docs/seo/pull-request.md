@@ -79,7 +79,10 @@ Numbers are in `docs/seo/performance.md`.
 - `pnpm lint`, `tsc --noEmit` and `pnpm build`: clean.
 - schema.org validator: 0 errors and 0 warnings on the rent guide, homepage, a service page, a blog post and
   Matt's profile.
-- Lighthouse 12.6.1, 5 runs per template per form factor, before (live) and after (local production build).
+- Lighthouse 12.6.1: 5 runs per template per form factor on the live site (before). The branch's own five-run
+  measurement was stopped by low memory after 7 runs, so the after-numbers are single runs and the
+  Performance target is **not yet demonstrated** (`docs/seo/performance.md`). Accessibility, Best Practices
+  and SEO measured 100 on every template that was run.
 
 ## Needs Matt's sign-off before merging
 
