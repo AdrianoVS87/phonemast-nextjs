@@ -18,15 +18,15 @@ const serviceLinks = [
 ];
 
 const operatorLinks = [
-  { label: "Vodafone", href: "/vodafone-phone-mast-lease/" },
-  { label: "O2", href: "/o2-phone-mast-lease/" },
-  { label: "EE", href: "/ee-phone-mast-lease/" },
-  { label: "Three", href: "/three-phone-mast-lease/" },
-  { label: "CTIL / Cornerstone", href: "/ctil-cornerstone-phone-mast-lease/" },
-  { label: "Cellnex", href: "/cellnex-phone-mast-lease/" },
-  { label: "On Tower (formerly Arqiva)", href: "/on-tower-arqiva-phone-mast-lease/" },
-  { label: "Airwave", href: "/airwave-phone-mast-lease/" },
-  { label: "WIG", href: "/wireless-infrastructure-group-phone-mast-lease/" },
+  { label: "Vodafone", href: "/phone-mast-operators/#vodafone" },
+  { label: "O2", href: "/phone-mast-operators/#o2" },
+  { label: "EE", href: "/phone-mast-operators/#ee" },
+  { label: "Three", href: "/phone-mast-operators/#three" },
+  { label: "CTIL / Cornerstone", href: "/phone-mast-operators/#ctil-cornerstone" },
+  { label: "Cellnex", href: "/phone-mast-operators/#cellnex" },
+  { label: "On Tower (formerly Arqiva)", href: "/phone-mast-operators/#on-tower" },
+  { label: "Airwave", href: "/phone-mast-operators/#airwave" },
+  { label: "WIG", href: "/phone-mast-operators/#wireless-infrastructure-group" },
 ];
 
 const aboutLinks = [

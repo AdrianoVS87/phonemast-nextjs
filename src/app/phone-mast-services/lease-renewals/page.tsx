@@ -1,33 +1,31 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: { absolute: "Phone Mast Lease Renewal Advice | Phone Mast Advice" },
-  description: "Phone mast lease renewal advice for UK landlords: what happens when your lease ends, the notices to expect, who pays your fees, the 7 April 2026 changes, and how we negotiate better terms.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals/" },
-};
+export const metadata = buildMetadata(ROUTES.leaseRenewals);
 
 const operators = [
-  { name: "Vodafone", href: "/vodafone-phone-mast-lease/" },
-  { name: "O2 (Telefónica UK)", href: "/o2-phone-mast-lease/" },
-  { name: "EE (BT Group)", href: "/ee-phone-mast-lease/" },
-  { name: "Three (Hutchison 3G)", href: "/three-phone-mast-lease/" },
-  { name: "CTIL / Cornerstone", href: "/ctil-cornerstone-phone-mast-lease/" },
-  { name: "Cellnex", href: "/cellnex-phone-mast-lease/" },
-  { name: "On Tower (formerly Arqiva)", href: "/on-tower-arqiva-phone-mast-lease/" },
-  { name: "Airwave Solutions", href: "/airwave-phone-mast-lease/" },
-  { name: "Wireless Infrastructure Group (WIG)", href: "/wireless-infrastructure-group-phone-mast-lease/" },
+  { name: "Vodafone", href: "/phone-mast-operators/#vodafone" },
+  { name: "O2 (Telefónica UK)", href: "/phone-mast-operators/#o2" },
+  { name: "EE (BT Group)", href: "/phone-mast-operators/#ee" },
+  { name: "Three (Hutchison 3G)", href: "/phone-mast-operators/#three" },
+  { name: "CTIL / Cornerstone", href: "/phone-mast-operators/#ctil-cornerstone" },
+  { name: "Cellnex", href: "/phone-mast-operators/#cellnex" },
+  { name: "On Tower (formerly Arqiva)", href: "/phone-mast-operators/#on-tower" },
+  { name: "Airwave Solutions", href: "/phone-mast-operators/#airwave" },
+  { name: "Wireless Infrastructure Group (WIG)", href: "/phone-mast-operators/#wireless-infrastructure-group" },
 ];
 
 const relatedPosts = [
   { title: "Forced Phone Mast Lease Renewals: What Landlords Must Know", href: "/blog/forced-lease-renewals/" },
-  { title: "Why Phone Mast Rents Are Being Reduced & What It Means for Landlords", href: "/blog/reduce-phone-mast-rents/" },
+  { title: "Why Phone Mast Rents Are Being Reduced & What It Means for Landlords", href: "/phone-mast-rent/" },
   { title: "Changes to the Electronic Communications Code 2022", href: "/blog/communications-code-2022/" },
   { title: "What to Do When an Operator Serves a Section 26 Notice", href: "/blog/section-26-notices/" },
   { title: "Telecom Code Rights vs Property Rights", href: "/blog/telecom-code-rights-vs-property-rights-what-every-phone-mast-landlord-should-know/" },
-  { title: "Legal Safeguards for Phone Mast Landlords", href: "/blog/legal-safeguards/" },
+  { title: "Legal Safeguards for Phone Mast Landlords", href: "/phone-mast-lease/" },
 ];
 
 const serviceSchema = {
@@ -57,16 +55,6 @@ const serviceSchema = {
       { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Free Lease Check" } }
     ]
   }
-};
-
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  "itemListElement": [
-    { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.phonemastadvice.co.uk/" },
-    { "@type": "ListItem", "position": 2, "name": "Services", "item": "https://www.phonemastadvice.co.uk/phone-mast-services/" },
-    { "@type": "ListItem", "position": 3, "name": "Lease Renewals", "item": "https://www.phonemastadvice.co.uk/phone-mast-services/lease-renewals/" }
-  ]
 };
 
 const faqSchema = {
@@ -99,7 +87,6 @@ export default function Page() {
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }} />
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(howToSchema) }} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Lease Renewals", href: "/phone-mast-services/lease-renewals/" }]} />
