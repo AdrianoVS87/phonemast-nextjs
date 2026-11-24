@@ -149,6 +149,13 @@ export const CLAIMS = {
       "Matt, 24 Nov 2026, asked twice: over 30 years is right and it is his own career, not the company's (incorporated 6 January 2021). His LinkedIn lists roles from April 2000 only, on the operators' side until 2004, so the wording covers the industry as a whole rather than advising landlords. The pre-2000 roles are an open question in docs/seo/needs-owner-confirmation.md.",
     stat: { value: "30+", label: "years of Matt's experience in the phone mast industry" },
   },
+  combinedExperience: {
+    text: "Specialist Telecom Surveyors & Mobile Phone Mast Agents | Over 41 Years of Combined Industry Experience",
+    confirmed: true,
+    evidence:
+      "Owner's wording (24 Nov 2026), replacing the 30+ years figure in the homepage figures bar. A lower bound for the team, so it does not contradict Matt's own \"over 30 years\" on his profile.",
+    stat: { value: "Specialist Telecom Surveyors & Mobile Phone Mast Agents", label: "Over 41 Years of Combined Industry Experience" },
+  },
   since1999: {
     text: "Acting for landlords since 1999",
     confirmed: false,
