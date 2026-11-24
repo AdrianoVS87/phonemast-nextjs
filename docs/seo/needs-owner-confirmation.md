@@ -1,71 +1,41 @@
 # Needs the owner's confirmation
 
-Everything below is off the site until Matt answers. Most answers mean one edit in
-`src/content/company.ts` (set `confirmed: true`) or `src/content/legal.ts`, and the site updates everywhere.
+Matt answered the open questions on **24 November 2026**, in a six-round review run in the terminal
+session (British English, exact live wording shown for each option). His answers are recorded below and
+applied in `src/content/company.ts`; anything still open stays off the site.
 
-## A. Marketing claims (hidden behind flags in `CLAIMS`)
+## Answered on 24 November 2026
 
-| # | Claim the site used to make | Question for Matt | Evidence needed |
+| # | Question | Matt's answer | Applied as |
 |---|---|---|---|
-| A1 | "30+ years' experience", "over 30 years" (About, Team, profile, guides, handbook, root description) | Whose 30 years? Companies House shows The Phone Mast Advice Company Ltd incorporated on **6 January 2021** and The Phone Mast Company Ltd on **23 June 2009**. | The year Matt started in telecoms property work, and how to word it (for example "Matt has advised landlords since 19xx"). |
-| A2 | "since 1999" (About description, Team intro) | What happened in 1999? | A record of it (first instruction, employer, firm). |
-| A3 | "10,000+ mast deals completed" (About, handbook, StatsBar, blog author box, "across England and Wales") | How is 10,000 counted: whose deals, from when, across which firms? | The underlying record or a defensible basis. |
-| A4 | "RICS Registered Surveyors", "Chartered Surveyor — RICS Registered" (Andrew Chinn) | Is Andrew Chinn (or anyone) currently an RICS member? | Name, designation (MRICS or FRICS) and RICS membership number for each, so the page can name them and link to the RICS register. |
-| A5 | "Rated 5/5 on Google" | Which Google Business Profile, and how many reviews? | Profile URL and current review count. The rating will then show with its count and a link. No Review or AggregateRating markup will be added either way, because Google treats self-serving review markup as ineligible. |
-| A6 | "3 UK offices" / "Offices in London, Bristol and Oswestry" | Are all three staffed offices where clients can meet the team? Or is one a registered or virtual address? (The registered office is Bristol.) | Per address: staffed or not. Location pages stay up meanwhile, with the claims and anonymous testimonials removed (see D4). |
-| A7 | "To date, we are the first firm in the UK to have successfully fought back against operators and new legislation and kept rents at the same high levels" (homepage) | Is there a published source? | A source, or agreement to drop it. |
-| A8 | "The most significant UK telecoms ruling since the Telecommunications Act 1984" / "the most famous case in telecoms case law history" | Same. | A published source, or agreement to drop it. |
-| A9 | "Matt has represented landlords across the UK, from individual rural landowners to large corporate property portfolios, and has developed one of the most comprehensive databases of comparable UK phone mast deals in the industry" | Can this be evidenced? | Agreement to a factual wording without the superlative. |
-| A10 | About page: "Our success has ... benefited ... large corporations such as supermarket chains and Local Authorities" | Can these client types be named publicly? | Confirmation. |
-| A11 | Mark Dernes: "over four decades" and "worked with both of the United Kingdom's leading mast investment companies" | Confirm with Mark. | His wording and dates. |
-| A12 | "Verified client" badge on every testimonial | Were the testimonials verified, and how? | A description of the check, or keep the badge off. |
+| A1 | Whose "30+ years"? | Matt's own career | "Matt Restall has advised landlords on phone masts for over 30 years" (profile, team, About trust signals, homepage figures as "30+ years of Matt's experience advising landlords"). No start year given. |
+| A2 | "since 1999" | Not confirmed (no start year given) | Stays off. |
+| A3 | "10,000+ mast deals completed" | Accurate; he stands behind it | Shown in the trust signals and the homepage figures. |
+| A4 | RICS | Andrew Chinn is MRICS | "Our Head Surveyor, Andrew Chinn MRICS, is a member of the Royal Institution of Chartered Surveyors"; "MRICS" under his name on the team page. |
+| A5 | Google rating | Show it: https://maps.app.goo.gl/3YtwqUoH7pkJ6MEu8, 12 reviews | "Rated 5/5 on Google from 12 reviews", linked to the profile. No Review or AggregateRating markup. |
+| A6 | Offices | No office where clients meet the team; no addresses, no mention | Office addresses and the London, Bristol and Oswestry pages removed; their URLs 308 to `/contact/`. Only the registered office remains, as the legal disclosure line (Companies (Trading Disclosures) Regulations 2008), which Matt approved. |
+| A7, A8 | "First firm in the UK", "most significant ruling" | Asked for new wording, chose version 1 | Heading "The firm behind the Compton Beauchamp case"; text "We instigated and oversaw *Cornerstone v Compton Beauchamp Estates* [2022] UKSC 18, in which the Supreme Court confirmed that operators with leases protected by the Landlord and Tenant Act 1954 must renew under that Act." (homepage, About, Matt's profile, team, blog author box). |
+| A12 | "Verified client" badge | Every testimonial is from a real client who agreed to be quoted | Badge restored. |
+| B1 | Fee sentence | Redrafted with him; final wording his | "Our fees are incentivised and tied to the results we achieve for you. We seek a contribution from the operator wherever the law allows, but we are never solely dependent on it, so our advice always remains entirely independent in your interest." The FAQ answer keeps its example of a one-off payment or small percentage. The Robert Kell testimonial ("no-win, no-fee") is the client's own words and is unchanged. |
+| B2 | Service area | Whole UK | "We advise landlords and landowners across the United Kingdom."; `areaServed` is the United Kingdom. The guides still explain the law of England and Wales where the law differs. |
+| C2 | Matt's qualifications | HND Building Studies; BSc (Hons) Valuation Surveying | On his profile, and as `hasCredential` on his profile's Person node only. |
+| C3 | Other cases | None given | Profile lists Compton Beauchamp only. |
+| C5 | Rewritten guides and legal wording | Approved as written | Recorded in `content-changes-for-review.md`. |
+| D6 | WhatsApp number | 07843 352654 | Kept; the repo `CLAUDE.md` corrected. |
+| F2 | Google Ads click ID before consent | Only after consent | Held in memory on landing, stored only once advertising cookies are allowed, deleted if consent is withdrawn. |
+| F3 | Handbook popup | Leave it off | Off. |
 
-## B. Single sentences used everywhere (`STATEMENTS`)
+## Still open
 
-| # | Statement in use now | Question |
+| # | Item | What is needed |
 |---|---|---|
-| B1 | Fees: "Our fees are typically recovered from the improved rent or one-off payment we secure for you. We operate on a performance basis where possible." (the homepage FAQ wording) | Is this the approved fee sentence? The site also said "no-win, no-fee basis for most instructions" (operator pages, now gone) and "In most cases, we operate on a no-win, no-fee basis" (FAQ page, replaced by this sentence). The Robert Kell testimonial also says "they operate on a no-win, no-fee basis". If no-win, no-fee is accurate, say so and the sentence changes everywhere; if it is not, decide whether that testimonial should still be featured (it is the client's own words and was not edited). |
-| B2 | Service area: "We advise landlords and landowners across England and Wales." | Do you take instructions in Scotland and Northern Ireland? If yes, the sentence and `areaServed` become "the UK". The guides explain the law of England and Wales either way. |
-| B3 | Independence: "We act only for landlords and site owners, never for operators." | Confirm (unchanged positioning). |
-
-## C. People and credentials
-
-| # | Question |
-|---|---|
-| C1 | Matt's career history for his profile: roles, firms and years. The profile now shows only verified facts: founder of the company, the Compton Beauchamp case, LinkedIn. |
-| C2 | Matt's qualifications (degree and subject) and professional memberships with numbers, if any, and whether he wants them shown. |
-| C3 | Other cases Matt worked on, with citations, so the profile can link to the judgments. |
-| C4 | Who reviews each service page? Service pages now say "By the Phone Mast Advice team, led by Matt Restall" with the last-reviewed date. Should a named reviewer appear on each? |
-| C5 | The rewritten rent and lease guides say "Written by Matt Restall" and show the last-reviewed date of this rewrite (24 November 2026). Please confirm Matt has read the guides (see `content-changes-for-review.md`) before they go live. |
-
-## D. Facts the operator and location pages carried
-
-| # | Item | Question |
-|---|---|---|
-| D1 | "CTIL manages approximately 14,200 macro and 1,400 micro sites" | Current figures and source, or leave out (left out now). |
-| D2 | "CTIL is jointly owned by Vodafone and O2" | Still accurate? The hub now says only that CTIL manages the infrastructure Vodafone and O2 share. |
-| D3 | Airwave: "owned by Motorola Solutions" and "being migrated to the Emergency Services Network, which affects lease duration and renewal" | Both are time-sensitive; confirm the current position before they return. |
-| D4 | Location pages: anonymous testimonials ("Commercial Property Manager, Central London" and two others) | Who said them? With a name and permission they can return; without, they stay off. |
-| D5 | Location pages: "Our London team advises landlords across Greater London, the Home Counties and the South East", "Bristol and South West landlords", "historic market town" | Is there a team at each office? Ties to A6. |
-| D6 | WhatsApp number | The site links to **07843 352654**; the repo's `CLAUDE.md` lists **447782412130**. Which is current? |
-
-## E. Legal statements not verified (kept off the guides)
-
-| # | Statement | What is needed |
-|---|---|---|
-| E1 | *CTIL v Firoka (Kings Cross) Ltd* (2025): "a hotel owner defeated a rooftop installation application on genuine redevelopment grounds" | Neutral citation or Tribunal reference. Not found on Find Case Law. |
-| E2 | *On Tower v BT* "is now before the Supreme Court" | Confirmation that permission to appeal was granted, with the UKSC case reference. |
-| E3 | *Vodafone v Potting Shed* [2023] EWCA Civ 825 summary (operator taking an assignment keeps Paragraph 33 renewal rights) | The judgment is about a concurrent lease to AP Wireless. Matt to say what point the site should make, if any. |
-| E4 | *Vache Farm*: "the Tribunal imposed a landlord's redevelopment break from the fifth anniversary on 18 months' notice, not limited to non-telecoms redevelopment" | Paragraph reference in [2024] UKUT 216 (LC). The parties agreed the ten-year term, the operator break and the RPI review; this item is about what the Tribunal decided on the disputed break. |
-| E5 | "Over a thousand Tribunal cases filed under the new Code, compared with 33 in 30 years under the old code" | Source. |
-| E6 | *Marks & Spencer* (LTS/ECC/2019/34) | A link to the Lands Tribunal for Scotland decision, if Matt has one. It is cited without a link for now. |
-| E7 | *Hanover Capital* [2020] EW Misc 18 (CC) | BAILII blocks automated access, so the link was not opened. A person can open https://www.bailii.org/ew/cases/Misc/2020/18.html and confirm. |
-| E8 | legislation.gov.uk links (Schedule 3A, DEA 2017, LTA 1954 and s.34A, PSTI Act 2022, Telecommunications Act 1984 Sch 2) | legislation.gov.uk refuses automated requests. A person should open each URL in `src/content/legal.ts` and add `verifiedOn: "YYYY-MM-DD"`; the guides then link them automatically. |
-
-## F. Consent and tracking
-
-| # | Item | Question |
-|---|---|---|
-| F1 | Google tags now load only after consent (basic Consent Mode). Visitors who decline send nothing, so Google Ads conversion modelling for them stops. | Confirm this is acceptable; it is what UK GDPR and PECR, and the brief, require. |
-| F2 | `ClickIdCapture` stores the Google Ads click ID (`gclid`) in sessionStorage before consent, so it can be attached to a form submission. | This is first-party storage for advertising measurement. It was left unchanged because it affects lead attribution, but under PECR it arguably needs consent. Legal call for Matt or his adviser. |
-| F3 | The handbook popup (exit intent, 45 % scroll) was removed with the sticky bars. | Fine to leave it off? The handbook page and its form are unchanged. |
+| A4b | RICS register link for Andrew Chinn | His RICS membership number, so the page can link to the register entry. The claim is shown without a link meanwhile. |
+| A9 | "Represented landlords ... from individual rural landowners to large corporate property portfolios ... one of the most comprehensive databases of comparable deals" | Agreement to a factual wording without the superlative. Off the site. |
+| A10 | "Large corporations such as supermarket chains and Local Authorities" | Whether these client types can be named publicly. Off the site. |
+| A11 | Mark Dernes: "over four decades", "both of the UK's leading mast investment companies" | His wording and dates. Off the site. |
+| C1 | Matt's career history (roles, firms, years) | For his profile. The profile shows only confirmed facts. |
+| C4 | Named reviewer per service page | Service pages say "By the Phone Mast Advice team, led by Matt Restall". |
+| D1–D3 | CTIL site counts, CTIL ownership, Airwave ownership and migration | Current figures and sources. Off the operators hub. |
+| E1–E7 | Unverified legal statements (*Firoka*, *On Tower v BT* in the Supreme Court, *Potting Shed* summary, *Vache Farm* break terms, the "thousand cases" figure, *Marks & Spencer* link, *Hanover Capital* link) | As listed in `content-changes-for-review.md`. All are off the site or cited without a link. |
+| E8 | legislation.gov.uk links | legislation.gov.uk refuses automated requests and the Chrome check could not run (no browser accepted the connection request). A person should open each URL in `LEGISLATION` (`src/content/legal.ts`) and add `verifiedOn`; the guides then link them. The other legislation.gov.uk links on the Code, Section 26 and service pages were already on the live site and are unchanged. |
+| G1 | Google Business Profile address | The profile link Matt gave opens a place pinned at Great Portland Street, London. If clients cannot visit, the profile should be a service-area business with the address hidden (see `offsite-checklist.md`). |

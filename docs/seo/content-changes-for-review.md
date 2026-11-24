@@ -13,6 +13,11 @@ moved or removed. Nothing here should go live until Matt has read it.
 **How to sign off.** Reply "approved" per item, or with the wording you want, then record the sign-off date
 in `src/seo/routes.ts` (`lastReviewed`) and in `tests/guide-freeze.test.ts` if a locked field changes.
 
+> **Signed off.** Matt approved every item in sections 1 to 6 **as written** on 24 November 2026, in the
+> review run in the terminal session ("Approved as written"). Section 7 lists the statements written with
+> him that day; each is his chosen wording. Items marked **X** stay off the site until the open questions in
+> `needs-owner-confirmation.md` are answered.
+
 ---
 
 ## 1. Rent guide, `/phone-mast-rent/`
@@ -147,3 +152,13 @@ replaces "Proposed merger with Vodafone UK was subject to regulatory scrutiny".
 
 The Compton Beauchamp description is the same sentence as in 1.3n. Everything else removed from these
 pages was a marketing claim, not law. See `needs-owner-confirmation.md`.
+
+## 7. Wording agreed with Matt on 24 November 2026
+
+| Where | Old | New | |
+|---|---|---|---|
+| Homepage, About, Matt's profile, team, blog author box | "Matt Restall instigated and advised on the Compton Beauchamp case in the Supreme Court. The Supreme Court confirmed that operators with existing agreements protected by the Landlord and Tenant Act 1954 must renew under that Act and cannot use the Code to impose new agreements on different terms." | Heading "The firm behind the Compton Beauchamp case". "We instigated and oversaw *Cornerstone v Compton Beauchamp Estates* [2022] UKSC 18, in which the Supreme Court confirmed that operators with leases protected by the Landlord and Tenant Act 1954 must renew under that Act." | **R**, Matt's version 1. Same holding as 1.3n, shortened; the citation links to the judgment. |
+| Every page that mentions fees | "Our fees are typically recovered from the improved rent or one-off payment we secure for you. We operate on a performance basis where possible." | "Our fees are incentivised and tied to the results we achieve for you. We seek a contribution from the operator wherever the law allows, but we are never solely dependent on it, so our advice always remains entirely independent in your interest." | Matt's wording. "Wherever the law allows" refers to the professional fees an operator can be required to meet, for example under Paragraph 84 of the Code (see 1.3h). |
+| FAQ, "How do we charge?" | "Additionally, our fees are designed to be incentivised, meaning that if we secure a higher rent ..." | "For example, if we secure a higher rent or recover backdated payments for a client, we receive a one-off payment or a small percentage of the amount gained." | **R**: the "incentivised" sentence now repeats the fee sentence, so only the example is kept. |
+| Lease renewals, FAQ | Seven questions as open headings, one answer ending "Read the ECC legislation on legislation.gov.uk" | The same seven questions and answers, as an accordion built from the same data as the FAQPage markup; the unverified legislation.gov.uk link is removed | **R** |
+| Privacy policy, "Who we are" | "Our registered office is at: 167-169 Great Portland Street, 5th Floor, London, W1W 5PF." | "Registered office: The Bristol Office, 2nd Floor, 5 High Street, Westbury on Trym, Bristol BS9 3BY." | **C**: matches Companies House (company 13115582). |
