@@ -83,10 +83,22 @@ export const CASES = {
   marksSpencer: {
     shortName: "Marks & Spencer",
     parties: "Cornerstone Telecommunications Infrastructure Ltd v Marks & Spencer plc",
-    citation: "LTS/ECC/2019/34",
+    // The Tribunal's own reference. Affinity Water (paragraph 29) cites it as LTS/ECC/2019/34.
+    citation: "LTS/ECC/2020/34",
     court: "Lands Tribunal for Scotland",
     year: 2021,
-    // No official copy found online; the decision is summarised in Affinity Water at paragraph 31.
+    // The Tribunal's site serves this page over http only (its https certificate is for another host).
+    url: "http://www.lands-tribunal-scotland.org.uk/decisions/LTS.ECC.2020.34.a.html",
+    verifiedOn: "2026-11-24",
+  },
+  firoka: {
+    shortName: "CTIL v Firoka",
+    parties: "Cornerstone Telecommunications Infrastructure Ltd v Firoka (Kings Cross) Ltd",
+    citation: "BIR/00CN/ERO/2025/0637",
+    court: "First-tier Tribunal (Property Chamber)",
+    year: 2025,
+    url: "https://www.gov.uk/residential-property-tribunal-decisions/bir-slash-00cn-slash-ero-slash-2025-slash-0637-cornerstone-telecommunicationsinfrastructure-limited-v-firoka-kings-cross-limited",
+    verifiedOn: "2026-11-24",
   },
   islington: {
     shortName: "Islington",

@@ -118,7 +118,9 @@ export default function PhoneMastLeasePage() {
           <p>
             The Code sets no minimum or maximum term. In <CaseRef id="vacheFarm" />, for example, the parties agreed a ten-year lease with a
             break for the operator and an RPI rent review after five years, and asked the Tribunal to decide the rent and whether the
-            landowner should have a right to end the lease for redevelopment.
+            landowner should have a right to end the lease for redevelopment. The Tribunal gave the landowner that right: it may end the
+            lease on 18 months&rsquo; notice expiring on the fifth or any later anniversary, if it intends to redevelop and could not
+            reasonably do so while the lease continues. The Tribunal did not limit the right to redevelopment for non-telecoms uses.
           </p>
           <p>
             A mast lease <strong>does not end when its term expires</strong>. Under Paragraph 30 it carries on until it is brought to an end
@@ -130,7 +132,11 @@ export default function PhoneMastLeasePage() {
           <p>
             Break clauses must be followed to the letter. In <CaseRef id="onTowerBt" /> the Court of Appeal held that where a site provider
             relies on a contractual break clause, every requirement of the clause must be met. BT&rsquo;s break notice was invalid because it
-            relied on a termination right BT was not entitled to use.
+            relied on a termination right BT was not entitled to use. The Supreme Court{" "}
+            <a href="https://supremecourt.uk/cases/uksc-2025-0168" rel="noopener" target="_blank">
+              refused BT permission to appeal
+            </a>{" "}
+            on 27 November 2025, so the decision is final.
           </p>
           <p>
             If the operator wants new terms instead, it serves a Paragraph 33 notice or, for a 1954 Act lease, a Section 26 request. Our{" "}
@@ -235,11 +241,19 @@ export default function PhoneMastLeasePage() {
               <li>
                 <span className="case-name"><CaseRef id="vacheFarm" full /></span>
                 A renewal of a greenfield site in which the parties agreed a ten-year term, an operator break and an RPI review after five
-                years. The Tribunal set the rent at {rentFigure("vacheFarm")} a year.
+                years. The Tribunal set the rent at {rentFigure("vacheFarm")} a year and gave the landowner a redevelopment break on 18
+                months&rsquo; notice from the fifth anniversary.
               </li>
               <li>
                 <span className="case-name"><CaseRef id="onTowerBt" full /></span>
                 A site provider relying on a contractual break clause to found a Paragraph 31 notice must comply strictly with the clause.
+                The Supreme Court refused permission to appeal in November 2025.
+              </li>
+              <li>
+                <span className="case-name"><CaseRef id="pottingShed" full /></span>
+                Where a landowner grants another company, such as a mast investment firm, a lease that sits between it and the operator
+                (a concurrent lease), that company is a party to the operator&rsquo;s agreement for the purposes of the Code, so the
+                Part 5 renewal procedure applies between the operator and that company.
               </li>
               <li>
                 <span className="case-name"><CaseRef id="daleParkAppeal" full /></span>
@@ -249,6 +263,12 @@ export default function PhoneMastLeasePage() {
               <li>
                 <span className="case-name"><CaseRef id="meyrickEstate" full /></span>
                 The redevelopment test under Paragraph 21(5): a firm, settled and unconditional intention, with a reasonable prospect of carrying it out.
+              </li>
+              <li>
+                <span className="case-name"><CaseRef id="firoka" full /></span>
+                The test applied in a landowner&rsquo;s favour: the First-tier Tribunal dismissed an operator&rsquo;s application for a
+                rooftop site on a London hotel because the owner intended to redevelop the rooftop and could not reasonably do so if the
+                order were made.
               </li>
               <li>
                 <span className="case-name"><CaseRef id="comptonBeauchamp" full /></span>

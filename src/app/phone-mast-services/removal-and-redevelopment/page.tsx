@@ -2,6 +2,7 @@ import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import ReviewedBy from "@/components/guide/ReviewedBy";
+import { CaseRef } from "@/components/guide/Sources";
 import StructuredData from "@/components/seo/StructuredData";
 import { service } from "@/seo/schema";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -43,7 +44,7 @@ const faqs = [
   {
     question: "What counts as redevelopment for a phone mast termination?",
     answer:
-      "The landowner must show a firm, settled, and unconditional intention to redevelop all or part of the land, or neighbouring land, and that the redevelopment could not reasonably be carried out unless the Code agreement ends. Planning permission, funding, and a realistic programme all strengthen the case. The test was confirmed in EE Ltd v Sir James Chichester [2019] UKUT 164 (LC) and applied again in CTIL v Firoka (Kings Cross) in 2025, where a hotel owner defeated a rooftop application on genuine redevelopment grounds.",
+      "The landowner must show a firm, settled, and unconditional intention to redevelop all or part of the land, or neighbouring land, and that the redevelopment could not reasonably be carried out unless the Code agreement ends. Planning permission, funding, and a realistic programme all strengthen the case. The test was confirmed in EE Ltd v Sir James Chichester [2019] UKUT 164 (LC) and applied by the First-tier Tribunal in CTIL v Firoka (Kings Cross) Ltd in November 2025, where a hotel owner defeated a rooftop application on genuine redevelopment grounds.",
   },
   {
     question: "Who pays to remove the mast and restore my land?",
@@ -148,7 +149,7 @@ export default function Page() {
 
           <h2 style={h2}>What do I need to prove for the redevelopment ground?</h2>
           <p style={p}>
-            The Tribunal looks for a firm, settled, and unconditional intention to redevelop, and a reasonable prospect of carrying it out. Evidence that carries weight includes planning permission or a credible application, funding, professional appointments, board or trustee resolutions, and a programme showing why the mast must go. The test was confirmed in <em>EE Ltd v Sir James Chichester</em> [2019] UKUT 164 (LC) and applied in <em>CTIL v Firoka (Kings Cross) Ltd</em> (2025), where a hotel owner succeeded against a rooftop application on genuine redevelopment grounds.
+            The Tribunal looks for a firm, settled, and unconditional intention to redevelop, and a reasonable prospect of carrying it out. Evidence that carries weight includes planning permission or a credible application, funding, professional appointments, board or trustee resolutions, and a programme showing why the mast must go. The test was confirmed in <em>EE Ltd v Sir James Chichester</em> [2019] UKUT 164 (LC) and applied by the First-tier Tribunal in <CaseRef id="firoka" /> (November 2025), where a hotel owner succeeded against a rooftop application on genuine redevelopment grounds.
           </p>
           <p style={p}>
             The same ground appears in Paragraph 21(5) as a defence when an operator applies for a new agreement, so landowners with building plans should raise it at the earliest opportunity.

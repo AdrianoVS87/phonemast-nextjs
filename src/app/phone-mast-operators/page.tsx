@@ -48,6 +48,20 @@ export default function OperatorsPage() {
               {o.about.map((paragraph) => (
                 <p key={paragraph}>{paragraph}</p>
               ))}
+              {o.sources ? (
+                <p className="operator-sources">
+                  Sources:{" "}
+                  {o.sources.map((s, i) => (
+                    <span key={s.href}>
+                      {i > 0 ? "; " : ""}
+                      <a href={s.href} rel="noopener" target="_blank">
+                        {s.label}
+                      </a>
+                    </span>
+                  ))}
+                  .
+                </p>
+              ) : null}
               {o.related ? (
                 <p>
                   Read more: <Link href={o.related.href}>{o.related.label}</Link>.

@@ -2,15 +2,16 @@
  * Who holds a phone mast lease. One entry per company, keyed by the hub anchor that the old operator
  * URLs redirect to (OPERATOR_SECTIONS in src/seo/redirects.ts).
  *
- * Only facts that were already on the site and are stable are kept. Time-sensitive ones that the old
- * pages carried (site counts, Airwave's ownership and the Emergency Services Network timetable) are
- * listed in docs/seo/needs-owner-confirmation.md instead.
+ * Facts that change (ownership, site counts) carry the source they were checked against on
+ * 24 Nov 2026, shown under the section. Re-check them when the page is next reviewed.
  */
 export interface OperatorEntry {
   readonly id: string;
   readonly name: string;
   /** Plain-English paragraphs about the company and how leases are held. */
   readonly about: readonly string[];
+  /** Where the changeable facts in `about` were checked. */
+  readonly sources?: readonly { readonly label: string; readonly href: string }[];
   readonly related?: { readonly label: string; readonly href: string };
 }
 
@@ -53,6 +54,13 @@ export const OPERATORS: readonly OperatorEntry[] = [
     name: "CTIL (Cornerstone)",
     about: [
       "CTIL and Cornerstone are the same company: Cornerstone Telecommunications Infrastructure Limited is the legal name and Cornerstone the brand. It manages the mast infrastructure that Vodafone and O2 share.",
+      "Cornerstone was set up in 2012 as a joint venture between Vodafone and O2. Vodafone moved its half to Vantage Towers in 2021. Virgin Media O2 has since sold part of its half to the infrastructure investors GLIL (2023) and Equitix (agreed in 2024), keeping about a quarter of the company.",
+      "Vantage Towers reported 15,604 Cornerstone macro sites at 31 March 2024.",
+    ],
+    sources: [
+      { label: "Virgin Media O2, 31 October 2023", href: "https://news.virginmediao2.co.uk/virgin-media-o2-sells-minority-stake-in-cornerstone-to-glil-infrastructure/" },
+      { label: "Virgin Media O2, 30 October 2024", href: "https://news.virginmediao2.co.uk/virgin-media-o2-sells-additional-stake-in-cornerstone-to-equitix/" },
+      { label: "Vantage Towers", href: "https://www.vantagetowers.com/en/joint-ventures-and-associates" },
     ],
     related: { label: "The Compton Beauchamp case against CTIL", href: "/blog/compton-beauchamp-supreme-court-phone-mast-case/" },
   },
@@ -77,6 +85,11 @@ export const OPERATORS: readonly OperatorEntry[] = [
     name: "Airwave Solutions",
     about: [
       "Airwave Solutions runs the Airwave network, the TETRA radio system used by the police, fire and ambulance services. Its masts serve the emergency services rather than mobile phone customers.",
+      "Airwave is owned by Motorola Solutions. The Home Office is building the Emergency Services Network, which runs on EE's 4G network, to replace Airwave across Great Britain.",
+    ],
+    sources: [
+      { label: "Competition and Markets Authority, 5 April 2023", href: "https://www.gov.uk/government/news/price-cap-on-airwave-network-only-option-to-reduce-cost-to-emergency-services" },
+      { label: "Home Office, Emergency Services Network overview", href: "https://www.gov.uk/government/publications/the-emergency-services-mobile-communications-programme/emergency-services-network" },
     ],
   },
   {
