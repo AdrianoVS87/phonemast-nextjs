@@ -14,34 +14,23 @@ export default function TestimonialCard({
   rating = 5,
 }: TestimonialCardProps) {
   const verified = confirmedClaim("verifiedTestimonials");
+  const stars = Math.max(0, Math.min(5, Math.round(rating)));
+  const initials = name
+    .split(" ")
+    .map((n) => n[0])
+    .join("")
+    .toUpperCase()
+    .slice(0, 2);
   return (
-    <div
-      className="card"
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        height: "100%",
-      }}
-    >
-      {/* Stars — large and prominent */}
-      <div
-        style={{ display: "flex", gap: "0.2rem", marginBottom: "0.625rem" }}
-        role="img"
-        aria-label={`Rated ${rating} out of 5 stars`}
-      >
-        {Array.from({ length: 5 }).map((_, i) => (
-          <span
-            key={i}
-            style={{
-              color: i < rating ? "#f59e0b" : "#d1d5db",
-              fontSize: "1.375rem",
-            }}
-            aria-hidden="true"
-          >
-            ★
+    <div className="card testimonial-card">
+      <p className="testimonial-stars" role="img" aria-label={`Rated ${stars} out of 5 stars`}>
+        <span aria-hidden="true">{"★".repeat(stars)}</span>
+        {stars < 5 ? (
+          <span aria-hidden="true" className="testimonial-stars-off">
+            {"★".repeat(5 - stars)}
           </span>
-        ))}
-      </div>
+        ) : null}
+      </p>
 
       {verified ? (
         <p className="verified-badge">
@@ -49,75 +38,15 @@ export default function TestimonialCard({
         </p>
       ) : null}
 
-      {/* Quote */}
-      <blockquote
-        style={{
-          margin: 0,
-          padding: 0,
-          color: "#374151",
-          fontSize: "1.0625rem",
-          lineHeight: 1.7,
-          flexGrow: 1,
-          fontStyle: "italic",
-          marginBottom: "1.5rem",
-        }}
-      >
-        &ldquo;{quote}&rdquo;
-      </blockquote>
+      <blockquote className="testimonial-quote">&ldquo;{quote}&rdquo;</blockquote>
 
-      {/* Attribution */}
-      <footer
-        style={{
-          display: "flex",
-          alignItems: "center",
-          gap: "0.75rem",
-        }}
-      >
-        {/* Initials avatar */}
-        <div
-          style={{
-            width: "2.5rem",
-            height: "2.5rem",
-            borderRadius: "50%",
-            backgroundColor: "#042b4d",
-            color: "#ffffff",
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            fontWeight: 700,
-            fontSize: "0.875rem",
-            flexShrink: 0,
-          }}
-          aria-hidden="true"
-        >
-          {name
-            .split(" ")
-            .map((n) => n[0])
-            .join("")
-            .toUpperCase()
-            .slice(0, 2)}
+      <footer className="testimonial-by">
+        <div className="testimonial-initials" aria-hidden="true">
+          {initials}
         </div>
         <div>
-          <p
-            style={{
-              fontWeight: 700,
-              fontSize: "0.9375rem",
-              color: "#1a1a2e",
-              margin: 0,
-              lineHeight: 1.3,
-            }}
-          >
-            {name}
-          </p>
-          <p
-            style={{
-              fontSize: "0.875rem",
-              color: "#4b5563",
-              margin: 0,
-            }}
-          >
-            {county}
-          </p>
+          <p className="testimonial-name">{name}</p>
+          <p className="testimonial-county">{county}</p>
         </div>
       </footer>
     </div>
