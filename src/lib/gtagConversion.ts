@@ -10,9 +10,8 @@ import { claimFormConversion, type SessionStore } from "./conversionDedupe";
  *  - the rules in conversionDedupe.ts say no: no server id (silent spam drop),
  *    or this form kind already counted this session
  *
- * gtag is defined by <ConsentDefault /> for every visitor, so this also runs when
- * advertising was denied. Consent Mode then decides what is sent: a full conversion
- * after consent, otherwise a cookieless ping that Ads can only model.
+ * gtag exists only after the visitor has granted consent in the cookie banner
+ * (src/lib/googleTags.ts), so without consent nothing is sent at all.
  *
  * The server id goes out as `transaction_id`, so Ads also dedupes on its side.
  */

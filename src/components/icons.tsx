@@ -1,7 +1,7 @@
 /**
  * Small inline SVG icons for the Nov 2026 redesign. All paths were drawn for this site
  * (design package of 5 Nov 2026) except the WhatsApp glyph, which is the standard
- * click-to-chat mark already used by WhatsAppButton.tsx.
+ * standard click-to-chat mark.
  */
 interface IconProps {
   size?: number;
