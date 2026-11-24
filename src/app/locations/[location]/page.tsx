@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
@@ -12,8 +14,6 @@ interface LocationData {
   address: string;
   postcode: string;
   addressFull: string;
-  metaTitle: string;
-  metaDescription: string;
   heroHeadline: string;
   heroSubheadline: string;
   intro: string[];
@@ -30,10 +30,7 @@ const locations: Record<string, LocationData> = {
     address: "167-169 Great Portland Street, 5th Floor",
     postcode: "W1W 5PF",
     addressFull: "167-169 Great Portland Street, 5th Floor, London, W1W 5PF",
-    metaTitle: "Phone Mast Lease Advice London | Expert Surveyors W1W 5PF",
-    metaDescription:
-      "Phone mast lease advice from our London office. Independent UK landlord specialists at 167-169 Great Portland Street, W1W 5PF. Free consultation — 01691 791543.",
-    heroHeadline: "Phone Mast Lease Advice — London Office",
+    heroHeadline: "Phone mast advice in London",
     heroSubheadline:
       "Independent specialist surveyors acting for London and South East landlords. Office in the heart of London's West End.",
     intro: [
@@ -65,10 +62,7 @@ const locations: Record<string, LocationData> = {
     address: "5 High Street, Westbury on Trym, 2nd Floor",
     postcode: "BS9 3BY",
     addressFull: "The Bristol Office, 2nd Floor, 5 High Street, Westbury on Trym, Bristol, BS9 3BY",
-    metaTitle: "Phone Mast Lease Advice Bristol | Expert Surveyors BS9 3BY",
-    metaDescription:
-      "Phone mast lease advice from our Bristol office. Independent landlord specialists at 5 High Street, Westbury on Trym, BS9 3BY. Free consultation — 01691 791543.",
-    heroHeadline: "Phone Mast Lease Advice — Bristol Office",
+    heroHeadline: "Phone mast advice in Bristol",
     heroSubheadline:
       "Independent specialist surveyors advising Bristol and South West landlords from our Westbury on Trym office.",
     intro: [
@@ -100,10 +94,7 @@ const locations: Record<string, LocationData> = {
     address: "The Fort Offices, Artillery Business Park",
     postcode: "SY11 4AD",
     addressFull: "The Fort Offices, Artillery Business Park, Oswestry, SY11 4AD",
-    metaTitle: "Phone Mast Lease Advice Oswestry | Expert Surveyors SY11 4AD",
-    metaDescription:
-      "Phone mast lease advice from our Oswestry office. Independent landlord specialists at Artillery Business Park, SY11 4AD. Free consultation — 01691 791543.",
-    heroHeadline: "Phone Mast Lease Advice — Oswestry Office",
+    heroHeadline: "Phone mast advice in Oswestry",
     heroSubheadline:
       "Independent specialist surveyors advising landlords across Wales and the Welsh Borders from our Oswestry base.",
     intro: [
@@ -137,27 +128,12 @@ export function generateStaticParams() {
 
 // ── Metadata ──────────────────────────────────────────────────────────────────
 
-export async function generateMetadata({
-  params,
-}: {
-  params: Promise<{ location: string }>;
-}): Promise<Metadata> {
+const ROUTE_IDS = { london: "london", bristol: "bristol", oswestry: "oswestry" } as const;
+
+export async function generateMetadata({ params }: { params: Promise<{ location: string }> }): Promise<Metadata> {
   const { location } = await params;
-  const data = locations[location];
-  if (!data) return {};
-  return {
-    title: data.metaTitle,
-    description: data.metaDescription,
-    alternates: {
-      canonical: `https://www.phonemastadvice.co.uk/locations/${data.slug}`,
-    },
-    openGraph: {
-      title: data.metaTitle,
-      description: data.metaDescription,
-      url: `https://www.phonemastadvice.co.uk/locations/${data.slug}`,
-      type: "website",
-    },
-  };
+  const id = ROUTE_IDS[location as keyof typeof ROUTE_IDS];
+  return id ? buildMetadata(ROUTES[id]) : {};
 }
 
 // ── Page component ────────────────────────────────────────────────────────────
@@ -208,7 +184,7 @@ export default async function LocationPage({
 
       <Breadcrumbs
         items={[
-          { label: "Locations", href: "/locations/" },
+          { label: "Contact", href: "/contact/" },
           { label: data.city },
         ]}
       />

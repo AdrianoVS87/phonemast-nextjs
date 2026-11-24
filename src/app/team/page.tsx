@@ -1,20 +1,11 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Our Team | Phone Mast Advice Experts & RICS Surveyors",
-  description:
-    "Meet the phone mast advice team at The Phone Mast Advice Company. RICS registered surveyors and telecom property experts acting exclusively for UK landlords.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/team/" },
-  openGraph: {
-    title: "Our Team — Phone Mast Advice Company",
-    description:
-      "Phone mast advice experts and RICS registered surveyors. Founded by Matt Restall — involved in landmark case Compton Beauchamp Estates v CTIL [2022] UKSC 18.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.team);
 
 interface TeamMember {
   name: string;

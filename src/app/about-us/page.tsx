@@ -1,21 +1,12 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import JsonLd from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "About Us — UK Phone Mast Specialists",
-  description:
-    "Independent phone mast advice specialists with 30+ years experience advising UK landlords on leases, rent, renewals, and landmark telecoms disputes.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/about-us/" },
-  openGraph: {
-    title: "About The Phone Mast Advice Company Ltd",
-    description:
-      "Independent phone mast advice specialists acting only for UK landlords since 1999. RICS credentials, landmark case involvement, 10,000+ deals.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.about);
 
 export default function AboutPage() {
   return (

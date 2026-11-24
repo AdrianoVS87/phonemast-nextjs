@@ -1,13 +1,9 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 
-export const metadata: Metadata = {
-  title: "Disclaimer | The Phone Mast Advice Company Ltd",
-  description:
-    "Website disclaimer and terms of use for The Phone Mast Advice Company Ltd. Information provided on this site is for general guidance only.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/disclaimer/" },
-  robots: { index: false },
-};
+export const metadata = buildMetadata(ROUTES.disclaimer);
 
 export default function DisclaimerPage() {
   return (

@@ -30,6 +30,7 @@ const route = (entry: RouteEntry): RouteEntry => entry;
 export const ROUTES = {
   home: route({
     path: "/",
+    lastReviewed: "2026-11-24",
     kind: "home",
     primaryQuery: "phone mast advice",
     title: "Phone Mast Advice | Independent Help for Mast Landlords",
@@ -68,6 +69,7 @@ export const ROUTES = {
   }),
   services: route({
     path: "/phone-mast-services/",
+    lastReviewed: "2026-09-15",
     kind: "hub",
     primaryQuery: "phone mast services",
     title: "Services for Phone Mast Landlords | Phone Mast Advice",
@@ -84,6 +86,7 @@ export const ROUTES = {
   }),
   leaseRenewals: route({
     path: "/phone-mast-services/lease-renewals/",
+    lastReviewed: "2026-10-19",
     kind: "service",
     primaryQuery: "phone mast lease renewal",
     title: "Phone Mast Lease Renewal Service | Phone Mast Advice",
@@ -92,6 +95,7 @@ export const ROUTES = {
   }),
   newLettings: route({
     path: "/phone-mast-services/new-lettings/",
+    lastReviewed: "2026-10-19",
     kind: "service",
     primaryQuery: "new phone mast on my land",
     title: "New Phone Mast on Your Land? Letting Advice",
@@ -100,6 +104,7 @@ export const ROUTES = {
   }),
   mastSales: route({
     path: "/phone-mast-services/mast-sales/",
+    lastReviewed: "2026-10-19",
     kind: "service",
     primaryQuery: "sell phone mast site",
     title: "Selling Your Mast Site Income | Phone Mast Advice",
@@ -108,6 +113,7 @@ export const ROUTES = {
   }),
   removal: route({
     path: "/phone-mast-services/removal-and-redevelopment/",
+    lastReviewed: "2026-10-19",
     kind: "service",
     primaryQuery: "phone mast removal redevelopment",
     title: "Removing a Phone Mast to Redevelop | Phone Mast Advice",
@@ -116,6 +122,7 @@ export const ROUTES = {
   }),
   electricity: route({
     path: "/phone-mast-services/electricity-costs-recovery/",
+    lastReviewed: "2026-10-19",
     kind: "service",
     primaryQuery: "phone mast electricity costs",
     title: "Recover Phone Mast Electricity Costs | Phone Mast Advice",
@@ -124,6 +131,7 @@ export const ROUTES = {
   }),
   otherServices: route({
     path: "/phone-mast-services/other-services/",
+    lastReviewed: "2026-10-19",
     kind: "service",
     primaryQuery: "phone mast wayleave",
     title: "Wayleaves, Lift and Shift, Site Audits | Phone Mast Advice",
@@ -132,6 +140,7 @@ export const ROUTES = {
   }),
   leaseRetrievals: route({
     path: "/phone-mast-services/lease-retrievals/",
+    lastReviewed: "2026-10-19",
     kind: "service",
     primaryQuery: "lost phone mast lease",
     title: "Lost Your Phone Mast Lease? Lease Retrieval",
@@ -140,6 +149,7 @@ export const ROUTES = {
   }),
   solicitors: route({
     path: "/phone-mast-solicitors/",
+    lastReviewed: "2026-10-19",
     kind: "guide",
     primaryQuery: "phone mast solicitor",
     title: "Phone Mast Solicitor or Surveyor: Who You Need",
@@ -148,6 +158,7 @@ export const ROUTES = {
   }),
   code: route({
     path: "/electronic-communications-code/",
+    lastReviewed: "2026-10-19",
     kind: "guide",
     primaryQuery: "electronic communications code",
     title: "Electronic Communications Code: Guide for Landowners",
@@ -156,6 +167,7 @@ export const ROUTES = {
   }),
   section26: route({
     path: "/section-26-notice/",
+    lastReviewed: "2026-10-19",
     kind: "guide",
     primaryQuery: "section 26 notice phone mast",
     title: "Section 26 Notice on a Phone Mast Lease",
@@ -164,6 +176,7 @@ export const ROUTES = {
   }),
   faq: route({
     path: "/faq/",
+    lastReviewed: "2026-10-19",
     kind: "company",
     primaryQuery: "phone mast questions",
     title: "Phone Mast Questions Answered | Phone Mast Advice",
@@ -171,6 +184,7 @@ export const ROUTES = {
   }),
   handbook: route({
     path: "/handbook/",
+    lastReviewed: "2026-10-19",
     kind: "form",
     primaryQuery: "phone mast landlord handbook",
     title: "Free Phone Mast Handbook for Landlords | Phone Mast Advice",
@@ -178,6 +192,7 @@ export const ROUTES = {
   }),
   about: route({
     path: "/about-us/",
+    lastReviewed: "2026-10-19",
     kind: "company",
     primaryQuery: "the phone mast advice company",
     title: "About The Phone Mast Advice Company",
@@ -185,6 +200,7 @@ export const ROUTES = {
   }),
   team: route({
     path: "/team/",
+    lastReviewed: "2026-10-19",
     kind: "company",
     primaryQuery: "phone mast advice team",
     title: "Our Team | Phone Mast Advice",
@@ -192,6 +208,7 @@ export const ROUTES = {
   }),
   mattRestall: route({
     path: "/team/matt-restall/",
+    lastReviewed: "2026-10-19",
     kind: "profile",
     primaryQuery: "matt restall",
     title: "Matt Restall, Founder | Phone Mast Advice",
@@ -200,6 +217,7 @@ export const ROUTES = {
   }),
   contact: route({
     path: "/contact/",
+    lastReviewed: "2026-09-15",
     kind: "contact",
     primaryQuery: "contact phone mast advice",
     title: "Contact Us | Phone Mast Advice",
@@ -207,6 +225,7 @@ export const ROUTES = {
   }),
   blog: route({
     path: "/blog/",
+    lastReviewed: "2026-11-24",
     kind: "index",
     primaryQuery: "phone mast news",
     title: "Phone Mast News and Case Notes | Phone Mast Advice",
@@ -214,6 +233,7 @@ export const ROUTES = {
   }),
   freeRentEstimate: route({
     path: "/free-rent-estimate/",
+    lastReviewed: "2026-09-15",
     kind: "form",
     primaryQuery: "phone mast rent estimate",
     title: "Free Phone Mast Rent Estimate | Phone Mast Advice",
@@ -221,6 +241,7 @@ export const ROUTES = {
   }),
   freeLeaseCheck: route({
     path: "/free-lease-check/",
+    lastReviewed: "2026-09-15",
     kind: "form",
     primaryQuery: "phone mast lease check",
     title: "Free Phone Mast Lease Check | Phone Mast Advice",
@@ -228,6 +249,7 @@ export const ROUTES = {
   }),
   london: route({
     path: "/locations/london/",
+    lastReviewed: "2026-09-15",
     kind: "location",
     primaryQuery: "phone mast advice london",
     title: "Phone Mast Advice in London | Phone Mast Advice",
@@ -235,6 +257,7 @@ export const ROUTES = {
   }),
   bristol: route({
     path: "/locations/bristol/",
+    lastReviewed: "2026-09-15",
     kind: "location",
     primaryQuery: "phone mast advice bristol",
     title: "Phone Mast Advice in Bristol | Phone Mast Advice",
@@ -242,6 +265,7 @@ export const ROUTES = {
   }),
   oswestry: route({
     path: "/locations/oswestry/",
+    lastReviewed: "2026-09-15",
     kind: "location",
     primaryQuery: "phone mast advice oswestry",
     title: "Phone Mast Advice in Oswestry | Phone Mast Advice",

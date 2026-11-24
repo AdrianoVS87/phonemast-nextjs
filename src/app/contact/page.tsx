@@ -1,29 +1,11 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import JsonLd from "@/components/JsonLd";
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description:
-    "Contact The Phone Mast Advice Company. Call 01691 791543, email info@phonemastadvice.co.uk or use our online form. Offices in London, Bristol and Oswestry.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/contact/" },
-  openGraph: {
-    title: "Contact Phone Mast Advice",
-    description: "Get in touch with our specialist phone mast surveyors — offices in London, Bristol and Oswestry.",
-    url: "https://www.phonemastadvice.co.uk/contact/",
-    images: [{ url: "/images/og-handbook.jpg", width: 1200, height: 630, alt: "Contact Phone Mast Advice" }],
-  },
-};
-
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Contact Us", item: "https://www.phonemastadvice.co.uk/contact/" },
-  ],
-};
+export const metadata = buildMetadata(ROUTES.contact);
 
 const offices = [
   {
@@ -49,10 +31,6 @@ const offices = [
 export default function ContactPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
       <JsonLd
         data={{
           type: "ProfessionalService",

@@ -1,69 +1,11 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import HandbookForm from "@/components/HandbookForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Free Phone Mast Handbook for UK Landlords (2026 Edition PDF)",
-  description:
-    "Download the free 2026 Phone Mast Landlord's Handbook (Version 2, May 2026). Written by specialist UK telecoms surveyors. Covers the Electronic Communications Code, the PSTI Act 2022, the Vache Farm £1,750 rent ruling, and the 7 April 2026 changes. Free PDF — emailed instantly.",
-  keywords: [
-    "phone mast handbook",
-    "phone mast landlord guide",
-    "phone mast lease handbook",
-    "phone mast rent handbook",
-    "Electronic Communications Code handbook",
-    "PSTI Act 2022 handbook",
-    "Vache Farm rent ruling",
-    "UK landlord telecoms guide",
-    "free phone mast PDF",
-    "phone mast lease advice UK",
-  ],
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/handbook/" },
-  openGraph: {
-    type: "article",
-    title: "Free Phone Mast Handbook for UK Landlords — 2026 Edition",
-    description:
-      "Free essential guide for UK phone mast landlords. Updated May 2026 for the PSTI Act 2022, Vache Farm ruling, and the 7 April 2026 changes. Download free PDF.",
-    url: "https://www.phonemastadvice.co.uk/handbook/",
-    siteName: "The Phone Mast Advice Company",
-    locale: "en_GB",
-    images: [
-      {
-        url: "https://www.phonemastadvice.co.uk/images/og-handbook.jpg",
-        width: 1200,
-        height: 630,
-        alt: "The Ultimate Phone Mast Landlord's Handbook — Version 2, May 2026",
-      },
-    ],
-  },
-  twitter: {
-    card: "summary_large_image",
-    title: "Free Phone Mast Handbook for UK Landlords — 2026 Edition",
-    description:
-      "Updated for the PSTI Act 2022, Vache Farm ruling, and the 7 April 2026 changes. Download free.",
-    images: ["https://www.phonemastadvice.co.uk/images/og-handbook.jpg"],
-  },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
-};
-
-const breadcrumbJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "BreadcrumbList",
-  itemListElement: [
-    { "@type": "ListItem", position: 1, name: "Home", item: "https://www.phonemastadvice.co.uk" },
-    { "@type": "ListItem", position: 2, name: "Handbook", item: "https://www.phonemastadvice.co.uk/handbook/" },
-  ],
-};
+export const metadata = buildMetadata(ROUTES.handbook);
 
 const bookJsonLd = {
   "@context": "https://schema.org",
@@ -147,10 +89,6 @@ const handbookTopics = [
 export default function HandbookPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
-      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }}

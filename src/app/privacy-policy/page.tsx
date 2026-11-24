@@ -1,3 +1,5 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import { Fragment } from "react";
@@ -27,13 +29,7 @@ function renderWithLinks(text: string) {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Privacy Policy | The Phone Mast Advice Company Ltd",
-  description:
-    "Privacy policy for The Phone Mast Advice Company Ltd. How we collect, use, and protect your personal data in accordance with UK GDPR and the Data Protection Act 2018.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/privacy-policy/" },
-  robots: { index: false },
-};
+export const metadata = buildMetadata(ROUTES.privacy);
 
 export default function PrivacyPolicyPage() {
   return (

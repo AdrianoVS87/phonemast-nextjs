@@ -5,9 +5,12 @@ export interface ServiceCardProps {
   title: string;
   description: string;
   href: string;
+  /** Heading level for the title: h2 when the cards sit directly under the page H1. */
+  headingLevel?: 2 | 3;
 }
 
-export default function ServiceCard({ icon, title, description, href }: ServiceCardProps) {
+export default function ServiceCard({ icon, title, description, href, headingLevel = 3 }: ServiceCardProps) {
+  const Heading = headingLevel === 2 ? "h2" : "h3";
   return (
     <div className="card" style={{ display: "flex", flexDirection: "column", height: "100%" }}>
       {/* Icon */}
@@ -29,7 +32,7 @@ export default function ServiceCard({ icon, title, description, href }: ServiceC
       </div>
 
       {/* Title */}
-      <h3
+      <Heading
         style={{
           fontFamily: "var(--font-jakarta), system-ui, sans-serif",
           fontWeight: 700,
@@ -40,7 +43,7 @@ export default function ServiceCard({ icon, title, description, href }: ServiceC
         }}
       >
         {title}
-      </h3>
+      </Heading>
 
       {/* Description */}
       <p

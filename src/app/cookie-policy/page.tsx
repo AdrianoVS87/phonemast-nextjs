@@ -1,3 +1,5 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
@@ -24,13 +26,7 @@ function renderWithLinks(text: string) {
   );
 }
 
-export const metadata: Metadata = {
-  title: "Cookie Policy | The Phone Mast Advice Company Ltd",
-  description:
-    "Cookie policy for The Phone Mast Advice Company Ltd. Information on cookies used on our website and how to manage them.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/cookie-policy/" },
-  robots: { index: false },
-};
+export const metadata = buildMetadata(ROUTES.cookies);
 
 export default function CookiePolicyPage() {
   return (

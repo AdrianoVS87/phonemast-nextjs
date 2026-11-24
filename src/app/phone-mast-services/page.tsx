@@ -1,14 +1,11 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import ServiceCard, { type ServiceCardProps } from "@/components/ServiceCard";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Phone Mast Services for UK Landlords",
-  description:
-    "Specialist phone mast services for UK landlords: rent reviews, lease renewals, new lettings, mast sales, removal and more. Independent advisors — never acting for operators.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/" },
-};
+export const metadata = buildMetadata(ROUTES.services);
 
 const services: ServiceCardProps[] = [
   { icon: "📋", title: "Rent Reviews", description: "Regularly benchmark and update your rental income using our extensive database of comparable UK deals.", href: "/phone-mast-services/rent-reviews/" },
@@ -36,7 +33,7 @@ export default function ServicesPage() {
             </p>
           </div>
           <div style={{ display: "grid", gap: "1.5rem", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))" }}>
-            {services.map((s) => <ServiceCard key={s.href} {...s} />)}
+            {services.map((s) => <ServiceCard key={s.href} {...s} headingLevel={2} />)}
           </div>
         </div>
       </section>

@@ -1,22 +1,13 @@
 /* eslint-disable @next/next/no-html-link-for-pages -- plain anchors, as on every other page of this site */
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: { absolute: "Matt Restall, Founder | Phone Mast Advice" },
-  description:
-    "Matt Restall founded The Phone Mast Advice Company and has advised UK landlords on phone mast leases, rents and renewals for over 30 years. He instigated and advised on Compton Beauchamp Estates v CTIL [2022] UKSC 18.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/team/matt-restall/" },
-  openGraph: {
-    title: "Matt Restall, Founder of The Phone Mast Advice Company",
-    description:
-      "Specialist telecoms surveyor acting only for UK landlords. Author of the phone mast lease and rent guides on this site.",
-    type: "profile",
-  },
-};
+export const metadata = buildMetadata(ROUTES.mattRestall);
 
 const LINKEDIN = "https://www.linkedin.com/in/matthew-restall-7a64669b/";
 
