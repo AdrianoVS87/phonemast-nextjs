@@ -152,9 +152,9 @@ export interface LegislationRecord {
   readonly title: string;
   readonly url: string;
   /**
-   * legislation.gov.uk refuses automated requests (AWS WAF challenge), so these links could not be
-   * opened from the build machine. They follow the site's documented URI scheme and are rendered
-   * only once a person has opened each one and set this date.
+   * legislation.gov.uk refuses automated requests (AWS WAF challenge, error 437), so a person opens each
+   * link in a browser and sets this date; only then is it rendered as a link. The six below were opened
+   * by Adriano on 24 Nov 2026 (from a UK connection).
    */
   readonly verifiedOn?: string;
 }
@@ -162,12 +162,12 @@ export interface LegislationRecord {
 const LEG = "https://www.legislation.gov.uk";
 
 export const LEGISLATION = {
-  code: { title: "Electronic Communications Code (Schedule 3A to the Communications Act 2003)", url: `${LEG}/ukpga/2003/21/schedule/3A` },
-  digitalEconomyAct: { title: "Digital Economy Act 2017", url: `${LEG}/ukpga/2017/30` },
-  landlordTenantAct1954: { title: "Landlord and Tenant Act 1954", url: `${LEG}/ukpga/Eliz2/2-3/56` },
-  section34A: { title: "Section 34A of the Landlord and Tenant Act 1954", url: `${LEG}/ukpga/Eliz2/2-3/56/section/34A` },
-  psti: { title: "Product Security and Telecommunications Infrastructure Act 2022", url: `${LEG}/ukpga/2022/46` },
-  telecomsAct1984: { title: "Telecommunications Act 1984, Schedule 2", url: `${LEG}/ukpga/1984/12/schedule/2` },
+  code: { title: "Electronic Communications Code (Schedule 3A to the Communications Act 2003)", url: `${LEG}/ukpga/2003/21/schedule/3A`, verifiedOn: "2026-11-24" },
+  digitalEconomyAct: { title: "Digital Economy Act 2017", url: `${LEG}/ukpga/2017/30`, verifiedOn: "2026-11-24" },
+  landlordTenantAct1954: { title: "Landlord and Tenant Act 1954", url: `${LEG}/ukpga/Eliz2/2-3/56`, verifiedOn: "2026-11-24" },
+  section34A: { title: "Section 34A of the Landlord and Tenant Act 1954", url: `${LEG}/ukpga/Eliz2/2-3/56/section/34A`, verifiedOn: "2026-11-24" },
+  psti: { title: "Product Security and Telecommunications Infrastructure Act 2022", url: `${LEG}/ukpga/2022/46`, verifiedOn: "2026-11-24" },
+  telecomsAct1984: { title: "Telecommunications Act 1984, Schedule 2 (repealed on 28 December 2017)", url: `${LEG}/ukpga/1984/12/schedule/2`, verifiedOn: "2026-11-24" },
 } as const satisfies Record<string, LegislationRecord>;
 
 export type LegislationId = keyof typeof LEGISLATION;

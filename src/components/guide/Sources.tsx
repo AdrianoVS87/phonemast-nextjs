@@ -1,4 +1,4 @@
-import { CASES, LEGISLATION, type CaseId, type LegislationId } from "@/content/legal";
+import { CASES, LEGISLATION, type CaseId, type LegislationId, type LegislationRecord } from "@/content/legal";
 
 /** A case named the same way everywhere: short name in italics, then the citation, linked when verified. */
 export function CaseRef({ id, full = false }: { id: CaseId; full?: boolean }) {
@@ -20,8 +20,9 @@ export function CaseRef({ id, full = false }: { id: CaseId; full?: boolean }) {
 
 /** An Act or provision. Linked only once a person has opened the legislation.gov.uk link (see legal.ts). */
 export function LawRef({ id }: { id: LegislationId }) {
-  const law = LEGISLATION[id];
-  return "verifiedOn" in law ? (
+  // Widened to the record type so the unverified branch stays valid when every current entry is verified.
+  const law: LegislationRecord = LEGISLATION[id];
+  return law.verifiedOn ? (
     <a href={law.url} rel="noopener" target="_blank">
       {law.title}
     </a>
