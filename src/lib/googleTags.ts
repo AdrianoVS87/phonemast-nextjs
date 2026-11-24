@@ -5,6 +5,8 @@
  *
  * Every visitor gets the same behaviour: nothing here looks at the user agent.
  */
+import { onAdvertisingConsent } from "./clickId";
+
 export interface ConsentPrefs {
   analytics: boolean;
   advertising: boolean;
@@ -66,6 +68,7 @@ export function applyConsent(prefs: ConsentPrefs): void {
   const gtag = ensureGtag();
   if (!loaded) gtag("consent", "default", { ...consentState({ analytics: false, advertising: false }), security_storage: "granted" });
   gtag("consent", "update", consentState(prefs));
+  onAdvertisingConsent(prefs.advertising);
   if (loaded || !(prefs.analytics || prefs.advertising)) return;
   loaded = true;
 
