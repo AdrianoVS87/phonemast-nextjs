@@ -19,13 +19,13 @@ interface HeroProps {
  * (/images/hero-mast-v2.png, AI-generated for this site; transparent fades on the left, top and right; renamed on each edit so image caches refresh).
  */
 export default function Hero({
-  headline = "Phone Mast Lease & Rent Advice for UK Landlords",
+  headline = "Independent phone mast advice, only for landlords",
   subheadline = "Independent specialist telecom surveyors acting only for UK landlords. Get expert help with phone mast leases, phone mast rent, renewals, reviews, and operator negotiations.",
   ctaText = "Free Lease Check",
   ctaHref = "/free-lease-check/",
   secondaryCtaText = "Free Rent Estimate",
   secondaryCtaHref = "/free-rent-estimate/",
-  highlight = "UK Landlords",
+  highlight = "only for landlords",
 }: HeroProps) {
   const cut = highlight && headline.endsWith(highlight) ? headline.length - highlight.length : -1;
 

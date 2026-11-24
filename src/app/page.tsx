@@ -1,4 +1,3 @@
-import type { Metadata } from "next";
 import Link from "next/link";
 import Hero from "@/components/Hero";
 import StatsBar from "@/components/StatsBar";
@@ -9,30 +8,17 @@ import TestimonialCard from "@/components/TestimonialCard";
 import TrustSignals from "@/components/TrustSignals";
 import CTASection from "@/components/CTASection";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
-import JsonLd from "@/components/JsonLd";
+import StructuredData from "@/components/seo/StructuredData";
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
+import { organization, website } from "@/seo/schema";
 import { sanityClient, testimonialsQuery, type Testimonial } from "@/lib/sanity";
 // AnimatedSection removed — Motion library's transform/opacity inline styles
 // created GPU compositor overhead in Chrome during scroll on macOS.
 
 export const revalidate = 60; // ISR — revalidate every 60 seconds
 
-export const metadata: Metadata = {
-  title: "Phone Mast Advice | Lease & Rent Advice for UK Landlords",
-  description:
-    "Independent phone mast advice for UK landlords. Expert help with phone mast lease advice, phone mast rent advice, renewals, rent reviews, and operator negotiations.",
-  alternates: {
-    canonical: "https://www.phonemastadvice.co.uk",
-  },
-  openGraph: {
-    title: "Phone Mast Advice | Lease & Rent Advice for UK Landlords",
-    description:
-      "Independent phone mast advice for UK landlords. Expert advice on phone mast leases, rents, renewals, and operator negotiations across the UK.",
-    url: "https://www.phonemastadvice.co.uk",
-    type: "website",
-    locale: "en_GB",
-    siteName: "Phone Mast Advice",
-  },
-};
+export const metadata = buildMetadata(ROUTES.home);
 
 const services: ServiceCardProps[] = [
   {
@@ -193,49 +179,13 @@ export default async function HomePage() {
 
   return (
     <>
-      {/* JSON-LD: WebSite */}
-      <JsonLd
-        data={{
-          type: "WebSite",
-          name: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk",
-          description: "Independent specialist telecom surveyors helping UK landlords with phone mast leases, rent reviews, and lease renewals.",
-        }}
-      />
-      {/* JSON-LD: LocalBusiness (3 offices) */}
-      <JsonLd
-        data={{
-          type: "LocalBusiness",
-          name: "The Phone Mast Advice Company Ltd",
-          telephone: "01691 791543",
-          email: "info@phonemastadvice.co.uk",
-          url: "https://www.phonemastadvice.co.uk",
-          offices: [
-            { streetAddress: "167-169 Great Portland Street, 5th Floor", addressLocality: "London", postalCode: "W1W 5PF" },
-            { streetAddress: "5 High Street, Westbury on Trym", addressLocality: "Bristol", postalCode: "BS9 3BY" },
-            { streetAddress: "Artillery Business Park", addressLocality: "Oswestry", postalCode: "SY11 4AD" },
-          ],
-        }}
-      />
-      {/* JSON-LD: ProfessionalService */}
-      <JsonLd
-        data={{
-          type: "ProfessionalService",
-          name: "The Phone Mast Advice Company Ltd",
-          url: "https://www.phonemastadvice.co.uk",
-          telephone: "01691 791543",
-          email: "info@phonemastadvice.co.uk",
-          description:
-            "Independent specialist telecom surveyors acting only for UK landlords. Expert phone mast lease renewals, rent reviews, and new lettings across the UK.",
-          priceRange: "££",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[organization(), website()]} />
 
       {/* Hero */}
       <Hero
-        headline="Phone Mast Lease & Rent Advice for UK Landlords"
-        subheadline="Independent specialist telecom surveyors acting only for UK landlords. Get expert phone mast advice on leases, rent, renewals, reviews, and operator negotiations."
+        headline="Independent phone mast advice, only for landlords"
+        highlight="only for landlords"
+        subheadline="Specialist surveyors who act for landlords and site owners, never for operators. We handle rent reviews, renewals, new lettings and sales, starting with a free review of your agreement."
         ctaText="Free Lease Check"
         ctaHref="/free-lease-check/"
         secondaryCtaText="Free Rent Estimate"
@@ -797,7 +747,7 @@ Read the Lease Guide →
                 View All FAQs
               </Link>
             </div>
-            <FAQAccordion items={faqs} showJsonLd={true} />
+            <FAQAccordion items={faqs} schemaPath="/" />
           </div>
         </div>
       </section>
