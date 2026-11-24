@@ -1,14 +1,16 @@
-import { COMPANY, STATEMENTS, confirmedClaim } from "@/content/company";
+import { COMPANY, STATEMENTS, confirmedClaim, confirmedClaimRecord } from "@/content/company";
 
 interface Signal {
   title: string;
   text: string;
   href?: string;
+  linkText?: string;
 }
 
 /**
  * What a landlord can check about us. Marketing claims (RICS, experience, deal counts, Google rating)
- * appear only once the owner has confirmed them in src/content/company.ts.
+ * appear only once the owner has confirmed them in src/content/company.ts. The rating is plain text with
+ * a link to the Google profile: no Review or AggregateRating markup for the firm's own reviews.
  */
 export default function TrustSignals() {
   const signals: Signal[] = [
@@ -17,16 +19,17 @@ export default function TrustSignals() {
       title: "Registered company",
       text: `${COMPANY.legalName}, Companies House number ${COMPANY.registrationNumber}.`,
       href: COMPANY.companiesHouseUrl,
+      linkText: "View the record",
     },
   ];
   const rics = confirmedClaim("ricsSurveyors");
-  if (rics) signals.push({ title: "Professional body", text: rics });
+  if (rics) signals.push({ title: "Professional body", text: `${rics}.` });
   const experience = confirmedClaim("experienceYears");
-  if (experience) signals.push({ title: "Experience", text: experience });
+  if (experience) signals.push({ title: "Experience", text: `${experience}.` });
   const deals = confirmedClaim("dealsCompleted");
-  if (deals) signals.push({ title: "Track record", text: deals });
-  const rating = confirmedClaim("googleRating");
-  if (rating) signals.push({ title: "Reviews", text: rating });
+  if (deals) signals.push({ title: "Track record", text: `${deals}.` });
+  const rating = confirmedClaimRecord("googleRating");
+  if (rating) signals.push({ title: "Reviews", text: `${rating.text}.`, href: rating.href, linkText: "Read the reviews" });
 
   return (
     <section className="trust-signals" aria-labelledby="trust-heading">
@@ -42,7 +45,7 @@ export default function TrustSignals() {
                   <>
                     {" "}
                     <a href={s.href} rel="noopener" target="_blank">
-                      View the record
+                      {s.linkText}
                     </a>
                   </>
                 ) : null}

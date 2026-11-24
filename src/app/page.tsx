@@ -9,8 +9,8 @@ import TrustSignals from "@/components/TrustSignals";
 import CTASection from "@/components/CTASection";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import StructuredData from "@/components/seo/StructuredData";
-import { CaseRef } from "@/components/guide/Sources";
-import { STATEMENTS } from "@/content/company";
+import ComptonStatement from "@/components/guide/ComptonStatement";
+import { COMPTON_STATEMENT, STATEMENTS } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import { organization, website } from "@/seo/schema";
@@ -557,7 +557,7 @@ Read the Lease Guide →
                 lineHeight: 1.25,
               }}
             >
-              Involved in the Compton Beauchamp case in the Supreme Court
+              {COMPTON_STATEMENT.heading}
             </h2>
             <p
               style={{
@@ -567,7 +567,7 @@ Read the Lease Guide →
                 marginBottom: "2rem",
               }}
             >
-                {STATEMENTS.comptonBeauchamp} The Supreme Court confirmed that operators with existing agreements protected by the Landlord and Tenant Act 1954 must renew under that Act and cannot use the Code to impose new agreements on different terms (<CaseRef id="comptonBeauchamp" />).
+                <ComptonStatement />
             </p>
 
             {/* Client quote */}

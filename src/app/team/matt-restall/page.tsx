@@ -3,8 +3,8 @@ import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import StructuredData from "@/components/seo/StructuredData";
-import { CaseRef } from "@/components/guide/Sources";
-import { COMPANY, STATEMENTS, confirmedClaim } from "@/content/company";
+import ComptonStatement from "@/components/guide/ComptonStatement";
+import { COMPANY, COMPTON_STATEMENT, STATEMENTS, confirmedClaim } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import { FOUNDER_ID, founderPerson, profilePage } from "@/seo/schema";
@@ -25,7 +25,7 @@ export default function MattRestallPage() {
   const experience = confirmedClaim("experienceYears");
   return (
     <>
-      <StructuredData nodes={[profilePage(route.path, FOUNDER_ID), founderPerson()]} />
+      <StructuredData nodes={[profilePage(route.path, FOUNDER_ID), founderPerson({ withCredentials: true })]} />
       <Breadcrumbs items={[{ label: "Our team", href: "/team/" }, { label: founder.name }]} />
 
       <section className="page-hero">
@@ -50,22 +50,16 @@ export default function MattRestallPage() {
             Matt founded {COMPANY.legalName} and advises landlords on telecoms property: leases, rent reviews, new lettings and lease sales.
             {experience ? ` ${experience}.` : ""} {STATEMENTS.independence}
           </p>
+          <p>Qualifications: {founder.qualifications.map((q) => q.name).join(", ")}.</p>
           <p>
             Every instruction starts with a free review of the agreement and the operator&rsquo;s letters, so that a landlord knows which
             rules apply, what the statutory valuation produces for that site and what can still be negotiated, before any fee is agreed.
           </p>
 
-          <h2>Cases</h2>
-          <ul className="case-notes">
-            <li>
-              <span className="case-name">
-                <CaseRef id="comptonBeauchamp" full />
-              </span>
-              Matt instigated and advised on this case. The Supreme Court confirmed that operators with existing agreements protected by the
-              Landlord and Tenant Act 1954 must renew under that Act and cannot use the Electronic Communications Code to impose new
-              agreements on different terms. Read our <Link href="/blog/compton-beauchamp-supreme-court-phone-mast-case/">case note</Link>.
-            </li>
-          </ul>
+          <h2>{COMPTON_STATEMENT.heading}</h2>
+          <p>
+            <ComptonStatement /> Read our <Link href="/blog/compton-beauchamp-supreme-court-phone-mast-case/">case note</Link>.
+          </p>
 
           <h2>Guides Matt wrote</h2>
           <ul>

@@ -1,22 +1,32 @@
-import { confirmedClaim } from "@/content/company";
+import { confirmedClaimRecord, type ClaimId } from "@/content/company";
+
+const STAT_CLAIMS: readonly ClaimId[] = ["experienceYears", "dealsCompleted", "googleRating"];
 
 /**
- * Headline figures. Every figure the bar used to show (30+ years, 10,000+ deals, 3 offices) is an
- * unconfirmed claim, so the bar renders only once at least three are confirmed in
- * src/content/company.ts; a bar with one or two numbers would look like it was missing something.
+ * Headline figures, each from a claim Matt confirmed (src/content/company.ts). The bar renders only
+ * when all three are confirmed, so it never looks like it is missing something.
  */
 export default function StatsBar() {
-  const stats = [confirmedClaim("experienceYears"), confirmedClaim("dealsCompleted"), confirmedClaim("threeOffices")].filter(
-    (s): s is string => s !== null,
-  );
-  if (stats.length < 3) return null;
+  const stats = STAT_CLAIMS.map(confirmedClaimRecord).filter((c) => c?.stat);
+  if (stats.length < STAT_CLAIMS.length) return null;
   return (
     <section className="stats-bar" aria-label="Key figures">
       <div className="container-max">
         <ul>
-          {stats.map((s) => (
-            <li key={s}>{s}</li>
-          ))}
+          {stats.map((c) =>
+            c?.stat ? (
+              <li key={c.stat.value}>
+                <strong>{c.stat.value}</strong>{" "}
+                {c.href ? (
+                  <a href={c.href} rel="noopener" target="_blank">
+                    {c.stat.label}
+                  </a>
+                ) : (
+                  c.stat.label
+                )}
+              </li>
+            ) : null,
+          )}
         </ul>
       </div>
     </section>

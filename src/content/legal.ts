@@ -11,6 +11,8 @@ export interface CaseRecord {
   readonly shortName: string;
   /** Parties as they appear in the judgment heading. */
   readonly parties: string;
+  /** Shorter party names, where the firm's own wording uses them. */
+  readonly brief?: string;
   /** Neutral citation, or the tribunal's own reference where there is none. */
   readonly citation: string;
   readonly court: string;
@@ -25,6 +27,8 @@ export const CASES = {
   comptonBeauchamp: {
     shortName: "Compton Beauchamp",
     parties: "Cornerstone Telecommunications Infrastructure Ltd v Compton Beauchamp Estates Ltd",
+    /** The form Matt chose for the firm's own statement about the case (24 Nov 2026). */
+    brief: "Cornerstone v Compton Beauchamp Estates",
     citation: "[2022] UKSC 18",
     court: "Supreme Court",
     year: 2022,

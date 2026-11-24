@@ -7,7 +7,8 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { CLAIMS, COMPANY, STATEMENTS, confirmedClaim } from "../src/content/company.ts";
+import { CLAIMS, COMPANY, COMPTON_STATEMENT, STATEMENTS, confirmedClaim, registrationLine } from "../src/content/company.ts";
+import { CASES } from "../src/content/legal.ts";
 
 const SCANNED = ["src/app", "src/components", "src/lib", "src/seo"];
 const EXCLUDED = new Set([join("src", "lib", "local-posts.ts")]);
@@ -37,6 +38,8 @@ const FORBIDDEN: [string, RegExp][] = [
   ["RICS claim", /\bRICS\b/],
   ["review rating claim", /\bRated 5\/5\b|\b5\/5 on Google\b/i],
   ["fee claim", /no[- ]win,? no[- ]fee/i],
+  ["office address", /\bW1W ?5PF\b|\bSY11 ?4AD\b|\bBS9 ?3BY\b|Great Portland Street|Artillery Business Park|Westbury on Trym/i],
+  ["office claim", /\bour (London|Bristol|Oswestry) office\b|\bthree offices\b/i],
   ["superlative", /\bfirst firm in the UK\b|\bmost famous\b|\bmost significant (UK )?telecoms\b|\bUK'?s No\.? ?1\b/i],
 ];
 
@@ -66,4 +69,21 @@ test("facts are well formed", () => {
   assert.match(COMPANY.email, /^[^@\s]+@phonemastadvice\.co\.uk$/);
   assert.match(COMPANY.registrationNumber, /^\d{8}$/);
   assert.ok(STATEMENTS.serviceArea.includes(COMPANY.areaServed.join(" and ")), "service-area sentence and structured data disagree");
+});
+
+test("Matt's Compton Beauchamp wording uses the verified case record", () => {
+  const c = CASES.comptonBeauchamp;
+  assert.equal(COMPTON_STATEMENT.citation, c.citation);
+  assert.ok(c.url && c.verifiedOn, "the case link must be verified");
+  assert.equal(
+    STATEMENTS.comptonBeauchamp,
+    "We instigated and oversaw Cornerstone v Compton Beauchamp Estates [2022] UKSC 18, in which the Supreme Court confirmed that operators with leases protected by the Landlord and Tenant Act 1954 must renew under that Act.",
+  );
+});
+
+test("the disclosure line names the registered office and never calls it an office", () => {
+  const line = registrationLine();
+  assert.match(line, /^Registered in England and Wales, company number 13115582\. Registered office: /);
+  assert.ok(line.includes(COMPANY.registeredOffice.postalCode));
+  assert.doesNotMatch(line.replace(/Registered office|The Bristol Office/g, ""), /\boffice\b/i);
 });

@@ -3,8 +3,8 @@ import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import StructuredData from "@/components/seo/StructuredData";
 import PageHero from "@/components/guide/PageHero";
-import { CaseRef } from "@/components/guide/Sources";
-import { COMPANY, STATEMENTS, confirmedClaim } from "@/content/company";
+import ComptonStatement from "@/components/guide/ComptonStatement";
+import { COMPANY, COMPTON_STATEMENT, STATEMENTS, confirmedClaim, registrationLine } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import { organization } from "@/seo/schema";
@@ -48,11 +48,9 @@ export default function AboutPage() {
             <Link href="/phone-mast-rent/">guide to phone mast rent</Link>.
           </p>
 
-          <h2>The Compton Beauchamp case</h2>
+          <h2>{COMPTON_STATEMENT.heading}</h2>
           <p>
-            {STATEMENTS.comptonBeauchamp} In <CaseRef id="comptonBeauchamp" /> the Supreme Court confirmed that operators with existing
-            agreements protected by the Landlord and Tenant Act 1954 must renew under that Act and cannot use the Code to impose new
-            agreements on different terms.
+            <ComptonStatement />
           </p>
           <blockquote className="client-quote">
             <p>
@@ -90,11 +88,11 @@ export default function AboutPage() {
 
           <h2>Company details</h2>
           <p>
-            {COMPANY.legalName} is registered in England and Wales, company number{" "}
+            {COMPANY.legalName}. {registrationLine()}{" "}
             <a href={COMPANY.companiesHouseUrl} rel="noopener" target="_blank">
-              {COMPANY.registrationNumber}
+              View the Companies House record
             </a>
-            . Registered office: {COMPANY.registeredOffice.streetAddress}, {COMPANY.registeredOffice.locality}, {COMPANY.registeredOffice.postalCode}.
+            .
           </p>
         </div>
       </section>

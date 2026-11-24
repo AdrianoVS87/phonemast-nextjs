@@ -32,7 +32,7 @@ const items = [
     icon: <path d="M11 4h19l8 8v32H11Z M30 4v9h8M17 21h15M17 28h15M17 35h11" />,
   },
   {
-    title: "England and Wales",
+    title: "Across the UK",
     text: "Landlords and site owners",
     icon: (
       <>

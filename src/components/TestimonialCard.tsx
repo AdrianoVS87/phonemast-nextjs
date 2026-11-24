@@ -1,3 +1,5 @@
+import { confirmedClaim } from "@/content/company";
+
 export interface TestimonialCardProps {
   name: string;
   county: string;
@@ -11,6 +13,7 @@ export default function TestimonialCard({
   quote,
   rating = 5,
 }: TestimonialCardProps) {
+  const verified = confirmedClaim("verifiedTestimonials");
   return (
     <div
       className="card"
@@ -39,6 +42,12 @@ export default function TestimonialCard({
           </span>
         ))}
       </div>
+
+      {verified ? (
+        <p className="verified-badge">
+          <span aria-hidden="true">✓</span> {verified}
+        </p>
+      ) : null}
 
       {/* Quote */}
       <blockquote
