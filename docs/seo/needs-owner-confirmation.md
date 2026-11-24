@@ -37,7 +37,7 @@ applied in `src/content/company.ts`; anything still open stays off the site.
 | C4 | Named reviewer on service pages | Keep it as it is | "By the Phone Mast Advice team, led by Matt Restall". |
 | D1–D3 | Operator facts | Check them online and correct them | Checked against Virgin Media O2's press releases (31 Oct 2023, 30 Oct 2024), Vantage Towers, the CMA (5 Apr 2023) and the Home Office ESN overview. The old "jointly owned by Vodafone and O2" and "14,200 macro sites" were out of date. The hub now gives the current ownership, Vantage Towers' figure of 15,604 macro sites at 31 March 2024, Motorola's ownership of Airwave and the ESN plan, each with its source under the section. |
 | E1–E7 | Unverified legal statements | Fact-check them | Results below, with the judgments' own words in `content-changes-for-review.md` section 8. |
-| E8 | legislation.gov.uk links | Adriano will open them by hand | Still plain text until he confirms each URL. |
+| E8 | legislation.gov.uk links | Adriano opened all six by hand on 24 Nov 2026 (from a UK connection); all load | Marked `verifiedOn` in `LEGISLATION` and now linked from the guides. Schedule 2 to the Telecommunications Act 1984 (the old Code) shows as omitted from 28 December 2017 by the Digital Economy Act 2017, so its link text says "repealed on 28 December 2017". |
 | G1 | Google listing address | Keep the address | Unchanged. Matt was told Google can suspend a listing at an address clients cannot visit if it is reported; he chose to keep it. |
 | PSI | Proving mobile 100 | Bypass token | Adriano creates a Vercel "Protection Bypass for Automation" secret; `lighthouse.config.cjs` sends it as a header from the environment (never committed). |
 
@@ -58,5 +58,4 @@ applied in `src/content/company.ts`; anything still open stays off the site.
 | # | Item | What is needed |
 |---|---|---|
 | A1b | Roles before 2000 | Matt confirmed "over 30 years", but his LinkedIn starts in April 2000 (after a degree from 1998 to 2000). If a competitor challenges the figure, the earlier roles are the evidence: employer, role and years. The profile's career list is headed "Roles since 2000" until then. |
-| E8 | legislation.gov.uk links | Adriano to open each URL in `LEGISLATION` (`src/content/legal.ts`) and confirm it loads the right Act or section; then add `verifiedOn` and the guides link them. legislation.gov.uk returns "error 437" to automated browsing, including the Chrome extension. |
 | PSI | Mobile 100 on PageSpeed | The bypass secret from Vercel, saved in a local file outside the repo (for example `~/.phonemast/vercel-bypass`), so the Lighthouse CI run against the preview never prints it. |

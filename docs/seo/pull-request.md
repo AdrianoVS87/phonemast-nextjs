@@ -111,8 +111,8 @@ in `docs/seo/content-changes-for-review.md` and `docs/seo/needs-owner-confirmati
   automated checks).
 - Off-site: `phonemastcompany.co.uk` `.htaccess`, old directory listings and Search Console steps are in
   `docs/seo/offsite-checklist.md`. Matt chose to keep the London address on the Google listing.
-- Still open: Matt's roles before 2000 (evidence for "over 30 years"), and Adriano opening the
-  legislation.gov.uk links by hand (`needs-owner-confirmation.md`).
+- Still open: Matt's roles before 2000, the evidence for "over 30 years" (`needs-owner-confirmation.md`).
+- The six legislation.gov.uk links were opened by hand on 24 Nov 2026 and are now linked from the guides.
 - Matt should read `content-changes-for-review.md` section 8 (the fact-check corrections) before the merge.
 
 https://claude.ai/code/session_017RAqMEsVtzthTV3aov9v13
