@@ -29,6 +29,7 @@ export const COMPANY = {
   /** Companies House, checked 24 Nov 2026. */
   registrationNumber: "13115582",
   incorporatedOn: "2021-01-06",
+  companiesHouseUrl: "https://find-and-update.company-information.service.gov.uk/company/13115582",
   registeredOffice: {
     label: "Registered office",
     streetAddress: "The Bristol Office, 2nd Floor, 5 High Street, Westbury on Trym",
@@ -42,7 +43,7 @@ export const COMPANY = {
    * The number the live site linked to in November 2026. The repo's CLAUDE.md lists a different one
    * (447782412130); which is current is in docs/seo/needs-owner-confirmation.md.
    */
-  whatsapp: { href: "https://wa.me/447843352654" },
+  whatsapp: { href: "https://wa.me/447843352654", display: "07843 352654" },
   /** Addresses as published in the footer and on the contact page before this change. */
   offices: [
     { label: "London", streetAddress: "167–169 Great Portland Street, 5th Floor", locality: "London", postalCode: "W1W 5PF", country: "GB" },

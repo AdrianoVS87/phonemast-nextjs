@@ -1,3 +1,4 @@
+import { COMPANY } from "../content/company.ts";
 import { createHmac, timingSafeEqual } from "node:crypto";
 
 /**
@@ -152,7 +153,7 @@ export type Screen =
   | { action: "refuse"; reason: string; message: string };
 
 const REFUSE_MESSAGE =
-  "We could not send this message automatically. Please call us on 01691 791543 or email info@phonemastadvice.co.uk and we will come straight back to you.";
+  `We could not send this message automatically. Please call us on ${COMPANY.phone.display} or email ${COMPANY.email} and we will come straight back to you.`;
 
 export function screenSubmission(
   f: { name: string; email: string; message?: string; token?: string; address?: string; currentRent?: string },
@@ -167,7 +168,7 @@ export function screenSubmission(
     return {
       action: "refuse",
       reason: "token:missing",
-      message: "Please refresh the page and send your message again, or call us on 01691 791543.",
+      message: `Please refresh the page and send your message again, or call us on ${COMPANY.phone.display}.`,
     };
   }
   if (t === "too-fast") {

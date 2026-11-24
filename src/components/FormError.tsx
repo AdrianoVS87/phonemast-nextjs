@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import type { Ref } from "react";
 import { OFFICE_PHONE } from "@/lib/submitSafely";
 
@@ -23,7 +24,7 @@ export default function FormError({ message, ref }: { message: string; ref: Ref<
       {before}
       {after.length > 0 && (
         <a
-          href="tel:01691791543"
+          href={COMPANY.phone.href}
           style={{ display: "inline-block", minHeight: "44px", lineHeight: "44px", color: "#991b1b", fontWeight: 700 }}
         >
           {OFFICE_PHONE}

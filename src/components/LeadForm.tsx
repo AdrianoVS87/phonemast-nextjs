@@ -1,5 +1,6 @@
 "use client";
 
+import { COMPANY } from "@/content/company";
 import { useState, useRef } from "react";
 import { sendLeadEmail } from "@/app/actions/sendLeadEmail";
 import { fireConversion } from "@/lib/gtagConversion";
@@ -130,8 +131,8 @@ export default function LeadForm({ formType }: LeadFormProps) {
         </h3>
         <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
           Thank you for getting in touch. One of our specialist surveyors will review your details and come back to you within one working day. For urgent enquiries, call{" "}
-          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
-            01691 791543
+          <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600 }}>
+            {COMPANY.phone.display}
           </a>
           .
         </p>
@@ -198,7 +199,7 @@ export default function LeadForm({ formType }: LeadFormProps) {
             name="phone"
             type="tel"
             autoComplete="tel"
-            placeholder="e.g. 01691 791543"
+            placeholder="Your phone number"
             style={inputStyle}
           />
         </div>
@@ -320,12 +321,12 @@ export default function LeadForm({ formType }: LeadFormProps) {
 
         <p style={{ textAlign: "center", color: "#6b7280", fontSize: "1.125rem", margin: 0 }}>
           Or call us:{" "}
-          <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
-            01691 791543
+          <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}>
+            {COMPANY.phone.display}
           </a>{" "}
           ·{" "}
           <a
-            href="https://wa.me/447843352654"
+            href={COMPANY.whatsapp.href}
             target="_blank"
             rel="noopener noreferrer"
             style={{ color: "#042b4d", fontWeight: 600, display: "inline-block", minHeight: "44px", lineHeight: "44px" }}

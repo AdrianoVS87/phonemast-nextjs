@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
@@ -102,12 +103,12 @@ Nothing in this disclaimer excludes or limits our liability for death or persona
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               <strong>Contact us:</strong> The Phone Mast Advice Company Ltd, 167-169 Great Portland Street, 5th Floor, London, W1W 5PF. Email:{" "}
-              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#042b4d", fontWeight: 600 }}>
-                info@phonemastadvice.co.uk
+              <a href={`mailto:${COMPANY.email}`} style={{ color: "#042b4d", fontWeight: 600 }}>
+                {COMPANY.email}
               </a>. Telephone:{" "}
-              <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
-                01691 791543
-              </a>. Company Reg: 13115582.
+              <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600 }}>
+                {COMPANY.phone.display}
+              </a>. Company Reg: {COMPANY.registrationNumber}.
             </p>
           </div>
         </div>

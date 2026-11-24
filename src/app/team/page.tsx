@@ -1,5 +1,6 @@
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
+import { COMPANY } from "@/content/company";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -22,15 +23,15 @@ const team: TeamMember[] = [
     role: "Founder & Director",
     credentials: "Specialist Telecoms Surveyor",
     photo: "/images/team/Matt-Restall.jpg",
-    bio: "Matt Restall is the founder of The Phone Mast Advice Company Ltd and has over 30 years of specialist experience advising UK landlords on telecoms property matters — leases, rent reviews, new lettings, and lease sales. Matt was involved in instigating and advising on Compton Beauchamp Estates v CTIL [2022] UKSC 18 — the Supreme Court case that is the most significant UK telecoms ruling since the Telecommunications Act 1984. The case established that operators with existing Landlord and Tenant Act 1954 protected leases cannot use the Electronic Communications Code to impose significantly reduced rents. Matt has represented landlords across the UK — from individual rural landowners to large corporate property portfolios — and has developed one of the most comprehensive databases of comparable UK phone mast deals in the industry.",
+    bio: "Matt Restall is the founder of The Phone Mast Advice Company Ltd. He advises landlords on telecoms property matters: leases, rent reviews, new lettings and lease sales. He instigated and advised on Cornerstone Telecommunications Infrastructure Ltd v Compton Beauchamp Estates Ltd [2022] UKSC 18, in which the Supreme Court confirmed that operators with existing agreements protected by the Landlord and Tenant Act 1954 must renew under that Act and cannot use the Electronic Communications Code to impose new agreements on different terms.",
     linkedin: "https://www.linkedin.com/in/matthew-restall-7a64669b/",
   },
   {
     name: "Andrew Chinn",
     role: "Head Surveyor",
-    credentials: "Chartered Surveyor — RICS Registered",
+    credentials: "",
     photo: "/images/team/Andrew-Chinn.jpg",
-    bio: "Andrew Chinn is a Chartered Surveyor and RICS-registered Head Surveyor with The Phone Mast Advice Company Ltd. His primary focus is providing professional advice to site providers and landlords, helping them to optimise the financial returns from telecommunications equipment on their premises. Andrew brings a diverse background in surveying across the North West of England, having consulted widely and run his own practice for over a decade before joining the firm. His RICS registration reflects his professional standing and adherence to the highest standards in surveying practice.",
+    bio: "Andrew Chinn is Head Surveyor at The Phone Mast Advice Company Ltd. His primary focus is providing professional advice to site providers and landlords, helping them to optimise the financial returns from telecommunications equipment on their premises. Andrew brings a diverse background in surveying across the North West of England, having consulted widely and run his own practice for over a decade before joining the firm.",
     linkedin: "https://www.linkedin.com/in/andrew-chinn-9836a828/",
   },
   {
@@ -52,9 +53,9 @@ const team: TeamMember[] = [
   {
     name: "Mark Dernes",
     role: "Telecoms Consultant",
-    credentials: "40+ Years Telecoms Experience",
+    credentials: "",
     photo: "/images/team/Mark-Dernes.jpg",
-    bio: "Mark Dernes is an experienced consultant whose career spans over four decades in telecoms, finance, and real estate. Mark specialises in facilitating lease negotiations — including renewals and mast sales — drawing on unique insight from having worked with both of the United Kingdom's leading mast investment companies. His breadth of negotiating experience across multiple sectors adds significant depth to The Phone Mast Advice Company's advisory offering.",
+    bio: "Mark Dernes is an experienced consultant whose career spans telecoms, finance and real estate. Mark specialises in facilitating lease negotiations, including renewals and mast sales, drawing on his experience of working with mast investment companies. His breadth of negotiating experience across multiple sectors adds significant depth to The Phone Mast Advice Company's advisory offering.",
     linkedin: "https://www.linkedin.com/in/markdernes/",
   },
 ];
@@ -105,7 +106,7 @@ export default function TeamPage() {
               lineHeight: 1.65,
             }}
           >
-            A dedicated team of specialist surveyors and advisors, acting exclusively for UK landlords since 1999.
+            A team of specialist surveyors and advisers who act only for landlords, never for operators.
           </p>
           <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.9)", lineHeight: 1.65, marginTop: "1rem", marginBottom: 0 }}>
             For the main guides our team supports, start with <a href="/phone-mast-lease/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast lease advice</a> and <a href="/phone-mast-rent/" style={{ color: "#ffffff", fontWeight: 700, textDecoration: "underline" }}>phone mast rent advice</a>.
@@ -266,10 +267,10 @@ export default function TeamPage() {
             Every member of The Phone Mast Advice Company team acts <strong>exclusively for landlords</strong>. No member of our team represents mobile phone operators — at The Phone Mast Advice Company or in any other capacity. This independence is not just a policy — it is fundamental to who we are and the advice we give.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, marginBottom: "1.25rem" }}>
-            Our team combines RICS-registered chartered surveying credentials with decades of real-world telecoms lease negotiation experience. We have RICS credentials, comparable deal databases, and case law expertise that most landlords simply cannot access on their own.
+            Our team combines surveying, negotiation and case law expertise that most landlords cannot easily access on their own.
           </p>
           <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7 }}>
-            Company Registration: 13115582. Offices in London (W1W 5PF), Bristol (BS9 3BY), and Oswestry (SY11 4AD).
+            {COMPANY.legalName}, company number {COMPANY.registrationNumber}.
           </p>
         </div>
       </section>

@@ -1,6 +1,9 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import JsonLd from "@/components/JsonLd";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { service } from "@/seo/schema";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
@@ -73,17 +76,7 @@ function Ticks({ items }: { items: string[] }) {
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Service",
-          name: "Phone Mast Lease Advice for Landowners and Their Solicitors",
-          description:
-            "Specialist telecoms surveying for UK landowners with phone masts: valuation and negotiation of leases, rent and notices, working alongside the landowner's solicitor.",
-          provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-solicitors/",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[service({ path: "/phone-mast-solicitors/", name: "Phone Mast Lease Advice for Landowners and Their Solicitors", serviceType: "Phone Mast Lease Advice for Landowners and Their Solicitors", description: "Specialist telecoms surveying for UK landowners with phone masts: valuation and negotiation of leases, rent and notices, working alongside the landowner's solicitor." })]} />
       <Breadcrumbs items={[{ label: "Phone Mast Solicitors" }]} />
 
       {/* Hero */}
@@ -109,7 +102,7 @@ export default function Page() {
               Free Lease Check
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -124,7 +117,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -137,7 +130,7 @@ export default function Page() {
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This page explains who does what. For the legal background, read our{" "}
               <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide; if an operator wants to renew, see{" "}
-              <a href="/phone-mast-services/lease-renewals/" style={link}>lease renewals</a>. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-services/lease-renewals/" style={link}>lease renewals</a>. <ReviewedBy route={ROUTES.solicitors} />
             </p>
           </div>
 

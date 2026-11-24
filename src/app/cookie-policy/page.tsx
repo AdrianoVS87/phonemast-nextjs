@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
@@ -185,9 +186,9 @@ Learn more about how Google collects and uses your data at Google's Business Dat
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               Questions about cookies or our data practices? Contact us at:{" "}
-              <a href="mailto:info@phonemastadvice.co.uk" style={{ color: "#042b4d", fontWeight: 600 }}>
-                info@phonemastadvice.co.uk
-              </a>. The Phone Mast Advice Company Ltd, Company Reg: 13115582.
+              <a href={`mailto:${COMPANY.email}`} style={{ color: "#042b4d", fontWeight: 600 }}>
+                {COMPANY.email}
+              </a>. The Phone Mast Advice Company Ltd, Company Reg: {COMPANY.registrationNumber}.
             </p>
           </div>
         </div>

@@ -1,6 +1,9 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import JsonLd from "@/components/JsonLd";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { service } from "@/seo/schema";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
@@ -58,17 +61,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Service",
-          name: "Phone Mast Removal and Redevelopment Advice",
-          description:
-            "Independent advice for UK landowners who need a phone mast removed for redevelopment: Paragraph 31 notices, the redevelopment ground, lift and shift, reinstatement, and Tribunal proceedings under the Electronic Communications Code.",
-          provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment/",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[service({ path: "/phone-mast-services/removal-and-redevelopment/", name: "Phone Mast Removal and Redevelopment Advice", serviceType: "Phone Mast Removal and Redevelopment Advice", description: "Independent advice for UK landowners who need a phone mast removed for redevelopment: Paragraph 31 notices, the redevelopment ground, lift and shift, reinstatement, and Tribunal proceedings under the Electronic Communications Code." })]} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "Removal & Redevelopment" }]} />
 
       {/* Hero */}
@@ -94,7 +87,7 @@ export default function Page() {
               Free Lease Check
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -109,7 +102,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -121,7 +114,7 @@ export default function Page() {
           <div style={{ backgroundColor: "#f3f7fb", border: "1px solid #e5e7eb", borderRadius: "1rem", padding: "1.25rem 1.5rem", marginBottom: "2rem" }}>
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our removal and redevelopment service page. For the legal framework behind every clause and notice mentioned here, read our{" "}
-              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. <ReviewedBy route={ROUTES.removal} />
             </p>
           </div>
 

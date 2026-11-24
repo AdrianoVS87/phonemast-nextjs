@@ -1,6 +1,8 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import JsonLd from "@/components/JsonLd";
+import StructuredData from "@/components/seo/StructuredData";
+import { article } from "@/seo/schema";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
@@ -116,17 +118,7 @@ const sources: { label: string; href: string }[] = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Article",
-          headline: "Section 26 Notice on a Phone Mast Lease: What Landowners Must Do",
-          url: URL,
-          datePublished: "2026-09-15",
-          dateModified: "2026-09-15",
-          description:
-            "The Section 26 timetable for phone mast leases under the Landlord and Tenant Act 1954, grounds of opposition, interim rent, and the 2026 changes to rent and tribunal jurisdiction.",
-        }}
-      />
+      <StructuredData nodes={[article({ path: "/section-26-notice/", headline: "Section 26 Notice on a Phone Mast Lease: What Landowners Must Do", description: "The Section 26 timetable for phone mast leases under the Landlord and Tenant Act 1954, grounds of opposition, interim rent, and the 2026 changes to rent and tribunal jurisdiction.", datePublished: "2026-09-15", dateModified: ROUTES.section26.lastReviewed ?? "2026-09-15" })]} />
       <Breadcrumbs items={[{ label: "Section 26 Notice" }]} />
 
       {/* Hero */}
@@ -152,7 +144,7 @@ export default function Page() {
               Send Us Your Notice
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -167,7 +159,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>

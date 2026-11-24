@@ -184,7 +184,7 @@ export const ROUTES = {
   }),
   handbook: route({
     path: "/handbook/",
-    lastReviewed: "2026-10-19",
+    lastReviewed: "2026-11-24",
     kind: "form",
     primaryQuery: "phone mast landlord handbook",
     title: "Free Phone Mast Handbook for Landlords | Phone Mast Advice",
@@ -192,7 +192,7 @@ export const ROUTES = {
   }),
   about: route({
     path: "/about-us/",
-    lastReviewed: "2026-10-19",
+    lastReviewed: "2026-11-24",
     kind: "company",
     primaryQuery: "the phone mast advice company",
     title: "About The Phone Mast Advice Company",
@@ -200,7 +200,7 @@ export const ROUTES = {
   }),
   team: route({
     path: "/team/",
-    lastReviewed: "2026-10-19",
+    lastReviewed: "2026-11-24",
     kind: "company",
     primaryQuery: "phone mast advice team",
     title: "Our Team | Phone Mast Advice",
@@ -208,7 +208,7 @@ export const ROUTES = {
   }),
   mattRestall: route({
     path: "/team/matt-restall/",
-    lastReviewed: "2026-10-19",
+    lastReviewed: "2026-11-24",
     kind: "profile",
     primaryQuery: "matt restall",
     title: "Matt Restall, Founder | Phone Mast Advice",
@@ -233,7 +233,7 @@ export const ROUTES = {
   }),
   freeRentEstimate: route({
     path: "/free-rent-estimate/",
-    lastReviewed: "2026-09-15",
+    lastReviewed: "2026-11-24",
     kind: "form",
     primaryQuery: "phone mast rent estimate",
     title: "Free Phone Mast Rent Estimate | Phone Mast Advice",

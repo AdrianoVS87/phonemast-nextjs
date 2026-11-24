@@ -1,6 +1,9 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import JsonLd from "@/components/JsonLd";
+import ReviewedBy from "@/components/guide/ReviewedBy";
+import StructuredData from "@/components/seo/StructuredData";
+import { service } from "@/seo/schema";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
@@ -58,17 +61,7 @@ const faqs = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Service",
-          name: "Phone Mast New Lettings Advice",
-          description:
-            "Independent advice for UK landowners approached by mobile operators for a new phone mast site: rent under the Electronic Communications Code, terms to negotiate, and Paragraph 20 notices.",
-          provider: "The Phone Mast Advice Company",
-          url: "https://www.phonemastadvice.co.uk/phone-mast-services/new-lettings/",
-          areaServed: "United Kingdom",
-        }}
-      />
+      <StructuredData nodes={[service({ path: "/phone-mast-services/new-lettings/", name: "Phone Mast New Lettings Advice", serviceType: "Phone Mast New Lettings Advice", description: "Independent advice for UK landowners approached by mobile operators for a new phone mast site: rent under the Electronic Communications Code, terms to negotiate, and Paragraph 20 notices." })]} />
       <Breadcrumbs items={[{ label: "Services", href: "/phone-mast-services/" }, { label: "New Lettings" }]} />
 
       {/* Hero */}
@@ -94,7 +87,7 @@ export default function Page() {
               Free Rent Estimate
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -109,7 +102,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -122,7 +115,7 @@ export default function Page() {
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
               This is our new lettings service page. For how rent is assessed under the Code, read our{" "}
               <a href="/phone-mast-rent/" style={link}>phone mast rent</a> guide; for the clauses that matter in any agreement, see our{" "}
-              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. Reviewed by the <a href="/team/" style={link}>Phone Mast Advice team</a>.
+              <a href="/phone-mast-lease/" style={link}>phone mast lease</a> guide. <ReviewedBy route={ROUTES.newLettings} />
             </p>
           </div>
 

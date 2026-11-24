@@ -1,6 +1,8 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
-import JsonLd from "@/components/JsonLd";
+import StructuredData from "@/components/seo/StructuredData";
+import { article } from "@/seo/schema";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
@@ -93,17 +95,7 @@ const sources: { label: string; href: string }[] = [
 export default function Page() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "Article",
-          headline: "The Electronic Communications Code Explained for UK Landowners",
-          url: URL,
-          datePublished: "2026-09-15",
-          dateModified: "2026-09-15",
-          description:
-            "What the Electronic Communications Code lets operators do on private land, how payment is assessed, and how Code agreements end, renew and are decided.",
-        }}
-      />
+      <StructuredData nodes={[article({ path: "/electronic-communications-code/", headline: "The Electronic Communications Code Explained for UK Landowners", description: "What the Electronic Communications Code lets operators do on private land, how payment is assessed, and how Code agreements end, renew and are decided.", datePublished: "2026-09-15", dateModified: ROUTES.code.lastReviewed ?? "2026-09-15" })]} />
       <Breadcrumbs items={[{ label: "Electronic Communications Code" }]} />
 
       {/* Hero */}
@@ -129,7 +121,7 @@ export default function Page() {
               Free Lease Check
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -144,7 +136,7 @@ export default function Page() {
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>

@@ -1,5 +1,6 @@
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
+import { STATEMENTS } from "@/content/company";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
@@ -79,7 +80,7 @@ const faqCategories: Array<{ category: string; items: FAQItem[] }> = [
       {
         question: "How do we charge? / What are our fees?",
         answer:
-          "Every site is unique, and our fees are tailored accordingly. Before we can provide an accurate breakdown of costs, we need to review the lease and any other relevant paperwork to understand the specifics of the case. Our Terms of Business are structured on a per-job basis, meaning each instruction has its own agreement that clearly outlines how our fees apply to that particular instruction. In most cases, we operate on a no-win, no-fee basis, ensuring that our clients only pay if we achieve a successful outcome. Additionally, our fees are designed to be incentivised, meaning that if we secure a higher rent or recover any backdated payments on behalf of our client, we receive a one-off payment or a small percentage of the amount gained. Since our fees are determined on a case-by-case basis, we can only provide precise details after reviewing all relevant documentation and having an initial consultation with the potential client.",
+          `Every site is unique, and our fees are tailored accordingly. Before we can provide an accurate breakdown of costs, we need to review the lease and any other relevant paperwork to understand the specifics of the case. Our Terms of Business are structured on a per-job basis, meaning each instruction has its own agreement that clearly outlines how our fees apply to that particular instruction. ${STATEMENTS.fees} Additionally, our fees are designed to be incentivised, meaning that if we secure a higher rent or recover any backdated payments on behalf of our client, we receive a one-off payment or a small percentage of the amount gained. Since our fees are determined on a case-by-case basis, we can only provide precise details after reviewing all relevant documentation and having an initial consultation with the potential client.`,
       },
       {
         question: "Are phone mast operators allowed to upgrade existing sites?",

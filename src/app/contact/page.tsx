@@ -1,9 +1,11 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import ContactForm from "@/components/ContactForm";
 import Breadcrumbs from "@/components/Breadcrumbs";
-import JsonLd from "@/components/JsonLd";
+import StructuredData from "@/components/seo/StructuredData";
+import { organization } from "@/seo/schema";
 
 export const metadata = buildMetadata(ROUTES.contact);
 
@@ -31,16 +33,7 @@ const offices = [
 export default function ContactPage() {
   return (
     <>
-      <JsonLd
-        data={{
-          type: "ProfessionalService",
-          name: "The Phone Mast Advice Company Ltd",
-          url: "https://www.phonemastadvice.co.uk/contact/",
-          telephone: "01691 791543",
-          email: "info@phonemastadvice.co.uk",
-          description: "Independent specialist telecom surveyors acting only for UK landlords.",
-        }}
-      />
+      <StructuredData nodes={[organization()]} />
       <Breadcrumbs items={[{ label: "Contact Us" }]} />
 
       {/* Navy hero banner */}
@@ -96,7 +89,7 @@ export default function ContactPage() {
               <div style={{ marginBottom: "2rem" }}>
                 {/* Phone — prominent tap-to-call */}
                 <a
-                  href="tel:01691791543"
+                  href={COMPANY.phone.href}
                   style={{
                     display: "flex",
                     alignItems: "center",
@@ -115,7 +108,7 @@ export default function ContactPage() {
                       Call Us Free
                     </p>
                     <p style={{ fontSize: "1.375rem", color: "#ffffff", fontWeight: 700, margin: 0, lineHeight: 1.2 }}>
-                      01691 791543
+                      {COMPANY.phone.display}
                     </p>
                     <p style={{ fontSize: "1.125rem", color: "rgba(255,255,255,0.8)", margin: "0.25rem 0 0" }}>
                       Mon–Fri 9am–5:30pm
@@ -124,8 +117,8 @@ export default function ContactPage() {
                 </a>
 
                 {[
-                  { icon: "✉️", label: "Email", value: "info@phonemastadvice.co.uk", href: "mailto:info@phonemastadvice.co.uk" },
-                  { icon: "💬", label: "WhatsApp", value: "Message us on WhatsApp", href: "https://wa.me/447843352654" },
+                  { icon: "✉️", label: "Email", value: `${COMPANY.email}`, href: `mailto:${COMPANY.email}` },
+                  { icon: "💬", label: "WhatsApp", value: "Message us on WhatsApp", href: COMPANY.whatsapp.href },
                 ].map((item) => (
                   <div
                     key={item.label}

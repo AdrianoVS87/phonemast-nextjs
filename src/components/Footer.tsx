@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import Link from "next/link";
 import Image from "next/image";
 import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
@@ -230,7 +231,7 @@ export default function Footer() {
             <ul style={{ listStyle: "none", padding: 0, margin: 0 }}>
               <li style={{ marginBottom: "0.875rem" }}>
                 <a
-                  href="tel:01691791543"
+                  href={COMPANY.phone.href}
                   style={{
                     color: "rgba(255,255,255,0.85)",
                     fontSize: "0.9375rem",
@@ -239,20 +240,20 @@ export default function Footer() {
                     gap: "0.5rem",
                   }}
                 >
-                  <PhoneIcon size={16} color="#b6f414" /> 01691 791543
+                  <PhoneIcon size={16} color="#b6f414" /> {COMPANY.phone.display}
                 </a>
               </li>
               <li style={{ marginBottom: "0.875rem" }}>
                 <a
-                  href="mailto:info@phonemastadvice.co.uk"
+                  href={`mailto:${COMPANY.email}`}
                   style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
                 >
-                  <MailIcon size={16} color="#b6f414" /> info@phonemastadvice.co.uk
+                  <MailIcon size={16} color="#b6f414" /> {COMPANY.email}
                 </a>
               </li>
               <li style={{ marginBottom: "0.875rem" }}>
                 <a
-                  href="https://wa.me/447843352654"
+                  href={COMPANY.whatsapp.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{ color: "rgba(255,255,255,0.85)", fontSize: "0.9375rem", display: "inline-flex", alignItems: "center", gap: "0.5rem" }}
@@ -289,7 +290,7 @@ export default function Footer() {
           }}
         >
           <p style={{ color: "rgba(255,255,255,0.65)", fontSize: "0.875rem", margin: 0 }}>
-            © {new Date().getFullYear()} The Phone Mast Advice Company Ltd — Reg. 13115582. All rights reserved.
+            © {new Date().getFullYear()} The Phone Mast Advice Company Ltd — Reg. {COMPANY.registrationNumber}. All rights reserved.
           </p>
           <p style={{ color: "rgba(255,255,255,0.5)", fontSize: "0.8125rem", margin: 0 }}>
             We represent landlords, never operators. Independent specialist telecoms surveyors.

@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { buildMetadata } from "@/seo/metadata";
@@ -46,11 +47,6 @@ const locations: Record<string, LocationData> = {
       "Removal and redevelopment advice",
       "Electronic Communications Code guidance",
     ],
-    testimonial: {
-      quote: "The team handled our London rooftop mast renewal professionally and achieved significantly better terms than the operator's initial offer. Clear advice throughout.",
-      author: "Commercial Property Manager",
-      location: "Central London",
-    },
     localContext:
       "London landlords face particular complexity with phone mast leases. Urban sites often have multiple operators sharing infrastructure, rooftop leases carry access and structural considerations, and the density of competing sites affects valuation. Our London team understands these nuances and brings the comparable evidence to support strong negotiations.",
   },
@@ -78,11 +74,6 @@ const locations: Record<string, LocationData> = {
       "Mast sales and lease premium negotiations",
       "Removal and redevelopment support",
     ],
-    testimonial: {
-      quote: "Excellent service from the Bristol team. They negotiated a much better rent review outcome than we had anticipated, and explained everything clearly throughout the process.",
-      author: "Farm Owner",
-      location: "Somerset",
-    },
     localContext:
       "Bristol and the South West offer significant variety in phone mast types and settings. Agricultural land masts, coastal sites, and urban Bristol rooftop installations each require different approaches. Our Bristol team has extensive experience with South West landlords and operators and maintains a strong database of regional comparable deals.",
   },
@@ -110,11 +101,6 @@ const locations: Record<string, LocationData> = {
       "Rent reviews for rural and semi-rural mast sites",
       "Electronic Communications Code guidance for Welsh and Borders landlords",
     ],
-    testimonial: {
-      quote: "The Oswestry team understood our rural estate very well. They dealt with the operator firmly and achieved a much better outcome on our lease renewal than we had expected.",
-      author: "Estate Manager",
-      location: "North Wales",
-    },
     localContext:
       "Wales and the Welsh Borders have a distinctive landscape for phone mast negotiations. Rural coverage requirements, agricultural land valuations under the ECC, and the mix of Welsh and English land law create a complex environment. Our Oswestry office brings specialist knowledge of regional operators, local comparable evidence, and the specific needs of rural and estate landlords.",
   },
@@ -152,8 +138,8 @@ export default async function LocationPage({
     "@type": "LocalBusiness",
     name: `The Phone Mast Advice Company Ltd — ${data.city}`,
     url: `https://www.phonemastadvice.co.uk/locations/${data.slug}`,
-    telephone: "01691 791543",
-    email: "info@phonemastadvice.co.uk",
+    telephone: `${COMPANY.phone.display}`,
+    email: `${COMPANY.email}`,
     description: `Independent specialist phone mast lease advisors serving ${data.city} and surrounding areas.`,
     address: {
       "@type": "PostalAddress",
@@ -228,7 +214,7 @@ export default async function LocationPage({
               Free Rent Estimate
             </a>
             <a
-              href="tel:01691791543"
+              href={COMPANY.phone.href}
               style={{
                 display: "inline-flex",
                 alignItems: "center",
@@ -243,7 +229,7 @@ export default async function LocationPage({
                 minHeight: "44px",
               }}
             >
-              📞 01691 791543
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -296,7 +282,7 @@ export default async function LocationPage({
             </address>
             <div style={{ display: "flex", flexDirection: "column", gap: "0.75rem" }}>
               <a
-                href="tel:01691791543"
+                href={COMPANY.phone.href}
                 style={{
                   color: "#042b4d",
                   fontWeight: 600,
@@ -308,10 +294,10 @@ export default async function LocationPage({
                   minHeight: "44px",
                 }}
               >
-                📞 01691 791543
+                📞 {COMPANY.phone.display}
               </a>
               <a
-                href="mailto:info@phonemastadvice.co.uk"
+                href={`mailto:${COMPANY.email}`}
                 style={{
                   color: "#042b4d",
                   fontWeight: 600,
@@ -323,10 +309,10 @@ export default async function LocationPage({
                   minHeight: "44px",
                 }}
               >
-                ✉️ info@phonemastadvice.co.uk
+                ✉️ {COMPANY.email}
               </a>
               <a
-                href="https://wa.me/447843352654"
+                href={COMPANY.whatsapp.href}
                 target="_blank"
                 rel="noopener noreferrer"
                 style={{
@@ -340,7 +326,7 @@ export default async function LocationPage({
                   minHeight: "44px",
                 }}
               >
-                💬 WhatsApp: 07843 352654
+                💬 WhatsApp: {COMPANY.whatsapp.display}
               </a>
             </div>
           </div>

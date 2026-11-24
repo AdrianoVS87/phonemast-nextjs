@@ -1,5 +1,7 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
+import ReviewedBy from "@/components/guide/ReviewedBy";
 import type { Metadata } from "next";
 import Link from "next/link";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -42,7 +44,7 @@ const serviceSchema = {
     "name": "The Phone Mast Advice Company",
     "url": "https://www.phonemastadvice.co.uk",
     "telephone": "+44-1691-791543",
-    "email": "info@phonemastadvice.co.uk"
+    "email": `${COMPANY.email}`
   },
   "audience": { "@type": "Audience", "audienceType": "UK landowners and landlords with phone mast leases" },
   "hasOfferCatalog": {
@@ -104,8 +106,8 @@ export default function Page() {
             <Link href="/free-lease-check/" className="btn-primary" style={{ fontSize: "1.125rem", padding: "1rem 2rem" }}>
               Free Lease Check
             </Link>
-            <a href="tel:01691791543" style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", color: "#ffffff", border: "2px solid rgba(255,255,255,0.6)", borderRadius: "10px", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none", minHeight: "44px" }}>
-              📞 01691 791543
+            <a href={COMPANY.phone.href} style={{ display: "inline-flex", alignItems: "center", gap: "0.5rem", padding: "1rem 2rem", color: "#ffffff", border: "2px solid rgba(255,255,255,0.6)", borderRadius: "10px", fontWeight: 600, fontSize: "1.125rem", textDecoration: "none", minHeight: "44px" }}>
+              📞 {COMPANY.phone.display}
             </a>
           </div>
         </div>
@@ -126,7 +128,7 @@ export default function Page() {
               Service page, not the broad explainer
             </p>
             <p style={{ fontSize: "1.125rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              This page is designed for landlords who already need hands-on renewal support. If you need the broader legal background first, use our <a href="/phone-mast-lease/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>main phone mast lease advice guide</a>. Reviewed by the <a href="/team/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>Phone Mast Advice team</a>.
+              This page is designed for landlords who already need hands-on renewal support. If you need the broader legal background first, use our <a href="/phone-mast-lease/" style={{ color: "#042b4d", fontWeight: 700, textDecoration: "underline" }}>main phone mast lease advice guide</a>. <ReviewedBy route={ROUTES.leaseRenewals} />
             </p>
           </div>
 

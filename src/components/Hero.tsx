@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import Link from "next/link";
 import Image from "next/image";
 import { PhoneIcon, CalendarIcon, WhatsAppIcon, ArrowRightIcon, CheckIcon } from "@/components/icons";
@@ -83,9 +84,9 @@ export default function Hero({
           </div>
 
           <div className="hero-contact hero-phone-strip">
-            <a href="tel:01691791543" aria-label="Call us on 01691 791543">
+            <a href={COMPANY.phone.href} aria-label={`Call us on ${COMPANY.phone.display}`}>
               <PhoneIcon size={22} color="#b6f414" />
-              <strong>01691 791543</strong>
+              <strong>{COMPANY.phone.display}</strong>
             </a>
             <span className="hero-sep" aria-hidden="true" />
             <span className="hero-contact-item">
@@ -93,7 +94,7 @@ export default function Hero({
               Mon–Fri 9am–5:30pm
             </span>
             <span className="hero-sep" aria-hidden="true" />
-            <a href="https://wa.me/447843352654" target="_blank" rel="noopener noreferrer">
+            <a href={COMPANY.whatsapp.href} target="_blank" rel="noopener noreferrer">
               <WhatsAppIcon size={22} color="#b6f414" />
               WhatsApp
             </a>

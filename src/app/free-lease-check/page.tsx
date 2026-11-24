@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
@@ -78,12 +79,12 @@ export default function FreeLeaseCheckPage() {
                 </p>
                 <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0 }}>
                   Call{" "}
-                  <a href="tel:01691791543" style={{ color: "#042b4d", fontWeight: 600 }}>
-                    01691 791543
+                  <a href={COMPANY.phone.href} style={{ color: "#042b4d", fontWeight: 600 }}>
+                    {COMPANY.phone.display}
                   </a>{" "}
                   or{" "}
                   <a
-                    href="https://wa.me/447843352654"
+                    href={COMPANY.whatsapp.href}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{ color: "#042b4d", fontWeight: 600 }}

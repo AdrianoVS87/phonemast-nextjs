@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
@@ -29,8 +30,8 @@ const bookJsonLd = {
     "@type": "Organization",
     name: "The Phone Mast Advice Company Ltd",
     url: "https://www.phonemastadvice.co.uk",
-    telephone: "+44 1691 791543",
-    email: "info@phonemastadvice.co.uk",
+    telephone: COMPANY.phone.international,
+    email: `${COMPANY.email}`,
   },
   publisher: {
     "@type": "Organization",
@@ -122,7 +123,7 @@ export default function HandbookPage() {
               margin: "0 auto",
             }}
           >
-            Everything UK landlords need to know about phone mast leases, rents, and their rights — written by our specialist surveying team with 30+ years of experience.
+            Everything UK landlords need to know about phone mast leases, rents, and their rights, written by our specialist surveying team.
           </p>
         </div>
       </section>
@@ -205,7 +206,7 @@ export default function HandbookPage() {
                     Written by specialist telecom surveyors
                   </p>
                   <p style={{ color: "#374151", fontSize: "1.125rem", margin: 0, lineHeight: 1.65 }}>
-                    This handbook is based on over 30 years of experience and 10,000+ deals completed on behalf of UK landlords. It&apos;s the same knowledge we share with our paying clients — free, because we believe in informed landlords.
+                    This handbook is written by our specialist surveyors. It&apos;s the same knowledge we share with our paying clients — free, because we believe in informed landlords.
                   </p>
                 </div>
               </div>

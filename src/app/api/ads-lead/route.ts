@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import { createHash, timingSafeEqual } from "crypto";
 import { NextResponse } from "next/server";
 
@@ -97,7 +98,7 @@ export async function POST(req: Request) {
             </p>
           </div>
           <p style="color: #9ca3af; font-size: 12px; margin-top: 16px; text-align: center;">
-            The Phone Mast Advice Company Ltd — Reg. 13115582
+            The Phone Mast Advice Company Ltd — Reg. ${COMPANY.registrationNumber}
           </p>
         </div>
       `,

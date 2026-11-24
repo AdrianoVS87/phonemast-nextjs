@@ -1,3 +1,4 @@
+import { COMPANY } from "@/content/company";
 import Link from "next/link";
 import { PhoneIcon, MailIcon, WhatsAppIcon, ArrowUpRightIcon } from "@/components/icons";
 
@@ -40,15 +41,15 @@ export default function CTASection({
         </div>
 
         <div className="cta-contact">
-          <a href="tel:01691791543">
+          <a href={COMPANY.phone.href}>
             <PhoneIcon size={20} color="#b6f414" />
-            01691 791543
+            {COMPANY.phone.display}
           </a>
-          <a href="mailto:info@phonemastadvice.co.uk">
+          <a href={`mailto:${COMPANY.email}`}>
             <MailIcon size={20} color="#b6f414" />
-            info@phonemastadvice.co.uk
+            {COMPANY.email}
           </a>
-          <a href="https://wa.me/447843352654" target="_blank" rel="noopener noreferrer">
+          <a href={COMPANY.whatsapp.href} target="_blank" rel="noopener noreferrer">
             <WhatsAppIcon size={20} color="#b6f414" />
             WhatsApp
           </a>
