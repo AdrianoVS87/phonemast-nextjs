@@ -1,10 +1,12 @@
+import GoogleG from "@/components/GoogleG";
 import { confirmedClaimRecord, type ClaimId } from "@/content/company";
 
 const STAT_CLAIMS: readonly ClaimId[] = ["experienceYears", "dealsCompleted", "googleRating"];
 
 /**
  * Headline figures, each from a claim Matt confirmed (src/content/company.ts). The bar renders only
- * when all three are confirmed, so it never looks like it is missing something.
+ * when all three are confirmed, so it never looks like it is missing something. A figure with a link
+ * is the Google rating: it shows the Google G and links to the Business Profile.
  */
 export default function StatsBar() {
   const stats = STAT_CLAIMS.map(confirmedClaimRecord).filter((c) => c?.stat);
@@ -16,13 +18,15 @@ export default function StatsBar() {
           {stats.map((c) =>
             c?.stat ? (
               <li key={c.stat.value}>
-                <strong>{c.stat.value}</strong>{" "}
                 {c.href ? (
-                  <a href={c.href} rel="noopener" target="_blank">
-                    {c.stat.label}
+                  <a href={c.href} rel="noopener" target="_blank" className="stats-rating">
+                    <GoogleG />
+                    <strong>{c.stat.value}</strong> <span className="stats-rating-label">{c.stat.label}</span>
                   </a>
                 ) : (
-                  c.stat.label
+                  <>
+                    <strong>{c.stat.value}</strong> {c.stat.label}
+                  </>
                 )}
               </li>
             ) : null,

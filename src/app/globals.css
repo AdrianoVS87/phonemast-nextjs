@@ -785,3 +785,11 @@ linear-gradient(90deg,#044677 0%,#07518f 48%,rgba(7,81,143,.9) 60%,rgba(10,95,16
 .career-list li { display: grid; grid-template-columns: 9.5rem 1fr; gap: 0.25rem 1rem; }
 .career-years { color: #4b5563; font-variant-numeric: tabular-nums; }
 @media (max-width: 560px) { .career-list li { grid-template-columns: 1fr; } }
+
+/* Google G next to our rating (Google brand rules: unaltered, on white, clear space >= the G's width) */
+.google-g-chip { display: inline-flex; flex-shrink: 0; width: 60px; height: 60px; background: #ffffff; border-radius: 14px; box-shadow: 0 1px 3px rgba(4, 43, 77, 0.14); }
+.google-g-chip img { display: block; width: 60px; height: 60px; }
+.stats-bar .stats-rating { display: inline-flex; align-items: center; gap: 0.75rem; color: #042b4d; text-decoration: none; }
+.stats-bar .stats-rating-label { text-decoration: underline; text-underline-offset: 3px; }
+.stats-bar .stats-rating:hover .stats-rating-label { color: #0669af; }
+.trust-signals .google-g-chip { margin-bottom: 0.25rem; }

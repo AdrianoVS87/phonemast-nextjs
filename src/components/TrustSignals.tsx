@@ -1,3 +1,4 @@
+import GoogleG from "@/components/GoogleG";
 import { COMPANY, STATEMENTS, confirmedClaim, confirmedClaimRecord } from "@/content/company";
 
 interface Signal {
@@ -5,6 +6,8 @@ interface Signal {
   text: string;
   href?: string;
   linkText?: string;
+  /** Shows the Google G: only for the rating, which links to our Business Profile. */
+  google?: boolean;
 }
 
 /**
@@ -29,7 +32,7 @@ export default function TrustSignals() {
   const deals = confirmedClaim("dealsCompleted");
   if (deals) signals.push({ title: "Track record", text: `${deals}.` });
   const rating = confirmedClaimRecord("googleRating");
-  if (rating) signals.push({ title: "Reviews", text: `${rating.text}.`, href: rating.href, linkText: "Read the reviews" });
+  if (rating) signals.push({ title: "Reviews", text: `${rating.text}.`, href: rating.href, linkText: "Read the reviews", google: true });
 
   return (
     <section className="trust-signals" aria-labelledby="trust-heading">
@@ -38,6 +41,7 @@ export default function TrustSignals() {
         <ul>
           {signals.map((s) => (
             <li key={s.title}>
+              {s.google ? <GoogleG /> : null}
               <strong>{s.title}</strong>
               <span>
                 {s.text}
