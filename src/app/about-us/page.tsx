@@ -38,7 +38,8 @@ export default function AboutPage() {
             Operators have made large savings over the years by dealing directly with landlords who do not have specialist advice.
           </p>
           <p>
-            We are committed to every client, however many mast sites they have. We aim to build a friendly working relationship and to keep
+            Our clients range from individual landowners to supermarket chains and local authorities. We are committed to every client,
+            however many mast sites they have. We aim to build a friendly working relationship and to keep
             you well looked after and informed at every stage.
           </p>
           <p>

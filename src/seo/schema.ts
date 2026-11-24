@@ -95,6 +95,7 @@ export function founderPerson({ withCredentials = false }: { withCredentials?: b
             name: q.name,
             credentialCategory: q.category,
           })),
+          alumniOf: f.qualifications.map((q) => ({ "@type": "CollegeOrUniversity", name: q.institution })),
         }
       : {}),
   };

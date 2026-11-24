@@ -58,14 +58,40 @@ export const COMPANY = {
     profilePath: "/team/matt-restall/",
     linkedIn: "https://www.linkedin.com/in/matthew-restall-7a64669b/",
     image: "/images/team/Matt-Restall.jpg",
-    /** Confirmed by Matt, 24 Nov 2026. */
+    /** Named by Matt on 24 Nov 2026; institutions and years from his LinkedIn profile, read the same day. */
     qualifications: [
-      { name: "HND Building Studies", category: "diploma" },
-      { name: "BSc (Hons) Valuation Surveying", category: "degree" },
+      { name: "BSc (Hons) Valuation Surveying", category: "degree", institution: "University of Staffordshire", years: "1998 to 2000" },
+      { name: "HND Building Studies", category: "diploma", institution: "Liverpool John Moores University", years: "" },
     ],
+    /**
+     * From Matt's LinkedIn profile, read on 24 Nov 2026 at his request. LinkedIn lists nothing before 2000;
+     * Matt says his experience goes back further (see CLAIMS.experienceYears), so the list is headed
+     * "since 2000". The 2002 role is worded as Matt corrected it.
+     */
+    career: [
+      { years: "2021 to present", role: "Founder and Managing Director", organisation: "The Phone Mast Advice Company Ltd" },
+      { years: "2009 to present", role: "Director", organisation: "The Phone Mast Company Ltd" },
+      { years: "2004 to 2009", role: "Director", organisation: "CRT Property Consultants, Chester" },
+      {
+        years: "2002 to 2004",
+        role: "Asset Manager, UK National Site Share Manager of NTL and Crown Castle",
+        organisation: "on behalf of Airwave / O2 UK Limited",
+      },
+      { years: "2000 to 2002", role: "Acquisition Surveyor", organisation: "Kingfisher Estates (Pentland), Manchester" },
+    ],
+    /** Matt's chosen wording, 24 Nov 2026. */
+    careerSummary:
+      "Matt began his career on the operators' side, acquiring and managing mast sites, so he knows how operators and their agents work. Since 2004 he has worked for property owners.",
+    /** Matt's chosen wording, 24 Nov 2026 (the factual version, without the superlative). */
+    reach:
+      "Matt has represented landlords across the UK, from individual rural landowners to large corporate property portfolios, and keeps a database of comparable phone mast deals.",
   },
-  /** Confirmed by Matt, 24 Nov 2026. Shown as text with a link, never as Review or AggregateRating markup. */
-  googleReviews: { rating: 5, count: 12, url: "https://maps.app.goo.gl/3YtwqUoH7pkJ6MEu8" },
+  /**
+   * Rating and count as shown on the Google Maps listing on 24 Nov 2026 (4.8 from 12 reviews; Matt had
+   * said 5/5). Shown as text with a link, never as Review or AggregateRating markup. Update both numbers
+   * when the listing changes.
+   */
+  googleReviews: { rating: 4.8, count: 12, url: "https://maps.app.goo.gl/3YtwqUoH7pkJ6MEu8" },
   /** Confirmed by Matt, 24 Nov 2026. */
   ricsMember: { name: "Andrew Chinn", designation: "MRICS" },
   /** Company social profiles for Organization.sameAs. None confirmed yet. */
@@ -117,10 +143,11 @@ export const STATEMENTS = {
 /** Marketing claims found on the site in November 2026, with Matt's answers of 24 Nov 2026. */
 export const CLAIMS = {
   experienceYears: {
-    text: "Matt Restall has advised landlords on phone masts for over 30 years",
+    text: "Matt Restall has over 30 years' experience in the phone mast industry",
     confirmed: true,
-    evidence: "Matt, 24 Nov 2026: the experience is Matt's own career, not the company's (incorporated 6 January 2021).",
-    stat: { value: "30+", label: "years of Matt's experience advising landlords" },
+    evidence:
+      "Matt, 24 Nov 2026, asked twice: over 30 years is right and it is his own career, not the company's (incorporated 6 January 2021). His LinkedIn lists roles from April 2000 only, on the operators' side until 2004, so the wording covers the industry as a whole rather than advising landlords. The pre-2000 roles are an open question in docs/seo/needs-owner-confirmation.md.",
+    stat: { value: "30+", label: "years of Matt's experience in the phone mast industry" },
   },
   since1999: {
     text: "Acting for landlords since 1999",
@@ -139,9 +166,9 @@ export const CLAIMS = {
     evidence: "Matt, 24 Nov 2026: Andrew Chinn is MRICS. No membership number was given, so the RICS register is not linked.",
   },
   googleRating: {
-    text: `Rated ${COMPANY.googleReviews.rating}/5 on Google from ${COMPANY.googleReviews.count} reviews`,
+    text: `Rated ${COMPANY.googleReviews.rating} out of 5 on Google from ${COMPANY.googleReviews.count} reviews`,
     confirmed: true,
-    evidence: "Matt, 24 Nov 2026: profile link and review count supplied.",
+    evidence: "Matt, 24 Nov 2026: profile link and review count supplied. The rating was read from the listing the same day (4.8, not 5).",
     stat: { value: `${COMPANY.googleReviews.rating}/5`, label: `on Google, from ${COMPANY.googleReviews.count} reviews` },
     href: COMPANY.googleReviews.url,
   },

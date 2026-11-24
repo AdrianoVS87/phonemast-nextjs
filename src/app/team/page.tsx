@@ -58,7 +58,7 @@ const team: TeamMember[] = [
     role: "Telecoms Consultant",
     credentials: "",
     photo: "/images/team/Mark-Dernes.jpg",
-    bio: "Mark Dernes is an experienced consultant whose career spans telecoms, finance and real estate. Mark specialises in facilitating lease negotiations, including renewals and mast sales, drawing on his experience of working with mast investment companies. His breadth of negotiating experience across multiple sectors adds significant depth to The Phone Mast Advice Company's advisory offering.",
+    bio: "Mark Dernes is an experienced consultant who brings over four decades of experience across telecoms, finance and real estate, including work with both of the UK's leading mast investment companies. Mark specialises in facilitating lease negotiations, including renewals and mast sales, drawing on his experience of working with mast investment companies. His breadth of negotiating experience across multiple sectors adds significant depth to The Phone Mast Advice Company's advisory offering.",
     linkedin: "https://www.linkedin.com/in/markdernes/",
   },
 ];
@@ -179,7 +179,7 @@ export default function TeamPage() {
                     <p
                       style={{
                         fontWeight: 600,
-                        color: "#b6f414",
+                        color: "#2f6b12", // lime is unreadable on white (1.3:1); this green is 6.5:1
                         fontSize: "1rem",
                         marginBottom: member.credentials ? "0.25rem" : "0",
                         textTransform: "uppercase",

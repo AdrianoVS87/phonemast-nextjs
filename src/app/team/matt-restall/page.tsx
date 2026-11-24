@@ -50,11 +50,34 @@ export default function MattRestallPage() {
             Matt founded {COMPANY.legalName} and advises landlords on telecoms property: leases, rent reviews, new lettings and lease sales.
             {experience ? ` ${experience}.` : ""} {STATEMENTS.independence}
           </p>
-          <p>Qualifications: {founder.qualifications.map((q) => q.name).join(", ")}.</p>
+          <p>{founder.reach}</p>
           <p>
             Every instruction starts with a free review of the agreement and the operator&rsquo;s letters, so that a landlord knows which
             rules apply, what the statutory valuation produces for that site and what can still be negotiated, before any fee is agreed.
           </p>
+
+          <h2>Career</h2>
+          <p>{founder.careerSummary}</p>
+          <h3>Roles since 2000</h3>
+          <ul className="career-list">
+            {founder.career.map((job) => (
+              <li key={job.years + job.role}>
+                <span className="career-years">{job.years}</span>
+                <span>
+                  <strong>{job.role}</strong>, {job.organisation}
+                </span>
+              </li>
+            ))}
+          </ul>
+          <h3>Qualifications</h3>
+          <ul>
+            {founder.qualifications.map((q) => (
+              <li key={q.name}>
+                {q.name}, {q.institution}
+                {q.years ? ` (${q.years})` : ""}
+              </li>
+            ))}
+          </ul>
 
           <h2>{COMPTON_STATEMENT.heading}</h2>
           <p>
