@@ -1,3 +1,5 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -6,19 +8,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 
 const URL = "https://www.phonemastadvice.co.uk/electronic-communications-code/";
 
-export const metadata: Metadata = {
-  title: "Electronic Communications Code: A Guide for Landowners",
-  description:
-    "The Electronic Communications Code explained for UK landowners with a phone mast: code rights, imposed agreements, how rent is valued, ending or renewing an agreement, and which tribunal decides.",
-  alternates: { canonical: URL },
-  openGraph: {
-    title: "The Electronic Communications Code Explained for UK Landowners",
-    description:
-      "What the Code lets operators do on your land, how payment is assessed, and how Code agreements end, renew and are decided by the tribunal.",
-    type: "article",
-    url: URL,
-  },
-};
+export const metadata = buildMetadata(ROUTES.code);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -307,7 +297,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Electronic Communications Code: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/electronic-communications-code/" />
 
           <h2 style={h2}>Sources</h2>
           <ul style={{ paddingLeft: "1.25rem", margin: "0 0 1.5rem" }}>

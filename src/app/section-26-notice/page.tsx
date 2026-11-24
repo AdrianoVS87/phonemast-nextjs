@@ -1,3 +1,5 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -6,19 +8,7 @@ import FAQAccordion from "@/components/FAQAccordion";
 
 const URL = "https://www.phonemastadvice.co.uk/section-26-notice/";
 
-export const metadata: Metadata = {
-  title: "Section 26 Notice on a Phone Mast Lease: Landowner Guide",
-  description:
-    "Received a Section 26 notice from a phone mast operator? The two-month deadline, your grounds to oppose, interim rent, the 7 April 2026 rent change and the tribunal from 30 July 2026, explained for landowners.",
-  alternates: { canonical: URL },
-  openGraph: {
-    title: "Section 26 Notice on a Phone Mast Lease: What Landowners Must Do",
-    description:
-      "The Section 26 timetable for telecoms leases under the Landlord and Tenant Act 1954, and what changed for phone mast renewals in 2026.",
-    type: "article",
-    url: URL,
-  },
-};
+export const metadata = buildMetadata(ROUTES.section26);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -282,7 +272,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Section 26 notices: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/section-26-notice/" />
 
           <h2 style={h2}>Sources</h2>
           <ul style={{ paddingLeft: "1.25rem", margin: "0 0 1.5rem" }}>

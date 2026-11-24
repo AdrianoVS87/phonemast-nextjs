@@ -1,21 +1,12 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Phone Mast Removal for Redevelopment",
-  description:
-    "Need a phone mast removed so you can redevelop? Independent advice for UK landowners on Paragraph 31 notices, the redevelopment ground, timescales, and getting the operator off your land.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/removal-and-redevelopment/" },
-  openGraph: {
-    title: "Phone Mast Removal & Redevelopment: Getting an Operator Off Your Land",
-    description:
-      "How to end a phone mast agreement for redevelopment under the Electronic Communications Code, what notices are required, how long it takes, and how we manage it.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.removal);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -197,7 +188,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Removal and redevelopment: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/removal-and-redevelopment/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>

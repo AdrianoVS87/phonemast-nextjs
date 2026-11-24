@@ -1,21 +1,12 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Phone Mast Solicitors or Surveyors? Who You Need",
-  description:
-    "Looking for a phone mast solicitor? What a solicitor does, what a telecoms surveyor does, when a UK landlord needs each, who pays the fees, and how we work alongside your solicitor.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-solicitors/" },
-  openGraph: {
-    title: "Phone Mast Solicitors or Surveyors? Who UK Landlords Need, and When",
-    description:
-      "The roles of a solicitor and a telecoms surveyor in a phone mast lease, when a landlord needs each, and who pays the fees.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.solicitors);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -218,7 +209,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Phone mast solicitors: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-solicitors/" />
 
           <p style={{ fontSize: "0.875rem", color: "#6b7280", lineHeight: 1.6, borderTop: "1px solid #e5e7eb", paddingTop: "1.5rem", marginTop: "2rem" }}>
             This page was last updated on 15 September 2026. It is general guidance and does not constitute legal advice. We are surveyors, not solicitors: for legal advice on your circumstances, consult a solicitor.

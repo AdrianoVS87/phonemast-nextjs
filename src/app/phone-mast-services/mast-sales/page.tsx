@@ -1,21 +1,12 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Sell Your Phone Mast Lease | Mast Sales",
-  description:
-    "Thinking of selling your phone mast lease? Independent advice for UK landlords on what a mast lease sale is worth, how buyers value it, and how to sell safely.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/mast-sales/" },
-  openGraph: {
-    title: "Sell Your Phone Mast Lease: Mast Sales Advice for UK Landlords",
-    description:
-      "What a phone mast lease sale is worth, who buys them, the risks in the paperwork, and how we get landowners the best price and terms.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.mastSales);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -214,7 +205,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Mast sales: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/mast-sales/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>

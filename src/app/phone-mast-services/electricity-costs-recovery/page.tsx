@@ -1,21 +1,12 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Phone Mast Electricity Costs Recovery",
-  description:
-    "Is a mobile operator using your electricity supply? Independent advice for UK landlords on recovering phone mast electricity costs, backdated charges, and fixing the arrangement for good.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/electricity-costs-recovery/" },
-  openGraph: {
-    title: "Phone Mast Electricity Costs Recovery for UK Landlords",
-    description:
-      "How to recover the electricity a phone mast draws from your supply, including backdated costs, and how to put the operator on a proper footing going forward.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.electricity);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -178,7 +169,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Electricity costs: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/electricity-costs-recovery/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>

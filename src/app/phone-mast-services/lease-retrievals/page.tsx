@@ -1,21 +1,12 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Lost Phone Mast Lease? Lease Retrievals",
-  description:
-    "Cannot find your phone mast lease? We locate and retrieve lost or missing telecoms agreements from the Land Registry, operators, and deeds, so you can renew, review, or sell with confidence.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/lease-retrievals/" },
-  openGraph: {
-    title: "Lost or Missing Phone Mast Lease: Lease Retrieval Service",
-    description:
-      "How to find a missing phone mast lease, why the document matters before any renewal or sale, and how we retrieve it for landlords.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.leaseRetrievals);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -176,7 +167,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Lease retrievals: frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/lease-retrievals/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>

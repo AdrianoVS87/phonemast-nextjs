@@ -1,21 +1,12 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import JsonLd from "@/components/JsonLd";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import CTASection from "@/components/CTASection";
 import FAQAccordion from "@/components/FAQAccordion";
 
-export const metadata: Metadata = {
-  title: "Wayleaves, Lift & Shift, Breaches & Site Audits",
-  description:
-    "Specialist phone mast services for UK landlords beyond renewals and rent reviews: wayleaves, lift and shift, site sharing and assignment, breaches, site audits, and Tribunal or ADR support.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/phone-mast-services/other-services/" },
-  openGraph: {
-    title: "Other Phone Mast Services: Wayleaves, Lift & Shift, Breaches, Site Audits",
-    description:
-      "The specialist telecoms services landlords ask us for beyond the headline renewal and rent review work, explained one by one.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.otherServices);
 
 const h2: React.CSSProperties = {
   fontFamily: "var(--font-jakarta), system-ui, sans-serif",
@@ -178,7 +169,7 @@ export default function Page() {
           </p>
 
           <h2 style={h2}>Frequently asked questions</h2>
-          <FAQAccordion items={faqs} showJsonLd={true} />
+          <FAQAccordion items={faqs} schemaPath="/phone-mast-services/other-services/" />
 
           <h2 style={h2}>You may also need</h2>
           <div style={{ display: "grid", gap: "1rem", gridTemplateColumns: "repeat(auto-fill, minmax(220px, 1fr))", marginBottom: "1rem" }}>

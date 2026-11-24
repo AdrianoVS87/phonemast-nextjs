@@ -1,20 +1,11 @@
+import { buildMetadata } from "@/seo/metadata";
+import { ROUTES } from "@/seo/routes";
 import type { Metadata } from "next";
 import Breadcrumbs from "@/components/Breadcrumbs";
 import FAQAccordion, { type FAQItem } from "@/components/FAQAccordion";
 import CTASection from "@/components/CTASection";
 
-export const metadata: Metadata = {
-  title: "Phone Mast FAQ — Leases, Rent & Landlord Rights",
-  description:
-    "Phone mast advice FAQ with clear answers on phone mast leases, rent reviews, the Electronic Communications Code, and UK landlord rights from specialist surveyors.",
-  alternates: { canonical: "https://www.phonemastadvice.co.uk/faq/" },
-  openGraph: {
-    title: "Phone Mast Advice FAQ — Leases, Rent & Landlord Rights",
-    description:
-      "Phone mast advice answers to common questions about leases, rent reviews, the ECC, and UK landlord rights from The Phone Mast Advice Company.",
-    type: "website",
-  },
-};
+export const metadata = buildMetadata(ROUTES.faq);
 
 const faqCategories: Array<{ category: string; items: FAQItem[] }> = [
   {
@@ -183,7 +174,7 @@ export default function FAQPage() {
               >
                 {category.category}
               </h2>
-              <FAQAccordion items={category.items} showJsonLd={false} />
+              <FAQAccordion items={category.items} />
             </div>
           ))}
         </div>
