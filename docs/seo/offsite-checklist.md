@@ -155,13 +155,17 @@ consistency that Google uses for local results. Decide which entity the number b
 
 ## 6. Google Business Profile
 
-The profile Matt gave (https://maps.app.goo.gl/3YtwqUoH7pkJ6MEu8, "The Phone Mast Advice Company", 5/5 from
-12 reviews) opens a place pinned on Great Portland Street, London. Matt has confirmed there is no office
-where clients meet the team.
+The profile Matt gave (https://maps.app.goo.gl/3YtwqUoH7pkJ6MEu8, "The Phone Mast Advice Company", 4.8 from
+12 reviews on 24 Nov 2026) shows "5th Floor, 167–169 Great Portland St, London W1W 5PF". Matt has confirmed
+there is no office where clients meet the team.
+
+**Decision (Matt, 24 Nov 2026): keep the address.** He was told that Google can suspend a listing at an
+address clients cannot visit if it is reported, and that hiding it may trigger re-verification. If he
+changes his mind, the steps are:
 
 1. In the profile, set the business as a **service-area business**: remove or hide the address and add the
    United Kingdom as the service area. Google's guidelines do not allow a visible address that customers
-   cannot visit.
+   cannot visit. Expect a possible re-verification (often a short video) before the change goes live.
 2. Make the name, phone (01691 791543) and website match the site exactly.
 3. Keep asking clients for reviews there; the site links to the profile and quotes the count, and the count
    in `src/content/company.ts` (`googleReviews`) should be updated when it changes.

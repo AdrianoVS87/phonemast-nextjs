@@ -10,9 +10,18 @@
 | Mobile budgets: TBT ≤ 50 ms, SI ≤ 1.5 s, LCP ≤ 1.2 s, FCP ≤ 1.0 s, CLS 0 | TBT 52–130 ms, SI 1.07–1.09 s, LCP 2.69–3.31 s, FCP 1.07–1.09 s, CLS 0 | SI and CLS met; FCP and TBT close; LCP not met. |
 
 **PageSpeed Insights could not be run.** Its API refuses requests without an API key (HTTP 429), and the
-Vercel preview of this branch is behind Vercel Authentication, so Google's servers cannot load it. Running
-PSI needs one of: a PSI API key, a Vercel "Protection Bypass for Automation" secret, or deployment protection
-switched off for previews. Each is a project security or credentials decision, so none was made here.
+Vercel preview of this branch is behind Vercel Authentication, so Google's servers cannot load it. Adriano
+chose a Vercel "Protection Bypass for Automation" secret (24 Nov 2026). `lighthouse.config.cjs` sends it as
+the `x-vercel-protection-bypass` header when `VERCEL_AUTOMATION_BYPASS_SECRET` is set, so Lighthouse CI can
+measure the real deployment over a real network:
+
+```bash
+LHCI_BASE_URL=https://<preview>.vercel.app \
+VERCEL_AUTOMATION_BYPASS_SECRET="$(cat ~/.phonemast/vercel-bypass)" pnpm lhci:mobile
+```
+
+Vercel adds `X-Robots-Tag: noindex` to previews, so the crawlable audit is skipped on `*.vercel.app` hosts
+only. PSI itself still needs a public URL (or production after the merge).
 
 ## Method
 

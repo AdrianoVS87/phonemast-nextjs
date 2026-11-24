@@ -30,6 +30,13 @@ in `docs/seo/content-changes-for-review.md` and `docs/seo/needs-owner-confirmati
   correctly.
 - Original titles and H1s, no year. FAQs that repeated sections are removed. Three CTAs per guide.
 - Title, H1, slug and opening answer are locked by `tests/guide-freeze.test.ts`.
+- Fact-check at Matt's request: every statement the old site made without a source was checked against the
+  judgment or the company's own publication. *Vache Farm*'s redevelopment break and the *Firoka* decision are
+  back, correctly attributed; *On Tower v BT* is final (the Supreme Court refused permission on 27 November
+  2025); *Potting Shed* now states what the Court of Appeal decided; *Marks & Spencer* has its Tribunal
+  reference and a link; the operators hub has current CTIL ownership and site numbers and Airwave's owner,
+  each with its source. The "1,000 cases" figure had no source and stays off (`content-changes-for-review.md`
+  section 8).
 
 ### Sitewide ballast (Phase 3)
 
@@ -42,9 +49,12 @@ in `docs/seo/content-changes-for-review.md` and `docs/seo/needs-owner-confirmati
 
 - Every fact (phone, email, registration, claims) comes from `src/content/company.ts`, and a test fails on
   copies anywhere else, including office addresses.
-- Claims Matt confirmed are shown: over 30 years (his career), 10,000+ deals, Andrew Chinn MRICS, 5/5 on
-  Google from 12 reviews (text with a link, no review markup), "Verified client" on testimonials, and his
-  qualifications on his profile.
+- Claims Matt confirmed are shown: over 30 years' experience in the phone mast industry (his career),
+  10,000+ deals, Andrew Chinn MRICS, 4.8 out of 5 on Google from 12 reviews (as the listing shows; text with a
+  link, no review markup), "Verified client" on testimonials, client types (individual landowners to
+  supermarket chains and local authorities) and Mark Dernes's experience.
+- Matt's profile has his career since 2000 and his universities, taken from his LinkedIn at his request, with
+  his own line on starting out on the operators' side.
 - Claims he did not confirm stay off: "since 1999", "first firm in the UK", "most significant ruling".
   The Compton Beauchamp case is described in his chosen wording, with the citation linked.
 - One fee sentence (his wording) and one service-area sentence (the whole UK) are used everywhere.
@@ -80,6 +90,9 @@ in `docs/seo/content-changes-for-review.md` and `docs/seo/needs-owner-confirmati
   All pass: 200s, one H1, heading order, unique titles and descriptions, self canonicals, `og:url`, one
   BreadcrumbList, no links to redirects.
 - `pnpm lint`, `tsc --noEmit` and `pnpm build`: clean.
+- Accessibility: Lighthouse on all 79 sitemap URLs plus the three policy pages: 100 on every page. The sweep
+  found two failures outside the measured templates (links in running text without an underline on service
+  pages, and lime text on white on the team page); both are fixed.
 - schema.org validator: 0 errors and 0 warnings on the rent guide, homepage, a service page, a blog post and
   Matt's profile (before the last structured-data changes; the new pages use the same builders).
 - Lighthouse 12.6.1 locally, PSI presets (`docs/seo/performance.md`):
@@ -89,15 +102,17 @@ in `docs/seo/content-changes-for-review.md` and `docs/seo/needs-owner-confirmati
 
 ## Not done here
 
-- **PageSpeed Insights acceptance (mobile 100) is not shown.** The PSI API needs a key, and the Vercel
-  preview is behind Vercel Authentication. Choose one: give a PSI API key, create a Protection Bypass for
-  Automation secret, or turn off preview protection, then run PSI on the preview. If mobile is still below
-  100, the remaining cost is the React and Next.js runtime (see `performance.md`).
+- **PageSpeed Insights acceptance (mobile 100) is not shown.** The Vercel preview is behind Vercel
+  Authentication. Adriano chose a Protection Bypass for Automation secret: once it exists,
+  `LHCI_BASE_URL=<preview> VERCEL_AUTOMATION_BYPASS_SECRET=... pnpm lhci:mobile` measures the real deployment
+  (the secret is read from the environment, never committed). If mobile is still below 100, the remaining
+  cost is the React and Next.js runtime (see `performance.md`).
 - legislation.gov.uk links in `LEGISLATION` stay hidden until a person opens them (the site refuses
   automated checks).
-- Off-site: `phonemastcompany.co.uk` `.htaccess`, the Google Business Profile address, old directory
-  listings and Search Console steps are in `docs/seo/offsite-checklist.md`.
-- Still open with Matt: Andrew's RICS number, Matt's career history, Mark Dernes's wording, operator figures,
-  unverified legal items (`needs-owner-confirmation.md`).
+- Off-site: `phonemastcompany.co.uk` `.htaccess`, old directory listings and Search Console steps are in
+  `docs/seo/offsite-checklist.md`. Matt chose to keep the London address on the Google listing.
+- Still open: Matt's roles before 2000 (evidence for "over 30 years"), and Adriano opening the
+  legislation.gov.uk links by hand (`needs-owner-confirmation.md`).
+- Matt should read `content-changes-for-review.md` section 8 (the fact-check corrections) before the merge.
 
 https://claude.ai/code/session_017RAqMEsVtzthTV3aov9v13
