@@ -39,6 +39,7 @@ export default function Hero({
             alt=""
             fill
             priority
+            fetchPriority="high"
             sizes="(max-width: 700px) 85vw, (max-width: 1080px) 52vw, 50vw"
             style={{ objectFit: "cover", objectPosition: "50% 0%" }} /* top-aligned: the mast tip is never cropped, only the landscape at the bottom */
           />
@@ -57,8 +58,6 @@ export default function Hero({
           <h1
             id="hero-title"
             className="hero-headline"
-            // fetchPriority hints Chromium that this is the LCP candidate
-            {...({ fetchpriority: "high" } as Record<string, string>)}
           >
             {cut > 0 ? (
               <>

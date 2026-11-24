@@ -11,7 +11,9 @@ import ClickIdCapture from "@/components/analytics/ClickIdCapture";
 
 // Two variable fonts, Latin only, self-hosted by next/font with size-adjusted fallbacks (no layout
 // shift on swap). Variable files carry every weight the design uses (400 to 800) in one request each.
-const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap" });
+// Headings only: not preloaded, so the 27 KB file does not compete with the stylesheet before first paint.
+// It still loads as soon as the first heading needs it, with a size-matched fallback until then (no layout shift).
+const jakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-jakarta", display: "swap", preload: false });
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter", display: "swap" });
 
 /** Defaults for pages without their own metadata (404s). Every route sets its own through buildMetadata. */
