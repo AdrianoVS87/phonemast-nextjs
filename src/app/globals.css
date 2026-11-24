@@ -99,6 +99,14 @@ a:hover {
   color: #0669af;
 }
 
+/* A link inside running text must not rely on colour alone (WCAG 1.4.1). Links with their own class
+   (buttons, cards, navigation) are styled where they are defined. */
+main p a:not([class]),
+main li a:not([class]) {
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+
 /* Focus styles for accessibility */
 :focus-visible {
   outline: 3px solid #b6f414;
@@ -768,3 +776,12 @@ linear-gradient(90deg,#044677 0%,#07518f 48%,rgba(7,81,143,.9) 60%,rgba(10,95,16
 .service-card-text { color: #4b5563; font-size: 1rem; line-height: 1.65; flex-grow: 1; margin: 0 0 1.5rem; }
 .service-card-link { color: #042b4d; font-weight: 600; font-size: 0.9375rem; display: inline-flex; align-items: center; gap: 0.375rem; text-decoration: none; }
 .service-card-link:hover { text-decoration: underline; }
+
+/* Operators hub: where the changeable facts were checked */
+.operator-sources { font-size: 1rem; color: #4b5563; }
+
+/* Matt's profile: roles with their years in a fixed first column */
+.career-list { list-style: none; padding: 0; display: grid; gap: 0.75rem; }
+.career-list li { display: grid; grid-template-columns: 9.5rem 1fr; gap: 0.25rem 1rem; }
+.career-years { color: #4b5563; font-variant-numeric: tabular-nums; }
+@media (max-width: 560px) { .career-list li { grid-template-columns: 1fr; } }
