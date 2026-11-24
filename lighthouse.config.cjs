@@ -12,8 +12,9 @@
  *   LHCI_BASE_URL=https://<preview>.vercel.app VERCEL_AUTOMATION_BYPASS_SECRET=<secret> pnpm lhci:mobile
  * The secret is Vercel's "Protection Bypass for Automation" (Project Settings, Deployment Protection). It is
  * read from the environment only and sent as a request header; never commit it. Vercel adds
- * "X-Robots-Tag: noindex" to every preview, which production does not have, so the crawlable audit is
- * skipped for preview hosts and nowhere else.
+ * "X-Robots-Tag: noindex" to every preview, which production does not have, and Lighthouse fetches
+ * robots.txt without the extra header, so it gets the Vercel login page. Both audits (is-crawlable and
+ * robots-txt) are skipped for preview hosts and nowhere else.
  */
 const base = process.env.LHCI_BASE_URL || "http://localhost:3100";
 const bypassSecret = process.env.VERCEL_AUTOMATION_BYPASS_SECRET;
@@ -57,7 +58,7 @@ module.exports = function makeConfig(preset) {
         onlyCategories: ["performance", "accessibility", "best-practices", "seo"],
         chromeFlags: "--headless=new --no-first-run",
         ...(bypassSecret ? { extraHeaders: JSON.stringify({ "x-vercel-protection-bypass": bypassSecret }) } : {}),
-        ...(isVercelPreview ? { skipAudits: ["is-crawlable"] } : {}),
+        ...(isVercelPreview ? { skipAudits: ["is-crawlable", "robots-txt"] } : {}),
       },
     },
     assert: {
