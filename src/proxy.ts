@@ -22,7 +22,7 @@ export function proxy(req: NextRequest) {
 export const config = {
   matcher: [
     // Every path without a file extension, except Next internals, API routes and the Studio
-    "/((?!_next|api|studio|.*\..*).*)",
+    "/((?!_next|api|studio|.*\\..*).*)",
     // Old WordPress files and folders that do have extensions
     "/index.php",
     "/xmlrpc.php",

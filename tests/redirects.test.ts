@@ -59,6 +59,14 @@ test("merged posts redirect from both their blog URL and their old root URL", ()
   }
 });
 
+test("a missing trailing slash is added in the same hop as any redirect", () => {
+  assert.deepEqual(resolveRequest(SITE_HOST, "/phone-mast-rent"), { kind: "redirect", status: 308, location: "/phone-mast-rent/" });
+  assert.deepEqual(resolveRequest(SITE_HOST, "/contact-us"), { kind: "redirect", status: 308, location: "/contact/" });
+  assert.deepEqual(resolveRequest(SITE_HOST, "/vache-farm-telecom-case"), { kind: "redirect", status: 308, location: "/blog/vache-farm-telecom-case/" });
+  assert.deepEqual(resolveRequest(SITE_HOST, "/robots.txt"), { kind: "pass" });
+  assert.deepEqual(resolveRequest(SITE_HOST, "/blog/"), { kind: "pass" });
+});
+
 test("the two guide slugs are never redirected", () => {
   assert.equal(redirectTarget("/phone-mast-rent/"), null);
   assert.equal(redirectTarget("/phone-mast-lease/"), null);

@@ -237,6 +237,8 @@ export function resolveRequest(host: string, pathname: string): RequestDecision 
     return { kind: "redirect", status: 308, location: `https://${SITE_HOST}${target ?? withSlash(pathname || "/")}` };
   }
   if (target && target.split("#")[0] !== normalisePath(pathname)) return { kind: "redirect", status: 308, location: target };
+  // next.config.ts sets skipTrailingSlashRedirect, so the slash is added here, in the same single hop.
+  if (!pathname.endsWith("/") && !/\.[a-z0-9]+$/i.test(pathname)) return { kind: "redirect", status: 308, location: `${pathname}/` };
   return { kind: "pass" };
 }
 

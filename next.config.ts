@@ -1,12 +1,10 @@
 import type { NextConfig } from "next";
 
 const nextConfig: NextConfig = {
-  // Enforce trailing slashes for consistency - fixes "Google chose different canonical" issue
+  // One URL per page: every path ends with a slash. src/proxy.ts adds the slash itself, in the same
+  // hop as any legacy redirect (src/seo/redirects.ts), so Next.js must not add a redirect of its own.
   trailingSlash: true,
-  
-  // Note: skipTrailingSlashRedirect removed because we now enforce trailing slash consistently
-
-  // All WordPress → Next.js redirects are handled in src/middleware.ts.
+  skipTrailingSlashRedirect: true,
 
   // Image optimisation
   images: {
