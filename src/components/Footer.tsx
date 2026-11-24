@@ -2,7 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
 import { PhoneIcon, MailIcon, WhatsAppIcon } from "@/components/icons";
-import { COMPANY, STATEMENTS } from "@/content/company";
+import { COMPANY, STATEMENTS, registrationLine } from "@/content/company";
 
 const COLUMNS = [
   {
@@ -85,23 +85,13 @@ export default function Footer() {
               </a>
             </li>
           </ul>
-          <h2>Addresses</h2>
-          <ul className="site-footer-addresses">
-            {COMPANY.offices.map((o) => (
-              <li key={o.label}>
-                <strong>{o.label}</strong>
-                <br />
-                {o.streetAddress}, {o.postalCode}
-              </li>
-            ))}
-          </ul>
         </div>
       </div>
 
       <div className="site-footer-bottom">
         <div className="container-max">
           <p>
-            © {new Date().getFullYear()} {COMPANY.legalName}, company number {COMPANY.registrationNumber}.
+            © {new Date().getFullYear()} {COMPANY.legalName}. {registrationLine()}
           </p>
           <ManageCookiesLink className="site-footer-cookies" />
         </div>

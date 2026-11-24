@@ -81,7 +81,10 @@ test("real service pages pass; old WordPress children redirect", () => {
 test("WordPress archives go to the blog, location aliases to the location", () => {
   assert.equal(redirectTarget("/category/telecoms/"), "/blog/");
   assert.equal(redirectTarget("/2019/05/some-post/"), "/blog/");
-  assert.equal(redirectTarget("/locations/phone-mast-advice-bristol/"), "/locations/bristol/");
+  assert.equal(redirectTarget("/locations/phone-mast-advice-bristol/"), "/contact/");
+  for (const path of ["/locations/london/", "/locations/bristol", "/locations/oswestry/", "/phone-mast-advice-london/"]) {
+    assert.equal(redirectTarget(path), "/contact/", path);
+  }
 });
 
 test("spam and WordPress internals answer 410", () => {

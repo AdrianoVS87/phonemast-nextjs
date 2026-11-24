@@ -12,7 +12,7 @@
 import type { PageSeo } from "./metadata.ts";
 import { COMPANY } from "../content/company.ts";
 
-export type RouteKind = "home" | "guide" | "service" | "hub" | "location" | "profile" | "company" | "contact" | "form" | "index" | "policy";
+export type RouteKind = "home" | "guide" | "service" | "hub" | "profile" | "company" | "contact" | "form" | "index" | "policy";
 
 export interface RouteEntry extends PageSeo {
   readonly kind: RouteKind;
@@ -246,30 +246,6 @@ export const ROUTES = {
     primaryQuery: "phone mast lease check",
     title: "Free Phone Mast Lease Check | Phone Mast Advice",
     description: "Send us your lease or the operator's letter and we will tell you, free, which rules apply, what the deadlines are and what to do next.",
-  }),
-  london: route({
-    path: "/locations/london/",
-    lastReviewed: "2026-09-15",
-    kind: "location",
-    primaryQuery: "phone mast advice london",
-    title: "Phone Mast Advice in London | Phone Mast Advice",
-    description: "Phone mast advice for London landlords and rooftop owners from our office on Great Portland Street, W1W 5PF.",
-  }),
-  bristol: route({
-    path: "/locations/bristol/",
-    lastReviewed: "2026-09-15",
-    kind: "location",
-    primaryQuery: "phone mast advice bristol",
-    title: "Phone Mast Advice in Bristol | Phone Mast Advice",
-    description: "Phone mast advice for landlords and site owners from our Bristol office at 5 High Street, Westbury on Trym, BS9 3BY.",
-  }),
-  oswestry: route({
-    path: "/locations/oswestry/",
-    lastReviewed: "2026-09-15",
-    kind: "location",
-    primaryQuery: "phone mast advice oswestry",
-    title: "Phone Mast Advice in Oswestry | Phone Mast Advice",
-    description: "Phone mast advice for landowners and site owners from our Oswestry office at Artillery Business Park, SY11 4AD.",
   }),
   privacy: route({ path: "/privacy-policy/", kind: "policy", primaryQuery: "phone mast advice privacy policy", title: "Privacy Policy | Phone Mast Advice", description: "How The Phone Mast Advice Company Ltd collects, uses and protects your personal data, and the rights you have over it.", noIndex: true }),
   cookies: route({ path: "/cookie-policy/", kind: "policy", primaryQuery: "phone mast advice cookie policy", title: "Cookie Policy | Phone Mast Advice", description: "The cookies this website uses, what each one does, and how to change your choices at any time.", noIndex: true }),

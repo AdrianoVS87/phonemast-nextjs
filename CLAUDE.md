@@ -82,9 +82,10 @@ Target: UK landlords aged 55-70.
 ## Company Details
 - The Phone Mast Advice Company Ltd (Reg: 13115582)
 - Phone: 01691 791543
-- WhatsApp: 447782412130
+- WhatsApp: 07843 352654 (wa.me/447843352654), confirmed by Matt on 24 Nov 2026
 - Email: info@phonemastadvice.co.uk
-- Offices: London (W1W 5PF), Bristol (BS9 3BY), Oswestry (SY11 4AD)
+- No offices that clients visit (Matt, 24 Nov 2026). The only address on the site is the registered
+  office, as a legal disclosure line (`registrationLine()` in `src/content/company.ts`)
 - Founder: Matt Restall
 
 ## LOCKED CONTENT (SEO, 24 Nov 2026)

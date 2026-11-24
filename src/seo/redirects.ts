@@ -106,10 +106,15 @@ const RULES: Record<string, string> = {
   "what-is-a-phone-mast": "/phone-mast-lease/", // crawled 15 Sep 2026, nearest page
   "phone-mast-advice": "/about-us/",
 
-  // Locations
-  "phone-mast-advice-london": "/locations/london/",
-  "phone-mast-advice-bristol": "/locations/bristol/",
-  "phone-mast-advice-oswestry": "/locations/oswestry/",
+  // Location pages, removed 24 Nov 2026: there are no offices that clients visit (Matt). The contact
+  // page is the closest equivalent: it says where we work and how to reach us.
+  "phone-mast-advice-london": "/contact/",
+  "phone-mast-advice-bristol": "/contact/",
+  "phone-mast-advice-oswestry": "/contact/",
+  locations: "/contact/",
+  "locations/london": "/contact/",
+  "locations/bristol": "/contact/",
+  "locations/oswestry": "/contact/",
 
   // WordPress feeds and maps
   feed: "/blog/",
@@ -209,9 +214,8 @@ export function redirectTarget(pathname: string): string | null {
     return withSlash(finalTarget(REDIRECTS[sub] ?? `/${sub}`, REDIRECTS));
   }
 
-  // /locations/phone-mast-advice-london → /locations/london/
-  const location = /^locations\/phone-mast-advice-(.+)$/.exec(key);
-  if (location) return `/locations/${location[1]}/`;
+  // Any other old location URL, such as /locations/phone-mast-advice-london
+  if (/^locations\//.test(key)) return "/contact/";
 
   return null;
 }

@@ -1,4 +1,4 @@
-import { COMPANY } from "@/content/company";
+import { COMPANY, registrationLine } from "@/content/company";
 import { buildMetadata } from "@/seo/metadata";
 import { ROUTES } from "@/seo/routes";
 import Breadcrumbs from "@/components/Breadcrumbs";
@@ -60,7 +60,7 @@ export default function PrivacyPolicyPage() {
           {[
             {
               heading: "1. Who We Are",
-              content: `The Phone Mast Advice Company Ltd is a company registered in England and Wales (Company Registration: ${COMPANY.registrationNumber}). Our registered office is at: 167-169 Great Portland Street, 5th Floor, London, W1W 5PF. We act as the data controller for personal data collected through this website and our services. If you have any questions about how we process your data, please contact us at ${COMPANY.email}.`,
+              content: `${COMPANY.legalName}. ${registrationLine()} We act as the data controller for personal data collected through this website and our services. If you have any questions about how we process your data, please contact us at ${COMPANY.email}.`,
             },
             {
               heading: "2. What Personal Data We Collect",
@@ -196,7 +196,7 @@ For more information about how Google collects and processes your data when you 
             }}
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              <strong>Contact us:</strong> The Phone Mast Advice Company Ltd, 167-169 Great Portland Street, 5th Floor, London, W1W 5PF. Email:{" "}
+              <strong>Contact us:</strong> {COMPANY.legalName}. Email:{" "}
               <a href={`mailto:${COMPANY.email}`} style={{ color: "#042b4d", fontWeight: 600 }}>
                 {COMPANY.email}
               </a>. Telephone:{" "}

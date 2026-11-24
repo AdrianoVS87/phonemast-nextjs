@@ -101,7 +101,7 @@ Nothing in this disclaimer excludes or limits our liability for death or persona
             }}
           >
             <p style={{ fontSize: "1rem", color: "#374151", lineHeight: 1.7, margin: 0 }}>
-              <strong>Contact us:</strong> The Phone Mast Advice Company Ltd, 167-169 Great Portland Street, 5th Floor, London, W1W 5PF. Email:{" "}
+              <strong>Contact us:</strong> {COMPANY.legalName}. Email:{" "}
               <a href={`mailto:${COMPANY.email}`} style={{ color: "#042b4d", fontWeight: 600 }}>
                 {COMPANY.email}
               </a>. Telephone:{" "}
