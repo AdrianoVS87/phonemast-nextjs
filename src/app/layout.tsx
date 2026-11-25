@@ -8,6 +8,7 @@ import Header from "@/components/Header";
 import Footer from "@/components/Footer";
 import ConsentBanner from "@/components/consent/ConsentBanner";
 import ClickIdCapture from "@/components/analytics/ClickIdCapture";
+import ContactClickTracker from "@/components/analytics/ContactClickTracker";
 
 // Two variable fonts, Latin only, self-hosted by next/font with size-adjusted fallbacks (no layout
 // shift on swap). Variable files carry every weight the design uses (400 to 800) in one request each.
@@ -43,6 +44,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         {/* Google tags load from the banner only after consent (src/lib/googleTags.ts). */}
         <ConsentBanner />
         <ClickIdCapture />
+        <ContactClickTracker />
       </body>
     </html>
   );
