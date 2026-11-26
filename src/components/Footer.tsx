@@ -1,8 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
 import ManageCookiesLink from "@/components/consent/ManageCookiesLink";
-import { PhoneIcon, MailIcon, WhatsAppIcon } from "@/components/icons";
-import { COMPANY, STATEMENTS, registrationLine } from "@/content/company";
+import { PhoneIcon, MailIcon, WhatsAppIcon, FacebookIcon, InstagramIcon, XIcon } from "@/components/icons";
+import { COMPANY, SOCIAL_PROFILES, STATEMENTS, registrationLine } from "@/content/company";
+
+const SOCIAL_ICONS = { Facebook: FacebookIcon, Instagram: InstagramIcon, X: XIcon } as const;
 
 const COLUMNS = [
   {
@@ -84,6 +86,19 @@ export default function Footer() {
                 <WhatsAppIcon size={16} color="#b6f414" /> WhatsApp
               </a>
             </li>
+          </ul>
+          <h2>Follow us</h2>
+          <ul>
+            {SOCIAL_PROFILES.map((p) => {
+              const Icon = SOCIAL_ICONS[p.network];
+              return (
+                <li key={p.network}>
+                  <a href={p.url} target="_blank" rel="noopener noreferrer" aria-label={`${p.network}: @${p.handle} (opens in a new tab)`}>
+                    <Icon size={16} color="#ffffff" /> {p.network}
+                  </a>
+                </li>
+              );
+            })}
           </ul>
         </div>
       </div>

@@ -7,7 +7,7 @@ import { test } from "node:test";
 import assert from "node:assert/strict";
 import { readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
-import { CLAIMS, COMPANY, COMPTON_STATEMENT, STATEMENTS, confirmedClaim, registrationLine } from "../src/content/company.ts";
+import { CLAIMS, COMPANY, COMPTON_STATEMENT, SOCIAL_PROFILES, STATEMENTS, confirmedClaim, registrationLine } from "../src/content/company.ts";
 import { CASES } from "../src/content/legal.ts";
 
 const SCANNED = ["src/app", "src/components", "src/lib", "src/seo"];
@@ -41,6 +41,7 @@ const FORBIDDEN: [string, RegExp][] = [
   ["office address", /\bW1W ?5PF\b|\bSY11 ?4AD\b|\bBS9 ?3BY\b|Great Portland Street|Artillery Business Park|Westbury on Trym/i],
   ["office claim", /\bour (London|Bristol|Oswestry) office\b|\bthree offices\b/i],
   ["superlative", /\bfirst firm in the UK\b|\bmost famous\b|\bmost significant (UK )?telecoms\b|\bUK'?s No\.? ?1\b/i],
+  ["social profile URL", /(facebook|instagram)\.com\/\w|\/\/(www\.)?(x|twitter)\.com\/\w/i],
 ];
 
 test("no phone numbers, contact addresses or marketing claims outside the facts module", () => {
@@ -69,6 +70,14 @@ test("facts are well formed", () => {
   assert.match(COMPANY.email, /^[^@\s]+@phonemastadvice\.co\.uk$/);
   assert.match(COMPANY.registrationNumber, /^\d{8}$/);
   assert.ok(STATEMENTS.serviceArea.includes(COMPANY.areaServed.join(" and ")), "service-area sentence and structured data disagree");
+});
+
+test("social profiles are the firm's own accounts and feed Organization.sameAs", () => {
+  for (const p of SOCIAL_PROFILES) {
+    assert.match(p.url, /^https:\/\//, p.network);
+    assert.ok(p.url.toLowerCase().includes(p.handle.toLowerCase()), `${p.network} URL does not match its handle`);
+  }
+  assert.deepEqual([...COMPANY.sameAs], SOCIAL_PROFILES.map((p) => p.url));
 });
 
 test("Matt's Compton Beauchamp wording uses the verified case record", () => {
