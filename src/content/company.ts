@@ -28,6 +28,23 @@ export interface Claim {
   readonly href?: string;
 }
 
+export interface SocialProfile {
+  readonly network: "Facebook" | "Instagram" | "X";
+  readonly handle: string;
+  readonly url: string;
+}
+
+/**
+ * The firm's own social accounts, linked in the footer and listed in Organization.sameAs. Confirmed
+ * 26 Nov 2026: all three are connected to the firm's Buffer account. The Instagram handle is due to
+ * change to @phonemastadvice; update it here when it does.
+ */
+export const SOCIAL_PROFILES = [
+  { network: "Facebook", handle: "phonemastadvice", url: "https://www.facebook.com/phonemastadvice" },
+  { network: "Instagram", handle: "thephonemastadvicecompany", url: "https://www.instagram.com/thephonemastadvicecompany/" },
+  { network: "X", handle: "phonemastadvice", url: "https://x.com/phonemastadvice" },
+] as const satisfies readonly SocialProfile[];
+
 export const COMPANY = {
   legalName: "The Phone Mast Advice Company Ltd",
   brandName: "Phone Mast Advice",
@@ -94,8 +111,8 @@ export const COMPANY = {
   googleReviews: { rating: 4.8, count: 12, url: "https://maps.app.goo.gl/3YtwqUoH7pkJ6MEu8" },
   /** Confirmed by Matt, 24 Nov 2026. */
   ricsMember: { name: "Andrew Chinn", designation: "MRICS" },
-  /** Company social profiles for Organization.sameAs. None confirmed yet. */
-  sameAs: [] as readonly string[],
+  /** Company social profiles for Organization.sameAs, from SOCIAL_PROFILES. */
+  sameAs: SOCIAL_PROFILES.map((p) => p.url) as readonly string[],
   /** Structured-data form of STATEMENTS.serviceArea; keep the two in step. */
   areaServed: ["United Kingdom"],
   logo: "/images/logo.svg",
